@@ -1,3 +1,4 @@
+# https://gist.github.com/KermanX/27461e8694f5d5b00c3817dbed15f39f
 name: Export
 
 on:
@@ -51,5 +52,5 @@ jobs:
           tag_name: export-${{ github.sha }}
           make_latest: true
           files: |
-            ./_export/soe_altschool_semester1.pdf
-            ./_export/soe_altschool_semester1.pptx
+            ./_export/javascript-note.pdf
+            ./_export/javascript-note.pptx
