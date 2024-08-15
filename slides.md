@@ -57,7 +57,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-<CounterReact />
+# What is JavaScript?
 
 ---
 
