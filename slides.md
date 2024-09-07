@@ -3,7 +3,7 @@ theme: seriph
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
 title: JavaScript Class Note
 info: |
-  ## AltSchool v4 JavaScript Class Notes
+  AltSchool JavaScript Class Notes
   making of world class developers
   join at [AltSchool Africa](https://altschoolafrica.com)
 class: text-center
@@ -40,7 +40,7 @@ JavaScript Class notes for the 1st Semester
 </div>
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+Notes: show on the speaker view
 -->
 ---
 hideInToc: true
@@ -60,12 +60,92 @@ hideInToc: true
 # What is JavaScript?
 
 ---
+src: ./pages/fundamentals.md
+---
+
+---
+src: ./pages/code-quality.md
+---
+
+---
+src: ./pages/data-types.md
+---
+
+---
+src: ./pages/functions.md
+---
+
+---
+src: ./pages/objects.md
+---
+
+---
+src: ./pages/prototypes.md
+---
+
+---
+src: ./pages/error-handling.md
+---
+
+---
+src: ./pages/promises-async.md
+---
+
+---
+src: ./pages/modules.md
+---
+
+---
+src: ./pages/nice-to-know.md
+---
+
+---
+src: ./pages/document.md
+---
+
+---
+src: ./pages/events.md
+---
+
+---
+src: ./pages/ui-events.md
+---
+
+---
+src: ./pages/form-controls.md
+---
+
+---
+src: ./pages/document-resource-loading.md
+---
+
+---
+src: ./pages/nice-to-know-browser.md
+---
+
+---
+src: ./pages/beyond-beginner.md
+---
+
+---
+src: ./pages/network-requests.md
+---
+
+---
+src: ./pages/web-components.md
+---
+
+---
+src: ./pages/regular-expressions.md
+---
+
+---
 
 # Assignments
 
 <ul>
   <li ><a @click="$slidev.nav.next()">Assignment 1</a></li>
-  <li ><a @click="$slidev.nav.go(113)">Assignment 2</a></li>
+  <li ><a @click="$nav.currentPage + 1">Assignment 2</a></li>
 </ul>
 
 ---
