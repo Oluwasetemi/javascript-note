@@ -1,8 +1,7 @@
-
-
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Error Handling

@@ -1,6 +1,7 @@
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Promises and Async/Await

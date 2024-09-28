@@ -1,6 +1,7 @@
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Objects
@@ -22,5 +23,3 @@ hideInToc: true
 ---
 
 # Basics of Objects
-
----
