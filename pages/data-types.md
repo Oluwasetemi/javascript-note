@@ -1,6 +1,7 @@
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Data Types
@@ -28,5 +29,19 @@ hideInToc: true
 <div mt-2 />
 
 ---
+hideInToc: true
+---
 
-# Strings
+# Numbers
+
+---
+hideInToc: true
+---
+
+# BigInt
+
+---
+hideInToc: true
+---
+
+# String
