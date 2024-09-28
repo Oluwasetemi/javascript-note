@@ -1,6 +1,7 @@
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Fundamentals
@@ -30,6 +31,13 @@ hideInToc: true
 <p class='mt-5'> 4. Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.</p>
 <p class='mt-5'> 5.  Make names maximally descriptive and concise.</p>
 <p class='mt-5'> 6. Seperate multiple worlds with underscore ( _ )</p>
+
+```js{monaco-run} {autorun: false}
+let message;
+message = 'Hello';
+
+console.log(message)
+```
 
 ---
 hideInToc: true
@@ -178,11 +186,25 @@ console.log(typeof name, typeof age, typeof isMarried, typeof height, typeof wei
 
 - Note: the typeof null returns object
 
+
+
+```js{monaco-run} {autorun: false}
+let name = 'John';
+let age = 25;
+let isMarried = false;
+let height = null;
+let weight = undefined;
+
+console.log(name, age, isMarried, height, weight);
+
+```
+
 ---
 hideInToc: true
 ---
 
 # Interaction: `alert`, `prompt`, `confirm`
+<<<<<<< HEAD
 <h4  class='text-[#5D8392]'> Alert </h4>
 
 - The alert() method displays an alert box with a mesage and an OK button
@@ -199,10 +221,24 @@ result = prompt(text to show visitor, [default])
 ```
 ```js {monaco-run} {autorun:false}
 interview_Question = prompt('What is the full meaning of CSS?', '')
+=======
+
+```js{monaco-run} {autorun: false}
+
+alert('Hello'); 
+
+let name = prompt('What is your name?', 'John')
+
+let isMarried = confirm('Are you married?');
+
+console.log(name, isMarried);
+
+>>>>>>> cf5a5f8 (new page setups)
 ```
 
 ---
 hideInToc: true
+<<<<<<< HEAD
 ---
 <h4  class='text-[#5D8392]'> Confirm </h4>
 
@@ -654,3 +690,22 @@ console.log(sumOfTwoNumbers(8 , 49))
 ```
 
 
+=======
+transition: slide-up
+---
+
+# Assignment or Class Activity
+
+- declare a variable `name` and assign your name to it
+- declare a variable `age` and assign your age to it
+- declare a variable `isMarried` and assign `true` or `false` to it
+
+- use `alert`, `prompt` and `confirm` to interact with the user
+- display the values of `name`, `age` and `isMarried` in the console
+
+- **Bonus**: use `console.log` to display the values in the console
+
+```js{monaco-run} {autorun: false}
+// write your code here
+```
+>>>>>>> cf5a5f8 (new page setups)
