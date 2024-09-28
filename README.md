@@ -1,13 +1,46 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bf3a46a6-a3e4-4398-ab99-dc889e026023/deploy-status)](https://app.netlify.com/sites/css-note-karatu/deploys)
+# JavaScript Class Teaching Slides
 
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+## Description
+This is a slide for teaching JavaScript classes.
 
-To start the slide show:
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-- `npm install`
-- `npm run dev`
-- visit http://localhost:3030
+## Installation
+1. Clone the repository
 
-Edit the [slides.md](./slides.md) to see the changes.
+```bash
+git clone https://github.com/Oluwasetemi/javascript-note.git
 
-Learn more about Slidev on [documentations](https://sli.dev/).
+# Navigate to the project directory
+cd yourproject
+```
+
+2. Install the dependencies
+
+```bash
+npm install
+```
+
+## Usage
+Run the following command to start the slide server.
+
+```bash
+npm run dev
+```
+
+Open the browser and go to [http://localhost:3030](http://localhost:3030) to view the slides.
+
+## Contributing
+Pull requests are welcome. For major changes, please check or open an issue first to discuss what you would like to change.
+
+Check the [contributing guide](CONTRIBUTING.md) for more information.
+
+## License
+[MIT](LICENSE)
+
+## Contributors
+- [Oluwasetemi](https://github.com/Oluwasetemi)

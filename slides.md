@@ -411,7 +411,7 @@ layout: center
   <span class="text-yellow font-hand">expressions</span>
   <sup v-click>patters, flags, anchors, boundary</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Pattern Matching In JavaScript</div>
+<div mt1 forward:delay-300 text-gradient v-click>Pattern Matching In JavaScript</div>
 </h1>
 
 ---
