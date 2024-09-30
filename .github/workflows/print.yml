@@ -42,8 +42,8 @@ jobs:
 
       - name: Export
         run: |
-          npm exec slidev export -- --per-slide --format pdf --output ./_export/javascript-note.pdf
-          npm exec slidev export -- --per-slide --format pptx --output ./_export/javascript-note.pptx
+          npm exec slidev export -- --format pdf --output ./_export/javascript-note.pdf
+          npm exec slidev export -- --format pptx --output ./_export/javascript-note.pptx
       - name: Generate Body
         run: |
           echo -e "## Welcome to the resource download section\n### Please download the class note in PDF or PPTX (just pictures in png) files from the assets section below"\n Best of Luck and may the fourth be with you. > ./_export/body.txt
