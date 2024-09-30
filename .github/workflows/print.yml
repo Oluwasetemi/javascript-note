@@ -5,9 +5,9 @@ on:
   push:
     branches: [main]
 
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
   workflow_dispatch:
 
@@ -22,8 +22,17 @@ jobs:
         with:
           node-version: 'lts/*'
 
+      # Cache node_modules
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml') }}
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install playwright browsers
         run: npx playwright install chromium --with-deps
@@ -33,8 +42,8 @@ jobs:
 
       - name: Export
         run: |
-          npm exec slidev export -- --per-slide --format pdf --output ./_export/javascript-note.pdf
-          npm exec slidev export -- --per-slide --format pptx --output ./_export/javascript-note.pptx
+          npm exec slidev export -- --format pdf --output ./_export/javascript-note.pdf
+          # npm exec slidev export -- --format pptx --output ./_export/javascript-note.pptx
       - name: Generate Body
         run: |
           echo -e "## Welcome to the resource download section\n### Please download the class note in PDF or PPTX (just pictures in png) files from the assets section below"\n Best of Luck and may the fourth be with you. > ./_export/body.txt

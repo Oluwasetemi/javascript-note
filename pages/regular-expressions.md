@@ -1,6 +1,7 @@
 ---
 layout: two-cols
 transition: slide-up
+hideInToc: true
 ---
 
 # Regular Expressions

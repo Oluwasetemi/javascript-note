@@ -3,11 +3,12 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "postinstall": "npx playwright-core install chromium",
     "build": "slidev build",
     "dev": "nodemon -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
     "export": "slidev export",
-    "export:pdf": "npm run export -- --timeout 60000 --with-toc --output ./_export/soe_altschool_cssnote.pdf",
-    "export:pptx": "npm run export -- --timeout 60000 --with-clicks false --format pptx --output ./_export/soe_altschool_cssnote.pptx"
+    "export:pdf": "npm run export -- --timeout 60000s --with-toc --output ./_export/javascript-note.pdf",
+    "export:pptx": "npm run export -- --timeout 60000s --with-clicks false --format pptx --output ./_export/javascript-note.pptx"
   },
   "dependencies": {
     "@slidev/cli": "^0.49.29",
@@ -21,10 +22,13 @@
     "@iconify-json/mdi": "^1.2.0",
     "@slidev/types": "^0.49.29",
     "@vue/compiler-sfc": "^3.5.10",
+    "markdown-it-magic-link": "^0.1.4",
     "nodemon": "^3.1.7",
     "playwright-chromium": "^1.47.2",
     "prettier": "^3.3.3",
-    "prettier-plugin-slidev": "^1.0.5"
+    "prettier-plugin-slidev": "^1.0.5",
+    "slidev-addon-tldraw": "^0.2.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "npm@*"
 }
