@@ -5,9 +5,9 @@ on:
   push:
     branches: [main]
 
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
   workflow_dispatch:
 
@@ -22,8 +22,17 @@ jobs:
         with:
           node-version: 'lts/*'
 
+      # Cache node_modules
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml') }}
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install playwright browsers
         run: npx playwright install chromium --with-deps
