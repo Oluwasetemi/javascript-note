@@ -24,4 +24,10 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    exclude: [
+      '@vue/compiler-sfc', 'react', 'react-dom/client', '@babel/standalone'
+    ]
+  }
+
 })
