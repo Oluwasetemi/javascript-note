@@ -16,7 +16,8 @@ export:
   dark: false
   withClicks: false
   withToc: true
-favicon: https://oluwasetemi.dev/favicon-32x32.png
+# TODO: add a svg favicon
+# favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center
 highlighter: shiki
 drawings:
