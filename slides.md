@@ -12,7 +12,7 @@ download: true
 exportFilename: javascript-note
 export:
   format: pdf
-  timeout: 30000
+  timeout: 60000
   dark: false
   withClicks: false
   withToc: true
