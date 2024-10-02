@@ -195,4 +195,165 @@ loadScript("/article/script-async-defer/small.js");
 
 ```
 
+---
+hideInToc: true
+---
+
 # Resource loading: onload and onerror for `<img>`, `<script>`, `<link>`, `<style>`
+
+The browser allows us to track the loading of external resources – scripts, links, pictures and so on.
+
+- There are two events for it:
+
+- onload – successful load,
+- onerror – an error occurred.
+
+---
+hideInToc: true
+---
+
+# image
+Images (<img>):
+
+- You can use both inline attributes (onload/onerror) or JavaScript event listeners
+- Common use cases include loading fallback images, showing loading spinners, or updating UI states
+
+```js
+<script>
+        const img = document.getElementById('myImage');
+        
+        img.addEventListener('load', function() {
+            console.log('Image loaded successfully!');
+            // Do something with the loaded image
+            this.classList.add('loaded');
+        });
+
+        img.addEventListener('error', function() {
+            console.log('Error loading image');
+            this.src = 'fallback.jpg';
+            this.classList.add('error');
+        });
+    </script>
+```
+
+---
+hideInToc: true
+---
+
+# scripts
+
+- Can be loaded synchronously or asynchronously
+- The onload event fires when the script is loaded and executed
+- Useful for loading third-party libraries or splitting code into chunks
+
+```js
+ <script src="external.js"
+            onload="console.log('Script loaded!')"
+            onerror="console.log('Script failed to load')">
+    </script>
+
+    // Dynamic script loading with JavaScript 
+    <script>
+        function loadScript(url) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = url;
+                
+                script.onload = function() {
+                    console.log('Script loaded successfully!');
+                    resolve(script);
+                };
+                
+                script.onerror = function() {
+                    console.log('Error loading script');
+                    reject(new Error(`Script load error for ${url}`));
+                };
+                
+                document.head.appendChild(script);
+            });
+        }
+```
+---
+hideInToc: true
+---
+
+# link
+- Important for loading external CSS files
+- Can detect when styles are available to prevent FOUC (Flash of Unstyled Content)
+- Useful for loading conditional stylesheets (e.g., theme files)
+
+```js
+      // Inline attributes method 
+    <link rel="stylesheet" 
+          href="styles.css"
+          onload="console.log('Stylesheet loaded!')"
+          onerror="console.log('Stylesheet failed to load')">
+
+     {/* Dynamic stylesheet loading with JavaScript */}
+    <script>
+        function loadStylesheet(url) {
+            return new Promise((resolve, reject) => {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = url;
+                
+                link.onload = function() {
+                    console.log('Stylesheet loaded successfully!');
+                    resolve(link);
+                };
+                
+                link.onerror = function() {
+                    console.log('Error loading stylesheet');
+                    reject(new Error(`Stylesheet load error for ${url}`));
+                };
+                
+                document.head.appendChild(link);
+            });
+        }
+
+       {/* Usage
+        loadStylesheet('https://example.com/styles.css')
+            .then(() => console.log('Stylesheet is ready!'))
+            .catch(error => console.error('Stylesheet loading failed:', error)); */}
+    </script>
+```
+---
+hideInToc: true
+---
+
+# style
+
+- Generally processed synchronously
+- Don't typically need load events
+- Useful for dynamic style injection
+
+```js
+<script>
+        {/* Dynamic style tag creation */}
+        function addStyles(cssText) {
+            const style = document.createElement('style');
+            
+            // For older browsers
+            style.appendChild(document.createTextNode(cssText));
+            
+            // Add load event (Note: style tags don't typically need load events
+            // as they're processed synchronously)
+            style.onload = function() {
+                console.log('Styles applied!');
+            };
+            
+            document.head.appendChild(style);
+        }
+
+        {/* Usage */}
+        addStyles(`
+            .custom-class {
+                color: blue;
+                font-size: 16px;
+            }
+        `);
+    </script>
+```
+---
+hideInToc: true
+---
