@@ -1,6 +1,7 @@
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Fundamentals
@@ -13,7 +14,7 @@ transition: slide-up
 - Operators: Math, Comparison, Logical, Bitwise, Null Coalescing, Optional Chaining
 - Conditional Branching: if, '?', switch
 - Loops: while, for, for..in, for..of
-- Functions: Declaration, Arrow functions, Function Expressios
+- Functions: Declaration, Arrow functions, Function Expressions
 
 
 ---
@@ -21,8 +22,7 @@ hideInToc: true
 ---
 
 # Variables: `let`, `const` and `var`
-- Variables are containers for storing data.
-- You can declare variables using var, let, or const. 
+- Variables are containers for storing data. You can declare variables using var, let, or const. 
 <h4 class='mt-5 text-[#5D8392]'>Variables Naming convention </h4>
 <p class='mt-5'> 1. The first character must not be a digit. <br> </p> 
 <p class='mt-5'> 2. When the name contains multiple words, use <span text-red>Camel Case. </span> <br> </p>
@@ -30,6 +30,12 @@ hideInToc: true
 <p class='mt-5'> 4. Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.</p>
 <p class='mt-5'> 5.  Make names maximally descriptive and concise.</p>
 <p class='mt-5'> 6. Seperate multiple worlds with underscore ( _ )</p>
+
+```js{monaco-run} {autorun: false}
+let message;
+message = 'Hello';
+console.log(message)
+```
 
 ---
 hideInToc: true
@@ -62,7 +68,7 @@ hideInToc: true
 - Examples
 ```js
 // The first character must not be a digit. 
-let 1first;    Wrong
+let 1first;    WRONG
 let firstName; CORRECT
 Const test123; CORRECT
 ```
@@ -178,55 +184,54 @@ console.log(typeof name, typeof age, typeof isMarried, typeof height, typeof wei
 
 - Note: the typeof null returns object
 
+```js{monaco-run} {autorun: false}
+let name = 'John';
+let age = 25;
+let isMarried = false;
+let height = null;
+let weight = undefined;
+
+console.log(name, age, isMarried, height, weight);
+
+```
+
+
 ---
 hideInToc: true
 ---
 
 # Interaction: `alert`, `prompt`, `confirm`
-<h4  class='text-[#5D8392]'> Alert </h4>
+- The alert() method: displays an alert box with a mesage and an OK button.
+- The prompt() method: It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel. It accepts two arguments.
+- The confirm() method: The function shows a modal window with a question and two buttons: OK and Cancel
 
-- The alert() method displays an alert box with a mesage and an OK button
-```js {monaco-run} {autorun:false}
-alert('Hello V4 Frontend Developer, Enjoying Javascript so far?')
-```
-<h4  class='text-[#5D8392]'> Prompt </h4>
+```js{monaco-run} {autorun: false}
 
-- It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
-- It accepts two arguments. <br> The syntax:
-```js
-result = prompt(text to show visitor, [default]) 
-//default is an optional parameter, the initial value for the input field
-```
-```js {monaco-run} {autorun:false}
-interview_Question = prompt('What is the full meaning of CSS?', '')
-```
+alert('Hello'); 
 
----
-hideInToc: true
----
-<h4  class='text-[#5D8392]'> Confirm </h4>
+let name = prompt('What is your name?', 'John')
 
-- The function shows a modal window with a question and two buttons: OK and Cancel
-- The syntax:
-```js
-result = confirm(question);
-```
+let isMarried = confirm('Are you married?');
 
-```js {monaco-run} {autorun:false}
-let altschoolStatus = confirm("Are you a v4 student ?")
+console.log(name, isMarried);
+
 ```
 ---
 hideInToc: true
 ---
-# Type Conversions
-#### String conversion
 
+# Type conversion
+- It simply means the process of converting one data type to another.
+1. String Coversion
+2. Numeric conversion
+3. Numeric Conversion
+4. Boolean coversion
 
 ---
 hideInToc: true
 ---
-# Operators: Math, Comparison, Logical, Bitwise, Null Coalescing, Optional Chaining
 
+# Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
 ### The following operators are suported in Js 
 - Additon  ( + )
 - Subtraction ( - )
@@ -234,9 +239,7 @@ hideInToc: true
 - Division ( / )
 - Remainder ( % )
 - Exponential ( ** ) 
-
 ```js {monaco-run}
-
 let sumOfTwoNumbers = 20 + 309
 let differenceOfTheIntegers = 90 - 45
 let x = 2 * 97
@@ -244,14 +247,13 @@ let y = 24 / 2
 let t =  59 % 7
 let a = 2 ** 4
 console.log(sumOfTwoNumbers, differenceOfTheIntegers, x, y, a)
-
 ```
 
-````
 ---
 hideInToc: true
 ---
-<h3  class='text-[#5D8392]'> Comparison</h3>
+
+# Comparison
 
 - In JavaScript, we use special symbols called <span class="text-red">operators</span> to make these comparison. All comparison operators return a boolean value.
 - Here are the main comparison operators:
@@ -264,11 +266,9 @@ console.log(5 == '5')
 ```js {monaco-run}
 console.log( 5 === "5")
 ```
-
 ---
 hideInToc: true
 ---
-
 3. Not equal to ( != ): This checks if two values are different.
 ```js {monaco-run}
 console.log( 5 != '6')
@@ -285,21 +285,17 @@ console.log( 5 < 10)
 ```js  {monaco-run}
 console.log(10 >= 10)
 ```
-
 ---
 hideInToc: true
 ---
-
 7. Less than or equal to ( <= ): Checks if the left is smaller than or the same as the right. 
 ```js {monaco-run}
 console.log(5 <= 5 )
 ```
-
 - Example: Age-based content access
 ```js {monaco-run}
 let userAge = 15
 let contentRating = 13
-
 if (userAge >= contentRating) {
     console.log('Access granted to the content');
 } else {
@@ -308,29 +304,77 @@ if (userAge >= contentRating) {
 ```
 
 
+---
+hideInToc: true
+---
+
+# Type Conversions
+- String conversion
 
 ---
 hideInToc: true
 ---
 
-# Conditional Branching: if, '?', switch
-- Very often when you write code, you want to perform different actions for different conditions, Welcome to conditional branching.
-- <span class='text-[#5D8392]'>The If statement </span>:  it evaluate a condition and if the result is true, execute a block of code.
-- Syntax:
-```js
-if (condition) {
-    //block of code to be executed if the condition is true
-}
+- Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
+### The following operators are suported in Js 
+- Additon  ( + )
+- Subtraction ( - )
+- Multiplication  ( * )
+- Division ( / )
+- Remainder ( % )
+- Exponential ( ** ) 
+```js {monaco-run}
+let sumOfTwoNumbers = 20 + 309
+let differenceOfTheIntegers = 90 - 45
+let x = 2 * 97
+let y = 24 / 2
+let t =  59 % 7
+let a = 2 ** 4
+console.log(sumOfTwoNumbers, differenceOfTheIntegers, x, y, a)
 ```
-<br>
+---
+hideInToc: true
+---
 
-```js {monaco-run} {autorun:false}
-let day = 'Monday' 
-if (day == 'Monday'){
-    console.log('Today is Monday')
-}
+# Logical operators
+1. || (OR) : it evaluates its operands from left to right and returns the first operand that is truthy. If all operands are falsy, it returns the last operand. 
+```js
+result = a || b
 ```
-<p><span text-red>Note:</span> If the condition  is false, the code will not run</p>
+```js{monaco-run} {autorun: false}
+alert(true || false); alert('Boy' || 4)
+```
+2. && (AND): returns true if both operands are truthy. If either operand is falsy, the entire expression evaluate to false.
+```js
+result = a && b
+```
+```js{monaco-run} {autorun: false}
+alert(true && true); alert(false && true)
+```
+3. ! (NOT): it inverts the truth value of an expression, meaning returns false if expression is truthy, and true if expression is falsy.
+```js
+result = !expression;
+```
+```js{monaco-run} {autorun: false}
+alert(!true); alert(!0)
+```
+---
+hideInToc: true
+---
+
+# Nullish Coalescing ??
+- It provide a concise way to handle <span class='text-red'>null</span> or <span class='text-red'>undefined values</span>. It returns the left-hand side operand if it's not null or undefined; otherwise, it returns the right-hand side operand
+syntax:
+```js
+expression1 ?? expression2
+````
+- Expression1 is the value to be checked.
+- Expression2 is the default value to be returned if expression1 is null or undefined.
+```js {monaco-run} {autorun: false}
+let name = 
+let greeting = name ?? `Hello, Stranger!`;
+console.log(greeting)
+```
 
 ---
 hideInToc: true
@@ -344,9 +388,7 @@ if (size == 20){
     alert('Thank you')
 }
 ```
-
 - <span class='text-[#5D8392]'> if-else </span> : the else clause may contain an optional block if code that evaluate when the condition is false
-
 ```js
 if (condition) {
     //block of code to be executed if code is true
@@ -392,14 +434,12 @@ if (age < 18) {
 }
 console.log(canVote)
 ```
-
 ---
 hideInToc: true
 ---
 
 - <span class='text-[#5D8392]'>Switch </span>: A switch statement can replace multiple if checks. it gives a cleaner way of comparing a value with multiple variant
 - Syntax
-
 ```js
 switch (expression)
  case x:
@@ -412,12 +452,11 @@ switch (expression)
  // code block
  }
 ```
-
 ---
 hideInToc: true
 ---
-- Example:
 
+- Example:
 ```js {monaco-run} 
 let day;
 switch (new Date().getDay()){
@@ -444,32 +483,27 @@ hideInToc: true
 ---
 
 <span class='text-[#5D8392]'> Conditional operator (?)</span>: also called ternary operator can be used to assign values based on a condition. It is called ternary because it takes three operands.
-
 - Syntax
 ```js
 condition ? expressionIfTrue : expressionIfFalse
 ```
-
 - Example
 ```js {monaco-run} {autorun:false}
 let age = 20;
 let canVote = age >=18 ? 'Yes' : 'No'
 console.log(canVote)
 ```
-
 ```js {monaco-run} {autorun:false}
 let temperature = 25;
 let weather = temperature  > 30 ? 'Hot' : 'Moderate';
 console.log(weather)
 ```
-
 ---
 hideInToc: true
 ---
 
-# Loops: while, for, for..in, for..of
+# Loops: `while`, `for`, `for..in`, `for..of`
 - <span class='text-[#5D8392]'>The 'while' loop</span> : loops through a block of code as long as a specified condition is true.
-
 ```js
 while(condition){
     //code block to be executed
@@ -482,19 +516,15 @@ while ( i < 3 ){
     i++;
 }
 ```
-
 - <span class='text-[#5D8392]'>For loop</span>: The syntax is quite simple. it has 3 major part.
-
 ```js
 for (initialization part, condition check, increment part){
     // loop body
 }
 ```
-
 - Initialization part: is executed (one time) before the excecution of the code block
 - Condition Check: defines the condition for executing the code block.
 - Increment: is executed (every time )  after the code block has been executed
-
 ---
 hideInToc: true
 ---
@@ -504,10 +534,8 @@ for (let i = 0; i < 3; i++) {
     console.log(i)
 }
 ```
-
 - <span class='text-[#5D8392]'>For of loop</span>: it lets you loop over iterable data strutures such as Arrays, Strings, Maps,set.
 <p>Iterable is an object that has iterable properties, simple put is an object that has countable values</p>
-
 ```js {monaco-run} {autorun:false}
 let language = 'JavaScript' 
 for (const char of language) {
@@ -535,11 +563,10 @@ for(let property in person){
     console.log(`${property}: ${person[property]}`)
 }
 ```
-
-
 ---
 hideInToc: true
 ---
+
 # Functions: Declaration, Arrow functions, Function Expressions
 - Function is a block of code designed to perform a particular task.
 - To declare a function, here is the syntax:
@@ -549,19 +576,16 @@ function name(parameter1, parameter2, ...parameterN) {
 }
 ```
 <h4> Important things to note: </h4>
-
 1. The <span class='text-red'> function </span> keyword goes first.
 2. The name of the function follows
 3. A list of parameter (if any) is enclosed in parentheses.
 4. The function body, containing the code to be executed, is enclosed in curly braces {}.
 5. To execute the code, function must be called by its name followed by parentheses.
-
 ---
 hideInToc: true
 ---
 
 <h5> Example: A function to greet new users </h5>
-
 ```js {monaco-run} {autorun:false}
 function greetUsers (name) {
     return 'Hello, ' + name + ' welcome to JavaScript course 101';
@@ -571,7 +595,6 @@ let greetingMessage = greetUsers(userName);
 console.log(greetingMessage)
 ```
 <h5> Example: A function to add two number </h5>
-
 ```js {monaco-run} {autorun:false}
 function addNumber (num1, num2){
     return num1 + num2
@@ -581,6 +604,7 @@ console.log(addNumber(7, 20))
 ---
 hideInToc: true
 ---
+
 - <h3 class='text-[#5D8392]'> Outer Variable</h3>A variable declared outside a function, becomes <span text-red>global variable</span> also known as outer variable. A function can access an outer variable, it can modify it too.
 - Example
 ```js {monaco-run}
@@ -589,16 +613,15 @@ let university = 'AltSchool Africa';
 function school() {
 let message = `You are a student of ${university}`;
 alert(message)
-
 //code here CAN also use university
 }
-
 ```
 - Note: It's important to understand that outer variables can be modified from within functions, potentially affecting their values in the outer scope. This can lead to unexpected behavior if not handled carefully.
 
 ---
 hideInToc: true
 ---
+
 - <h3 class='text-[#5D8392]'>Local Variable</h3>
 A variable declared inside a function is only visible inside the function. Local variables are only recognized inside their function.
 - Example
@@ -622,7 +645,6 @@ let functionName = function (parameters){
     //function body
 }
 ```
-
 - Example: 
 
 ```js {monaco-run} {autorun:false}
@@ -653,4 +675,21 @@ let sumOfTwoNumbers = (a, b) => a + b;
 console.log(sumOfTwoNumbers(8 , 49))
 ```
 
+---
+hideInToc: true
+transition: slide-up
+---
 
+# Assignment or Class Activity
+
+- declare a variable `name` and assign your name to it
+- declare a variable `age` and assign your age to it
+- declare a variable `isMarried` and assign `true` or `false` to it
+- use `alert`, `prompt` and `confirm` to interact with the user
+- display the values of `name`, `age` and `isMarried` in the console
+
+- **Bonus**: use `console.log` to display the values in the console
+
+```js{monaco-run} {autorun: false}
+// write your code here
+```

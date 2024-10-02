@@ -1,6 +1,7 @@
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Prototypes, Inheritance and Classes
@@ -13,7 +14,7 @@ transition: slide-up
 - Static Properties and Methods
 - Private and Protected Properties and Methods
 - Extending built-in classes
-- Class checking: "instanceof" and Mixins
+- Class checking: `instanceof` and Mixins
 
 
 ---

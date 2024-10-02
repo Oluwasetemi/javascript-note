@@ -1,6 +1,7 @@
 ---
 layout: center
 transition: slide-up
+hideInToc: true
 ---
 
 # Code Quality
@@ -14,5 +15,27 @@ hideInToc: true
 
 # Linters and Code Formatters
 
+---
+hideInToc: true
+---
+
+# Types
+
 
 ---
+hideInToc: true
+---
+
+# Test
+
+---
+hideInToc: true
+---
+
+# Debugging in the Browser
+
+---
+hideInToc: true
+---
+
+# A Peep into Performance
