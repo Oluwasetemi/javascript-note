@@ -308,13 +308,6 @@ if (userAge >= contentRating) {
 hideInToc: true
 ---
 
-# Type Conversions
-- String conversion
-
----
-hideInToc: true
----
-
 - Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
 ### The following operators are suported in Js 
 - Additon  ( + )
