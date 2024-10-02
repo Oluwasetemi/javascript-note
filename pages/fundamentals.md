@@ -840,12 +840,30 @@ if (userAge >= contentRating) {
 ```
 
 
-
 ---
 hideInToc: true
 ---
 
-# Conditional Branching: if, '?', switch
+- Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
+### The following operators are suported in Js 
+- Additon  ( + )
+- Subtraction ( - )
+- Multiplication  ( * )
+- Division ( / )
+- Remainder ( % )
+- Exponential ( ** ) 
+```js {monaco-run}
+let sumOfTwoNumbers = 20 + 309
+let differenceOfTheIntegers = 90 - 45
+let x = 2 * 97
+let y = 24 / 2
+let t =  59 % 7
+let a = 2 ** 4
+console.log(sumOfTwoNumbers, differenceOfTheIntegers, x, y, a)
+```
+---
+hideInToc: true
+---
 
 - Very often when you write code, you want to perform different actions for different conditions, Welcome to conditional branching.
 
