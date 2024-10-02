@@ -204,7 +204,6 @@ hideInToc: true
 ---
 
 # Interaction: `alert`, `prompt`, `confirm`
-<<<<<<< HEAD
 <h4  class='text-[#5D8392]'> Alert </h4>
 
 - The alert() method displays an alert box with a mesage and an OK button
@@ -221,24 +220,10 @@ result = prompt(text to show visitor, [default])
 ```
 ```js {monaco-run} {autorun:false}
 interview_Question = prompt('What is the full meaning of CSS?', '')
-=======
-
-```js{monaco-run} {autorun: false}
-
-alert('Hello'); 
-
-let name = prompt('What is your name?', 'John')
-
-let isMarried = confirm('Are you married?');
-
-console.log(name, isMarried);
-
->>>>>>> cf5a5f8 (new page setups)
 ```
 
 ---
 hideInToc: true
-<<<<<<< HEAD
 ---
 <h4  class='text-[#5D8392]'> Confirm </h4>
 
@@ -688,24 +673,3 @@ let sumOfTwoNumbers = (a, b) => a + b;
 
 console.log(sumOfTwoNumbers(8 , 49))
 ```
-
-
-=======
-transition: slide-up
----
-
-# Assignment or Class Activity
-
-- declare a variable `name` and assign your name to it
-- declare a variable `age` and assign your age to it
-- declare a variable `isMarried` and assign `true` or `false` to it
-
-- use `alert`, `prompt` and `confirm` to interact with the user
-- display the values of `name`, `age` and `isMarried` in the console
-
-- **Bonus**: use `console.log` to display the values in the console
-
-```js{monaco-run} {autorun: false}
-// write your code here
-```
->>>>>>> cf5a5f8 (new page setups)
