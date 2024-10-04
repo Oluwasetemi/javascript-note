@@ -25,8 +25,6 @@ drawings:
 transition: slide-left
 mdc: true
 hideInToc: true
-addons:
-  - tldraw
 ---
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes

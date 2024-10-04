@@ -1,5 +1,7 @@
 # JavaScript Class Teaching Slides
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/60445541-0ee9-4604-8ef8-3fd950aa9d2a/deploy-status)](https://app.netlify.com/sites/javascript-note/deploys)
+
 ## Description
 This is a slide for teaching JavaScript classes.
 
