@@ -29,7 +29,7 @@ hideInToc: true
 <p class='mt-5'> 3. Reserved words ( like JavaScript keywords ) cannot be used as names. <br></p>
 <p class='mt-5'> 4. Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.</p>
 <p class='mt-5'> 5.  Make names maximally descriptive and concise.</p>
-<p class='mt-5'> 6. Seperate multiple worlds with underscore ( _ )</p>
+<p class='mt-5'> 6. Separate multiple words with underscore ( _ )</p>
 
 ```js{monaco-run} {autorun: false}
 let message;
@@ -137,7 +137,7 @@ let age; // the variable age was declared but not assigned a value
 let age = undefined //it also possible to explicitly assign undefined to a variable
 
 //BigInt Datatype 
-- BigINt are used to store big integer values that too big to be represented by normal Javascript Number
+- BigInt are used to store big integer values that too big to be represented by normal Javascript Number
 const bigInt = 123456789012345678901234567890n; // the "n" at the end means it's a BigInt
 
 //Object
@@ -238,7 +238,7 @@ hideInToc: true
 - Multiplication  ( * )
 - Division ( / )
 - Remainder ( % )
-- Exponential ( ** ) 
+- Exponentiation ( ** ) 
 ```js {monaco-run}
 let sumOfTwoNumbers = 20 + 309
 let differenceOfTheIntegers = 90 - 45
@@ -303,28 +303,6 @@ if (userAge >= contentRating) {
 }
 ```
 
-
----
-hideInToc: true
----
-
-- Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
-### The following operators are suported in Js 
-- Additon  ( + )
-- Subtraction ( - )
-- Multiplication  ( * )
-- Division ( / )
-- Remainder ( % )
-- Exponential ( ** ) 
-```js {monaco-run}
-let sumOfTwoNumbers = 20 + 309
-let differenceOfTheIntegers = 90 - 45
-let x = 2 * 97
-let y = 24 / 2
-let t =  59 % 7
-let a = 2 ** 4
-console.log(sumOfTwoNumbers, differenceOfTheIntegers, x, y, a)
-```
 ---
 hideInToc: true
 ---
@@ -434,7 +412,7 @@ hideInToc: true
 - <span class='text-[#5D8392]'>Switch </span>: A switch statement can replace multiple if checks. it gives a cleaner way of comparing a value with multiple variant
 - Syntax
 ```js
-switch (expression)
+switch (expression) {
  case x:
  // block code
  break;
@@ -515,7 +493,7 @@ for (initialization part, condition check, increment part){
     // loop body
 }
 ```
-- Initialization part: is executed (one time) before the excecution of the code block
+- Initialization part: is executed (one time) before the execution of the code block
 - Condition Check: defines the condition for executing the code block.
 - Increment: is executed (every time )  after the code block has been executed
 ---
@@ -539,7 +517,7 @@ for (const char of language) {
 hideInToc: true
 ---
 
-- <span class='text-[#5D8392]'>For in loop</span>: It loops through the properties of an array.
+- <span class='text-[#5D8392]'>For in loop</span>: It loops through the properties of an object.
 ```js
 for (let property in object){
     //loop body
@@ -653,7 +631,7 @@ console.log( greetUsers(userName));
 hideInToc: true
 ---
 
-- Arror functions is a very simple and concise syntax for creating functions.
+- Arrow functions is a very simple and concise syntax for creating functions.
 - Example: 
 ```js {monaco-run} {autorun:false}
 const greetUsers = (name) => `Hello, ${name} welcome to JavaScript course 101`;
