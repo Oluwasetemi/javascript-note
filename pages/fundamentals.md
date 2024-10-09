@@ -203,7 +203,6 @@ let weight = undefined;
 console.log(name, age, isMarried, height, weight);
 ```
 
-
 ---
 hideInToc: true
 ---
