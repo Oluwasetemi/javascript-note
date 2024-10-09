@@ -1,5 +1,4 @@
 ---
-# theme: seriph
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
 title: JavaScript Class Note
 titleTemplate: '%s - AltSchool Africa'
@@ -25,8 +24,6 @@ drawings:
 transition: slide-left
 mdc: true
 hideInToc: true
-addons:
-  - tldraw
 ---
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes

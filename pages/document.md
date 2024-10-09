@@ -7,19 +7,20 @@ hideInToc: true
 # Document
 <div mt-2 />
 
-- DOM tree and Walking the DOM
-- Searching: `getElement*`, `querySelector*`
-- Node properties: type, tag and contents
-- Attributes and properties
-- Modifying the document
-- Styles and classes
-- Element size and scrolling
-- Window sizes and scrolling
-- Coordinates
+- <a @click="$slidev.nav.next()">DOM tree and Walking the DOM</a>
+- <a @click="$nav.go($nav.currentPage+8)">Searching: `getElement*`, `querySelector*`</a>
+- <a @click="$nav.go($nav.currentPage+9)">Node properties: type, tag and contents</a>
+- <a @click="$nav.go($nav.currentPage+10)">Attributes and properties</a>
+- <a @click="$nav.go($nav.currentPage+11)">Modifying the document</a>
+- <a @click="$nav.go($nav.currentPage+14)">Styles and classes</a>
+- <a @click="$nav.go($nav.currentPage+15)">Element size and scrolling</a>
+- <a @click="$nav.go($nav.currentPage+16)">Window sizes and scrolling</a>
+- <a @click="$nav.go($nav.currentPage+19)">Coordinates</a>
 
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # window, DOM, CSSOM and BOM
@@ -40,6 +41,7 @@ JavaScript contains Object, Array, Function and many others as described by the 
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # DOM tree and Walking the DOM
@@ -64,6 +66,7 @@ The nodes are connected in a tree structure, parent-child relationship, sibling 
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # DOM, BOM and CSSOM {{ $page }}
@@ -105,11 +108,13 @@ This will lead us to the next section where we discuss the first steps in modify
 
 ---
 hideInToc: true
+clicksStart: 1
 layout: image
 name: DOM Traversal Image
 ---
 
 ![](/children-structure-nodes.svg)
+<!-- <tldraw class="w-200 h-140" /> -->
 
 ---
 hideInToc: true
@@ -143,6 +148,7 @@ console.log(element.nodeType);console.log(element.nodeName);console.log(element.
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Walking the DOM: Tables
@@ -173,6 +179,7 @@ console.log(table.rows[0]); console.log(table.rows[0].cells); console.log(table.
 ---
 hideInToc: true
 transition: fade
+clicksStart: 1
 ---
 
 # Food for Thought{title="Use ChaptGPT for your research"}
@@ -204,6 +211,7 @@ transition: fade
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Searching: getElement*, querySelector*
@@ -226,6 +234,7 @@ console.log(element.id); console.log(element.className); console.log(element.tag
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Node properties: type, tag and contents
@@ -256,6 +265,7 @@ NB: other properties include `id`, `className`, `tagName`, `name`, `type`, `valu
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Attributes and properties
@@ -285,6 +295,7 @@ console.log(element.hasAttribute('data-slidev-no')); console.log(element.attribu
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Modifying the document
@@ -335,6 +346,7 @@ Consider the following `html` and `css`.
 ---
 hideInToc: true
 name: modify the document continued
+clicksStart: 1
 ---
 
 
@@ -368,9 +380,11 @@ More insertion methods are `append`, `before`, `after`, `replaceWith`, `remove`,
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # DocumentFragment
+
 
 <v-clicks>
 
@@ -399,6 +413,7 @@ element.prepend(fragment);
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Styles and classes
@@ -453,6 +468,7 @@ NB: `offsetWidth` includes padding, border, and scrollbar, `clientWidth` include
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Window sizes and scrolling
@@ -482,6 +498,7 @@ NB: `innerWidth` and `innerHeight` are the viewport size but always prefer `docu
 ---
 hideInToc: true
 name: More on Window sizes and scrolling
+clicksStart: 1
 ---
 
 ```js{monaco-run} {autorun: false}
@@ -492,6 +509,8 @@ window.addEventListener('resize', () => {
 
 ---
 hideInToc: true
+name: Getting the scrollHeight and scrollLeft
+clicksStart: 1
 ---
 
 <v-clicks>
@@ -525,6 +544,7 @@ document.body.style.overflow = 'hidden'; // enable by setting it to ''
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Coordinates
@@ -551,6 +571,7 @@ console.log(getCoords(element));
 ---
 hideInToc: true
 name: Class Activity
+clicksStart: 1
 ---
 
 Show a note(tooltip) on all the three corners of an element as shown in the image. 
@@ -559,7 +580,8 @@ Show a note(tooltip) on all the three corners of an element as shown in the imag
 
 ---
 hideInToc: true
-name: Assignment 
+name: Assignment
+clicksStart: 1 
 ---
 
 # Assignment

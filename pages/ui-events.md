@@ -32,3 +32,21 @@ hideInToc: true
 ---
 
 # Drag'n'Drop with mouse events
+
+---
+hideInToc: true
+---
+
+# Pointer events
+
+---
+hideInToc: true
+---
+
+# Keyboard: keydown and keyup
+
+---
+hideInToc: true
+---
+
+# Scrolling
