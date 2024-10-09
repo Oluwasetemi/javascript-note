@@ -813,28 +813,40 @@ hideInToc: true
 ````md magic-move
 ```js
 // Function Declaration
-function greetUsers(name) {
+function greetUsers (name) {
     return 'Hello, ' + name + ' welcome to JavaScript course 101';
 }
+let userName = 'Busola'
+let greetingMessage = greetUsers(userName);
+console.log(greetingMessage)
 ```
 
 ```js
 // Function Expression
-const greetUsers = function (name) {
-    return `Hello, ${name} welcome to JavaScript course 101`;
-};
+let greetUsers = function (name) {
+    return 'Hello, ' + name + ' welcome to JavaScript course 101';
+}
+let userName = 'Busola'
+let greetingMessage = greetUsers(userName);
+console.log(greetingMessage)
 ```
 
 ```js
 // Arrow Function
-const greetUsers = (name) => {
-    return `Hello, ${name} welcome to JavaScript course 101`;
-};
+let greetUsers = (name) => {
+    return 'Hello, ' + name + ' welcome to JavaScript course 101';
+}
+let userName = 'Busola'
+let greetingMessage = greetUsers(userName);
+console.log(greetingMessage)
 ```
 
 ```js
 // Arrow Function one-liner
-const greetUsers = (name) => `Hello, ${name} welcome to JavaScript course 101`;
+let greetUsers = (name) => 'Hello, ' + name + ' welcome to JavaScript course 101';
+let userName = 'Busola'
+let greetingMessage = greetUsers(userName);
+console.log(greetingMessage)
 ```
 ````
 
