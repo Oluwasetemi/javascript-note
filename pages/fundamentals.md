@@ -22,15 +22,20 @@ hideInToc: true
 ---
 
 # Variables: `let`, `const` and `var`
-- Variables are containers for storing data.
-- You can declare variables using var, let, or const. 
-<h4 class='mt-5 text-[#5D8392]'>Variables Naming convention </h4>
-<p class='mt-5'> 1. The first character must not be a digit. <br> </p> 
-<p class='mt-5'> 2. When the name contains multiple words, use <span text-red>Camel Case. </span> <br> </p>
-<p class='mt-5'> 3. Reserved words ( like JavaScript keywords ) cannot be used as names. <br></p>
-<p class='mt-5'> 4. Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.</p>
-<p class='mt-5'> 5.  Make names maximally descriptive and concise.</p>
-<p class='mt-5'> 6. Separate multiple words with underscore ( _ )</p>
+
+- Variables are containers for storing data. You can declare variables using `var`, `let`, or `const`. 
+<h4 class=' text-[#5D8392]'>Variables Naming convention </h4>
+
+1. The first character must not be a digit. 
+
+2. When the name contains multiple words, use <span text-red>Camel Case. </span> 
+
+3. Reserved words ( like JavaScript keywords ) cannot be used as names. 
+
+4. Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.
+
+5.  Make names maximally descriptive and concise.
+6. Separate multiple words with underscore ( _ )
 
 ```js{monaco-run} {autorun: false}
 let message;
@@ -43,7 +48,8 @@ console.log(message)
 hideInToc: true
 ---
 
-<h3  class='mt-5 text-[#5D8392]'> Variable ( const ) </h3>
+## Variable{.text-common} `const`
+
 - Variables declared with <span class='text-red'> const </span> do not change and cannot be reassigned.
 
 ```js {monaco-run}
@@ -54,7 +60,8 @@ tutor = "Mr Ojo" //can not be reassigned
 // Therefore values that can change later on should not be declare with const
 ```
 
-<h3 class='mt-5 text-[#5D8392]'>Variable ( let ) and ( var ) </h3>
+### Variable{.text-common} `let` and `var`
+
 - Variables declared with  <span class="text-red">'let'</span> and <span class="text-red">'var'</span> can change and be reassigned.
 
 ```js {monaco-run}
@@ -73,23 +80,23 @@ hideInToc: true
 
 ```js
 // The first character must not be a digit. 
-let 1first;    Wrong
-let firstName; CORRECT
-Const test123; CORRECT
+let 1first;    ❌
+let firstName; ✅
+Const test123; ✅
 ```
 
 ```js
 // When the name contains multiple words, camelCase is used
-let myVeryLongName; CORRECT
-let MYVERYLONGNAME; NOT ADVISABLE
-let myverylongname; WRONG
+let myVeryLongName; ✅
+let MYVERYLONGNAME; 🙅🏽🙅🏽‍♀️
+let myverylongname; ❌
 ```
 
 ```js
 // Reserved words (like JavaScript keywords) cannot be used as names 
-let if; WRONG
-let boolean; WRONG
-let else; WRONG
+let if; ❌
+let boolean; ❌
+let else; ❌
 ```
 
 ```js
@@ -105,7 +112,7 @@ let x = 'John Doe'
 hideInToc: true
 ---
 
-# Data types
+# [Data types]{.text-common}
 - A value in javascript is always of a certain type.
 
 - Numbers can be written with or without decimals, that is represent both integer and floating point numbers.
@@ -157,22 +164,24 @@ const bigInt = 123456789012345678901234567890n; // the "n" at the end means it's
 const car = { type: 'Fiat', model: '500', color: 'white' }
 ```
 
--It used to create a unique identifier for objects
+- It used to create a unique identifier for objects
 
 ```js
 const mySymbol = Symbol('unique identifier');
 const person = { name: 'Alice', [mySymbol]: 'secret information' };
-
 ```
+
+- Null: It a special value which represents "nothing", "empty" or "value unknown"
+
+```js
+let age = null;
+```
+
 ---
 hideInToc: true
 name: More on Variable Declaration
 ---
 
-```js
-- It a special value which represents "nothing", "empty" or "value unknown"
-let age = null;
-```
 Example: To know the type of a value in JS use <span class="text-red"> typeof </span>
 
 ```js {monaco-run}
@@ -207,7 +216,7 @@ hideInToc: true
 - The prompt() method: It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel. It accepts two arguments.
 - The confirm() method: The function shows a modal window with a question and two buttons: OK and Cancel
 
-<h4  class='text-[#5D8392]'> Alert </h4>
+#### Alert{.text-common}
 
 - The alert() method displays an alert box with a mesage and an OK button
 
@@ -215,25 +224,26 @@ hideInToc: true
 alert('Hello V4 Frontend Developer, Enjoying Javascript so far?')
 ```
 
-<h4  class='text-[#5D8392]'> Prompt </h4>
+#### Prompt{.text-common}
 
 - It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
 - It accepts two arguments. <br> The syntax:
 
-```js
-result = prompt(text to show visitor, [default]) 
-//default is an optional parameter, the initial value for the input field
-```
-
-```js {monaco-run} {autorun:false}
-interview_Question = prompt('What is the full meaning of CSS?', '')
-```
 
 ---
 hideInToc: true
 ---
 
-<h4  class='text-[#5D8392]'> Confirm </h4>
+```js
+result = prompt(text to show visitor, [default]) //default is an optional parameter, the initial value for the input field
+```
+
+```js {monaco-run} {autorun:false}
+interview_Question = prompt('What is the full meaning of CSS?', '')
+console.log(interview_Question === 'Cascading Style Sheet' || interview_Question === 'cascading style sheet')
+```
+
+#### Confirm{.text-common}
 
 - The function shows a modal window with a question and two buttons: OK and Cancel
 - The syntax:
@@ -243,8 +253,8 @@ result = confirm(question);
 ```
 
 ```js {monaco-run} {autorun:false}
-let altschoolStatus = confirm("Are you a v4 student ?")
-console.log(altschoolStatus)
+let altschoolStatus = confirm("Are you a v4 student ?");
+console.log(altschoolStatus);
 ```
 
 ---
@@ -254,10 +264,19 @@ hideInToc: true
 # Type conversion
 
 - It simply means the process of converting one data type to another.
-1. String Coversion
-2. Numeric conversion
-3. Numeric Conversion
-4. Boolean coversion
+
+1. String Coversion - Can be done using the `String` or `.toString`.
+2. Numeric conversion - Can be done using the `Number`, `parseInt`, `parseFloat` or `+` unary plus sign.
+3. Boolean coversion - `Boolean` constructor or `!!`
+
+```js {monaco-run} {autorun:false, lines:true}
+console.log(typeof String(2)); console.log(typeof Number(2).toString());
+let value = '10';
+console.log(typeof Number('12')); console.log(typeof +value); console.log(typeof parseInt(value)); console.log(typeof parseFloat('10.34'))
+console.log(Boolean(value)); console.log(!!value);
+```
+
+There is a concept that says everything in JavaScript is truthy while `false`, `0`, `''`, `NaN`, `null`, `undefined` are falsy.
 
 ---
 hideInToc: true
@@ -265,22 +284,32 @@ hideInToc: true
 
 # Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
 
-### The following operators are supported in Js  
+### The following operators are supported in Js 
+
+<div flex="~ row" gap-4xl>
+
+<div>
+
 - Addition  ( + )
 - Subtraction ( - )
 - Multiplication  ( * )
+
+</div>
+
+<div ml-36>
+
 - Division ( / )
 - Remainder ( % )
-- Exponentiation ( ** ) 
+- Exponentiation ( ** )
+
+</div>
+
+</div>
 
 ```js {monaco-run}
-let sumOfTwoNumbers = 20 + 309;
-let differenceOfTheIntegers = 90 - 45;
-let x = 2 * 97;
-let y = 24 / 2;
-let t =  59 % 7;
-let a = 2 ** 4;
-console.log(sumOfTwoNumbers, differenceOfTheIntegers, x, y, a)
+let sumOfTwoNumbers = 20 + 309; let differenceOfTheIntegers = 90 - 45;
+let mul = 2 * 97; let div = 24 / 2; let mod =  59 % 7; let expo = 2 ** 4;
+console.log({sumOfTwoNumbers, differenceOfTheIntegers, mul, div, mod, expo})
 ```
 
 ---
@@ -359,27 +388,18 @@ hideInToc: true
 
 # Logical operators
 
-1. || (OR) : it evaluates its operands from left to right and returns the first operand that is truthy. If all operands are falsy, it returns the last operand. 
-```js
-result = a || b
-```
+1. || (OR) : it evaluates its operands from left to right and returns the first operand that is truthy. If all operands are falsy, it returns the last operand. `result = a || b`
+
 ```js{monaco-run} {autorun: false}
 alert(true || false); alert('Boy' || 4)
 ```
-2. && (AND): returns true if both operands are truthy. If either operand is falsy, the entire expression evaluate to false.
 
-```js
-result = a && b
-```
+2. && (AND): returns true if both operands are truthy. If either operand is falsy, the entire expression evaluate to false. `result = a && b;`
 
 ```js{monaco-run} {autorun: false}
 alert(true && true); alert(false && true)
 ```
-3. ! (NOT): it inverts the truth value of an expression, meaning returns false if expression is truthy, and true if expression is falsy.
-
-```js
-result = !expression;
-```
+3. ! (NOT): it inverts the truth value of an expression, meaning returns false if expression is truthy, and true if expression is falsy. `result = !expression;`
 
 ```js{monaco-run} {autorun: false}
 alert(!true); alert(!0)
@@ -405,6 +425,29 @@ let name;
 let greeting = name ?? `Hello, Stranger!`;
 console.log(greeting)
 ```
+
+---
+hideInToc: true
+---
+
+# [Conditional Branching: if, '?', switch]{.text-common}
+
+- Very often when you write code, you want to perform different actions for different conditions, Welcome to conditional branching.
+- <span class='text-[#5D8392]'>The If statement </span>:  it evaluate a condition and if the result is true, execute a block of code.
+- Syntax:
+```js
+if (condition) {
+    //block of code to be executed if the condition is true
+}
+```
+<br>
+```js {monaco-run} {autorun:false}
+let day = 'Monday' 
+if (day == 'Monday'){
+    console.log('Today is Monday')
+}
+```
+<p><span text-red>Note:</span> If the condition  is false, the code will not run</p>
 
 ---
 hideInToc: true
@@ -494,7 +537,6 @@ hideInToc: true
 name: Switch Example
 ---
 
-- Example:
 
 ```js {monaco-run} 
 let day;
@@ -520,9 +562,7 @@ switch (new Date().getDay()){
     case 6:
         day = 'Saturday'
     break;
-    default:
-        day = 'Cannot be reached'
-    break;
+    default: day = 'Cannot be reached'; break;
 }
 console.log(`Today is ${day}`)
 ```
@@ -564,6 +604,10 @@ while(condition){
 } 
 ```
 
+<div flex="~ row" gap-10>
+
+<div flex="1">
+
 ```js {monaco-run} {autorun:false}
 let i = 0;
 while ( i < 3 ){
@@ -571,6 +615,21 @@ while ( i < 3 ){
     i++;
 }
 ```
+
+</div>
+
+<div flex="1">
+
+```js {monaco-run} {autorun:false}
+let i = 0;
+do {
+    console.log(i);
+    i++;
+} while ( i < 3 )
+```
+
+</div>
+</div>
 
 - <span class='text-[#5D8392]'>For loop</span>: The syntax is quite simple. it has 3 major part.
 
@@ -638,12 +697,13 @@ function name(parameter1, parameter2, ...parameterN) {
     //code to be executed
 }
 ```
+
 <h4> Important things to note: </h4>
 1. The <span class='text-red'> function </span> keyword goes first.
 2. The name of the function follows
 3. A list of parameter (if any) is enclosed in parentheses.
 4. The function body, containing the code to be executed, is enclosed in curly braces {}.
-5. To execute the code, function must be called by its name followed by parentheses.
+5. To execute the code, function must be called by its <b>name</b> followed by parentheses.
 
 ---
 hideInToc: true
