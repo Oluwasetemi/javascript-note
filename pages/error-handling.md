@@ -19,9 +19,9 @@ hideInToc: true
 
 <v-clicks>
 
-Programming errors can occur due to various reasons. The `try...catch` syntax allows us to handle these errors gracefully instead of abruptly stopping the script. `try...catch` only works for runtime errors.
+<div>Programming errors can occur due to various reasons. The <span class="text-red">try...catch</span> syntax allows us to handle these errors gracefully instead of abruptly stopping the script. <span class="text-red">try...catch</span> only works for runtime errors.</div>
 
-The `try...catch` statement includes a `try` block and either a `catch` block, a `finally` block, or both. The `try` block is executed first, and the `catch` block will be executed if it throws an exception. The `finally` block is always executed before exiting the construct. The statement works synchronously.
+The <span class="text-red">try...catch</span> statement includes a <span class="text-red">try</span> block and either a <span class="text-red">catch</span> block, a <span class="text-red">finally</span> block, or both. The <span class="text-red">try</span> block is executed first, and the <span class="text-red">catch</span> block will be executed if it throws an exception. The <span class="text-red">finally</span> block is always executed before exiting the construct. The statement works synchronously.
 
 
 ```js{monaco-run} {autorun: false}
@@ -55,7 +55,7 @@ Catch Binding
 
 <v-clicks>
 
-When an exception is thrown in the `try` block, the `catch` block receives the error object as `exceptionVar` (e.g., `err` in `catch (err)`). This object contains details about the error, such as error `message`, `type`, and `stack` (non-standard, but well-supported. Makes debugging easier). You can access these properties using a destructuring pattern, allowing you to assign multiple identifiers at once, instead of just a single variable.
+When an exception is thrown in the <span class="text-red">try</span> block, the <span class="text-red">catch</span> block receives the error object as <span class="text-red">exceptionVar</span> (e.g., <span class="text-red">err</span> in <span class="text-red">catch (err)</span>). This object contains details about the error, such as error <span class="text-red">message</span>, <span class="text-red">type</span>, and <span class="text-red">stack</span> (non-standard, but well-supported. Makes debugging easier). You can access these properties using a destructuring pattern, allowing you to assign multiple identifiers at once, instead of just a single variable.
 
 ```js{monaco-run} {autorun: false}
 try{
@@ -78,8 +78,9 @@ hideInToc: true
 
 <v-clicks>
 
-In JavaScript, you can create custom errors by extending the built-in `Error` class. This allows you to define more specific types of errors with custom messages and additional properties. Custom errors are useful when you want to provide more context or handle specific types of errors in your code.
-- Basic custom error by extending the `Error` class
+<div>In JavaScript, you can create custom errors by extending the built-in <span class="text-red">Error</span> class. This allows you to define more specific types of errors with custom messages and additional properties. Custom errors are useful when you want to provide more context or handle specific types of errors in your code.</div>
+
+- Basic custom error by extending the <span class="text-red">Error</span> class
 
 ```js{monaco-run} {autorun: false}
 class ValidationError extends Error {
