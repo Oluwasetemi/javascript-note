@@ -5,13 +5,14 @@
   "scripts": {
     "postinstall": "npx playwright-core install chromium",
     "build": "slidev build",
-    "dev": "nodemon -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
+    "dev": "nodemon -e 'md,js,mjs,cjs,json' -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
     "export": "slidev export",
     "export:pdf": "npm run export -- --timeout 60000s --with-toc --output ./_export/javascript-note.pdf",
     "export:pptx": "npm run export -- --timeout 60000s --with-clicks false --format pptx --output ./_export/javascript-note.pptx"
   },
   "dependencies": {
     "@slidev/cli": "0.50.0-beta.3",
+    "@slidev/client": "^0.50.0-beta.3",
     "@slidev/theme-default": "latest",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

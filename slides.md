@@ -1,5 +1,4 @@
 ---
-# theme: seriph
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
 title: JavaScript Class Note
 titleTemplate: '%s - AltSchool Africa'
