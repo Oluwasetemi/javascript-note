@@ -2,10 +2,22 @@
 # theme: seriph
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
 title: JavaScript Class Note
+titleTemplate: '%s - AltSchool Africa'
 info: |
   AltSchool JavaScript Class Notes
   making of world class developers
   join at [AltSchool Africa](https://altschoolafrica.com)
+author: Oluwasetemi
+download: true
+exportFilename: javascript-note
+export:
+  format: pdf
+  timeout: 60000
+  dark: false
+  withClicks: false
+  withToc: true
+# TODO: add a svg favicon
+# favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center
 highlighter: shiki
 drawings:
@@ -13,6 +25,8 @@ drawings:
 transition: slide-left
 mdc: true
 hideInToc: true
+addons:
+  - tldraw
 ---
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes
@@ -329,7 +343,7 @@ src: ./pages/document-resource-loading.md
 ---
 
 ---
-name: Events
+name: Web APIs
 layout: center
 ---
 
@@ -347,7 +361,7 @@ src: ./pages/nice-to-know-browser.md
 ---
 
 ---
-name: Events
+name: Beyond Beginner JavaScript
 layout: center
 ---
 
@@ -365,7 +379,7 @@ src: ./pages/beyond-beginner.md
 ---
 
 ---
-name: Events
+name: Making API Calls
 layout: center
 ---
 
@@ -383,7 +397,7 @@ src: ./pages/network-requests.md
 ---
 
 ---
-name: Events
+name: Web Components
 layout: center
 ---
 
@@ -401,7 +415,7 @@ src: ./pages/web-components.md
 ---
 
 ---
-name: Events
+name: Regular Expressions
 layout: center
 ---
 
@@ -433,6 +447,7 @@ hideInToc: true
 
 # Contributors
 
-
+- [Kofoworola Shonuyi](https://github.com/Rolalove)
+- [Omotoso Abosede Racheal](https://github.com/Racheal-cloud)
 <!-- - [Adebosin Ridwan](https://github.com/RidwanAdebosin)
 - [Olubebe Faith](https://github.com/Olubebe) -->

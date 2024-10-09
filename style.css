@@ -3,6 +3,10 @@
   --slidev-code-background: #16161680 !important;
 }
 
+.light {
+  --slidev-code-background: #f8f8f8 !important;
+}
+
 .slidev-layout a {
   border-color: #8888;
 }
@@ -30,8 +34,8 @@ a:has(> code) {
 }
 
 .monaco-editor .monaco-hover {
-  background: #161616b0 !important;
-  backdrop-filter: blur(8px);
+  /* background: #161616b0 !important; */
+  /* backdrop-filter: blur(8px); */
 }
 
 h6 {
@@ -78,7 +82,7 @@ h6 {
 }
 
 .slidev-code .line {
-  transition: opacity 200ms ease;
+  /* transition: opacity 200ms ease; */
 }
 
 /* Magic Links */
