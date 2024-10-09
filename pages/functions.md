@@ -8,7 +8,7 @@ hideInToc: true
 # Functions
 <div mt-2 />
 
-- Recursion and Stack
+- <a @click="$slidev.nav.next()">Recursion and Stack</a>
 - Rest Parameters and Spread Syntax
 - Closure and Variable Scope
 - Global Object
