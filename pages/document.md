@@ -105,11 +105,12 @@ This will lead us to the next section where we discuss the first steps in modify
 
 ---
 hideInToc: true
-layout: image
+# layout: image
 name: DOM Traversal Image
 ---
 
-![](/children-structure-nodes.svg)
+<!-- ![](/children-structure-nodes.svg) -->
+<tldraw class="w-200 h-140" doc="tldraw/children-structure-nodes.json" />
 
 ---
 hideInToc: true
