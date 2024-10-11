@@ -50,6 +50,7 @@ JavaScript Class Note
   </a>
 </div>
 
+
 <!--
 Notes: show on the speaker view
 -->

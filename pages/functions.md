@@ -5,6 +5,20 @@ class: center
 hideInToc: true
 ---
 
+<!-- <script setup>
+import {useSlides} from '@slidev/client';
+
+const slides = useSlides();
+
+function navigateToSlide(title) {
+  const foundSlide = slides.value.find(slide => slide.title.includes(title));
+  if (foundSlide) {
+    $slidev.go(foundSlide.index);
+  }
+}
+<script/> -->
+
+
 # Functions
 <div mt-2 />
 
@@ -22,14 +36,15 @@ hideInToc: true
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Functions</h1>
+# Functions
 
+<div> </div>
 Functions are one of the fundamental building block in JavaScript.
 In programming, we often need to perform tasks such as returning a value based on an argument or performing calculations. These tasks can be encapsulated within a function, creating a reusable block of code.
 
 Check the code below for examples of how functions can be used to perform tasks:
 
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 ```js {monaco-run} {autorun: false}
 function greetAllUsers() {
     alert('Hello Everyone');
@@ -38,7 +53,7 @@ greetAllUsers();
 ```
 </div>
 
-<div class="bg-green-500 border rounded">
+<div class="">
 
 ```js {monaco-run} {autorun: false}
 const getAverageResult = () => {
@@ -55,7 +70,8 @@ getAverageResult();
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Creating a Function</h1>
+# Creating a Function
+<div> </div>
 
 There are three common ways to create a function:
 
@@ -67,11 +83,12 @@ There are three common ways to create a function:
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Function Declaration</h1>
+# Function Declaration
+<div></div>
 
 Function Declaration: In a function declaration, the <kbd>function</kbd> keyword comes first, followed by the function's name. After that, parentheses <kbd>()</kbd> are used, where you can pass a comma-separated list of parameters. Finally, the function's code is enclosed within curly braces <kbd>{}</kbd>.
 
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 
 ```js {monaco-run} {autorun: false}
 function name(parameter1, parameter2, parameter3){
@@ -80,7 +97,7 @@ function name(parameter1, parameter2, parameter3){
 // calling the function by its name
 ```
 </div>
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 
 ```js {monaco-run} {autorun: false}
 function declarationMethod(name, age, course){
@@ -94,12 +111,13 @@ declarationMethod("AltSchool", 3, "Engineering");
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Function Expression</h1>
+# Function Expression
+<div> </div>
 
 Function Expression: A function expression involves creating a function and assigning it to a variable. 
 Unlike function declarations, function expressions can be anonymous (without a name) or named. When using a function expression, the function can only be called after its definition.
 
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 
 ```js {monaco-run} {autorun: false}
 const name = function(parameter1, parameter2, parameter3){
@@ -108,7 +126,7 @@ const name = function(parameter1, parameter2, parameter3){
 // calling the function by its name
 ```
 </div>
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 
 ```js {monaco-run} {autorun: false}
 const expressionMethod = function(name, age, course){
@@ -122,11 +140,12 @@ expressionMethod("AltSchool", 3, "Engineering");
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Arrow Function</h1>
+# Arrow Function
+<div> </div>
 
 Arrow Function: Arrow functions provide a more concise syntax for writing functions in JavaScript. They were introduced in ES6 and are particularly useful for maintaining the lexical scope of the this keyword. Arrow functions can be anonymous and are often used for short functions.
 
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 
 ```js {monaco-run} {autorun: false}
 const name = (parameter1, parameter2, parameter3) => {
@@ -135,7 +154,7 @@ const name = (parameter1, parameter2, parameter3) => {
 // calling the function by its name
 ```
 </div>
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 
 ```js {monaco-run} {autorun: false}
 const arrowMethod = (name, age, course) => {
@@ -149,7 +168,8 @@ arrowMethod("AltSchool", 3, "Engineering");
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Recursion and Stack</h1>
+# Recursion and Stack
+<div> </div>
 
 Recursion, as the name implies, is a process where a function calls itself to solve a problem. By breaking the task into smaller, simpler parts, the function repeatedly invokes itself until it reaches a base case.
 
@@ -158,7 +178,7 @@ This pattern is particularly useful when a problem can be naturally divided into
 A recursive function can receive two inputs: a base case (ends recursion) or a recursive case (resumes recursion).
 
 
-<div class="bg-green-500 border rounded mb-4">
+<div class=" mb-4">
 
 ```js {monaco-run} {autorun: false}
 function factorial(n) {
@@ -254,7 +274,9 @@ To simplify the explanation above:
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Why recursive function?</h1>
+# Why recursive function?
+<div> </div>
+
 A recursive solution is often more concise than an iterative one, which can lead to better performance and efficiency. 
 The total number of calls a recursive function makes, starting from the first call to the last, is referred to as the recursion depth.
 
@@ -263,7 +285,8 @@ The total number of calls a recursive function makes, starting from the first ca
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">The execution context and stack</h1>
+# The execution context and stack
+<div> </div>
 
 When a function is running, the information about its execution is stored in an "execution context." This is created when the JavaScript engine processes a script file. Each function call has exactly one execution context linked to it.
 
@@ -298,8 +321,8 @@ Here's the process broken down:
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Recursive traversals</h1>
-
+# Recursive traversals
+<div> </div>
 
 As mentioned earlier, recursive functions are functions that call themselves repeatedly until they reach a specific end condition or target. This process continues until the base case is met, at which point the function stops calling itself and begins to return the results back up the call stack.
 <p class="pb-16">
@@ -343,7 +366,8 @@ A recursive data structure is a data structure that replicates itself in parts.
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Rest Parameters and Spread Syntax</h1>
+# Rest Parameters and Spread Syntax
+<div> </div>
 
 The rest parameter syntax in JavaScript allows a function to accept any number of arguments as an array. This is useful when you don't know how many arguments will be passed in, or when you want to simplify handling multiple inputs.
 For example, if you want a function that accepts 20 arguments but only needs to explicitly write out the first two, you can use the rest parameter <kbd>(...)</kbd> to handle the remaining arguments. This keeps the code cleaner and more manageable.
@@ -366,8 +390,12 @@ example(1, 2, 3, 4, 5);
 ```
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">The "arguments" variable</h1>
+# The arguments variable
+<div> </div>
+
 <div class="overflow-scroll h-70">
 In JavaScript, there is a special array-like object called <kbd>arguments</kbd> that contains all the arguments passed to a function, indexed by their position. Unlike rest parameters, <kbd>arguments</kbd> is automatically available inside every function and holds the complete list of arguments, even if they aren’t explicitly defined in the function parameters.
 
@@ -392,7 +420,9 @@ showArguments(1, 'test', true);
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Spread syntax</h1>
+# Spread syntax
+
+<div> </div>
 
 We’ve already discussed the rest parameters, represented by three dots <kbd>...</kbd>. Now, let’s explore the spread syntax, which is also represented by three dots <kbd>...</kbd>, but it serves the opposite purpose.
 
@@ -440,7 +470,8 @@ Note:
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Closure and Variable Scope</h1>
+# Closure and Variable Scope
+<div> </div>
 
 In JavaScript, a closure is formed every time a function is created. A closure allows a function to remember and access variables from its outer scope, even after that function has finished executing. Essentially, closures give functions the ability to "remember" the environment in which they were created. While almost all functions in JavaScript are naturally closures, there is one important exception: arrow functions that don't reference any variables from their outer scope do not create closures.
 
@@ -456,8 +487,10 @@ In JavaScript, there are 3 ways to declare a variable and these are:
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Code blocks</h1>
-In JavaScript, statements can be grouped together inside code blocks, which are enclosed in curly brackets <kbd>{...}</kbd>. The purpose of these code blocks is to group statements that should be executed together.
+# Code blocks
+<div> </div>
+
+In JavaScript, statements can be grouped together inside code blocks, which are enclosed in curly brackets <kbd>...</kbd>. The purpose of these code blocks is to group statements that should be executed together.
 
 If a variable is declared inside a code block, it is only accessible within that block. This is called block scope. Variables declared with let or const inside a block are not visible outside of it.
 
@@ -475,7 +508,9 @@ This helps in keeping the scope of variables limited to specific parts of the co
 ---
 hideInToc: true
 ---
-Contd.
+
+# Contd.
+<div> </div>
 
 ```js {monaco-run} {autorun: false}
 {
@@ -494,7 +529,8 @@ Contd.
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Nested functions</h1>
+# Nested functions
+<div> </div>
 
 You can create a function inside another function and this is what we referred to as <kbd>nested functions</kbd><br/>
 There are two ways to create a nested functions:
@@ -532,7 +568,8 @@ In both cases, the inner (nested) function has access to the outer function's va
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Lexical Environment</h1>
+# Lexical Environment
+<div> </div>
 
 In JavaScript, a lexical environment refers to the structure that holds variable bindings (variable names and their values) 
 within a specific scope at a particular time. It defines how variables are resolved based on where the code is written and executed.
@@ -572,8 +609,11 @@ outerFunction();
 ```
 
 ---
+hideInToc: true
+---
 
-<h1>Contd.</h1>
+# Contd.
+<div> </div>
 
 <kbd>innerFunction</kbd> has access to <kbd>outerVar</kbd> because it’s in the outer function’s lexical environment.
 This environment is created during the function definition and execution process, preserving the context in which variables are declared.
@@ -600,8 +640,11 @@ function sayHello() {
 In this example, the function <kbd>sayHello()</kbd> can be called before its declaration because it is hoisted to the top of the current scope during the creation of the lexical environment.
 
 ---
+hideInToc: true
+---
 
-<h1>Contd.</h1>
+# Contd.
+<div> </div>
 
 This behavior only applies to Function Declarations, not Function Expressions. For example, if you declare a function using a variable (let or const), it won’t be available before the declaration.
 
@@ -616,8 +659,12 @@ const sayHello = function() {
 In this case, since sayHello is a function expression, it won’t be available until the line where it’s defined is executed.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">Garbage collection</h1>
+# Garbage collection
+<div> </div>
+
 <div class="overflow-scroll h-40">
 When a function call finishes, the associated lexical environment (which holds all the variables and functions in that scope) is removed from memory. This is because once the function has executed, there are no more references to the lexical environment, and JavaScript no longer needs to keep it.
 Variables inside the function are also removed unless they are referenced by something outside (e.g., closures).
@@ -643,7 +690,8 @@ A Lexical Environment object dies when it becomes unreachable.
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Global Object</h1>
+# Global Object
+<div> </div>
 
 The global object in JavaScript provides variables and functions that are accessible from anywhere in your code. These are built-in by default, meaning they are part of the JavaScript language or the runtime environment (like the browser or Node.js).
 In contrast, local objects (variables or functions declared within a function) are only accessible within the block scope where they are declared. Once that block or function finishes execution, those local objects are no longer available.
@@ -672,7 +720,8 @@ alert(localVar);
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center"> Function Object, NFE and `new Function` syntax</h1>
+#  Function Object, NFE and `new Function` syntax
+<div> </div>
 
 Earlier, we discussed functions in JavaScript, but did you know that a function is actually an object? 
 In JavaScript, functions are values, and since every value has a type, functions fall under the "object" type.
@@ -726,9 +775,12 @@ In both cases, although the functions were declared anonymously, JavaScript assi
 variable <kbd>(myFunction)</kbd> and the object property<kbd>(sayHello)</kbd> to which they are assigned.
 
 ---
+hideInToc: true
+---
 
-<h1  class="bg-green p-2 text-align-center">The "length" property</h1>
+# The "length" property
 
+<div></div>
 A function object's <kbd>length</kbd> property indicates how many arguments the function expects, i.e., the number of formal parameters. Here are some key points to note:
 
 - Rest parameters `(e.g., ...args)` are excluded from the count.
@@ -757,8 +809,12 @@ alert(exampleWithRest.length);
 
 
 ---
+hideInToc: true
+---
 
-<h1  class="bg-green p-3 text-align-center">The "custom" property</h1>
+# The "custom" property
+
+<div> </div>
 
 In JavaScript, functions are objects, which means we can add custom properties to them, just like any other object. 
 This allows us to attach additional data or behavior directly to the function.
@@ -787,8 +843,11 @@ Variable: A standalone value accessible in a function or scope.
 Property: A value attached to an object, accessed via the object.
 </div>
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">Named Function Expression (NFE)</h1>
+# Named Function Expression (NFE)
+<div> </div>
 
 As the name implies, a Named Function Expression (NFE) is a term used for a function expression that has a name. 
 Unlike regular function expressions, which can be anonymous, an NFE includes a specific name, allowing it to 
@@ -807,8 +866,11 @@ The name calculateSquare can be used inside the function body for recursion or r
 the square variable externally.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">new Function</h1>
+# new Function
+<div> </div>
 
 We have another sheriff in town when creating a function, and though it’s rarely used, sometimes we just have to pull out the 
 new Function constructor. It’s like the sheriff who rolls into town and says, "I’m here to handle the dynamic situations!"
@@ -866,10 +928,9 @@ alert(func());
 hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Scheduling: setTimeout and setInterval | process.nextTick | requestAnimationFrame | microtasks</h1>
+# Scheduling: setTimeout and setInterval | process.nextTick | requestAnimationFrame | microtasks
+<div> </div>
 
-
-## setTimeout and setInterval
 
 Sometimes, we may want to execute a function at a later time. This is known as "scheduling a call" in JavaScript. There are two primary ways to schedule a function call:
 
@@ -877,8 +938,11 @@ setTimeout – Executes a function once, after a specified delay.
 setInterval – Repeatedly executes a function at regular intervals.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">setTimeout</h1>
+# setTimeout
+<div> </div>
 
 The setTimeout method allows us to schedule a function to be executed once after a certain delay (in milliseconds).
 
@@ -899,8 +963,11 @@ setTimeout(greet, 2000);
 After 2 seconds delay, the function greet will run.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">clearTimeout</h1>
+# clearTimeout
+<div> </div>
 
 A call to setTimeout returns a "timer identifier" (timerId) that we can use to cancel the scheduled function execution before it occurs.
 
@@ -926,8 +993,11 @@ clearTimeout(timerId);
 ```
 
 ---
+hideInToc: true
+---
 
-<h1>Contd</h1>
+# Contd
+<div> </div>
 
 The function greet was scheduled to run after 5 seconds.
 But before the timeout occurred, we called clearTimeout(timerId), which canceled the scheduled execution. 
@@ -937,8 +1007,12 @@ This feature is useful when you want to prevent a delayed action from happening 
 
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-1 text-align-center">setInterval</h1>
+# setInterval
+
+<div> </div>
 
 The <kbd>setInterval</kbd> function repeatedly executes a function at regular intervals. 
 It schedules the function to be called continuously after the specified interval (in milliseconds) until it is explicitly stopped.
@@ -964,8 +1038,11 @@ setTimeout(() => clearInterval(intervalId), 6000);
 ```
 
 ---
+hideInToc: true
+---
 
-<h1>Contd.</h1>
+# Contd.
+<div> </div>
 
 In the code we have in the previous slide, the <kbd>sayHello()</kbd> function runs every 2 seconds.
 After 6 seconds, the <kbd>clearInterval</kbd> function stops the repeated execution of sayHello by using <kbd>intervalId</kbd>.
@@ -973,8 +1050,11 @@ The <kbd>setInterval</kbd> method is useful for tasks that need to be repeated c
 or creating animations, until manually cancelled.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">Nested setTimeout</h1>
+# Nested setTimeout
+<div> </div>
 
 Using nested <kbd>setTimeout</kbd> gives you more control over scheduling compared to <kbd>setInterval</kbd>. 
 In <kbd>setInterval</kbd>, the next iteration is scheduled regardless of whether the previous one has finished. 
@@ -987,7 +1067,7 @@ function dynamicTimeout(counter = 1) {
   // Adjust the delay dynamically
   // If counter is less than 5, delay is 1 second, otherwise 2 seconds
   let delay = counter < 5 ? 1000 : 2000; 
-  
+
   setTimeout(() => {
     // Continue until counter reaches 10
     if (counter < 10) { 
@@ -998,17 +1078,19 @@ function dynamicTimeout(counter = 1) {
     }
   }, delay);
 }
-
 dynamicTimeout();
 ```
-
+<div class="overflow-scroll h-10">
 - Dynamic Scheduling: The next execution time can be adjusted dynamically (in this case, based on counter).
 - Sequential Execution: You ensure that the next setTimeout only starts after the current one finishes.
 - Customizable Conditions: The recursion can stop or modify behavior based on the results of the current task, giving more flexibility.
-
+</div>
+---
+hideInToc: true
 ---
 
-<h1 class="bg-green p-3 text-align-center">Zero delay setTimeout</h1>
+# Zero delay setTimeout
+<div> </div>
 
 There’s a unique use case for <kbd>setTimeout(func, 0)</kbd> or simply <kbd>setTimeout(func)</kbd>, which schedules the execution of 
 func as soon as possible. However, the function will only be called after the current script finishes executing.
@@ -1027,8 +1109,12 @@ setTimeout(() => {
 ```
 
 ---
+hideInToc: true
+---
 
-<h1>Contd.</h1>
+# Contd.
+<div> </div>
+
 Note: All scheduling methods do not guarantee the exact delay.
 
 For example, the in-browser timer may slow down for a lot of reasons:
@@ -1041,8 +1127,11 @@ All that may increase the minimal timer resolution (the minimal delay) to 300ms 
 the browser and OS-level performance settings.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">process.nextTick()</h1>
+# process.nextTick()
+<div> </div>
 
 Every time the event loop makes a complete cycle in Node.js, it's referred to as a "tick."
 
@@ -1068,8 +1157,12 @@ alert("End");
 ```
 
 ---
+hideInToc: true
+---
 
-<h1>Contd.</h1>
+# Contd.
+<div> </div>
+
 I am sure you might think why do we need all these timer methods in JavaScript, but they all have their unique functions.
 
 - process.nextTick(): Executes the callback before the next event loop iteration, right after the current operation completes.
@@ -1077,8 +1170,11 @@ I am sure you might think why do we need all these timer methods in JavaScript, 
 This makes process.nextTick() suitable for deferring work until the current operation is complete, but without waiting for the next event loop cycle.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">requestAnimationFrame()</h1>
+# requestAnimationFrame()
+<div> </div>
 
 <kbd>requestAnimationFrame()</kbd> is a JavaScript method specifically designed to handle animations that go beyond what CSS can manage. 
 It synchronizes animations with the browser's refresh rate, ensuring smooth performance by allowing the browser to optimize the animation rendering.
@@ -1093,8 +1189,11 @@ let requestId = requestAnimationFrame(callback)
 ```
 
 ---
+hideInToc: true
+---
 
-<h1>Contd.</h1>
+# Contd.
+<div> </div>
 
 <kbd>requestAnimationFrame()</kbd> schedules the callback function to run at the next optimal time when the browser is ready to perform an animation.
 This ensures that the animation is synced with the browser’s refresh rate for smooth rendering.
@@ -1119,8 +1218,11 @@ It’s particularly useful for calculating animation progress based on time inst
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" target="_blank">Read more on MDN</a>
 </div>
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">microtasks()</h1>
+# microtasks()
+<div> </div>
 
 In JavaScript we have <kbd>task</kbd> and <kbd>microtask</kbd> but before we dwell into <kbd>microtask</kbd> let's talk about <kbd>task</kbd> in JavaScript.
 
@@ -1168,8 +1270,8 @@ alert('End');
 hideInToc: true
 ---
 
-
-<h1 class="bg-green p-3 text-center">Decorators and Forwarding, call/apply, bind</h1>
+# Decorators and Forwarding, call/apply, bind
+<div> </div>
 
 When working with functions, JavaScript offers flexibility, allowing developers to easily pass functions around like objects. 
 Additionally, functions can be forwarded or enhanced (decorated) for more complex use cases.
@@ -1181,10 +1283,11 @@ In a scenario where a function consistently returns the same result, and we anti
 cache (store) the results. This prevents unnecessary recalculations and saves time by returning the cached result when the function is called again.
 
 ---
+hideInToc: true
+---
 
-<h1>Contd.</h1>
-
-
+# Contd.
+<div> </div>
 
 ```js {monaco-run}{autorun: false}
 // Function that caches results of an expensive computation
@@ -1227,18 +1330,82 @@ In this example, the <kbd>cachedFunction</kbd> wraps any function you provide an
 The next time you call the function with the same argument, it will return the cached result instead of recalculating.
 
 ---
+hideInToc: true
+---
 
-<h1 class="bg-green p-3 text-align-center">Using "func.call" for the context </h1>
+# Using "func.call" for the context 
 
-
+<div></div>
 In JavaScript, func.call allows you to call a function with a specific this context. This is useful when you need to set the <kbd>this</kbd> value 
 explicitly for a function, especially when working with object methods that might be called in different contexts.
 
 ```js
 func.call(context, arg1, arg2, ...)
 ```
-
 However, caching can be tricky when dealing with object methods because each object might have different data, and caching without 
 consideration of this can lead to incorrect results. If you want to use caching with methods while respecting this, you'll need to 
 ensure that the cache is tied to the specific context (this) of the object.
+<div class='overflow-scroll h-60'>
 
+```js {monaco-run}{autorun: false}
+// Constructor function for Vehicle
+function Vehicle(make, year) {
+  // Set the 'make' and 'year' property for the vehicle
+  this.make = make; 
+  this.year = year; 
+}
+
+// Constructor function for Toyota, inheriting from Vehicle
+function Toyota(make, year) {
+  // Call the Vehicle constructor, using 'this' to bind to the Toyota instance
+  Vehicle.call(this, make, year);
+   // Add a specific property 'category' for Toyota cars
+  this.category = 'car';
+}
+
+// Create a new Toyota object and alert the 'year' property
+alert(new Toyota('Camry', 2024).year); 
+
+```
+</div>
+
+---
+
+
+<h3>To get a better understanding of how the code in the previous slide works, read through this:</h3>
+
+- <kbd>Constructor Functions</kbd>:
+In JavaScript, functions like <kbd>Vehicle</kbd> and <kbd>Toyota</kbd> are called constructor functions. They are used to create objects with specific properties.
+When you create an object using <kbd>new</kbd>, the constructor function is called and the <kbd>this</kbd> keyword inside the function refers to the new object being created.
+
+- <kbd>Vehicle</kbd> Constructor:
+The <kbd>Vehicle</kbd> function accepts two arguments: make (e.g., 'Toyota') and year (e.g., 2024).
+<kbd>this.make = make;</kbd> sets the <kbd>make</kbd> property of the object to the value passed in.
+<kbd>this.year = year;</kbd> sets the <kbd>year</kbd> property of the object to the year passed in.
+
+- <kbd>Toyota</kbd> Constructor:
+<kbd>Toyota</kbd> is another constructor function that uses the <kbd>Vehicle</kbd> constructor to set the make and year properties.
+<kbd>Vehicle.call(this, make, year);</kbd> means: "Call the <kbd>Vehicle</kbd> function, and make sure the this keyword inside <kbd>Vehicle</kbd> refers to the new <kbd>Toyota</kbd> object."
+After calling <kbd>Vehicle</kbd>, the <kbd>Toyota</kbd> constructor also adds a <kbd>category</kbd> property to the object and sets it to 'car'.
+
+- Calling <kbd>new Toyota('Camry', 2024)</kbd>:
+This creates a new <kbd>Toyota</kbd> object with the <kbd>make</kbd> <kbd>'Camry'</kbd> and <kbd>year</kbd> <kbd>2024</kbd>, as well as the <kbd>category</kbd> <kbd>'car'</kbd>.
+
+- Alert:
+The <kbd>alert</kbd> function pops up a message box.
+<kbd>new Toyota('Camry', 2024).year</kbd> creates a new <kbd>Toyota</kbd> object and accesses its <kbd>year</kbd> property, which is <kbd>2024</kbd>. So, the alert will show <kbd>2024</kbd>.
+
+---
+hideInToc: true
+---
+
+<kbd></kbd>
+
+# func.apply
+
+The <kbd>apply()</kbd> method could be used instead of <kbd>call()</kbd>.
+This method of <kbd>Function</kbd> instances calls this function with a given <kbd>this</kbd> value, and <kbd>argument</kbd> provided as an array (or an array-like object).
+
+```js
+func.apply(context, args)
+```
