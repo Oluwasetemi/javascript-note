@@ -43,6 +43,8 @@ Forms can be accessed using the document.forms collection. This is a "named coll
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 <v-clicks>
 
@@ -72,6 +74,8 @@ console.log(userFieldset.elements.login == form.elements.login); // true
 ```
 </v-clicks> 
 ---
+hideInToc: true
+---
 
 # Backreference: element.form
 
@@ -99,6 +103,8 @@ The form is available as element.form for any element. So, the form references e
 </v-clicks>
 
 ---
+hideInToc: true
+---
  
  # Form Element Properties
  <v-clicks>
@@ -122,6 +128,8 @@ It stores only the HTML that was initially on the page, not the current value.
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # CONTD
@@ -156,6 +164,8 @@ updateValues();
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Select and Option
@@ -195,6 +205,8 @@ let option = new Option("Text", "value", true, true);
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 <v-clicks>
 
@@ -231,6 +243,8 @@ console.log("After method 3 - Selected index:", select.selectedIndex, "Selected 
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 <v-clicks>
 
@@ -266,6 +280,8 @@ console.log('Final options:', Array.from(w.options).map(opt => opt.text));
 
 
 ---
+hideInToc: true
+---
 
 ## Class Activity
 Task 1: 
@@ -290,6 +306,8 @@ There’s a <kbd>select</kbd>:
 </details>
 
 
+---
+hideInToc: true
 --- 
 
 
@@ -306,6 +324,8 @@ Focusing occurs when an element, typically an input field or button, receives th
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # Autofocus Attribute
 
@@ -320,6 +340,8 @@ In this example, the input field with the id="name" will automatically receive f
 A focus event can also be handled programmatically using JavaScript. For instance, you can clear error messages when a user refocuses on a field that previously failed validation:
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # CONTD
@@ -348,6 +370,8 @@ In this example, the onfocus event handler is used to remove any visual indicati
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # Blur: When Input is Completed
 
@@ -372,6 +396,8 @@ Your email please: <input type="email" id="input">
 In this example, the onblur event handler checks if the entered email contains an "@" symbol. If it doesn't, an error message is displayed, and the input field is visually marked as invalid by adding the invalid CSS class.
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Focus and Blur Methods
@@ -401,6 +427,8 @@ In this example, if the email field doesn't contain an "@" symbol, the focus rem
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 ## JavaScript-Initiated Focus Loss
@@ -436,6 +464,8 @@ tabindex="-1": Not focusable via keyboard, but focusable via JavaScript
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 ## Focus Delegation: Using focusin and focusout
 Focus and blur events do not bubble up the DOM, which can make it difficult to handle these events on a parent element, such as a form. However, you can use focusin and focusout events, which do bubble.
@@ -458,6 +488,8 @@ Focus and blur events do not bubble up the DOM, which can make it difficult to h
 In this example, when any input field inside the form receives focus, the entire form is visually highlighted by adding the focused class.
 
 ---
+hideInToc: true
+---
 
 # Food for thought
 
@@ -477,6 +509,8 @@ Autofocus should guide, not control.
 </details>
 
 
+---
+hideInToc: true
 ---
 
 # Events: change, input, cut, copy, paste
@@ -508,6 +542,8 @@ Here, the alert will display the selected option as soon as the user changes it.
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 ## Event: input
 
@@ -535,6 +571,8 @@ In this example, the result area updates with the text as the user types in the 
 Limitation: The input event cannot be prevented using <kbd>event.preventDefault()</kbd>, as it triggers after the value has already been modified.
 </v-clicks>
 ---
+hideInToc: true
+---
 
 ## Events: <kbd>cut</kbd>, <kbd>copy</kbd>, <kbd>paste</kbd>
 <v-clicks>
@@ -561,6 +599,8 @@ ClipboardData: The <kbd>event.clipboardData</kbd> object provides access to the 
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 ## CONTD
 
@@ -581,6 +621,8 @@ Clipboard contents are only accessible in the context of user-initiated events (
 </details>
 
 </v-clicks>
+---
+hideInToc: true
 ---
 
 # Form Submission Events and Methods 
@@ -603,6 +645,8 @@ There are two main ways to submit a form:
 Both of these actions trigger the submit event on the form.
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Example : Basic Submit Event Handling & Form Validation
@@ -649,6 +693,8 @@ function isValidEmail(email) {
 
 In this example, we're preventing the default form submission and logging a message to the console instead.
 ---
+hideInToc: true
+---
 
 # The Relationship Between submit and click
 
@@ -677,6 +723,8 @@ Interestingly, when a form is submitted by pressing Enter in an input field, a c
 ```
 
 </v-clicks>
+---
+hideInToc: true
 ---
 
 ## The <kbd>form.submit()</kbd> Method
@@ -708,6 +756,8 @@ This example demonstrates how to create a form dynamically, add an input field t
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # Form Validation
 <v-clicks>
@@ -725,6 +775,8 @@ In this example, even though we've used the required attribute and type="email",
 
 </v-clicks>
 ---
+hideInToc: true
+---
 
  # HTML Validation Attributes
  <v-clicks>
@@ -739,6 +791,8 @@ Common HTML validation attributes include:
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Example
@@ -770,6 +824,8 @@ Common HTML validation attributes include:
 ```
 </v-clicks>
 ---
+hideInToc: true
+---
 
 # Constraint Validation API
 
@@ -785,6 +841,8 @@ Key methods and properties of the Constraint Validation API include:
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Example
@@ -839,6 +897,8 @@ This approach allows for more dynamic and customized form validation compared to
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 
 # HTML Form Elements
@@ -873,6 +933,8 @@ Common Types:
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # Example
 
@@ -899,6 +961,8 @@ Common Types:
 ```
 
 </v-clicks>
+---
+hideInToc: true
 ---
 
 # Select
@@ -937,6 +1001,8 @@ You can also group options using the <kbd>optgroup</kbd> element
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Textarea & Button
@@ -980,6 +1046,10 @@ The <kbd>label</kbd> element is used to create a label for a form control. It im
 ````
 </v-clicks>
 
+
+
+---
+hideInToc: true
 ---
 
 #  Fieldset and Legend
@@ -1000,6 +1070,8 @@ The <kbd>fieldset</kbd> element is used to group related form controls together.
 ```
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 <v-clicks>
@@ -1041,6 +1113,8 @@ The <kbd>fieldset</kbd> element is used to group related form controls together.
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # Class Activity: Create a basic registration form with client-side validation.
 <v-clicks>
@@ -1080,3 +1154,4 @@ Bonus:
 </v-clicks>
 
 ---
+
