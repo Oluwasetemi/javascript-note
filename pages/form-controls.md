@@ -7,12 +7,12 @@ hideInToc: true
 # Form, Controls
 <div mt-2 />
 
-- Form properties and methods
-- Focusing: focus/blur
-- Events: change, input, cut, copy, paste
-- Form submission: event and method submit
-- Form validation: novalidate, HTML attributes, constraint validation API
-- Form elements: input, select, textarea, button, label, fieldset, legend
+- <a @click="$slidev.nav.next()">Form properties and methods</a>
+- <a @click="$nav.go($nav.currentPage+10)">Focusing: focus/blur</a>
+- <a @click="$nav.go($nav.currentPage+18)">Events: change, input, cut, copy, paste</a>
+- <a @click="$nav.go($nav.currentPage+22)">Form submission: event and method submit</a>
+- <a @click="$nav.go($nav.currentPage+8)">Form validation: novalidate, HTML attributes, constraint validation API</a>
+- <a @click="$nav.go($nav.currentPage+8)">Form elements: input, select, textarea, button, label, fieldset, legend</a>
 
 
 
@@ -20,11 +20,13 @@ hideInToc: true
 
 ---
 hideInToc: true
+clicksStart: 1
 ---
 
 # Form properties and methods
 
 <v-clicks>
+
 Forms are essential components of web development, allowing users to input data and interact with web applications. Understanding how to work with forms and their elements using JavaScript is crucial for creating dynamic and interactive web pages.
 Forms can be accessed using the document.forms collection. This is a "named collection," meaning you can access forms by both name and index.
 
@@ -32,7 +34,7 @@ Forms can be accessed using the document.forms collection. This is a "named coll
   <rect x="5" y="5" width="190" height="90" fill="#f0f0f0" stroke="#000" stroke-width="1"/>
   <text x="100" y="20" text-anchor="middle" font-size="5" font-weight="bold">document</text>
   <rect x="20" y="25" width="160" height="25" fill="#d0e0ff" stroke="#000" stroke-width="1"/>
-  <text x="100" y="41" text-anchor="middle" font-size="5">forms</text>
+  <text x="100" y="45" text-anchor="middle" font-size="5">forms</text>
   <rect x="30" y="60" width="60" height="20" fill="#ffe0d0" stroke="#000" stroke-width="1"/>
   <text x="60" y="74" text-anchor="middle" font-size="2">form[0]</text>
   <rect x="110" y="60" width="60" height="20" fill="#ffe0d0" stroke="#000" stroke-width="1"/>
@@ -44,6 +46,7 @@ Forms can be accessed using the document.forms collection. This is a "named coll
 
 ---
 hideInToc: true
+name: More on Forms
 ---
 
 <v-clicks>
@@ -206,6 +209,7 @@ let option = new Option("Text", "value", true, true);
 
 ---
 hideInToc: true
+name: Creating a Select with JavaScript
 ---
 
 <v-clicks>
@@ -244,6 +248,7 @@ console.log("After method 3 - Selected index:", select.selectedIndex, "Selected 
 
 ---
 hideInToc: true
+name: Programmatically Modifying Select Options
 ---
 
 <v-clicks>
@@ -308,6 +313,7 @@ There’s a <kbd>select</kbd>:
 
 ---
 hideInToc: true
+clicksStart: 1
 --- 
 
 
@@ -316,9 +322,11 @@ hideInToc: true
 <v-clicks>
 
 ### Focusing and Blurring: Managing User Input with Events in JavaScript
+
 In web development, managing focus and blur events is essential when dealing with user interaction in forms and other input elements. These events allow developers to control what happens when a user interacts with form fields, such as text boxes, drop-down menus, and buttons. Focusing and blurring events play a crucial role in enhancing the user experience, ensuring proper validation, and providing visual feedback.
 
 ### Focus: Preparing for User Input
+
 Focusing occurs when an element, typically an input field or button, receives the user's attention. This usually happens when the user clicks on an element or navigates to it using the keyboard, such as by pressing the Tab key. Focus events are critical because they often indicate that a user is ready to input data into that specific element.
 
 </v-clicks>
@@ -330,41 +338,55 @@ hideInToc: true
 # Autofocus Attribute
 
 <v-clicks>
+
 In HTML, you can automatically focus on an element when the page loads using the autofocus attribute:
+
 ```js
 <input type="text" id="name" autofocus>
 ```
+
 In this example, the input field with the id="name" will automatically receive focus when the page is loaded, making it immediately ready for the user to type.
 
-### Focus Event Example
-A focus event can also be handled programmatically using JavaScript. For instance, you can clear error messages when a user refocuses on a field that previously failed validation:
+
 </v-clicks>
 
 ---
 hideInToc: true
+name: More on Auto Focus 
 ---
 
 # CONTD
 
 <v-clicks>
 
-```js
-Your email please: <input type="email" id="input">
-<div id="error"></div>
+### Focus Event Example
 
-<script>
-  const input = document.getElementById('input');
-  const error = document.getElementById('error');
-  
-  input.onfocus = function() {
-    if (this.classList.contains('invalid')) {
-      this.classList.remove('invalid');
-      error.innerHTML = "";
-    }
-  };
-</script>
+A focus event can also be handled programmatically using JavaScript. For instance, you can clear error messages when a user refocuses on a field that previously failed validation:
 
+<div flex="~ row" gap-10>
+
+```html
+<div>
+  <label for="input">Your email please:</label> 
+  <input type="email" id="input">
+  <div id="error"></div>
+</div>
 ```
+
+```js
+const input = document.getElementById('input');
+const error = document.getElementById('error');
+input.onfocus = function() {
+  if (this.classList.contains('invalid')) {
+    this.classList.remove('invalid'); error.innerHTML = "";
+  }
+};
+```
+
+</div>
+
+<autofocus />
+
 In this example, the onfocus event handler is used to remove any visual indication of an error when the user focuses on the input field again, signaling that they want to correct the mistake.
 
 </v-clicks>
@@ -511,6 +533,7 @@ Autofocus should guide, not control.
 
 ---
 hideInToc: true
+clicksStart: 2
 ---
 
 # Events: change, input, cut, copy, paste
@@ -518,10 +541,12 @@ hideInToc: true
 <v-clicks>
 
 ## Event: change
+
 The change event occurs when an element’s value has been modified and the user completes the interaction, often by leaving the input field or selecting an option.
 
 For text inputs: It triggers when the user finishes editing and moves the focus away from the input field.
 For other elements like checkboxes, radio buttons, or select menus: It triggers immediately when the value is changed.
+
 ````md magic-move
 ```html
 <input type="text" onchange="alert(this.value)">
@@ -537,6 +562,24 @@ For other elements like checkboxes, radio buttons, or select menus: It triggers 
 </select>
 ```
 ````
+
+<div flex="~ row" gap-10>
+
+  <select class="focus:outline-blue-500 focus:border focus:rounded-none focus-visited:ring-blueGray " onchange="alert(this.value)">
+    <option value="">Select something</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+
+  <div class="border">
+    <input class="form-basic" type="text" onchange="alert(this.value)">
+    <input class="mx-4 hover:cursor-pointer" type="button" value="Click me">
+  </div>
+
+</div>
+
+
 Here, the alert will display the selected option as soon as the user changes it.
 
 </v-clicks>
@@ -569,16 +612,21 @@ oninput: <span id="result"></span>
 In this example, the result area updates with the text as the user types in the input field.
 
 Limitation: The input event cannot be prevented using <kbd>event.preventDefault()</kbd>, as it triggers after the value has already been modified.
+
 </v-clicks>
+
 ---
 hideInToc: true
 ---
 
 ## Events: <kbd>cut</kbd>, <kbd>copy</kbd>, <kbd>paste</kbd>
+
 <v-clicks>
+
 These events handle the clipboard operations: cutting, copying, and pasting data. They are part of the ClipboardEvent class, which gives access to the clipboard's contents.
 
 ClipboardData: The <kbd>event.clipboardData</kbd> object provides access to the data being cut, copied, or pasted. You can prevent the default behavior using <kbd>event.preventDefault()</kbd>.
+
 ```js
 <input type="text" id="input">
 
@@ -596,6 +644,7 @@ ClipboardData: The <kbd>event.clipboardData</kbd> object provides access to the 
   };
 </script>
 ```
+
 </v-clicks>
 
 ---
@@ -613,6 +662,7 @@ Note:
 Clipboard contents are only accessible in the context of user-initiated events (cut, copy, paste). It is not possible to dispatch custom clipboard events with dispatchEvent in most browsers, except Firefox.
 
 ### Food for Thought Question:
+
  How do you decide whether to use the change or input event for form validation, and in what scenarios might one be more effective than the other?
 
 <details>
@@ -621,6 +671,7 @@ Clipboard contents are only accessible in the context of user-initiated events (
 </details>
 
 </v-clicks>
+
 ---
 hideInToc: true
 ---
@@ -649,8 +700,9 @@ Both of these actions trigger the submit event on the form.
 hideInToc: true
 ---
 
-# Example : Basic Submit Event Handling & Form Validation
 <v-clicks>
+
+# Example : Basic Submit Event Handling & Form Validation
 
 ````md magic-move
 ```js
@@ -689,22 +741,25 @@ function isValidEmail(email) {
 ```
 ````
 
-</v-clicks>
 
 In this example, we're preventing the default form submission and logging a message to the console instead.
+
+</v-clicks>
 ---
 hideInToc: true
 ---
 
-# The Relationship Between submit and click
 
 <v-clicks>
+
+# The Relationship Between submit and click
+
 Interestingly, when a form is submitted by pressing Enter in an input field, a click event is also triggered on the <kbd>input type="submit"</kbd> element, even though no actual click occurred.
 
 ```js
 <form id="myForm">
-  <input type="text" placeholder="Press Enter to submit">
-  <input type="submit" value="Submit">
+  <input type="text" placeholder="Press Enter to submit" />
+  <input type="submit" value="Submit" />
 </form>
 
 <script>
@@ -728,20 +783,20 @@ hideInToc: true
 ---
 
 ## The <kbd>form.submit()</kbd> Method
+
 <v-clicks>
+
 The form.submit() method allows you to programmatically submit a form using JavaScript. When you use this method, the submit event is not triggered. This is useful when you need to submit a form without user interaction or when you're dynamically creating and submitting forms.
 
 #### Programmatic Form Submission
+
 ```js
 function createAndSubmitForm() {
   const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = '/api/submit';
+  form.method = 'POST'; form.action = '/api/submit';
 
   const nameInput = document.createElement('input');
-  nameInput.type = 'text';
-  nameInput.name = 'username';
-  nameInput.value = 'John Doe';
+  nameInput.type = 'text'; nameInput.name = 'username'; nameInput.value = 'John Doe';
 
   form.appendChild(nameInput);
   document.body.appendChild(form);
@@ -753,6 +808,7 @@ createAndSubmitForm();
 ```
 
 This example demonstrates how to create a form dynamically, add an input field to it, and submit it programmatically.
+
 </v-clicks>
 
 ---
@@ -760,10 +816,14 @@ hideInToc: true
 ---
 
 # Form Validation
+
 <v-clicks>
+
 Form validation is a crucial aspect of web development that ensures data submitted by users is correct, complete, and secure. This guide covers three important aspects of form validation: the novalidate attribute, HTML validation attributes, and the Constraint Validation API.
+
 1. The novalidate Attribute
 The novalidate attribute is used on the <kbd>form</kbd> element to disable the browser's default validation behavior. This is useful when you want to implement custom validation logic or use a JavaScript library for form validation.
+
 ```html
 <form novalidate>
   <label for="email">Email:</label>
@@ -771,6 +831,7 @@ The novalidate attribute is used on the <kbd>form</kbd> element to disable the b
   <button type="submit">Submit</button>
 </form>
 ```
+
 In this example, even though we've used the required attribute and type="email", the browser won't perform its default validation when the form is submitted because of the novalidate attribute.
 
 </v-clicks>
@@ -802,22 +863,20 @@ hideInToc: true
 ```js
 <form>
   <label for="username">Username (4-8 characters):</label>
-  <input type="text" id="username" name="username" required minlength="4" maxlength="8">
+  <input type="text" id="username" name="username" required minlength="4" maxlength="8" />
   
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required>
+  <input type="email" id="email" name="email" required />
   
   <label for="age">Age (18-100):</label>
-  <input type="number" id="age" name="age" min="18" max="100">
+  <input type="number" id="age" name="age" min="18" max="100" />
   
   <label for="website">Website:</label>
-  <input type="url" id="website" name="website">
+  <input type="url" id="website" name="website" />
   
   <label for="password">Password (must contain at least one number and one
      uppercase and lowercase letter, and at least 8 or more characters):</label>
-  <input type="password" id="password" name="password" 
-         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-         required>
+  <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
   
   <button type="submit">Submit</button>
 </form>
@@ -853,12 +912,11 @@ hideInToc: true
 
 <div>
 
-```js
+```html
 <form id="myForm">
   <label for="email">Email:</label>
   <input type="email" id="email" required>
   <span id="emailError"></span>
-  
   <button type="submit">Submit</button>
 </form>
 <script>
@@ -882,6 +940,7 @@ form.addEventListener('submit', function(event) {
 });
 </script>
 ```
+
 </div>
 <div>
 In this example, we're using the Constraint Validation API to:
@@ -894,6 +953,7 @@ In this example, we're using the Constraint Validation API to:
 This approach allows for more dynamic and customized form validation compared to using HTML attributes alone.
 </div>
 </div>
+
 </v-clicks>
 
 ---
@@ -1154,4 +1214,3 @@ Bonus:
 </v-clicks>
 
 ---
-
