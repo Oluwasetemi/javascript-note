@@ -1,39 +1,48 @@
 <template>
-  <div class="tip" :class="type">
-    <div class="tip-icon">
-      <div v-if="type === 'tip'" class="slidev-icon i-carbon-idea" />
-      <div v-else-if="type === 'info'" class="slidev-icon i-carbon-information" />
-      <div v-else-if="type === 'success'" class="slidev-icon i-carbon-checkmark" />
-      <div v-else-if="type === 'danger'" class="slidev-icon i-carbon-warning-alt" />
+  <aside class="tip pl-3 b-l-5 b-l-type" :class="type" :role="role">
+    <section class="flex items-center gap-3 mb-2">
+      <div class="tip__icon">
+      <slot name="icon">
+        <div v-if="type === 'tip'" class="slidev-icon i-carbon-idea" />
+        <div v-else-if="type === 'info'" class="slidev-icon i-carbon-information" />
+        <div v-else-if="type === 'success'" class="slidev-icon i-carbon-checkmark" />
+        <div v-else-if="type === 'danger'" class="slidev-icon i-carbon-warning-alt" />
+      </slot>
     </div>
-    <div class="tip-body">
-      <div class="tip-type">{{ capitalizedType }}</div>
-      <div class="tip-content">
-        <slot></slot>
+    <div class="tip__type">{{ capitalizedType }}</div>
+    </section>
+    <section class="tip__body">
+      <div class="tip__content">
+        <slot>Default tip content</slot>
       </div>
-    </div>
-  </div>
+    </section>
+  </aside>
 </template>
 
-<script setup>
-import { computed } from 'vue';
+<script setup lang="ts">
+import { computed, PropType } from 'vue';
 
 const props = defineProps({
   type: {
-    type: String,
+    type: String as PropType<'tip' | 'info' | 'success' | 'danger'>,
     default: 'info',
-    validator: (value) => ['tip', 'info', 'success', 'danger'].includes(value)
+    validator: (value) => ['tip', 'info', 'success', 'danger'].includes(value as string),
   }
 });
 
 const capitalizedType = computed(() => {
   return props.type.charAt(0).toUpperCase() + props.type.slice(1);
 });
+
+const role = computed(() => {
+  return props.type === 'danger' ? 'alert' : 'status';
+});
 </script>
 
 <style scoped>
 .tip {
   display: flex;
+  flex-direction: column;
   padding: 12px 16px;
   border-radius: 4px;
   margin-bottom: 16px;
@@ -41,20 +50,18 @@ const capitalizedType = computed(() => {
   max-width: 600px;
 }
 
-.tip-icon {
+.tip__icon {
   flex-shrink: 0;
-  margin-right: 12px;
   display: flex;
   align-items: center;
 }
 
-.tip-body {
+.tip__body {
   flex-grow: 1;
 }
 
-.tip-type {
+.tip__type {
   font-weight: medium;
-  margin-bottom: 4px;
 }
 
 .slidev-icon {
@@ -62,41 +69,36 @@ const capitalizedType = computed(() => {
 }
 
 .tip {
-  background-color: #1a2617;
-  color: #ffffff;
+  background-color: var(--tip-bg, #660792);
+  color: var(--tip-text, #ffffff);
+  --uno: b-l-[#660792] light:bg-[#66079270] light:text-black;
 }
 
-.tip .slidev-icon, .tip .tip-type {
-  color: #4caf50;
+.tip__icon, .tip__type {
+  color: var(--tip-icon, #660792);
+  --uno: dark:color-white
 }
 
+/* Dynamic background colors */
 .info {
-  background-color: #111a2b;
-  color: #ffffff;
-}
-
-.info .slidev-icon, .info .tip-type {
-  color: #2196f3;
+  --tip-bg: #111a2b;
+  --tip-icon: #2196f3;
+  --uno: b-l-[#2196f3] light:bg-[#2196f370] light:text-black;
 }
 
 .success {
-  background-color: #132a1a;
-  color: #ffffff;
-}
-
-.success .slidev-icon, .success .tip-type {
-  color: #4caf50;
+  --tip-bg: #132a1a;
+  --tip-icon: #4caf50;
+  --uno: b-l-[#4caf50] light:bg-[#4caf5070] light:text-black;
 }
 
 .danger {
-  background-color: #2b1518;
-  color: #ffffff;
+  --tip-bg: #2b1518;
+  --tip-icon: #ff4d4f;
+  --uno: b-l-[#ff4d4f] light:bg-[#ff4d4f70] light:text-black;
 }
 
-.danger .slidev-icon, .danger .tip-type {
-  color: #ff4d4f;
-}
-
+/* Deep styling */
 .tip :deep(p) {
   color: #ffffff;
   margin: 0;

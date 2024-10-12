@@ -1021,6 +1021,7 @@ hideInToc: true
 ```
 
 </v-clicks>
+
 ---
 hideInToc: true
 ---
@@ -1057,7 +1058,8 @@ The <kbd>select</kbd> element creates a dropdown list. It contains one or more <
 </select>
 ```
 ````
-You can also group options using the <kbd>optgroup</kbd> element
+
+<Tips type="tip">Use <kbd>optgroup</kbd> to group related options together, making it easier for users to navigate the dropdown list.</Tips>
 
 </v-clicks>
 
