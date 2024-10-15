@@ -218,6 +218,11 @@ layout: center
 src: ./pages/promises-async.md
 ---
 
+---
+name: Modules and Dynamic Imports
+layout: center
+---
+
 <h1 flex="~ col">
 <div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
   <span v-click>Modules in</span>
