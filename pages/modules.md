@@ -11,7 +11,7 @@ hideInToc: true
 - <a @click="$slidev.nav.next()">Module basics</a>
 - <a @click="$nav.go($nav.currentPage+2)">Export and Import</a>
 - <a @click="$nav.go($nav.currentPage+6)">Dynamic Imports</a>
-  
+
 ---
 hideInToc: true
 ---
@@ -41,7 +41,17 @@ export function sayHi(user) {
 ```
 
 ```js
-// 📁 main.js
+// 📁 sayHi.js
+function sayHi(user) {
+  alert(`Hello, ${user}!`);
+}
+
+export {sayHi};
+```
+
+```js
+// 📁 main.js - named import
+// because of a valid named export
 import {sayHi} from './sayHi.js';
 ```
 
@@ -58,9 +68,7 @@ hideInToc: true
 
 - We can label any declaration as exported by placing export before it, be it a variable, function or a class.
 
-- What is Exporting?
-
-- Exporting is a technique used to share JavaScript code written in one file with another file or multiple files. This is crucial for building applications that are easy to update and debug.
+- What is Exporting? Exporting is a technique used to share JavaScript code written in one file with another file or multiple files. This is crucial for building applications that are easy to update and debug.
 
 For instance, here all exports are valid:
 
@@ -70,7 +78,7 @@ export let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec
 // export a constant
 export const MODULES_BECAME_STANDARD_YEAR = 2015;
 // export a class
-export class User {
+export default class User {
   constructor(name) {
     this.name = name;
   }
@@ -89,7 +97,20 @@ name: Export and Import
 
 - Most JavaScript style guides don’t recommend semicolons after function and class declarations.
 
-- That’s why there’s no need for a semicolon at the end of export class and export function:
+- That’s why there’s no need for a semicolon at the end of export class and export function.
+
+Below are the different ways to import code from a module:
+
+```js
+// named import
+import { months } from './months.js';
+// named import with alias
+import { months as MyMonths } from './months.js';
+// default import
+import User from './user.js'; // User is default export and can be renamed
+// renamed import
+import * as MyUser  from './user.js';
+```
 
 ---
 hideInToc: true
@@ -103,6 +124,8 @@ hideInToc: true
 
 - Usually, we put a list of what to import in curly braces import {...}, like this:
 
+<div flex="~ row" gap-10>
+
 ```js
 // 📁 main.js
 import {sayHi, sayBye} from './say.js';
@@ -111,12 +134,16 @@ sayHi('John'); // Hello, John!
 sayBye('John'); // Bye, John!
 ```
 
----
-hideInToc: true
-name: Export and Import
----
+```js
+// 📁 main.js
+import {
+  sayHi as hi,
+  sayBye as bye
+} from './say.js';
 
-- But if there’s a lot to import, we can import everything as an object using `import * as <var name>`, for instance:
+hi('John'); // Hello, John!
+bye('John'); // Bye, John!
+```
 
 ```js
 // 📁 main.js
@@ -125,6 +152,17 @@ import * as say from './say.js';
 say.sayHi('John');
 say.sayBye('John');
 ```
+
+</div>
+
+---
+hideInToc: true
+name: Export and Import
+---
+
+- But if there’s a lot to import, we can import everything as an object using `import * as <var name>`, for instance:
+
+
 
 - At first sight, “import everything” seems such a cool thing, short to write, why should we ever explicitly list what we need to import?
 
