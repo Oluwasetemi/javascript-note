@@ -50,8 +50,7 @@ hideInToc: true
 
 # Export and Import
 
-Export and Import
-
+```text
 Export and import directives have several syntax variants.
 
 We can label any declaration as exported by placing export before it, be it a variable, function or a class.
@@ -59,8 +58,8 @@ We can label any declaration as exported by placing export before it, be it a va
 What is Exporting?
 
 Exporting is a technique used to share JavaScript code written in one file with another file or multiple files. This is crucial for building applications that are easy to update and debug.
-
 For instance, here all exports are valid:
+```
 
 ```js
 // export an array
@@ -75,7 +74,9 @@ export class User {
     this.name = name;
   }
 }
-```	
+```
+
+```	text
 /**
 No semicolons after export class/function
 
@@ -85,20 +86,24 @@ Most JavaScript style guides don’t recommend semicolons after function and cla
 
 That’s why there’s no need for a semicolon at the end of export class and export function:
 
-```javascript
+
 export function sayHi(user) {
   alert(`Hello, ${user}!`);
 }  //no ; at the end of export function
-```
+
 */
+```
 
-What is Importing?
 
+# What is Importing?
+
+```text
 Importing is the method by which you make exported code available in another JavaScript file. This is essential for assembling various components and libraries to build complex applications.
 
 Import *
 
 Usually, we put a list of what to import in curly braces import {...}, like this:
+```
 
 ```js
 // 📁 main.js
@@ -107,7 +112,9 @@ import {sayHi, sayBye} from './say.js';
 sayHi('John'); // Hello, John!
 sayBye('John'); // Bye, John!
 ```
+```text
 But if there’s a lot to import, we can import everything as an object using import * as <obj>, for instance:
+```
 
 ```js
 // 📁 main.js
@@ -116,21 +123,23 @@ import * as say from './say.js';
 say.sayHi('John');
 say.sayBye('John');
 ```
+
+```text
 At first sight, “import everything” seems such a cool thing, short to write, why should we ever explicitly list what we need to import?
 
 Well, there are few reasons.
 
     Explicitly listing what to import gives shorter names: sayHi() instead of say.sayHi().
     Explicit list of imports gives better overview of the code structure: what is used and where. It makes code support and refactoring easier.
-
+```
 
 # Import “as”
 
+```text
 We can also use as to import under different names.
 
 For instance, let’s import sayHi into the local variable hi for brevity, and import sayBye as bye:
 
-```js
 // 📁 main.js
 import {sayHi as hi, sayBye as bye} from './say.js';
 
@@ -140,14 +149,15 @@ bye('John'); // Bye, John!
 
 # Export “as”
 
+```text
 The similar syntax exists for export.
 
 Let’s export functions as hi and bye:
-```js
+
 // 📁 say.js
 ...
 export {sayHi as hi, sayBye as bye};
-```
+
 Now hi and bye are official names for outsiders, to be used in imports:
 
 ```js
@@ -158,8 +168,9 @@ say.hi('John'); // Hello, John!
 say.bye('John'); // Bye, John!
 ```
 
-Export default
+# Export default
 
+```
 In practice, there are mainly two kinds of modules.
 
     Modules that contain a library, pack of functions, like say.js above.
@@ -173,26 +184,27 @@ Modules provide a special export default (“the default export”) syntax to ma
 
 Put export default before the entity to export:
 
-```js
+
 // 📁 user.js
 export default class User { // just add "default"
   constructor(name) {
     this.name = name;
   }
 }
-```
+
 
 There may be only one export default per file.
 
 …And then import it without curly braces:
 
-```js
+
 // 📁 main.js
 import User from './user.js'; // not {User}, just User
 
 new User('John');
-```
+
 Imports without curly braces look nicer. A common mistake when starting to use modules is to forget curly braces at all. So, remember, import needs curly braces for named exports and doesn’t need them for the default one.
+```
 
 ---
 hideInToc: true
@@ -200,10 +212,12 @@ hideInToc: true
 
 # Dynamic Imports
 
+```
 Dynamic imports revolutionize how modules are handled, offering a more flexible approach compared to static imports. Static imports require all modules to be loaded at the beginning of a script, increasing initial load times and potentially impacting performance. In contrast, dynamic imports load modules on demand, which can significantly reduce initial load times and enhance user experience.
 
-Example:
+```
 ```js
+//Example:
 // Static import (traditional method)
 import { module } from './path/to/module.js';
 ```
@@ -212,31 +226,33 @@ import { module } from './path/to/module.js';
 // Dynamic import
 const module = await import('./path/to/module.js');
 ```
+```
 Explanation: The above example contrasts the traditional static import with a dynamic import. Notice that dynamic imports use a promise-based syntax, which means they can be used within asynchronous functions or handled with .then() and .catch() for greater control over timing and error handling.
-
+```
 
 # Utilizing Dynamic Imports in Applications
-
+```
 Dynamic imports are particularly beneficial in scenarios where parts of your application are conditionally used or not immediately necessary. Below are common use cases and implementations.
 Code Splitting
 
 One of the most prevalent use cases for dynamic imports is code splitting. This technique involves splitting your code into multiple bundles which can be loaded on demand, usually when a specific route is accessed or when certain functionality is required.
-
-Example:
+```
 ```js
+//Example:
 button.addEventListener('click', function() {
     import('./heavyScript.js').then(module => {
         module.runHeavyTask();
     });
 });
 ```
-
+```
 Explanation: This code snippet shows how to load a heavy script only when a button is clicked. Instead of loading the heavyScript.js at page load, it’s loaded dynamically, improving the page load time.
-
+```
 # Best Practices for Using JavaScript Modules
 
+```
     Keep File Structure Organized: Arrange your modules and files logically within directories to ease maintenance and improve readability.
     Prefer Named Exports for Clarity: While default exports are useful, named exports provide better clarity on what functionalities are being used in a file.
     Use Comments Generously: Commenting your exports and imports can greatly aid in the understanding and maintenance of code, especially in larger teams.
-
+```
 
