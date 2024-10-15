@@ -9,8 +9,8 @@ hideInToc: true
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Module basics</a>
-- <a @click="$slidev.nav.next()">Export and Import</a>
-- <a @click="$slidev.nav.next()">Dynamic Imports</a>
+- <a @click="$nav.go($nav.currentPage+2)">Export and Import</a>
+- <a @click="$nav.go($nav.currentPage+6)">Dynamic Imports</a>
   
 ---
 hideInToc: true
