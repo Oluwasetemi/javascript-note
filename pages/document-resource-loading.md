@@ -5,12 +5,12 @@ hideInToc: true
 ---
 
 # Document Resource Loading
+
 <div mt-2 />
 
-- Page: DOMContentLoaded, load, beforeunload, unload
-- Scripts: async, defer, dynamic scripts
-- Resource loading: onload and onerror for `<img>`, `<script>`, `<link>`, `<style>`
-
+- <a @click="$slidev.nav.next()">Page: DOMContentLoaded, load, beforeunload, unload</a>
+- <a @click="$nav.go($nav.currentPage+5)">Scripts: async, defer, dynamic scripts</a>
+- <a @click="$nav.go($nav.currentPage+10)">Resource loading: onload and onerror for `<img>`, `<script>`, `<link>`, `<style>`</a>
 
 ---
 hideInToc: true
@@ -28,8 +28,8 @@ This means that the DOM is fully constructed and ready to be interacted with, ma
 ```js
 // Example
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM is fully loaded and parsed');
-    // Your DOM manipulation code goes here
+  console.log('DOM is fully loaded and parsed')
+  // Your DOM manipulation code goes here
 })
 ```
 
@@ -37,17 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
 hideInToc: true
 ---
 
- # load
+# load
 
-The load event occurs later than the DOMContentLoaded event, which only waits for the HTML to be parsed. In contrast, the load event waits for all content , including external resources to be ready. Not only HTML is loaded, but also all the external resources: styles are applied, image sizes are known etc. 
+The load event occurs later than the DOMContentLoaded event, which only waits for the HTML to be parsed. In contrast, the load event waits for all content , including external resources to be ready. Not only HTML is loaded, but also all the external resources: styles are applied, image sizes are known etc.
 
 ```js
 // Example
 window.addEventListener('load', function () {
-    console.log('the whole page is fully loaded');
-    // code to execute after everything has loaded
+  console.log('the whole page is fully loaded')
+  // code to execute after everything has loaded
 })
 ```
+
 ---
 hideInToc: true
 ---
@@ -56,23 +57,23 @@ hideInToc: true
 
 The beforeunload and unload events are related to when a user is about to leave a webpage or when the page is being unloaded. However, they behave differently and are used for different purposes.
 
-The beforeunload event is fired *right before* the page is about to be unloaded, such as when the user is navigating away, closing the tab, or refreshing the page. This event gives you the opportunity to display a confirmation dialog to the user, asking if they are sure they want to leave the page. This is often used in situations where users might have unsaved changes, or the website needs to ensure the user intends to navigate away.
+The beforeunload event is fired _right before_ the page is about to be unloaded, such as when the user is navigating away, closing the tab, or refreshing the page. This event gives you the opportunity to display a confirmation dialog to the user, asking if they are sure they want to leave the page. This is often used in situations where users might have unsaved changes, or the website needs to ensure the user intends to navigate away.
 
 - Use this event if you need to warn the user about unsaved data or critical actions before they leave the page.
 
 ```js
 window.addEventListener('beforeunload', function (e) {
-    // Custom message is ignored by most modern browsers, but it still triggers a confirmation.
-    e.preventDefault();
-    e.returnValue = ''; // Some browsers require this for the dialog to show
-});
+  // Custom message is ignored by most modern browsers, but it still triggers a confirmation.
+  e.preventDefault()
+  e.returnValue = '' // Some browsers require this for the dialog to show
+})
 ```
 
 ---
 hideInToc: true
 ---
 
- # unload
+# unload
 
 The unload event is fired when the page is being completely unloaded. Unlike beforeunload, it does not offer a way to stop the user from leaving or display any confirmation message. It is mostly used for cleanup purposes, such as closing WebSockets, sending analytics data, or saving state to local storage right before the user navigates away from the page.
 
@@ -80,11 +81,10 @@ The unload event is fired when the page is being completely unloaded. Unlike bef
 
 ```js
 // Example
-  window.addEventListener('unload', function () {
-      // Perform cleanup or send analytics
-      console.log('Page is unloading');
-  });
-
+window.addEventListener('unload', function () {
+  // Perform cleanup or send analytics
+  console.log('Page is unloading')
+})
 ```
 
 ---
@@ -117,12 +117,12 @@ hideInToc: true
 
 # async
 
-When you add the async attribute to a script tag, the browser downloads the script in parallel with the HTML parsing, and executes it *as soon as it's ready* (before the HTML parsing is complete). This is useful for scripts that do not rely on the DOM or other scripts being fully loaded.
+When you add the async attribute to a script tag, the browser downloads the script in parallel with the HTML parsing, and executes it _as soon as it's ready_ (before the HTML parsing is complete). This is useful for scripts that do not rely on the DOM or other scripts being fully loaded.
 
 - The script is fetched and executed asynchronously, independently of the DOM.
 - The script might execute before or after the DOM is fully parsed.
 - Other scripts that do not use async or defer might still block the page load.
-In other words, async scripts load in the background and run when ready
+  In other words, async scripts load in the background and run when ready
 
 ```js
 // Example
@@ -144,7 +144,7 @@ hideInToc: true
 
 # defer
 
-When you use the defer attribute, the browser downloads the script in parallel with HTML parsing but *executes it only after the HTML document is fully parsed*. This is ideal for scripts that need to interact with the DOM but don't need to block the page from rendering.
+When you use the defer attribute, the browser downloads the script in parallel with HTML parsing but _executes it only after the HTML document is fully parsed_. This is ideal for scripts that need to interact with the DOM but don't need to block the page from rendering.
 
 - Scripts are fetched asynchronously, but execution is deferred until after the document is fully parsed.
 - Scripts with defer are executed in order, even if multiple defer scripts are on the page.
@@ -191,49 +191,44 @@ hideInToc: true
 ```js
 // Example
 function loadScript(src) {
-  let script = document.createElement('script'); 
-  script.src = src; script.async = false; 
-  document.body.append(script);
+  let script = document.createElement('script')
+  script.src = src
+  script.async = false
+  document.body.append(script)
 }
 
 // long.js runs first because of async=false
-loadScript("/article/script-async-defer/long.js");
-loadScript("/article/script-async-defer/small.js");
+loadScript('/article/script-async-defer/long.js')
+loadScript('/article/script-async-defer/small.js')
 ```
 
 <div flex="~ row" gap-2>
 
 ```js
 function loadScript(src, callback) {
-    let script = document.createElement('script')
+  let script = document.createElement('script')
 
-    script.src = src;
-    script.onload = () => callback(null, script);
-    script.onerror = () => callback(
-        new Error(`Script load error for ${src}`)
-    );
-    document.head.append(script);
+  script.src = src
+  script.onload = () => callback(null, script)
+  script.onerror = () => callback(new Error(`Script load error for ${src}`))
+  document.head.append(script)
 }
 ```
 
 ```js
 function loadScript(src) {
-    return new Promise((resolve, reject) => {
-        let script = document.createElement('script'); 
-        
-        script.src = src;
-        script.onload = () => resolve(script);
-        script.onerror = () => reject(
-            new Error(`Script load error for ${src}`)
-        ); 
-        document.head.append(script); 
-    });
+  return new Promise((resolve, reject) => {
+    let script = document.createElement('script')
+
+    script.src = src
+    script.onload = () => resolve(script)
+    script.onerror = () => reject(new Error(`Script load error for ${src}`))
+    document.head.append(script)
+  })
 }
 ```
 
 </div>
-
-
 
 ---
 hideInToc: true
@@ -253,6 +248,7 @@ hideInToc: true
 ---
 
 # image
+
 Images (`<img>`):
 
 - You can use both inline attributes (onload/onerror) or JavaScript event listeners
@@ -268,10 +264,10 @@ img.addEventListener('load', function() {
     this.classList.add('loaded');
 });
 
-img.addEventListener('error', function() { 
-    console.log('Error loading image'); 
-    this.src = 'fallback.jpg'; 
-    this.classList.add('error'); 
+img.addEventListener('error', function() {
+    console.log('Error loading image');
+    this.src = 'fallback.jpg';
+    this.classList.add('error');
 });
 </script>
 ```
@@ -289,22 +285,23 @@ hideInToc: true
 ```js
 <script src="external.js" onload="console.log('Script loaded!')" onerror="console.log('Script failed to load')"> </script>
 
-// Dynamic script loading with JavaScript 
+// Dynamic script loading with JavaScript
 <script>
     function loadScript(url) {
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = url;
-            
+
             script.onload = function() { console.log('Script loaded successfully!'); resolve(script); };
-            
+
             script.onerror = function() { console.log('Error loading script'); reject(new Error(`Script load error for ${url}`)); };
-            
+
             document.head.appendChild(script);
         });
     }
 </script>
 ```
+
 ---
 hideInToc: true
 ---
@@ -316,7 +313,7 @@ hideInToc: true
 - Useful for loading conditional stylesheets (e.g., theme files)
 
 ```js
-// Inline attributes method 
+// Inline attributes method
 <link rel="stylesheet" href="styles.css" onload="console.log('Stylesheet loaded!')" onerror="console.log('Stylesheet failed to load')">
 {/* Dynamic stylesheet loading with JavaScript */}
 <script>
@@ -325,16 +322,17 @@ hideInToc: true
             const link = document.createElement('link'); link.rel = 'stylesheet'; link.href = url;
             link.onload = function() { console.log('Stylesheet loaded successfully!'); resolve(link); };
             link.onerror = function() { console.log('Error loading stylesheet'); reject(new Error(`Stylesheet load error for ${url}`)); };
-            
+
             document.head.appendChild(link);
         });
     }
     {/* Usage
     loadStylesheet('https://example.com/styles.css')
-        .then(() => console.log('Stylesheet is ready!')) 
+        .then(() => console.log('Stylesheet is ready!'))
         .catch(error => console.error('Stylesheet loading failed:', error)); */}
 </script>
 ```
+
 ---
 hideInToc: true
 ---

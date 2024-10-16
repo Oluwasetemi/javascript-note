@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 const html = ref(`
   <!DOCTYPE HTML>
@@ -15,14 +15,12 @@ const html = ref(`
   </html>
 `)
 
-const dom = new DOMParser().parseFromString(html.value, 'text/html');
+const dom = new DOMParser().parseFromString(html.value, 'text/html')
 
 // handle html and its children
-const htmlChildren = Array.from(dom.documentElement.children);
-const headChildren = Array.from(dom.head.childNodes);
-const bodyChildren = Array.from(dom.body.childNodes);
-
-
+const htmlChildren = Array.from(dom.documentElement.children)
+const headChildren = Array.from(dom.head.childNodes)
+const bodyChildren = Array.from(dom.body.childNodes)
 </script>
 
 <template>
@@ -33,11 +31,21 @@ const bodyChildren = Array.from(dom.body.childNodes);
       <summary>HTML</summary>
       <details ml-5 v-for="(child, index) in htmlChildren" :key="index">
         <summary>{{ child.tagName }}</summary>
-        <details v-if="child.tagName == 'HEAD'" ml-5 v-for="(headChild, hIndex) in headChildren" :key="hIndex">
+        <details
+          v-if="child.tagName == 'HEAD'"
+          ml-5
+          v-for="(headChild, hIndex) in headChildren"
+          :key="hIndex"
+        >
           <summary>{{ headChild.tagName || headChild.nodeName }}</summary>
           <p>{{ headChild.textContent.replaceAll('\n', 'n') }}</p>
         </details>
-        <details v-if="child.tagName == 'BODY'" ml-5 v-for="(bodyChild, bIndex) in bodyChildren" :key="bIndex">
+        <details
+          v-if="child.tagName == 'BODY'"
+          ml-5
+          v-for="(bodyChild, bIndex) in bodyChildren"
+          :key="bIndex"
+        >
           <summary>{{ bodyChild.nodeName }}</summary>
           <p>{{ bodyChild.textContent.replaceAll('\n', 'n') }}</p>
         </details>

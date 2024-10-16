@@ -14,7 +14,7 @@ export:
   timeout: 60000
   dark: false
   withClicks: false
-  withToc: true
+  withToc: false
 # TODO: add a svg favicon
 # favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center
@@ -53,6 +53,7 @@ JavaScript Class Note
 <!--
 Notes: show on the speaker view
 -->
+
 ---
 hideInToc: true
 ---
@@ -60,6 +61,7 @@ hideInToc: true
 # Table of contents
 
 <Toc columns="2" minDepth="1" maxDepth="2"></Toc>
+
 ---
 
 # Getting Started With JavaScript?
@@ -87,7 +89,6 @@ layout: center
 ---
 src: ./pages/fundamentals.md
 ---
-
 
 ---
 name: Code Quality
@@ -139,11 +140,9 @@ layout: center
 <div mt1 forward:delay-300 v-click>Deep Dive into Functions</div>
 </h1>
 
-
 ---
 src: ./pages/functions.md
 ---
-
 
 ---
 name: Objects
@@ -198,7 +197,6 @@ layout: center
 ---
 src: ./pages/error-handling.md
 ---
-
 
 ---
 name: Promises and Async
@@ -444,7 +442,9 @@ hideInToc: true
 
 # Contributors
 
-- [Kofoworola Shonuyi](https://github.com/Rolalove)
-- [Omotoso Abosede Racheal](https://github.com/Racheal-cloud)
-<!-- - [Adebosin Ridwan](https://github.com/RidwanAdebosin)
-- [Olubebe Faith](https://github.com/Olubebe) -->
+- {@Rolalove}
+- {@Racheal-cloud}
+- {@kolapowariz}
+- {@ChidinmaNwosu}
+- {@RidwanAdebosin}
+- {@Olubebe}
