@@ -41,11 +41,12 @@ If you have an idea for an enhancement, please open an issue [here](https://gith
 ### Follow this Guide Religiously
 
 - Create an issue for the section of the note you will be working on.
-- Title should be the section of the note you will be working on.(One of the section in the `pages` directory)
-- Body of the issues should match the content listed on the section. Follow [`mdn`](https://mdn.io), [`javascript.info`](https://javascript.info/) or any informational guide.
-- You will need to need a knowledge of `markdown` and [sli.dev](https://sli.dev/) to create the content.
+- The title should be the section of the note you will be working on. (One of the sections in the `pages` directory)
+- The body of the issues should match the content listed in the section.
+- Follow [`mdn`](https://mdn.io), [`javascript.info`](https://javascript.info/) or any informational guide.
+- To create the content, you will need to know `markdown` and [sli.dev](https://sli.dev/).
 - Ensure you test changes locally and after making the pr test using the netlify generated link.
-- assign the right label to the issue and link the issue to the pr.
+- Assign the right label to the issue and link the issue to the pr.
 
 ### Previous Notes
 
