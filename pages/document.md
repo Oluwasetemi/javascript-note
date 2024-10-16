@@ -225,7 +225,7 @@ You can search for elements in the DOM tree using the following methods:
 - `matches`, `closest`
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="83"]`);
+const element = document.querySelector(`[data-slidev-no="93"]`);
 // add a id, class to the element
 console.log(element.id); console.log(element.className); console.log(element.tagName); console.log(element.tagName.toLowerCase());console.log(element.name);
 ```
@@ -246,7 +246,7 @@ Important classes to understand the node properties includes - `EventTarget`, `N
 
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="84"]`);
+const element = document.querySelector(`[data-slidev-no="94"]`);
 
 console.dir(element)
 ```
@@ -283,7 +283,7 @@ console.log(element.getAttribute('data-slidev-no')); console.log(element.getAttr
 ## `setAttribute`, `removeAttribute`, `hasAttribute`, `attributes`
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="85"]`);
+const element = document.querySelector(`[data-slidev-no="95"]`);
 
 element.setAttribute('data-slidev-no', '85'); console.log(element.dataset.slidevNo);
 element.removeAttribute('data-slidev-no'); console.log(element.dataset.slidevNo);
@@ -369,7 +369,7 @@ strong.appendChild(textNode1);
 div.appendChild(strong);
 div.appendChild(textNode2);
 
-const element = document.querySelector(`[data-slidev-no="87"] .default`);
+const element = document.querySelector(`[data-slidev-no="97"] .default`);
 element.prepend(div);
 ```
 
@@ -405,7 +405,7 @@ div.appendChild(textNode2);
 fragment.appendChild(div);
 // fragment.appendChild(div.cloneNode(true));
 
-const element = document.querySelector(`[data-slidev-no="88"] .default`);
+const element = document.querySelector(`[data-slidev-no="98"] .default`);
 element.prepend(fragment);
 ```
 
@@ -455,7 +455,7 @@ You can get the size and position of the elements using the following methods:
 - `scrollWidth`, `scrollHeight`, `scrollLeft`, `scrollTop`
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="70"] .view-lines`);
+const element = document.querySelector(`[data-slidev-no="100"] .view-lines`);
 
 console.log(element.offsetWidth); console.log(element.offsetHeight); console.log(element.offsetLeft); console.log(element.offsetTop); console.log(element.offsetParent);
 console.log(element.clientWidth); console.log(element.clientHeight); console.log(element.clientLeft); console.log(element.clientTop);
@@ -561,7 +561,7 @@ Remember that element appended to a page using coordinates from another element 
 
 ```js{monaco-run} {autorun: false}
 // FIX: use the deprecated pageXOffset and pageYOffset with the right values
-const element = document.querySelector(`[data-slidev-no="74"] h1`);
+const element = document.querySelector(`[data-slidev-no="104"] h1`);
 function getCoords(elem) { let box = elem.getBoundingClientRect(); return { top: box.top + window.pageYOffset, right: box.right + window.pageXOffset, bottom: box.bottom + window.pageYOffset, left: box.left + window.pageXOffset }; }
 console.log(getCoords(element));
 ```
@@ -590,7 +590,7 @@ clicksStart: 1
 [Use JavaScript to create the class activity image entirely.]{.text-xl}
 
 
-<GeneralQuote @click="$slidev.nav.next()"  quote="See you on the other side, where we will discuss the Events in JavaScript, May the forth be with you."  />
+<GeneralQuote @click="$slidev.nav.next()"  quote="See you on the other side, where we will discuss the Events in JavaScript, May the fourth be with you."  />
 
 # References
 
