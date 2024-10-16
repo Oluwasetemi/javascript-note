@@ -25,6 +25,7 @@
     "@slidev/types": "0.50.0-beta.3",
     "@vue/compiler-sfc": "^3.5.10",
     "markdown-it-magic-link": "^0.1.4",
+    "nano-staged": "^0.8.0",
     "nodemon": "^3.1.7",
     "playwright-chromium": "^1.47.2",
     "prettier": "^3.3.3",
@@ -34,6 +35,9 @@
   "simple-git-hooks": {
     "pre-push": "npm run format",
     "preserveUnused": true
+  },
+  "nano-staged": {
+    "*.{js,ts,md,vue,json}": "prettier --write"
   },
   "license": "MIT",
   "packageManager": "npm@10.9.0"
