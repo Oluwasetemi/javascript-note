@@ -97,7 +97,7 @@ interface AddEventListenerOptions extends EventListenerOptions {
 ```
 
 ```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="81"] h1`)
+const elem = document.querySelector(`[data-slidev-no="111"] h1`)
 const handler = () => alert('Click!');
 elem.addEventListener('click', handler, {once: true});
 // elem.addEventListener('mouseover', handler);
@@ -118,7 +118,7 @@ hideInToc: true
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler. 
 
 ```js {monaco-run}{autorun: false}
-const elem = document.querySelector(`[data-slidev-no="82"] h1`)
+const elem = document.querySelector(`[data-slidev-no="112"] h1`)
 
 elem.addEventListener('click', function(event) {
   // show the event type, the element and the coordinates of the click
@@ -186,7 +186,7 @@ hideInToc: true
 <v-clicks>
 
 ```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="84"] h1`)
+const elem = document.querySelector(`[data-slidev-no="114"] h1`)
 const parent = elem.parentElement;
 const grandParent = parent.parentElement;
 
@@ -347,14 +347,14 @@ When an event happens, the browser does something with it. For instance, a click
 To prevent the default action, we can use `event.preventDefault()`. returning `false` from an event handler is the same as calling `event.preventDefault()` and `event.stopPropagation()`.
 
 ```js {monaco-run}
-const link = document.querySelector(`[data-slidev-no="88"] a`)
+const link = document.querySelector(`[data-slidev-no="118"] a`)
 link.addEventListener('click', function(event) {
   event.preventDefault(); event.stopPropagation();
   alert('Link click!');
 });
 ```
 ```js {monaco-run}
-const h1 = document.querySelector(`[data-slidev-no="88"] h1`)
+const h1 = document.querySelector(`[data-slidev-no="118"] h1`)
 h1.oncontextmenu = function(event) {
   alert('Content menu clicked');
 };
@@ -421,7 +421,7 @@ elem.addEventListener('hello', function(event) {
 For completely new events, we can use `CustomEvent` class. It has an additional `detail` property to pass custom data.
 
 ```js {monaco-run}{autorun: false}
-const element = document.querySelector(`[data-slidev-no="90"] h1`)
+const element = document.querySelector(`[data-slidev-no="120"] h1`)
 element.onclick = function() { element.dispatchEvent(new CustomEvent("hello", { detail: { name: "John" } })); };
 element.addEventListener('hello', function(event) {
   console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');
