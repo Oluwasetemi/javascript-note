@@ -6,6 +6,7 @@ hideInToc: true
 ---
 
 # Functions
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Recursion and Stack</a>
@@ -17,7 +18,6 @@ hideInToc: true
 - Decorators and Forwarding, call/apply, bind
 - Function binding
 - Arrow functions in details
-
 
 ---
 hideInToc: true

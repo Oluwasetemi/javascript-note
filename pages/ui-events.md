@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # UI Events
+
 <div mt-2 />
 
 - Mouse events
@@ -13,7 +14,6 @@ hideInToc: true
 - Pointer events
 - Keyboard: keydown and keyup
 - Scrolling
-
 
 ---
 hideInToc: true
