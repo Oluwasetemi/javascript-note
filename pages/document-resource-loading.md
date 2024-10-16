@@ -7,9 +7,9 @@ hideInToc: true
 # Document Resource Loading
 <div mt-2 />
 
-- Page: DOMContentLoaded, load, beforeunload, unload
-- Scripts: async, defer, dynamic scripts
-- Resource loading: onload and onerror for `<img>`, `<script>`, `<link>`, `<style>`
+- <a @click="$slidev.nav.next()">Page: DOMContentLoaded, load, beforeunload, unload</a>
+- <a @click="$nav.go($nav.currentPage+5)">Scripts: async, defer, dynamic scripts</a>
+- <a @click="$nav.go($nav.currentPage+10)">Resource loading: onload and onerror for `<img>`, `<script>`, `<link>`, `<style>`</a>
 
 
 ---
