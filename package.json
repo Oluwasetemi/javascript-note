@@ -31,6 +31,10 @@
     "prettier-plugin-slidev": "^1.0.5",
     "simple-git-hooks": "^2.11.1"
   },
+  "simple-git-hooks": {
+    "pre-push": "npm run format",
+    "preserveUnused": true
+  },
   "license": "MIT",
   "packageManager": "npm@10.9.0"
 }
