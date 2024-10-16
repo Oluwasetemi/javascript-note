@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Fundamentals
+
 <div mt-2 />
 
 - Variables
@@ -16,26 +17,25 @@ hideInToc: true
 - Loops: while, for, for..in, for..of
 - Functions: Declaration, Arrow functions, Function Expressions
 
-
 ---
 hideInToc: true
 ---
 
 # Variables: `let`, `const` and `var`
 
-- Variables are containers for storing data. You can declare variables using `var`, `let`, or `const`. 
+- Variables are containers for storing data. You can declare variables using `var`, `let`, or `const`.
 <h4 class=' text-[#5D8392]'>Variables Naming convention </h4>
 
-1. The first character must not be a digit. 
+1. The first character must not be a digit.
 
-2. When the name contains multiple words, use <span text-red>Camel Case. </span> 
+2. When the name contains multiple words, use <span text-red>Camel Case. </span>
 
-3. Reserved words ( like JavaScript keywords ) cannot be used as names. 
+3. Reserved words ( like JavaScript keywords ) cannot be used as names.
 
 4. Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.
 
-5.  Make names maximally descriptive and concise.
-6. Separate multiple words with underscore ( _ )
+5. Make names maximally descriptive and concise.
+6. Separate multiple words with underscore ( \_ )
 
 ```js{monaco-run} {autorun: false}
 let message;
@@ -52,22 +52,23 @@ hideInToc: true
 - Variables declared with <span class='text-red'> const </span> do not change and cannot be reassigned.
 
 ```js {monaco-run}
-const tutor = "Mr Setemi"
+const tutor = 'Mr Setemi'
 console.log(tutor)
 // the data Mr setemi is now assigned to variable tutor
-tutor = "Mr Ojo" //can not be reassigned
+tutor = 'Mr Ojo' //can not be reassigned
 // Therefore values that can change later on should not be declare with const
 ```
 
 ### Variable{.text-common} `let` and `var`
 
-- Variables declared with  <span class="text-red">'let'</span> and <span class="text-red">'var'</span> can change and be reassigned.
+- Variables declared with <span class="text-red">'let'</span> and <span class="text-red">'var'</span> can change and be reassigned.
 
 ```js {monaco-run}
-let tech_School = "Altschool";
-tech_School = "Altschool Africa"; // Tech school is now reassigned to Altschool Africa
+let tech_School = 'Altschool'
+tech_School = 'Altschool Africa' // Tech school is now reassigned to Altschool Africa
 console.log(tech_School)
-var hobby = 'reading'; hobby = 'coding';
+var hobby = 'reading'
+hobby = 'coding'
 console.log(hobby)
 ```
 
@@ -78,7 +79,7 @@ hideInToc: true
 - Examples
 
 ```js
-// The first character must not be a digit. 
+// The first character must not be a digit.
 let 1first;    ❌
 let firstName; ✅
 Const test123; ✅
@@ -92,7 +93,7 @@ let myverylongname; ❌
 ```
 
 ```js
-// Reserved words (like JavaScript keywords) cannot be used as names 
+// Reserved words (like JavaScript keywords) cannot be used as names
 let if; ❌
 let boolean; ❌
 let else; ❌
@@ -101,17 +102,18 @@ let else; ❌
 ```js
 // Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.
 //  Make names maximally descriptive and concise.
-let currentUser = 'John Doe' ; 
+let currentUser = 'John Doe'
 let data = 'John Doe'
 let x = 'John Doe'
 // Which is descriptive? currentUser
 ```
-        
+
 ---
 hideInToc: true
 ---
 
 # [Data types]{.text-common}
+
 - A value in javascript is always of a certain type.
 
 - Numbers can be written with or without decimals, that is represent both integer and floating point numbers.
@@ -135,8 +137,8 @@ let snacks = "meatpie' // It is very wrong, if you want to use double quote then
 - Boolean type has only two values: True and False
 
 ```js
-let isUserLoggedIn = true;
-let isLagosBig = false 
+let isUserLoggedIn = true
+let isLagosBig = false
 ```
 
 ---
@@ -146,14 +148,14 @@ hideInToc: true
 - Undefined indicate that a variable has not been assigned a value, or not declared at all.
 
 ```js
-let age; // the variable age was declared but not assigned a value
+let age // the variable age was declared but not assigned a value
 let age = undefined //it also possible to explicitly assign undefined to a variable
 ```
 
 - BigInt are used to store big integer values that too big to be represented by normal Javascript Number
 
 ```js
-const bigInt = 123456789012345678901234567890n; // the "n" at the end means it's a BigInt
+const bigInt = 123456789012345678901234567890n // the "n" at the end means it's a BigInt
 ```
 
 - Object are used to store collections of data.
@@ -166,14 +168,14 @@ const car = { type: 'Fiat', model: '500', color: 'white' }
 - It used to create a unique identifier for objects
 
 ```js
-const mySymbol = Symbol('unique identifier');
-const person = { name: 'Alice', [mySymbol]: 'secret information' };
+const mySymbol = Symbol('unique identifier')
+const person = { name: 'Alice', [mySymbol]: 'secret information' }
 ```
 
 - Null: It a special value which represents "nothing", "empty" or "value unknown"
 
 ```js
-let age = null;
+let age = null
 ```
 
 ---
@@ -184,13 +186,25 @@ name: More on Variable Declaration
 Example: To know the type of a value in JS use <span class="text-red"> typeof </span>
 
 ```js {monaco-run}
-let name = 'John Dev'; let age = 21; let isMarried = false; let height = null; let weight = undefined;
-const mySymbol = Symbol('unique identifier');
+let name = 'John Dev'
+let age = 21
+let isMarried = false
+let height = null
+let weight = undefined
+const mySymbol = Symbol('unique identifier')
 const person = {
   name: 'Alice',
-  [mySymbol]: 'secret information'
-};
-console.log(typeof name, typeof age, typeof isMarried, typeof height, typeof weight, typeof person, typeof mySymbol)
+  [mySymbol]: 'secret information',
+}
+console.log(
+  typeof name,
+  typeof age,
+  typeof isMarried,
+  typeof height,
+  typeof weight,
+  typeof person,
+  typeof mySymbol,
+)
 ```
 
 - Note: the typeof null returns object
@@ -226,7 +240,6 @@ alert('Hello V4 Frontend Developer, Enjoying Javascript so far?')
 - It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
 - It accepts two arguments. <br> The syntax:
 
-
 ---
 hideInToc: true
 ---
@@ -237,7 +250,10 @@ result = prompt(text to show visitor, [default]) //default is an optional parame
 
 ```js {monaco-run} {autorun:false}
 interview_Question = prompt('What is the full meaning of CSS?', '')
-console.log(interview_Question === 'Cascading Style Sheet' || interview_Question === 'cascading style sheet')
+console.log(
+  interview_Question === 'Cascading Style Sheet' ||
+    interview_Question === 'cascading style sheet',
+)
 ```
 
 #### Confirm{.text-common}
@@ -246,12 +262,12 @@ console.log(interview_Question === 'Cascading Style Sheet' || interview_Question
 - The syntax:
 
 ```js
-result = confirm(question);
+result = confirm(question)
 ```
 
 ```js {monaco-run} {autorun:false}
-let altschoolStatus = confirm("Are you a v4 student ?");
-console.log(altschoolStatus);
+let altschoolStatus = confirm('Are you a v4 student ?')
+console.log(altschoolStatus)
 ```
 
 ---
@@ -267,10 +283,15 @@ hideInToc: true
 3. Boolean coversion - `Boolean` constructor or `!!`
 
 ```js {monaco-run} {autorun:false, lines:true}
-console.log(typeof String(2)); console.log(typeof Number(2).toString());
-let value = '10';
-console.log(typeof Number('12')); console.log(typeof +value); console.log(typeof parseInt(value)); console.log(typeof parseFloat('10.34'))
-console.log(Boolean(value)); console.log(!!value);
+console.log(typeof String(2))
+console.log(typeof Number(2).toString())
+let value = '10'
+console.log(typeof Number('12'))
+console.log(typeof +value)
+console.log(typeof parseInt(value))
+console.log(typeof parseFloat('10.34'))
+console.log(Boolean(value))
+console.log(!!value)
 ```
 
 There is a concept that says everything in JavaScript is truthy while `false`, `0`, `''`, `NaN`, `null`, `undefined` are falsy.
@@ -281,15 +302,15 @@ hideInToc: true
 
 # Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
 
-### The following operators are supported in Js 
+### The following operators are supported in Js
 
 <div flex="~ row" gap-4xl>
 
 <div>
 
-- Addition  ( + )
+- Addition ( + )
 - Subtraction ( - )
-- Multiplication  ( * )
+- Multiplication ( \* )
 
 </div>
 
@@ -297,16 +318,20 @@ hideInToc: true
 
 - Division ( / )
 - Remainder ( % )
-- Exponentiation ( ** )
+- Exponentiation ( \*\* )
 
 </div>
 
 </div>
 
 ```js {monaco-run}
-let sumOfTwoNumbers = 20 + 309; let differenceOfTheIntegers = 90 - 45;
-let mul = 2 * 97; let div = 24 / 2; let mod =  59 % 7; let expo = 2 ** 4;
-console.log({sumOfTwoNumbers, differenceOfTheIntegers, mul, div, mod, expo})
+let sumOfTwoNumbers = 20 + 309
+let differenceOfTheIntegers = 90 - 45
+let mul = 2 * 97
+let div = 24 / 2
+let mod = 59 % 7
+let expo = 2 ** 4
+console.log({ sumOfTwoNumbers, differenceOfTheIntegers, mul, div, mod, expo })
 ```
 
 ---
@@ -317,16 +342,18 @@ hideInToc: true
 
 - In JavaScript, we use special symbols called <span class="text-red">operators</span> to make these comparison. All comparison operators return a boolean value.
 - Here are the main comparison operators:
-1. Equals to ( == ):  This checks if two values are the same, it does not care about the type.<br>
-<span text-red>Note:</span> ( = ), it an assignment operator and it is different from the double ( == ).
+
+1. Equals to ( == ): This checks if two values are the same, it does not care about the type.<br>
+   <span text-red>Note:</span> ( = ), it an assignment operator and it is different from the double ( == ).
 
 ```js {monaco-run}
 console.log(5 == '5')
 ```
+
 2. Strictly equal to ( === ): This checks if two values are the same AND of the same type.
 
 ```js {monaco-run}
-console.log( 5 === "5")
+console.log(5 === '5')
 ```
 
 ---
@@ -337,8 +364,9 @@ name: More on Operators
 3. Not equal to ( != ): This checks if two values are different.
 
 ```js {monaco-run}
-console.log( 5 != '6')
+console.log(5 != '6')
 ```
+
 4. Greater than ( > ): Checks if the left value is bigger than the right.
 
 ```js {monaco-run}
@@ -348,12 +376,12 @@ console.log(10 > 5)
 5. Less than ( < ): Checks if the left value is smaller is smaller than the right.
 
 ```js {monaco-run}
-console.log( 5 < 10)
+console.log(5 < 10)
 ```
 
 6. Greater than or equal to ( >= ): Checks if the left value is bigger than or the same as the right.
 
-```js  {monaco-run}
+```js {monaco-run}
 console.log(10 >= 10)
 ```
 
@@ -362,20 +390,21 @@ hideInToc: true
 name: More Examples on Operators
 ---
 
-7. Less than or equal to ( <= ): Checks if the left is smaller than or the same as the right. 
+7. Less than or equal to ( <= ): Checks if the left is smaller than or the same as the right.
 
 ```js {monaco-run}
-console.log(5 <= 5 )
+console.log(5 <= 5)
 ```
 
 - Example: Age-based content access
 
 ```js {monaco-run}
-let userAge = 15; let contentRating = 13;
+let userAge = 15
+let contentRating = 13
 if (userAge >= contentRating) {
-    console.log('Access granted to the content');
+  console.log('Access granted to the content')
 } else {
-    console.log("sorry, you're too young for this content")
+  console.log("sorry, you're too young for this content")
 }
 ```
 
@@ -396,6 +425,7 @@ alert(true || false); alert('Boy' || 4)
 ```js{monaco-run} {autorun: false}
 alert(true && true); alert(false && true)
 ```
+
 3. ! (NOT): it inverts the truth value of an expression, meaning returns false if expression is truthy, and true if expression is falsy. `result = !expression;`
 
 ```js{monaco-run} {autorun: false}
@@ -418,8 +448,8 @@ hideInToc: true
 - Expression2 is the default value to be returned if expression1 is null or undefined.
 
 ```js {monaco-run} {autorun: false}
-let name;
-let greeting = name ?? `Hello, Stranger!`;
+let name
+let greeting = name ?? `Hello, Stranger!`
 console.log(greeting)
 ```
 
@@ -430,13 +460,15 @@ hideInToc: true
 # [Conditional Branching: if, '?', switch]{.text-common}
 
 - Very often when you write code, you want to perform different actions for different conditions, Welcome to conditional branching.
-- <span class='text-[#5D8392]'>The If statement </span>:  it evaluate a condition and if the result is true, execute a block of code.
+- <span class='text-[#5D8392]'>The If statement </span>: it evaluate a condition and if the result is true, execute a block of code.
 - Syntax:
+
 ```js
 if (condition) {
-    //block of code to be executed if the condition is true
+  //block of code to be executed if the condition is true
 }
 ```
+
 <br>
 ```js {monaco-run} {autorun:false}
 let day = 'Monday' 
@@ -452,10 +484,10 @@ name: Conditional Expressions
 ---
 
 ```js
-let size = 25;
-if (size == 20){
-    alert('Your size is 20')
-    alert('Thank you')
+let size = 25
+if (size == 20) {
+  alert('Your size is 20')
+  alert('Thank you')
 }
 ```
 
@@ -463,18 +495,19 @@ if (size == 20){
 
 ```js
 if (condition) {
-    //block of code to be executed if code is true
+  //block of code to be executed if code is true
 } else {
-    //block of code to be executed if condition is false
+  //block of code to be executed if condition is false
 }
 ```
 
 ```js {monaco-run} {autorun:false}
-let age = 20; let canVote;
+let age = 20
+let canVote
 if (age < 18) {
-    canVote = `User can't vote`;
+  canVote = `User can't vote`
 } else {
-    canVote = `user can vote`
+  canVote = `user can vote`
 }
 console.log(canVote)
 ```
@@ -486,26 +519,27 @@ name: Nested If Statements
 
 - <span class='text-[#5D8392]'>The else if statement </span>: use the else if statement to specify a new condition if the first condition is false. Used to test several variants of a condition.
 
-```js 
+```js
 if (condition1) {
-    // block of code to be executed if condition1 is true
-}else if (condition2) {
-    //block of code to be executed if condition1 is false and condition2 is true
+  // block of code to be executed if condition1 is true
+} else if (condition2) {
+  //block of code to be executed if condition1 is false and condition2 is true
 } else {
-    //block of code to be executed if condition1 is false and condition2 is false
-} 
+  //block of code to be executed if condition1 is false and condition2 is false
+}
 ```
 
 - Example:
 
 ```js {monaco-run} {autorun:false}
-let age = 20; let canVote;
+let age = 20
+let canVote
 if (age < 18) {
-    canVote = `User can't vote`;
-} else if ( age == 18 ) {
-    canVote = `user Can vote`;
+  canVote = `User can't vote`
+} else if (age == 18) {
+  canVote = `user Can vote`
 } else {
-    canVote = `user is a senior citizen`
+  canVote = `user is a senior citizen`
 }
 console.log(canVote)
 ```
@@ -517,49 +551,52 @@ name: Switch Statements
 
 - <span class='text-[#5D8392]'>Switch </span>: A switch statement can replace multiple if checks. it gives a cleaner way of comparing a value with multiple variant
 - Syntax
+
 ```js
 switch (expression) {
-    case x:
+  case x:
     // block code
-    break;
-    case y:
+    break
+  case y:
     // block code
-    break;
-    default:
-    // code block
+    break
+  default:
+  // code block
 }
 ```
+
 ---
 hideInToc: true
 name: Switch Example
 ---
 
-
-```js {monaco-run} 
-let day;
-switch (new Date().getDay()){
-    case 0:
-        day = "sunday"
-    break;
-    case 1:
-        day = 'Monday'
-    break;
-    case 2:
-        day = 'Tuesday'
-    break;
-    case 3:
-        day = 'Wednesday'
-    break;
-    case 4:
-        day = 'Thursday'
-    break;
-    case 5:
-        day = 'Friday'
-    break;
-    case 6:
-        day = 'Saturday'
-    break;
-    default: day = 'Cannot be reached'; break;
+```js {monaco-run}
+let day
+switch (new Date().getDay()) {
+  case 0:
+    day = 'Sunday'
+    break
+  case 1:
+    day = 'Monday'
+    break
+  case 2:
+    day = 'Tuesday'
+    break
+  case 3:
+    day = 'Wednesday'
+    break
+  case 4:
+    day = 'Thursday'
+    break
+  case 5:
+    day = 'Friday'
+    break
+  case 6:
+    day = 'Saturday'
+    break
+  default:
+    day = 'Cannot be reached'
+    break
 }
 console.log(`Today is ${day}`)
 ```
@@ -574,16 +611,18 @@ name: Ternary Operator
 ```js
 condition ? expressionIfTrue : expressionIfFalse
 ```
+
 - Example
+
 ```js {monaco-run} {autorun:false}
-let age = 20;
-let canVote = age >=18 ? 'Yes' : 'No'
+let age = 20
+let canVote = age >= 18 ? 'Yes' : 'No'
 console.log(canVote)
 ```
 
 ```js {monaco-run} {autorun:false}
-let temperature = 25;
-let weather = temperature  > 30 ? 'Hot' : 'Moderate';
+let temperature = 25
+let weather = temperature > 30 ? 'Hot' : 'Moderate'
 console.log(weather)
 ```
 
@@ -596,9 +635,9 @@ hideInToc: true
 - <span class='text-[#5D8392]'>The 'while' loop</span> : loops through a block of code as long as a specified condition is true.
 
 ```js
-while(condition){
-    //code block to be executed
-} 
+while (condition) {
+  //code block to be executed
+}
 ```
 
 <div flex="~ row" gap-10>
@@ -606,10 +645,10 @@ while(condition){
 <div flex="1">
 
 ```js {monaco-run} {autorun:false}
-let i = 0;
-while ( i < 3 ){
-    console.log(i);
-    i++;
+let i = 0
+while (i < 3) {
+  console.log(i)
+  i++
 }
 ```
 
@@ -618,11 +657,11 @@ while ( i < 3 ){
 <div flex="1">
 
 ```js {monaco-run} {autorun:false}
-let i = 0;
+let i = 0
 do {
-    console.log(i);
-    i++;
-} while ( i < 3 )
+  console.log(i)
+  i++
+} while (i < 3)
 ```
 
 </div>
@@ -638,7 +677,7 @@ for (initialization part; condition check; increment part){
 
 - Initialization part: is executed (one time) before the execution of the code block
 - Condition Check: defines the condition for executing the code block.
-- Increment: is executed (every time )  after the code block has been executed
+- Increment: is executed (every time ) after the code block has been executed
 
 ---
 hideInToc: true
@@ -647,7 +686,7 @@ name: For of Loop
 
 ```js {monaco-run} {autorun:false}
 for (let i = 0; i < 3; i++) {
-    console.log(i)
+  console.log(i)
 }
 ```
 
@@ -655,9 +694,9 @@ for (let i = 0; i < 3; i++) {
 <p>Iterable is an object that has iterable properties, simple put is an object that has countable values</p>
 
 ```js {monaco-run} {autorun:false}
-let language = 'JavaScript' 
+let language = 'JavaScript'
 for (const char of language) {
-    console.log(`character is : ${char}`)
+  console.log(`character is : ${char}`)
 }
 ```
 
@@ -667,16 +706,22 @@ name: For in Loop
 ---
 
 - <span class='text-[#5D8392]'>For in loop</span>: It loops through the properties of an object.
+
 ```js
-for (let property in object){
-    //loop body
+for (let property in object) {
+  //loop body
 }
 ```
 
 ```js {monaco-run} {autorun:false}
-const person= { firstName: 'John', lastName: 'Doe', userName: 'Jdoe', age: '19' };
-for(let property in person){
-    console.log(`${property}: ${person[property]}`)
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  userName: 'Jdoe',
+  age: '19',
+}
+for (let property in person) {
+  console.log(`${property}: ${person[property]}`)
 }
 ```
 
@@ -691,7 +736,7 @@ hideInToc: true
 
 ```js
 function name(parameter1, parameter2, ...parameterN) {
-    //code to be executed
+  //code to be executed
 }
 ```
 
@@ -709,20 +754,23 @@ hideInToc: true
 <h5> Example: A function to greet new users </h5>
 
 ```js {monaco-run} {autorun:false}
-function greetUsers (name) {
-    return 'Hello, ' + name + ' welcome to JavaScript course 101';
+function greetUsers(name) {
+  return 'Hello, ' + name + ' welcome to JavaScript course 101'
 }
 let userName = 'Busola'
-let greetingMessage = greetUsers(userName);
+let greetingMessage = greetUsers(userName)
 console.log(greetingMessage)
 ```
 
 <h5> Example: A function to add two number </h5>
 
 ```js {monaco-run} {autorun:false}
-function addNumber (num1, num2){ return num1 + num2 }
+function addNumber(num1, num2) {
+  return num1 + num2
+}
 console.log(addNumber(7, 20))
 ```
+
 ---
 hideInToc: true
 ---
@@ -732,12 +780,12 @@ hideInToc: true
 A variable declared outside a function, becomes <span text-red>global variable</span> also known as outer variable. A function can access an outer variable, it can modify it too.
 
 ```js {monaco-run}
-let university = 'AltSchool Africa';
+let university = 'AltSchool Africa'
 // code here CAN use university
 function school() {
-    let message = `You are a student of ${university}`;
-    alert(message)
-    //code here CAN also use university
+  let message = `You are a student of ${university}`
+  alert(message)
+  //code here CAN also use university
 }
 ```
 
@@ -753,12 +801,13 @@ A variable declared inside a function is only visible inside the function. Local
 
 ```js {monaco-run}
 // code here can NOT use university
-function university () {
-    let university = 'AltSchool Africa'
-    //code here CAN use university
+function university() {
+  let university = 'AltSchool Africa'
+  //code here CAN use university
 }
 // code here can NOT use university
 ```
+
 ---
 hideInToc: true
 name: Function Expression
@@ -767,19 +816,20 @@ name: Function Expression
 - <span class='text-[#5D8392]'>Function Expression</span> are indeed another way to create functions in Javascript. They allow you to define a function as part of an expression, typically by assigning it to a variable.This approach offers flexibility in how and when you define functions.
 
 ```js
-let functionName = function (parameters){
-    //function body
+let functionName = function (parameters) {
+  //function body
 }
 ```
-- Example: 
+
+- Example:
 
 ```js {monaco-run} {autorun:false}
 const greetUsers = function (name) {
-  return `Hello, ${name} welcome to JavaScript course 101`;
-};
+  return `Hello, ${name} welcome to JavaScript course 101`
+}
 
-let userName = 'Busola';
-console.log( greetUsers(userName));
+let userName = 'Busola'
+console.log(greetUsers(userName))
 ```
 
 ---
@@ -790,15 +840,15 @@ name: Arrow Functions
 - Arrow functions is a very simple and concise syntax for creating functions.
 
 ```js {monaco-run} {autorun:false}
-const greetUsers = (name) => `Hello, ${name} welcome to JavaScript course 101`;
+const greetUsers = (name) => `Hello, ${name} welcome to JavaScript course 101`
 
-let userName = 'Busola';
+let userName = 'Busola'
 console.log(greetUsers(userName))
 ```
 
-```js  {monaco-run} {autorun:false}
-let sumOfTwoNumbers = (a, b) => a + b;
-console.log(sumOfTwoNumbers(8 , 49))
+```js {monaco-run} {autorun:false}
+let sumOfTwoNumbers = (a, b) => a + b
+console.log(sumOfTwoNumbers(8, 49))
 ```
 
 ---
@@ -810,43 +860,43 @@ hideInToc: true
 ````md magic-move
 ```js
 // Function Declaration
-function greetUsers (name) {
-    return 'Hello, ' + name + ' welcome to JavaScript course 101';
+function greetUsers(name) {
+  return 'Hello, ' + name + ' welcome to JavaScript course 101'
 }
 let userName = 'Busola'
-let greetingMessage = greetUsers(userName);
+let greetingMessage = greetUsers(userName)
 console.log(greetingMessage)
 ```
 
 ```js
 // Function Expression
 let greetUsers = function (name) {
-    return 'Hello, ' + name + ' welcome to JavaScript course 101';
+  return 'Hello, ' + name + ' welcome to JavaScript course 101'
 }
 let userName = 'Busola'
-let greetingMessage = greetUsers(userName);
+let greetingMessage = greetUsers(userName)
 console.log(greetingMessage)
 ```
 
 ```js
 // Arrow Function
 let greetUsers = (name) => {
-    return 'Hello, ' + name + ' welcome to JavaScript course 101';
+  return 'Hello, ' + name + ' welcome to JavaScript course 101'
 }
 let userName = 'Busola'
-let greetingMessage = greetUsers(userName);
+let greetingMessage = greetUsers(userName)
 console.log(greetingMessage)
 ```
 
 ```js
 // Arrow Function one-liner
-let greetUsers = (name) => 'Hello, ' + name + ' welcome to JavaScript course 101';
+let greetUsers = (name) =>
+  'Hello, ' + name + ' welcome to JavaScript course 101'
 let userName = 'Busola'
-let greetingMessage = greetUsers(userName);
+let greetingMessage = greetUsers(userName)
 console.log(greetingMessage)
 ```
 ````
-
 
 ---
 hideInToc: true
