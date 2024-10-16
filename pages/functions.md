@@ -1399,13 +1399,199 @@ The <kbd>alert</kbd> function pops up a message box.
 hideInToc: true
 ---
 
-<kbd></kbd>
-
 # func.apply
-
+<div></div>
 The <kbd>apply()</kbd> method could be used instead of <kbd>call()</kbd>.
-This method of <kbd>Function</kbd> instances calls this function with a given <kbd>this</kbd> value, and <kbd>argument</kbd> provided as an array (or an array-like object).
+This method of <kbd>Function</kbd> instances calls this function with a given <kbd>this</kbd> value, and <kbd>argument</kbd> provided as an array (or an array-like object) unlike <kbd>call()</kbd> that expects a list of arguments.
 
 ```js
-func.apply(context, args)
+//This accepts list of arguments
+func.call(context, ...args);
+
+//This accepts only array-like args
+func.apply(context, args);
 ```
+
+In cases where your objects fit into the two conditions- both iterable and array like, you can either use the <kbd>func.call()</kbd> or <kbd>func.apply()</kbd> but the later will be faster, beacause of its natural 
+handling of array-like structures and potential optimizations in the JavaScript engines.
+
+```js
+let wrapper = function() {
+  return func.apply(this, arguments);
+};
+```
+If you use an external code to call this function, it is indistinguishable from the call of the original function <kbd>func</kbd> because:
+<div class="overflow-scroll h-20 p-5">
+<ul>
+<li>The context <kbd>this</kbd> is preserved.</li>
+<li>The arguments are forwarded.</li>
+<li>The result of <kbd>func</kbd> is returned by the wrapper.</li>
+</ul>
+</div>
+
+---
+hideInToc: true
+---
+
+# Function binding
+<div></div>
+
+The <kbd>bind()</kbd> method on <kbd>function</kbd> instances creates a new function (let's call it theta). When theta is called,
+it invokes the original function with its this keyword set to the value you specify and with any arguments you provide in <kbd>bind()</kbd> appearing before any arguments passed when calling theta.
+
+```js 
+  func.bind(context, ...args);
+
+```
+This function above is going to returns a "bound variant" of function <kbd>func</kbd>. This new function will have: 
+
+<ul>
+<li>The <kbd>this</kbd> context fixed to the provided context value.</li>
+<li>The first argument(s) (if any are provided in <kbd>this</kbd> ...args <kbd>this</kbd>) pre-set, meaning they will be used when the new function is called, followed by any additional arguments passed during the call.</li>
+</ul>
+
+---
+
+## Let's take a look at this code
+
+```js{monaco-run}{autorun: false}
+function greet(greeting, name) {
+  alert(`${greeting}, ${name}!`);
+}
+
+// Use bind to create a new function with a preset 'this' value and argument
+const greetJohn = greet.bind(null, 'Hello');
+
+// When greetJohn is called, it will use the bound greeting ('Hello')
+greetJohn('John'); 
+greetJohn('Alice'); 
+```
+
+---
+
+## So, why <kbd>bind()</kbd>
+
+As said earlier, the  <kbd>bind()</kbd> method is useful for controlling  the  <kbd>this</kbd> context and presetting arguments but also, we can use it to achieve these as well:
+<ul>
+<li>Control the <kbd>this</kbd> value</li>
+It allows you to lock in a specific <kbd>this</kbd> value, ensuring that the function will always use the context you want.
+<li>Partial Application</li>
+It allows you to preset arguments for a function, creating a new function with some arguments already provided.
+<li>Method borrowing</li>
+It gives you the room to borrow methods from one object and use them in another, while ensuring the correct <kbd>this</kbd> context is maintained.
+<li>Function Currying</li>
+It can also be used to implement currying, where you transform a function with multiple arguments into a series of functions that take one argument at a time.
+</ul>
+
+This makes <kbd>bind()</kbd> particularly valuable in situations involving event handlers, callbacks, or when you want to reuse functions with certain preset parameters.
+
+---
+hideInToc: true
+---
+
+# Arrow function in details
+<div></div>
+We've already discused the beautiful arrow function at the beginning of this module, but let's go little deeper in what arrow function realy entails.
+As a developer, you often need to write arrow functions in your code for various tasks like calling <kbd>useEffect</kbd> hooks in React or using <kbd>setTimeout()</kbd> in JavaScript. Arrow functions offer a more concise syntax and have specific benefits, particularly in handling the this context.
+
+- Firstly, arrow functions do not have their own "arguments" object. But, they inherit <kbd>argument</kbd> from their lexical scope.
+
+
+This second code will throw an error because unlike traditional function in the first scope, argument is not defined.
+```js{monaco-run}{autorun:false}
+function traditionalFunction() {
+  alert(arguments);  
+}
+
+traditionalFunction(1, 2, 3);  
+
+const arrowFunction = () => {
+  alert(arguments);
+}
+
+arrowFunction(1, 2, 3);  
+```
+
+---
+hideInToc: true
+---
+
+# Contd.
+<div></div>
+To handle <kbd>argument</kbd> in Arrow functions, we have use two methods:<br/>
+
+1. Using of rest parameters <kbd>(...args)</kbd>
+```js{monaco-run}{autorun:false}
+const arrowFunction = (...args) => {
+  alert(args); 
+};
+
+arrowFunction(1, 2, 3); 
+```
+
+2. Using the <kbd>arguments</kbd> object from the non-arrow function in the lexical scope.
+```js{monaco-run}{autorun:false}
+function outerFunction() {
+  const arrowFunction = () => {
+    alert(arguments);
+  }
+
+  arrowFunction();
+}
+```
+
+---
+
+- Secondly, Arrow functions have no <kbd>"this"</kbd>
+
+Arrow functions do not have their own<kbd>this</kbd>. Instead, when a developer access <kbd>this</kbd> inside an arrow function, it is taken from the surrounding lexical scope.
+
+In the code below, the arrow function inside the <kbd>setTimeout</kbd> retains the <kbd>this</kbd> value from the <kbd>greet</kbd> method, which refers to <kbd>obj</kbd>.
+```js{monaco-run}{autorun:false}
+const obj = {
+  name: 'Alice',
+  greet: function() {
+    alert(`Hello, ${this.name}`);
+    
+    setTimeout(() => {
+      alert(`Hello again, ${this.name}`); 
+    }, 1000);
+  }
+};
+
+obj.greet();  
+
+```
+
+---
+
+- Thirdly, Arrow functions can't be called with <kbd>new</kbd>
+
+Since arrow functions do not have their own<kbd>this</kbd> they can't be used as constructors.
+
+This will throw an error: 
+```js {monaco-run}{autorun:false}
+const Person = (name) => {
+  this.name = name;  
+};
+
+
+try {
+  const person1 = new Person('Alice');
+} catch (error) {
+  alert(error);  
+}
+```
+
+But, with a regular function declaration or expression you can define a constuctor
+
+```js{monaco-run}{autorun:false}
+function Person(name) {
+  this.name = name;  
+}
+
+const person1 = new Person('Alice');
+alert(person1.name);  
+```
+
+---
