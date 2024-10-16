@@ -14,7 +14,7 @@ export:
   timeout: 60000
   dark: false
   withClicks: false
-  withToc: true
+  withToc: false
 # TODO: add a svg favicon
 # favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center
@@ -442,10 +442,9 @@ hideInToc: true
 
 # Contributors
 
-- [Kofoworola Shonuyi](https://github.com/Rolalove)
-- [Omotoso Abosede Racheal](https://github.com/Racheal-cloud)
-
-<!--
-- [Adebosin Ridwan](https://github.com/RidwanAdebosin)
-- [Olubebe Faith](https://github.com/Olubebe)
--->
+- {@Rolalove}
+- {@Racheal-cloud}
+- {@kolapowariz}
+- {@ChidinmaNwosu}
+- {@RidwanAdebosin}
+- {@Olubebe}
