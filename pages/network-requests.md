@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Network Requests
+
 <div mt-2 />
 
 - Fetch and Its API
@@ -17,7 +18,6 @@ hideInToc: true
 - Long polling
 - WebSockets
 - Server-Sent Events
-
 
 ---
 hideInToc: true

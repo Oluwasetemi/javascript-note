@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Web Components
+
 <div mt-2 />
 
 - Basics
@@ -14,7 +15,6 @@ hideInToc: true
 - Shadow DOM Slots, Composition
 - Shadow DOM CSS
 - Shadow DOM Events
-
 
 ---
 hideInToc: true

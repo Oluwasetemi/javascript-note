@@ -1,9 +1,11 @@
 <!-- global-bottom.vue -->
 <script setup>
-import GitHub from '~icons/mdi/github';
+import GitHub from '~icons/mdi/github'
 </script>
 <template>
-  <footer class="select-none abs-tr p-2 mb-9 mr-9 hover:underline hover:underline-offset-8 focus:ring active:text-red-500">
+  <footer
+    class="select-none abs-tr p-2 mb-9 mr-9 hover:underline hover:underline-offset-8 focus:ring active:text-red-500"
+  >
     <a
       href="https://github.com/Oluwasetemi"
       target="_blank"

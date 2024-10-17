@@ -5,11 +5,11 @@ hideInToc: true
 ---
 
 # Error Handling
+
 <div mt-2 />
 
 - Error handling, "try..catch"
 - Custom errors, extending Error
-
 
 ---
 hideInToc: true
@@ -22,7 +22,6 @@ hideInToc: true
 <div>Programming errors can occur due to various reasons. The <span class="text-red">try...catch</span> syntax allows us to handle these errors gracefully instead of abruptly stopping the script. <span class="text-red">try...catch</span> only works for runtime errors.</div>
 
 The <span class="text-red">try...catch</span> statement includes a <span class="text-red">try</span> block and either a <span class="text-red">catch</span> block, a <span class="text-red">finally</span> block, or both. The <span class="text-red">try</span> block is executed first, and the <span class="text-red">catch</span> block will be executed if it throws an exception. The <span class="text-red">finally</span> block is always executed before exiting the construct. The statement works synchronously.
-
 
 ```js{monaco-run} {autorun: false}
 try{
@@ -42,7 +41,6 @@ try{
   alert('Catch block') // Statement will run since there's an exception in the try block
 }
 ```
-
 
 </v-clicks>
 
@@ -98,6 +96,5 @@ try {
 }
 
 ```
-
 
 </v-clicks>

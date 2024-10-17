@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Nice to know Concepts
+
 <div mt-2 />
 
 - Generators and Async Iterators
@@ -16,7 +17,6 @@ hideInToc: true
 - WeakRef and FinalizationRegistry
 
 TODO: How to use these concepts in real life and class exercise to work on.
-
 
 ---
 hideInToc: true

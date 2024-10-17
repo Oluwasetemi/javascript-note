@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Regular Expressions
+
 <div mt-2 />
 
 - Patterns and flags
@@ -15,10 +16,11 @@ hideInToc: true
 - Word boundary "\b"
 - Escaping, special characters
 - Set and ranges "[...]"
-- Quantifiers "+", "*", "?" and "{n}"
+- Quantifiers "+", "\*", "?" and "{n}"
 - Greedy and lazy quantifiers
 
 ::right::
+
 <div mt-15 />
 
 - Capturing groups "(...)"
@@ -29,7 +31,6 @@ hideInToc: true
 - Named groups: `"(?<name>...)"`
 - Sticky flag "y", searching at position
 - Methods of RegExp and String
-
 
 ---
 hideInToc: true
