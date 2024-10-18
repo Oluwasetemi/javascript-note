@@ -100,15 +100,14 @@ That leads to two important issues:
 - Scripts can’t see DOM elements below them, so they can’t add handlers.
 - If there’s a bulky script at the top of the page, it “blocks the page”. Users can’t see the page content till it downloads and runs:
 
-```js
-// Example
+```html
+<!-- // Example -->
 <p>...content before script...</p>
 
 <script src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
 
 <!-- This isn't visible until the script loads -->
 <p>...content after script...</p>
-
 ```
 
 ---
@@ -124,16 +123,22 @@ When you add the async attribute to a script tag, the browser downloads the scri
 - Other scripts that do not use async or defer might still block the page load.
   In other words, async scripts load in the background and run when ready
 
-```js
-// Example
+```html
+<!-- // Example -->
 <p>...content before scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => alert("DOM ready!"));
+  document.addEventListener('DOMContentLoaded', () => alert('DOM ready!'))
 </script>
 
-<script async src="https://javascript.info/article/script-async-defer/long.js"></script>
-<script async src="https://javascript.info/article/script-async-defer/small.js"></script>
+<script
+  async
+  src="https://javascript.info/article/script-async-defer/long.js"
+></script>
+<script
+  async
+  src="https://javascript.info/article/script-async-defer/small.js"
+></script>
 
 <p>...content after scripts...</p>
 ```
@@ -150,18 +155,22 @@ When you use the defer attribute, the browser downloads the script in parallel w
 - Scripts with defer are executed in order, even if multiple defer scripts are on the page.
 - It works well for large scripts that interact with the DOM.
 
-```js
+```html
 <!-- Example -->
 <p>...content before scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => alert("DOM ready after defer!"));
+  document.addEventListener('DOMContentLoaded', () =>
+    alert('DOM ready after defer!'),
+  )
 </script>
 
-<script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
+<script
+  defer
+  src="https://javascript.info/article/script-async-defer/long.js?speed=1"
+></script>
 
 <p>...content after scripts...</p>
-
 ```
 
 ---
@@ -188,6 +197,8 @@ hideInToc: true
 
 # Dynamic Script Loading
 
+<div flex="~ row" gap-2>
+
 ```js
 // Example
 function loadScript(src) {
@@ -196,25 +207,33 @@ function loadScript(src) {
   script.async = false
   document.body.append(script)
 }
+```
 
+```js
 // long.js runs first because of async=false
 loadScript('/article/script-async-defer/long.js')
 loadScript('/article/script-async-defer/small.js')
 ```
 
+</div>
+
 <div flex="~ row" gap-2>
 
+<!-- prettier-ignore -->
 ```js
 function loadScript(src, callback) {
   let script = document.createElement('script')
 
   script.src = src
   script.onload = () => callback(null, script)
-  script.onerror = () => callback(new Error(`Script load error for ${src}`))
+  script.onerror = () => callback(
+    new Error(`Script load error for ${src}`)
+  )
   document.head.append(script)
 }
 ```
 
+<!-- prettier-ignore -->
 ```js
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -222,13 +241,19 @@ function loadScript(src) {
 
     script.src = src
     script.onload = () => resolve(script)
-    script.onerror = () => reject(new Error(`Script load error for ${src}`))
+    script.onerror = () => reject(
+      new Error(`Script load error for ${src}`)
+    )
     document.head.append(script)
   })
 }
 ```
 
 </div>
+
+<!--
+prettier-ignore-end
+-->
 
 ---
 hideInToc: true
@@ -254,21 +279,21 @@ Images (`<img>`):
 - You can use both inline attributes (onload/onerror) or JavaScript event listeners
 - Common use cases include loading fallback images, showing loading spinners, or updating UI states
 
-```js
+```html
 <script>
-const img = document.getElementById('myImage');
+  const img = document.getElementById('myImage')
 
-img.addEventListener('load', function() {
-    console.log('Image loaded successfully!');
+  img.addEventListener('load', function () {
+    console.log('Image loaded successfully!')
     // Do something with the loaded image
-    this.classList.add('loaded');
-});
+    this.classList.add('loaded')
+  })
 
-img.addEventListener('error', function() {
-    console.log('Error loading image');
-    this.src = 'fallback.jpg';
-    this.classList.add('error');
-});
+  img.addEventListener('error', function () {
+    console.log('Error loading image')
+    this.src = 'fallback.jpg'
+    this.classList.add('error')
+  })
 </script>
 ```
 
@@ -282,23 +307,31 @@ hideInToc: true
 - The onload event fires when the script is loaded and executed
 - Useful for loading third-party libraries or splitting code into chunks
 
-```js
-<script src="external.js" onload="console.log('Script loaded!')" onerror="console.log('Script failed to load')"> </script>
+```html
+<script
+  src="external.js"
+  onload="console.log('Script loaded!')"
+  onerror="console.log('Script failed to load')"
+></script>
 
-// Dynamic script loading with JavaScript
 <script>
-    function loadScript(url) {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = url;
+  function loadScript(url) {
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.onload = function () {
+        console.log('Script loaded successfully!')
+        resolve(script)
+      }
 
-            script.onload = function() { console.log('Script loaded successfully!'); resolve(script); };
+      script.onerror = function () {
+        console.log('Error loading script')
+        reject(new Error(`Script load error for ${url}`))
+      }
 
-            script.onerror = function() { console.log('Error loading script'); reject(new Error(`Script load error for ${url}`)); };
-
-            document.head.appendChild(script);
-        });
-    }
+      document.head.appendChild(script)
+    })
+  }
 </script>
 ```
 
@@ -312,24 +345,25 @@ hideInToc: true
 - Can detect when styles are available to prevent FOUC (Flash of Unstyled Content)
 - Useful for loading conditional stylesheets (e.g., theme files)
 
-```js
-// Inline attributes method
-<link rel="stylesheet" href="styles.css" onload="console.log('Stylesheet loaded!')" onerror="console.log('Stylesheet failed to load')">
-{/* Dynamic stylesheet loading with JavaScript */}
+<!-- prettier-ignore -->
+```html
+<link rel="stylesheet" href="styles.css" onload="console.log('Stylesheet loaded!')" 
+onerror="console.log('Stylesheet failed to load')" />
 <script>
-    function loadStylesheet(url) {
-        return new Promise((resolve, reject) => {
-            const link = document.createElement('link'); link.rel = 'stylesheet'; link.href = url;
-            link.onload = function() { console.log('Stylesheet loaded successfully!'); resolve(link); };
-            link.onerror = function() { console.log('Error loading stylesheet'); reject(new Error(`Stylesheet load error for ${url}`)); };
-
-            document.head.appendChild(link);
-        });
-    }
-    {/* Usage
-    loadStylesheet('https://example.com/styles.css')
-        .then(() => console.log('Stylesheet is ready!'))
-        .catch(error => console.error('Stylesheet loading failed:', error)); */}
+  function loadStylesheet(url) {
+    return new Promise((resolve, reject) => {
+      const link = document.createElement('link'); link.rel = 'stylesheet'; link.href = url;
+      link.onload = function () { console.log('Stylesheet loaded successfully!'); resolve(link); }
+      link.onerror = function () {
+        console.log('Error loading stylesheet')
+        reject(new Error(`Stylesheet load error for ${url}`))
+      }
+      document.head.appendChild(link)
+    })
+  }
+  // loadStylesheet('https://example.com/styles.css')
+  //     .then(() => console.log('Stylesheet is ready!'))
+  //     .catch(error => console.error('Stylesheet loading failed:', error));
 </script>
 ```
 
@@ -344,19 +378,19 @@ hideInToc: true
 - Useful for dynamic style injection
 
 ```js
-<script>
-{/* Dynamic style tag creation */}
+// {/* Dynamic style tag creation */}
 function addStyles(cssText) {
-    const style = document.createElement('style');
-    // For older browsers
-    style.appendChild(document.createTextNode(cssText));
-    // Add load event (Note: style tags don't typically need load events
-    // as they're processed synchronously)
-    style.onload = function() { console.log('Styles applied!'); };
-    document.head.appendChild(style);
+  const style = document.createElement('style')
+  // For older browsers
+  style.appendChild(document.createTextNode(cssText))
+  // Add load event (Note: style tags don't typically need load events
+  // as they're processed synchronously)
+  style.onload = function () {
+    console.log('Styles applied!')
+  }
+  document.head.appendChild(style)
 }
 
-{/* Usage */}
-addStyles(` .custom-class { color: blue; font-size: 16px; } `);
-</script>
+// {/* Usage */}
+// addStyles(` .custom-class { color: blue; font-size: 16px; } `);
 ```
