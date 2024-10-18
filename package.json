@@ -12,22 +12,23 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@slidev/cli": "0.50.0-beta.3",
-    "@slidev/client": "^0.50.0-beta.3",
+    "@slidev/cli": "0.50.0-beta.4",
+    "@slidev/client": "^0.50.0-beta.4",
     "@slidev/theme-default": "latest",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "vue": "^3.5.10"
+    "vue": "^3.5.12"
   },
   "devDependencies": {
-    "@iconify-json/logos": "^1.2.0",
-    "@iconify-json/mdi": "^1.2.0",
-    "@slidev/types": "0.50.0-beta.3",
-    "@vue/compiler-sfc": "^3.5.10",
+    "@babel/standalone": "^7.25.6",
+    "@iconify-json/logos": "^1.2.3",
+    "@iconify-json/mdi": "^1.2.1",
+    "@slidev/types": "0.50.0-beta.4",
+    "@vue/compiler-sfc": "^3.5.12",
     "markdown-it-magic-link": "^0.1.4",
     "nano-staged": "^0.8.0",
     "nodemon": "^3.1.7",
-    "playwright-chromium": "^1.47.2",
+    "playwright-chromium": "^1.48.1",
     "prettier": "^3.3.3",
     "prettier-plugin-slidev": "^1.0.5",
     "simple-git-hooks": "^2.11.1"
