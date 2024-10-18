@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Promises and Async/Await
+
 <div mt-2 />
 
 - Introduction: Callbacks
@@ -15,7 +16,6 @@ hideInToc: true
 - Promisify
 - Microtasks
 - Async/Await
-
 
 ---
 hideInToc: true

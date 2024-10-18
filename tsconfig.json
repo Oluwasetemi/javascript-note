@@ -7,7 +7,5 @@
     "noEmit": true,
     "allowSyntheticDefaultImports": true
   },
-  "exclude": [
-    "**/*.md"
-  ]
+  "exclude": ["**/*.md"]
 }

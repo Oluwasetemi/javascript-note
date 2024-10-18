@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Form, Controls
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Form properties and methods</a>
@@ -13,10 +14,6 @@ hideInToc: true
 - <a @click="$nav.go($nav.currentPage+22)">Form submission: event and method submit</a>
 - <a @click="$nav.go($nav.currentPage+8)">Form validation: novalidate, HTML attributes, constraint validation API</a>
 - <a @click="$nav.go($nav.currentPage+8)">Form elements: input, select, textarea, button, label, fieldset, legend</a>
-
-
-
-
 
 ---
 hideInToc: true
