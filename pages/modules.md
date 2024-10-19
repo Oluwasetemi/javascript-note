@@ -18,7 +18,7 @@ hideInToc: true
 
 # Module basics
 
-<div />
+
 
 [What is a module?]{.text-gradient.font-hand.text-10.pr-3.pl-0}
 
@@ -50,6 +50,7 @@ import {sayHi} from './sayHi.js';
 
 ---
 hideInToc: true
+
 ---
 
 # Export and Import
