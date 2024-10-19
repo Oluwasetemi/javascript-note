@@ -4,7 +4,7 @@
   </div>
 </template>
 <script setup>
-  const alert = (msg) => {
-    window.alert(msg)
-  }
+const alert = (msg) => {
+  window.alert(msg)
+}
 </script>

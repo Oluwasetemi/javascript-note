@@ -6,7 +6,7 @@ hideInToc: true
 
 # UI Events
 
-<div class=mt-2 />
+<div mt-2 />
 
 - Mouse events
 - Moving the mouse: mouseover/out, mouseenter/leave

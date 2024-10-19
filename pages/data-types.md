@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Data Types
+
 <div mt-2 />
 
 - Methods of Primitives
@@ -20,12 +21,12 @@ hideInToc: true
 - Date and Time | Intro to Intl API | Temporal
 - JSON methods, toJSON
 
-
 ---
 hideInToc: true
 ---
 
 # Methods of Primitives
+
 <div mt-2 />
 
 ---

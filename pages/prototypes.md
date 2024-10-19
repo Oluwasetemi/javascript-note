@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Prototypes, Inheritance and Classes
+
 <div mt-2 />
 
 - Prototypal Inheritance and Prototype Chain(F.prototype)
@@ -15,7 +16,6 @@ hideInToc: true
 - Private and Protected Properties and Methods
 - Extending built-in classes
 - Class checking: `instanceof` and Mixins
-
 
 ---
 hideInToc: true

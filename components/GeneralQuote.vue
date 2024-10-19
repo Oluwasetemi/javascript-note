@@ -1,19 +1,14 @@
 <script setup lang="ts">
-const props = defineProps(
-  {
-    quote: {
-      type: String,
-      required: true
-    },
-    url: {
-      type: String,
-      required: false
-    }
-  }
-)
-
-
-
+const props = defineProps({
+  quote: {
+    type: String,
+    required: true,
+  },
+  url: {
+    type: String,
+    required: false,
+  },
+})
 </script>
 <template>
   <div>
@@ -26,7 +21,7 @@ const props = defineProps(
   </div>
 </template>
 
-<style scoped >
+<style scoped>
 blockquote {
   border-left: 5px solid #007bff;
   /* Add a left border */
