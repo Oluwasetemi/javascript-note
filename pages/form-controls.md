@@ -72,7 +72,9 @@ let userFieldset = form.elements.userFields;
 console.log(userFieldset);
 console.log(userFieldset.elements.login == form.elements.login); // true
 ```
-</v-clicks> 
+
+</v-clicks>
+
 ---
 hideInToc: true
 ---
@@ -83,8 +85,7 @@ hideInToc: true
 
 The form is available as element.form for any element. So, the form references every element, and all elements reference the form.
 
- ![backrefernce-diagram](https://res.cloudinary.com/olubebe/image/upload/v1728214102/Screenshot_2024-10-06_122618_astkg3.png)
-
+![backrefernce-diagram](https://res.cloudinary.com/olubebe/image/upload/v1728214102/Screenshot_2024-10-06_122618_astkg3.png)
 
 ```js
 <form id="form">
@@ -100,25 +101,28 @@ The form is available as element.form for any element. So, the form references e
 </script>
 
 ```
+
 </v-clicks>
 
 ---
 hideInToc: true
 ---
- 
- # Form Element Properties
+
+# Form Element Properties
+
  <v-clicks>
 Different form elements have various properties that allow you to interact with them programmatically.
 
 ### Input and Textarea
+
 For input and textarea elements, you can access and modify their values using the value property.
 We can access their value as input.value (string) or input.checked (boolean) for checkboxes and radio buttons.
 
 ```js
-input.value = "New value";
-textarea.value = "New text";
+input.value = 'New value'
+textarea.value = 'New text'
 
-input.checked = true; // for a checkbox or radio button
+input.checked = true // for a checkbox or radio button
 ```
 
 <b>NOTE:</b>Use textarea.value, not textarea.innerHTML
@@ -169,6 +173,7 @@ hideInToc: true
 ---
 
 # Select and Option
+
 <v-clicks>
 
 The <kbd>select</kbd> element has special properties for working with its options:
@@ -176,31 +181,32 @@ The <kbd>select</kbd> element has special properties for working with its option
 - select.options: Collection of <kbd>option</kbd> elements
 - select.value: Value of the currently selected option
 - select.selectedIndex: Index of the currently selected option. <br/>
-<b>new Option:</b>
-In the specification there’s a nice short syntax to create an <kbd>option</kbd> element
+  <b>new Option:</b>
+  In the specification there’s a nice short syntax to create an <kbd>option</kbd> element
 - text – the text inside the option,
 - value – the option value,
 - defaultSelected – if true, then selected HTML-attribute is created,
 - selected – if true, then the option is selected.
-The difference between defaultSelected and selected is that defaultSelected sets the HTML-attribute (that we can get using option.getAttribute('selected'), while selected sets whether the option is selected or not.
+  The difference between defaultSelected and selected is that defaultSelected sets the HTML-attribute (that we can get using option.getAttribute('selected'), while selected sets whether the option is selected or not.
 
 ````md magic-move
 ```js
-option = new Option(text, value, defaultSelected, selected);
+option = new Option(text, value, defaultSelected, selected)
 // This syntax is optional. We can use document.createElement('option') and set attributes manually.
 ```
+
 ```js
 // Unselected
-let option = new Option("Text", "value");
-// creates 
-<option value="value">Text</option>
+let option = new Option('Text', 'value')
+// creates
+;<option value="value">Text</option>
 ```
+
 ```js
 // selected
-let option = new Option("Text", "value", true, true);
+let option = new Option('Text', 'value', true, true)
 ```
 ````
-
 
 </v-clicks>
 
@@ -277,21 +283,24 @@ for (var i = 0; i < d.length; i++) {
 // Log the final state of the select element
 console.log('Final options:', Array.from(w.options).map(opt => opt.text));
 ```
+
 </v-clicks>
-
-
 
 ---
 hideInToc: true
 ---
 
 ## Class Activity
-Task 1: 
+
+Task 1:
 There’s a <kbd>select</kbd>:
+
 ```js
 <select id="genres">
   <option value="rock">Rock</option>
-  <option value="blues" selected>Blues</option>
+  <option value="blues" selected>
+    Blues
+  </option>
 </select>
 // Use JavaScript to:
 // Show the value and the text of the selected option.
@@ -307,12 +316,10 @@ There’s a <kbd>select</kbd>:
 
 </details>
 
-
 ---
 hideInToc: true
 clicksStart: 1
---- 
-
+---
 
 # Focusing: focus/blur
 
@@ -344,12 +351,11 @@ In HTML, you can automatically focus on an element when the page loads using the
 
 In this example, the input field with the id="name" will automatically receive focus when the page is loaded, making it immediately ready for the user to type.
 
-
 </v-clicks>
 
 ---
 hideInToc: true
-name: More on Auto Focus 
+name: More on Auto Focus
 ---
 
 # CONTD
@@ -364,20 +370,21 @@ A focus event can also be handled programmatically using JavaScript. For instanc
 
 ```html
 <div>
-  <label for="input">Your email please:</label> 
-  <input type="email" id="input">
+  <label for="input">Your email please:</label>
+  <input type="email" id="input" />
   <div id="error"></div>
 </div>
 ```
 
 ```js
-const input = document.getElementById('input');
-const error = document.getElementById('error');
-input.onfocus = function() {
+const input = document.getElementById('input')
+const error = document.getElementById('error')
+input.onfocus = function () {
   if (this.classList.contains('invalid')) {
-    this.classList.remove('invalid'); error.innerHTML = "";
+    this.classList.remove('invalid')
+    error.innerHTML = ''
   }
-};
+}
 ```
 
 </div>
@@ -399,6 +406,7 @@ hideInToc: true
 Blurring happens when the user moves away from an element, typically by clicking on another element or using the Tab key to move to the next form field. Blur events are useful for validating user input because they indicate that the user has finished interacting with that specific field.
 Blur Event Example
 Here's an example of using a blur event to validate an email input field:
+
 ```js
 Your email please: <input type="email" id="input">
 <div id="error"></div>
@@ -412,6 +420,7 @@ Your email please: <input type="email" id="input">
   };
 </script>
 ```
+
 In this example, the onblur event handler checks if the entered email contains an "@" symbol. If it doesn't, an error message is displayed, and the input field is visually marked as invalid by adding the invalid CSS class.
 </v-clicks>
 
@@ -442,6 +451,7 @@ Your email please: <input type="email" id="input">
   };
 </script>
 ```
+
 In this example, if the email field doesn't contain an "@" symbol, the focus remains on the input field, preventing the user from moving to the next field until a valid email is entered.
 
 </v-clicks>
@@ -471,10 +481,13 @@ By default, only certain elements, like <kbd>input</kbd>, <kbd>button</kbd>, and
 </ul>
 
 <style>
-  li:focus { outline: 1px dashed green; }
+  li:focus {
+    outline: 1px dashed green;
+  }
 </style>
 ```
- Elements with tabindex="-1" are not focusable using the keyboard, but can still be focused programmatically using the focus() method.
+
+Elements with tabindex="-1" are not focusable using the keyboard, but can still be focused programmatically using the focus() method.
 
 tabindex="1": First in tab order
 tabindex="0": Follows the natural tab order, but is still focusable
@@ -487,6 +500,7 @@ hideInToc: true
 ---
 
 ## Focus Delegation: Using focusin and focusout
+
 Focus and blur events do not bubble up the DOM, which can make it difficult to handle these events on a parent element, such as a form. However, you can use focusin and focusout events, which do bubble.
 
 ```js
@@ -499,11 +513,12 @@ Focus and blur events do not bubble up the DOM, which can make it difficult to h
 
 <script>
   const form = document.getElementById('form');
-  
+
   form.addEventListener("focusin", () => form.classList.add('focused'));
   form.addEventListener("focusout", () => form.classList.remove('focused'));
 </script>
 ```
+
 In this example, when any input field inside the form receives focus, the entire form is visually highlighted by adding the focused class.
 
 ---
@@ -519,14 +534,13 @@ How can you balance the use of autofocus to enhance usability without taking con
 To balance the use of `autofocus` without taking control away from users:
 
 1. **Use Sparingly:** Apply autofocus only where it adds clear value, like in search bars or login forms. Overusing it in complex forms can disrupt user flow.
-   
 2. **Respect User Navigation:** Avoid forcing focus on elements that might interfere with how users prefer to navigate, especially when using keyboards or assistive tech.
 
-3. **Context Matters:** Ensure autofocus aligns with user intent, such as when revisiting a form—don’t reset their progress unnecessarily. 
+3. **Context Matters:** Ensure autofocus aligns with user intent, such as when revisiting a form—don’t reset their progress unnecessarily.
 
 Autofocus should guide, not control.
-</details>
 
+</details>
 
 ---
 hideInToc: true
@@ -546,8 +560,8 @@ For other elements like checkboxes, radio buttons, or select menus: It triggers 
 
 ````md magic-move
 ```html
-<input type="text" onchange="alert(this.value)">
-<input type="button" value="Click me">
+<input type="text" onchange="alert(this.value)" />
+<input type="button" value="Click me" />
 ```
 
 ```html
@@ -576,7 +590,6 @@ For other elements like checkboxes, radio buttons, or select menus: It triggers 
 
 </div>
 
-
 Here, the alert will display the selected option as soon as the user changes it.
 
 </v-clicks>
@@ -600,12 +613,13 @@ oninput: <span id="result"></span>
 <script>
   const input = document.getElementById('input');
   const result = document.getElementById('result');
-  
+
   input.oninput = function() {
     result.innerHTML = input.value;
   };
 </script>
 ```
+
 In this example, the result area updates with the text as the user types in the input field.
 
 Limitation: The input event cannot be prevented using <kbd>event.preventDefault()</kbd>, as it triggers after the value has already been modified.
@@ -654,13 +668,13 @@ hideInToc: true
 
 - The onpaste event handler prevents pasting and displays the pasted text.
 - The oncut and oncopy handlers show the selected text and prevent the action from being completed.
-Note:
+  Note:
 
 Clipboard contents are only accessible in the context of user-initiated events (cut, copy, paste). It is not possible to dispatch custom clipboard events with dispatchEvent in most browsers, except Firefox.
 
 ### Food for Thought Question:
 
- How do you decide whether to use the change or input event for form validation, and in what scenarios might one be more effective than the other?
+How do you decide whether to use the change or input event for form validation, and in what scenarios might one be more effective than the other?
 
 <details>
 <summary>Answer</summary>
@@ -673,7 +687,7 @@ Clipboard contents are only accessible in the context of user-initiated events (
 hideInToc: true
 ---
 
-# Form Submission Events and Methods 
+# Form Submission Events and Methods
 
 <v-clicks>
 Form submission allows users to input data and send it to a server for processing. In JavaScript, we have two primary ways to handle form submissions:
@@ -682,12 +696,14 @@ Form submission allows users to input data and send it to a server for processin
 - The form.submit() method
 
 ### The submit Event
+
 The submit event is triggered when a form is submitted. It's commonly used to validate form data before sending it to the server or to prevent the default submission behavior and handle it with JavaScript instead.
 
 #### How Forms Are Submitted
+
 There are two main ways to submit a form:
 
-- Clicking on an <kbd><input type="submit"></kbd> 
+- Clicking on an <kbd><input type="submit"></kbd>
 - Pressing Enter while focused on an input field within the form.
 
 Both of these actions trigger the submit event on the form.
@@ -703,49 +719,49 @@ hideInToc: true
 
 ````md magic-move
 ```js
-const form = document.querySelector('form');
+const form = document.querySelector('form')
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the form from submitting
-  console.log('Form submitted!');
-  
+form.addEventListener('submit', function (event) {
+  event.preventDefault() // Prevent the form from submitting
+  console.log('Form submitted!')
+
   // You can perform validation or other actions here
-});
+})
 ```
+
 ```js
-const form = document.querySelector('form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
-form.addEventListener('submit', function(event) {
-  let isValid = true;
+const form = document.querySelector('form')
+const nameInput = document.querySelector('#name')
+const emailInput = document.querySelector('#email')
+form.addEventListener('submit', function (event) {
+  let isValid = true
   if (nameInput.value.trim() === '') {
-    isValid = false;
-    console.error('Name is required');
+    isValid = false
+    console.error('Name is required')
   }
   if (!isValidEmail(emailInput.value)) {
-    isValid = false;
-    console.error('Invalid email address');
+    isValid = false
+    console.error('Invalid email address')
   }
   if (!isValid) {
-    event.preventDefault(); // Prevent form submission if validation fails
+    event.preventDefault() // Prevent form submission if validation fails
   }
-});
+})
 function isValidEmail(email) {
   // Basic email validation regex
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 // This example demonstrates form validation. If the name is empty or the email is invalid, the form submission is prevented.
 ```
 ````
 
-
 In this example, we're preventing the default form submission and logging a message to the console instead.
 
 </v-clicks>
+
 ---
 hideInToc: true
 ---
-
 
 <v-clicks>
 
@@ -775,6 +791,7 @@ Interestingly, when a form is submitted by pressing Enter in an input field, a c
 ```
 
 </v-clicks>
+
 ---
 hideInToc: true
 ---
@@ -789,19 +806,22 @@ The form.submit() method allows you to programmatically submit a form using Java
 
 ```js
 function createAndSubmitForm() {
-  const form = document.createElement('form');
-  form.method = 'POST'; form.action = '/api/submit';
+  const form = document.createElement('form')
+  form.method = 'POST'
+  form.action = '/api/submit'
 
-  const nameInput = document.createElement('input');
-  nameInput.type = 'text'; nameInput.name = 'username'; nameInput.value = 'John Doe';
+  const nameInput = document.createElement('input')
+  nameInput.type = 'text'
+  nameInput.name = 'username'
+  nameInput.value = 'John Doe'
 
-  form.appendChild(nameInput);
-  document.body.appendChild(form);
+  form.appendChild(nameInput)
+  document.body.appendChild(form)
 
-  form.submit();
+  form.submit()
 }
 // Call the function to create and submit the form
-createAndSubmitForm();
+createAndSubmitForm()
 ```
 
 This example demonstrates how to create a form dynamically, add an input field to it, and submit it programmatically.
@@ -819,12 +839,12 @@ hideInToc: true
 Form validation is a crucial aspect of web development that ensures data submitted by users is correct, complete, and secure. This guide covers three important aspects of form validation: the novalidate attribute, HTML validation attributes, and the Constraint Validation API.
 
 1. The novalidate Attribute
-The novalidate attribute is used on the <kbd>form</kbd> element to disable the browser's default validation behavior. This is useful when you want to implement custom validation logic or use a JavaScript library for form validation.
+   The novalidate attribute is used on the <kbd>form</kbd> element to disable the browser's default validation behavior. This is useful when you want to implement custom validation logic or use a JavaScript library for form validation.
 
 ```html
 <form novalidate>
   <label for="email">Email:</label>
-  <input type="email" id="email" required>
+  <input type="email" id="email" required />
   <button type="submit">Submit</button>
 </form>
 ```
@@ -832,11 +852,13 @@ The novalidate attribute is used on the <kbd>form</kbd> element to disable the b
 In this example, even though we've used the required attribute and type="email", the browser won't perform its default validation when the form is submitted because of the novalidate attribute.
 
 </v-clicks>
+
 ---
 hideInToc: true
 ---
 
- # HTML Validation Attributes
+# HTML Validation Attributes
+
  <v-clicks>
 HTML5 introduced several attributes that allow for built-in form validation. These attributes are simple to use and provide basic validation without requiring JavaScript.
 Common HTML validation attributes include:
@@ -860,25 +882,42 @@ hideInToc: true
 ```js
 <form>
   <label for="username">Username (4-8 characters):</label>
-  <input type="text" id="username" name="username" required minlength="4" maxlength="8" />
-  
+  <input
+    type="text"
+    id="username"
+    name="username"
+    required
+    minlength="4"
+    maxlength="8"
+  />
+
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required />
-  
+
   <label for="age">Age (18-100):</label>
   <input type="number" id="age" name="age" min="18" max="100" />
-  
+
   <label for="website">Website:</label>
   <input type="url" id="website" name="website" />
-  
-  <label for="password">Password (must contain at least one number and one
-     uppercase and lowercase letter, and at least 8 or more characters):</label>
-  <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required />
-  
+
+  <label for="password">
+    Password (must contain at least one number and one uppercase and lowercase
+    letter, and at least 8 or more characters):
+  </label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+    required
+  />
+
   <button type="submit">Submit</button>
 </form>
 ```
+
 </v-clicks>
+
 ---
 hideInToc: true
 ---
@@ -912,29 +951,29 @@ hideInToc: true
 ```html
 <form id="myForm">
   <label for="email">Email:</label>
-  <input type="email" id="email" required>
+  <input type="email" id="email" required />
   <span id="emailError"></span>
   <button type="submit">Submit</button>
 </form>
 <script>
-const form = document.getElementById('myForm');
-const email = document.getElementById('email');
-const emailError = document.getElementById('emailError');
-email.addEventListener('input', function(event) {
-  if (email.validity.typeMismatch) {
-    email.setCustomValidity('Please enter a valid email address');
-    emailError.textContent = email.validationMessage;
-  } else {
-    email.setCustomValidity('');
-    emailError.textContent = '';
-  }
-});
-form.addEventListener('submit', function(event) {
-  if (!email.checkValidity()) {
-    event.preventDefault();
-    emailError.textContent = email.validationMessage;
-  }
-});
+  const form = document.getElementById('myForm')
+  const email = document.getElementById('email')
+  const emailError = document.getElementById('emailError')
+  email.addEventListener('input', function (event) {
+    if (email.validity.typeMismatch) {
+      email.setCustomValidity('Please enter a valid email address')
+      emailError.textContent = email.validationMessage
+    } else {
+      email.setCustomValidity('')
+      emailError.textContent = ''
+    }
+  })
+  form.addEventListener('submit', function (event) {
+    if (!email.checkValidity()) {
+      event.preventDefault()
+      emailError.textContent = email.validationMessage
+    }
+  })
 </script>
 ```
 
@@ -948,6 +987,7 @@ In this example, we're using the Constraint Validation API to:
 - Prevent form submission if the email is invalid using checkValidity()
 
 This approach allows for more dynamic and customized form validation compared to using HTML attributes alone.
+
 </div>
 </div>
 
@@ -957,12 +997,12 @@ This approach allows for more dynamic and customized form validation compared to
 hideInToc: true
 ---
 
-
 # HTML Form Elements
 
 <v-clicks>
 
 HTML forms are essential for collecting user input on web pages. This guide covers the main form elements: input, select, textarea, button, label, fieldset, and legend. We'll explore their usage, attributes, and provide practical examples.
+
 1. Input
 The <kbd>input</kbd>> element is the most versatile form element, used to create various types of form controls.
 Common Types:
@@ -999,21 +1039,21 @@ hideInToc: true
 
 ```html
 <form>
-  <input type="text" name="username" placeholder="Enter username">
-  <input type="password" name="password" placeholder="Enter password">
-  <input type="email" name="email" placeholder="Enter email">
-  <input type="number" name="age" min="0" max="120">
-  <input type="checkbox" name="subscribe" id="subscribe">
+  <input type="text" name="username" placeholder="Enter username" />
+  <input type="password" name="password" placeholder="Enter password" />
+  <input type="email" name="email" placeholder="Enter email" />
+  <input type="number" name="age" min="0" max="120" />
+  <input type="checkbox" name="subscribe" id="subscribe" />
   <label for="subscribe">Subscribe to newsletter</label>
-  <input type="radio" name="gender" value="male" id="male">
+  <input type="radio" name="gender" value="male" id="male" />
   <label for="male">Male</label>
-  <input type="radio" name="gender" value="female" id="female">
+  <input type="radio" name="gender" value="female" id="female" />
   <label for="female">Female</label>
-  <input type="file" name="avatar">
-  <input type="date" name="birthdate">
-  <input type="color" name="favorite_color">
-  <input type="submit" value="Submit">
-  <input type="reset" value="Reset">
+  <input type="file" name="avatar" />
+  <input type="date" name="birthdate" />
+  <input type="color" name="favorite_color" />
+  <input type="submit" value="Submit" />
+  <input type="reset" value="Reset" />
 </form>
 ```
 
@@ -1024,12 +1064,12 @@ hideInToc: true
 ---
 
 # Select
+
 <v-clicks>
 
 The <kbd>select</kbd> element creates a dropdown list. It contains one or more <kbd>option</kbd> elements.
 
 ````md magic-move
-
 ```html
 <label for="country">Choose your country:</label>
 <select name="country" id="country">
@@ -1040,7 +1080,6 @@ The <kbd>select</kbd> element creates a dropdown list. It contains one or more <
   <option value="au">Australia</option>
 </select>
 ```
-
 
 ```html
 <select name="pet">
@@ -1065,11 +1104,12 @@ hideInToc: true
 ---
 
 # Textarea & Button
+
 <v-clicks>
 
 - The <kbd>textarea</kbd> element creates a multi-line text input field.
 - The <kbd>button</kbd> element creates a clickable button. It's more flexible than the <kbd>input type="submit"</kbd> as it can contain HTML content.
-Example:
+  Example:
 
 ````md magic-move
 ```html
@@ -1080,38 +1120,36 @@ Enter your comments here...
 ```
 
 ```html
-<button type="submit">
-  <img src="icon.png" alt="Submit"> Submit Form
-</button>
+<button type="submit"><img src="icon.png" alt="Submit" /> Submit Form</button>
 ```
 ````
+
 ## Label
+
 The <kbd>label</kbd> element is used to create a label for a form control. It improves accessibility and usability by associating a label with its form control.
 
 ````md magic-move
 ```html
 <label for="username">Username:</label>
-<input type="text" id="username" name="username">
-
-
+<input type="text" id="username" name="username" />
 ```
+
 ```html
 <!-- You can also wrap the input with the label: -->
 <label>
   Username:
-  <input type="text" name="username">
+  <input type="text" name="username" />
 </label>
 ```
 ````
+
 </v-clicks>
-
-
 
 ---
 hideInToc: true
 ---
 
-#  Fieldset and Legend
+# Fieldset and Legend
 
 <v-clicks>
 The <kbd>fieldset</kbd> element is used to group related form controls together. The <kbd>legend</kbd> element provides a caption for the <kbd>fieldset</kbd>.
@@ -1120,13 +1158,14 @@ The <kbd>fieldset</kbd> element is used to group related form controls together.
 <fieldset>
   <legend>Personal Information</legend>
   <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname"><br>
+  <input type="text" id="fname" name="fname" /><br />
   <label for="lname">Last name:</label>
-  <input type="text" id="lname" name="lname"><br>
+  <input type="text" id="lname" name="lname" /><br />
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email">
+  <input type="email" id="email" name="email" />
 </fieldset>
 ```
+
 </v-clicks>
 
 ---
@@ -1141,13 +1180,13 @@ hideInToc: true
   <fieldset>
     <legend>User Registration</legend>
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    <input type="text" id="username" name="username" required />
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <input type="password" id="password" name="password" required />
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input type="email" id="email" name="email" required />
     <label for="birthdate">Birthdate:</label>
-    <input type="date" id="birthdate" name="birthdate">
+    <input type="date" id="birthdate" name="birthdate" />
     <label for="country">Country:</label>
     <select id="country" name="country">
       <option value="">--Select a country--</option>
@@ -1157,9 +1196,16 @@ hideInToc: true
     </select>
     <fieldset>
       <legend>Interests</legend>
-      <label><input type="checkbox" name="interests" value="sports"> Sports</label>
-      <label><input type="checkbox" name="interests" value="music"> Music</label>
-      <label><input type="checkbox" name="interests" value="reading"> Reading</label>
+      <label
+        ><input type="checkbox" name="interests" value="sports" /> Sports</label
+      >
+      <label
+        ><input type="checkbox" name="interests" value="music" /> Music</label
+      >
+      <label
+        ><input type="checkbox" name="interests" value="reading" />
+        Reading</label
+      >
     </fieldset>
     <label for="bio">Bio:</label>
     <textarea id="bio" name="bio" rows="4" cols="50"></textarea>
@@ -1176,6 +1222,7 @@ hideInToc: true
 ---
 
 # Class Activity: Create a basic registration form with client-side validation.
+
 <v-clicks>
 
 <div class="flex items-center gap-5">
@@ -1185,6 +1232,7 @@ HTML:
 - Use labels and fieldsets
 
 Validation (JavaScript):
+
 - Username: 4+ characters
 - Email: Valid format
 - Password: 8+ characters, 1 uppercase, 1 lowercase, 1 number
@@ -1196,20 +1244,21 @@ Terms: Checked
 <div>
 
 Styling:
+
 - Basic CSS for layout and error messages
 
 Accessibility:
+
 - Use ARIA attributes where needed
 
 Bonus:
+
 - Real-time validation feedback
 </div>
 
 </div>
 
-
-
-
 </v-clicks>
 
 ---
+

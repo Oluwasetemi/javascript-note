@@ -9,7 +9,8 @@ export default mergeConfigs([
         'text-transparent bg-clip-text bg-gradient-to-tl from-green-300 via-teal-400 to-purple-500',
       'bg-main': 'bg-white text-[#181818] dark:(bg-[#121212] text-[#ddd])',
       'text-common': 'text-[#5D8392]',
-      'form-basic': 'p-1 text-sm border border-blue border-2 focus:outline-none'
+      'form-basic':
+        'p-1 text-sm border border-blue border-2 focus:outline-none',
     },
     presets: [
       presetWebFonts({
