@@ -2,14 +2,23 @@
   <aside class="tip pl-3 b-l-5 b-l-type" :class="type" :role="role">
     <section class="flex items-center gap-3 mb-2">
       <div class="tip__icon">
-      <slot name="icon">
-        <div v-if="type === 'tip'" class="slidev-icon i-carbon-idea" />
-        <div v-else-if="type === 'info'" class="slidev-icon i-carbon-information" />
-        <div v-else-if="type === 'success'" class="slidev-icon i-carbon-checkmark" />
-        <div v-else-if="type === 'danger'" class="slidev-icon i-carbon-warning-alt" />
-      </slot>
-    </div>
-    <div class="tip__type">{{ capitalizedType }}</div>
+        <slot name="icon">
+          <div v-if="type === 'tip'" class="slidev-icon i-carbon-idea" />
+          <div
+            v-else-if="type === 'info'"
+            class="slidev-icon i-carbon-information"
+          />
+          <div
+            v-else-if="type === 'success'"
+            class="slidev-icon i-carbon-checkmark"
+          />
+          <div
+            v-else-if="type === 'danger'"
+            class="slidev-icon i-carbon-warning-alt"
+          />
+        </slot>
+      </div>
+      <div class="tip__type">{{ capitalizedType }}</div>
     </section>
     <section class="tip__body">
       <div class="tip__content">
@@ -20,23 +29,24 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType } from 'vue';
+import { computed, PropType } from 'vue'
 
 const props = defineProps({
   type: {
     type: String as PropType<'tip' | 'info' | 'success' | 'danger'>,
     default: 'info',
-    validator: (value) => ['tip', 'info', 'success', 'danger'].includes(value as string),
-  }
-});
+    validator: (value) =>
+      ['tip', 'info', 'success', 'danger'].includes(value as string),
+  },
+})
 
 const capitalizedType = computed(() => {
-  return props.type.charAt(0).toUpperCase() + props.type.slice(1);
-});
+  return props.type.charAt(0).toUpperCase() + props.type.slice(1)
+})
 
 const role = computed(() => {
-  return props.type === 'danger' ? 'alert' : 'status';
-});
+  return props.type === 'danger' ? 'alert' : 'status'
+})
 </script>
 
 <style scoped>
@@ -71,31 +81,32 @@ const role = computed(() => {
 .tip {
   background-color: var(--tip-bg, #660792);
   color: var(--tip-text, #ffffff);
-  --uno: b-l-[#660792] light:bg-[#66079270] light:text-black;
+  --uno: b-l-[#660792] light: bg-[#66079270] light: text-black;
 }
 
-.tip__icon, .tip__type {
+.tip__icon,
+.tip__type {
   color: var(--tip-icon, #660792);
-  --uno: dark:color-white
+  --uno: dark: color-white;
 }
 
 /* Dynamic background colors */
 .info {
   --tip-bg: #111a2b;
   --tip-icon: #2196f3;
-  --uno: b-l-[#2196f3] light:bg-[#2196f370] light:text-black;
+  --uno: b-l-[#2196f3] light: bg-[#2196f370] light: text-black;
 }
 
 .success {
   --tip-bg: #132a1a;
   --tip-icon: #4caf50;
-  --uno: b-l-[#4caf50] light:bg-[#4caf5070] light:text-black;
+  --uno: b-l-[#4caf50] light: bg-[#4caf5070] light: text-black;
 }
 
 .danger {
   --tip-bg: #2b1518;
   --tip-icon: #ff4d4f;
-  --uno: b-l-[#ff4d4f] light:bg-[#ff4d4f70] light:text-black;
+  --uno: b-l-[#ff4d4f] light: bg-[#ff4d4f70] light: text-black;
 }
 
 /* Deep styling */
