@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Beyond Beginner
+
 <div mt-2 />
 
 - Mutation Observer
@@ -14,7 +15,6 @@ hideInToc: true
 - Web Workers
 - Service Workers
 - Event loop: microtasks and macrotasks
-
 
 ---
 hideInToc: true

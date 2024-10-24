@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Document
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">DOM tree and Walking the DOM</a>
@@ -16,7 +17,6 @@ hideInToc: true
 - <a @click="$nav.go($nav.currentPage+15)">Element size and scrolling</a>
 - <a @click="$nav.go($nav.currentPage+16)">Window sizes and scrolling</a>
 - <a @click="$nav.go($nav.currentPage+19)">Coordinates</a>
-
 
 ---
 hideInToc: true
@@ -31,7 +31,7 @@ ECMAScript is a language specification. It doesn't cover the browser environment
 
 JavaScript contains Object, Array, Function and many others as described by the [ECMAScript 262](https://tc39.es/ecma262/){.text-gradient}.
 
-[DOM](https://dom.spec.whatwg.org/){.text-gradient} - Document Object Model is the interface between JavaScript and HTML + CSS. It allows JavaScript to interact with the HTML and CSS. `document` object is the main object of the [DOM](https://dom.spec.whatwg.org/){.text-gradient}. It represents the web page described in an object. 
+[DOM](https://dom.spec.whatwg.org/){.text-gradient} - Document Object Model is the interface between JavaScript and HTML + CSS. It allows JavaScript to interact with the HTML and CSS. `document` object is the main object of the [DOM](https://dom.spec.whatwg.org/){.text-gradient}. It represents the web page described in an object.
 
 [CSSOM](https://www.w3.org/TR/cssom-1/){.text-gradient} - CSS Object Model is the interface between JavaScript and CSS. It allows JavaScript to interact with the CSS.
 
@@ -48,7 +48,7 @@ clicksStart: 1
 
 <v-clicks>
 
-HTML tags are the core of DOM. The browser converts the HTML tags into a tree structure called the DOM tree. The DOM tree is a representation of the HTML tags in a tree structure. The DOM tree is a hierarchical representation of the HTML tags. The DOM tree is a collection of nodes. Each node is an object representing a part of the document. 
+HTML tags are the core of DOM. The browser converts the HTML tags into a tree structure called the DOM tree. The DOM tree is a representation of the HTML tags in a tree structure. The DOM tree is a hierarchical representation of the HTML tags. The DOM tree is a collection of nodes. Each node is an object representing a part of the document.
 
 ```js{monaco-run} {autorun: false}
 console.log(document.documentElement); console.log(document.body); console.log(document.head); console.log(document.title);
@@ -58,9 +58,9 @@ The nodes are connected in a tree structure, parent-child relationship, sibling 
 
 <span>Tags <span class="i-mdi-forward color-amber">-></span></span>Elements <span class="i-mdi-forward color-amber">-></span> Nodes
 
-<span>Text <span class="i-mdi-forward color-amber">-></span></span>Text Nodes 
+<span>Text <span class="i-mdi-forward color-amber">-></span></span>Text Nodes
 
-<span>Comment <span class="i-mdi-forward color-amber">-></span></span>Comment Nodes 
+<span>Comment <span class="i-mdi-forward color-amber">-></span></span>Comment Nodes
 
 </v-clicks>
 
@@ -74,11 +74,11 @@ clicksStart: 1
 <v-clicks>
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="88"]`)
+const element = document.querySelector(`[data-slidev-no="93"]`)
 const h1 = element.querySelector('h1');
 console.log(h1.textContent)
 
-h1.classList.add('text-gradient'); 
+h1.classList.add('text-gradient');
 setTimeout(() => h1.classList.remove('text-gradient'), 3000); // return back
 ```
 
@@ -87,7 +87,7 @@ This will lead us to the next section where we discuss the first steps in modify
 <div flex="~ row" gap-8>
 
 ```html
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
   <head>
     <title>Title</title>
@@ -114,7 +114,10 @@ name: DOM Traversal Image
 ---
 
 ![](/children-structure-nodes.svg)
-<!-- <tldraw class="w-200 h-140" /> -->
+
+<!--
+<tldraw class="w-200 h-140" />
+-->
 
 ---
 hideInToc: true
@@ -130,10 +133,8 @@ You can now traverse the DOM tree using the following based the relationships be
 - `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `nextElementSibling`, `previousElementSibling`
 - `nodeType`, `nodeName`, `nodeValue`
 
-
-
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="90"]`)
+const element = document.querySelector(`[data-slidev-no="95"]`)
 
 console.log(element.parentNode);console.log(element.parentElement)
 console.log(element.childNodes);console.log(element.children)
@@ -159,15 +160,14 @@ clicksStart: 1
 
 <!-- draw a markdown table -->
 
-|School|Courses|||
-|--|--|--|--|
-|SOE| Frontend|Backend|Cloud|Cyber|
-|SOD| Design|Marketing|Marketing||
-
+| School | Courses  |           |           |       |
+| ------ | -------- | --------- | --------- | ----- |
+| SOE    | Frontend | Backend   | Cloud     | Cyber |
+| SOD    | Design   | Marketing | Marketing |       |
 
 ```js{monaco-run} {autorun: false}
 // TODO: Fix the bug on the querySelector
-const table = document.querySelector(`[data-slidev-no="91"]`)
+const table = document.querySelector(`[data-slidev-no="96"]`)
 console.log(table);
 console.log(table.rows); console.log(table.tBodies); console.log(table.tHead); console.log(table.tFoot);
 console.log(table.rows[0]); console.log(table.rows[0].cells); console.log(table.rows[0].cells[0]); //tbody //tr //td //th
@@ -199,15 +199,13 @@ clicksStart: 1
 
 - `childNodes` includes all nodes, `children` includes only element nodes.
 
-- `NODELIST` is a collection of nodes, `HTMLCOLLECTION` is a collection of elements. `HTMLCOLLECTION` is a live collection, `NODELIST` is a static collection. `HTMLCOLLECTION` has additional methods like `namedItem`, `namedItem`, `item`, `length` and it is read-only 
+- `NODELIST` is a collection of nodes, `HTMLCOLLECTION` is a collection of elements. `HTMLCOLLECTION` is a live collection, `NODELIST` is a static collection. `HTMLCOLLECTION` has additional methods like `namedItem`, `namedItem`, `item`, `length` and it is read-only
 
 - Yes, it is true that `elem.lastChild.nextSibling` is always null. This is because the `lastChild` property refers to the last child node of an element, and there can be no nodes after the last one. Therefore, its `nextSibling` will always be null, as there are no further siblings beyond the last child.
 
 </details>
 
 </v-click>
-
-
 
 ---
 hideInToc: true
@@ -225,7 +223,7 @@ You can search for elements in the DOM tree using the following methods:
 - `matches`, `closest`
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="83"]`);
+const element = document.querySelector(`[data-slidev-no="98"]`);
 // add a id, class to the element
 console.log(element.id); console.log(element.className); console.log(element.tagName); console.log(element.tagName.toLowerCase());console.log(element.name);
 ```
@@ -243,10 +241,8 @@ clicksStart: 1
 
 Important classes to understand the node properties includes - `EventTarget`, `Node`, `Element`, `HTMLElement`-`HTMLBodyElement`-other interface discussed in the [HTML Note](https://karatu.oluwasetemi.dev/85), `Document`-`HTMLDocument`-`DocumentFragment`, `CharacterData`-`Text`-`Comment`.
 
-
-
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="84"]`);
+const element = document.querySelector(`[data-slidev-no="99"]`);
 
 console.dir(element)
 ```
@@ -254,14 +250,13 @@ console.dir(element)
 ## `innerHTML`, `outerHTML`, `textContent`, `innerText`, `nodeValue` or `data`, `hidden`
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="84"]`);
+const element = document.querySelector(`[data-slidev-no="99"]`);
 
 console.log(element.innerHTML); console.log(element.outerHTML); console.log(element.textContent); console.log(element.innerText); console.log(element.nodeValue); console.log(element.data); console.log(element.hidden);
 ```
 
 NB: other properties include `id`, `className`, `tagName`, `name`, `type`, `value`, `checked`, `selected`, `href`, `src`, `alt`, `title`, `lang`, `dir`, `style`, `dataset`, `attributes`, `classList`.
 </v-clicks>
-
 
 ---
 hideInToc: true
@@ -275,7 +270,7 @@ clicksStart: 1
 Attributes are the properties of the elements. They are the key-value pairs of the elements from the [convertion]{.text-xl.font-fast.text-red title='parsed or read'} of HTML to DOM. You can add your own properties to the element but the html attributes set is fixed according to the [specification](https://html.spec.whatwg.org/){.text-gradient}.
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="85"]`);
+const element = document.querySelector(`[data-slidev-no="100"]`);
 
 console.log(element.getAttribute('data-slidev-no')); console.log(element.getAttribute('data-slidev-no') === element.dataset.slidevNo); console.log(element.dataset.slidevNo);
 ```
@@ -283,15 +278,14 @@ console.log(element.getAttribute('data-slidev-no')); console.log(element.getAttr
 ## `setAttribute`, `removeAttribute`, `hasAttribute`, `attributes`
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="85"]`);
+const element = document.querySelector(`[data-slidev-no="100"]`);
 
-element.setAttribute('data-slidev-no', '85'); console.log(element.dataset.slidevNo);
+element.setAttribute('data-slidev-no', '96'); console.log(element.dataset.slidevNo);
 element.removeAttribute('data-slidev-no'); console.log(element.dataset.slidevNo);
 console.log(element.hasAttribute('data-slidev-no')); console.log(element.attributes);
 ```
 
 </v-clicks>
-
 
 ---
 hideInToc: true
@@ -302,21 +296,21 @@ clicksStart: 1
 
 <v-clicks>
 
-You can modify the document with several methods provided that the html has been written and parsed into the DOM tree. You can add, remove, replace, clone, insert, append, prepend, before, after. You can also create new elements, text nodes, comment nodes, document fragments, and document type nodes. 
+You can modify the document with several methods provided that the html has been written and parsed into the DOM tree. You can add, remove, replace, clone, insert, append, prepend, before, after. You can also create new elements, text nodes, comment nodes, document fragments, and document type nodes.
 
-Consider the following `html` and `css`. 
+Consider the following `html` and `css`.
 
 ```html
 <style>
-.alert {
-  padding: 15px;
-  border: 1px solid #d6e9c6;
-  border-radius: 4px;
-  color: #3c763d;
-  background-color: #dff0d8;
-  --uno : p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8] text-[#3c763d]
-  @apply : p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8] text-[#3c763d]
-}
+  .alert {
+    padding: 15px;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    --uno: p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8]
+      text-[#3c763d]; /* @apply in place of --uno */
+  }
 </style>
 <div class="alert">
   <strong>Hi there!</strong> You've read an important message.
@@ -349,14 +343,13 @@ name: modify the document continued
 clicksStart: 1
 ---
 
-
 <div class="p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8] text-[#3c763d]">
   <strong>Hi there!</strong> You've read an important message.
 </div>
 
 <v-clicks>
 
-Let us create this element using JavaScript. 
+Let us create this element using JavaScript.
 
 ```js{monaco-run} {autorun: false}
 const div = document.createElement('div');
@@ -369,7 +362,7 @@ strong.appendChild(textNode1);
 div.appendChild(strong);
 div.appendChild(textNode2);
 
-const element = document.querySelector(`[data-slidev-no="87"] .default`);
+const element = document.querySelector(`[data-slidev-no="102"] .default`);
 element.prepend(div);
 ```
 
@@ -385,10 +378,9 @@ clicksStart: 1
 
 # DocumentFragment
 
-
 <v-clicks>
 
-`DocumentFragment` is a lightweight container that can hold nodes. It is not part of the main DOM tree. It is used to hold nodes before they are inserted into the main DOM tree. It is used to improve performance when you want to insert multiple nodes at once. 
+`DocumentFragment` is a lightweight container that can hold nodes. It is not part of the main DOM tree. It is used to hold nodes before they are inserted into the main DOM tree. It is used to improve performance when you want to insert multiple nodes at once.
 
 ```js{monaco-run} {autorun: false}
 const fragment = new DocumentFragment();
@@ -405,7 +397,7 @@ div.appendChild(textNode2);
 fragment.appendChild(div);
 // fragment.appendChild(div.cloneNode(true));
 
-const element = document.querySelector(`[data-slidev-no="88"] .default`);
+const element = document.querySelector(`[data-slidev-no="103"] .default`);
 element.prepend(fragment);
 ```
 
@@ -427,7 +419,7 @@ You can modify the styles and classes of the elements using the following method
 
 ```js{monaco-run} {autorun: false}
 
-const element = document.querySelector(`[data-slidev-no="89"]`);
+const element = document.querySelector(`[data-slidev-no="104"]`);
 
 element.style.color = 'red'; element.style.backgroundColor = 'yellow'; element.style.padding = '15px'; element.style.border = '1px solid #d6e9c6'; element.style.borderRadius = '4px';
 element.style.setProperty('--uno', 'p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8] text-[#3c763d]');
@@ -455,7 +447,7 @@ You can get the size and position of the elements using the following methods:
 - `scrollWidth`, `scrollHeight`, `scrollLeft`, `scrollTop`
 
 ```js{monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="70"] .view-lines`);
+const element = document.querySelector(`[data-slidev-no="105"] .view-lines`);
 
 console.log(element.offsetWidth); console.log(element.offsetHeight); console.log(element.offsetLeft); console.log(element.offsetTop); console.log(element.offsetParent);
 console.log(element.clientWidth); console.log(element.clientHeight); console.log(element.clientLeft); console.log(element.clientTop);
@@ -491,7 +483,7 @@ console.log(window.screenX); console.log(window.screenY);
 console.log(window.screenLeft); console.log(window.screenTop);
 ```
 
-NB: `innerWidth` and `innerHeight` are the viewport size but always prefer `document.documentElement`* `clientHeight` and `clientWidth`, `outerWidth` and `outerHeight` are the window size, `scrollX` and `scrollY` are the scroll position, `screenX` and `screenY` are the screen position.
+NB: `innerWidth` and `innerHeight` are the viewport size but always prefer `document.documentElement`\* `clientHeight` and `clientWidth`, `outerWidth` and `outerHeight` are the window size, `scrollX` and `scrollY` are the scroll position, `screenX` and `screenY` are the screen position.
 
 </v-clicks>
 
@@ -534,13 +526,10 @@ Scrolling can be done using `scrollTo(pageX, pageY)`, `scrollBy(x, y)`, `scrollI
 You can disable the scrolling using `overflow: hidden` on the `html` or `body` element.
 
 ```js
-document.body.style.overflow = 'hidden'; // enable by setting it to ''
+document.body.style.overflow = 'hidden' // enable by setting it to ''
 ```
 
-
-
 </v-clicks>
-
 
 ---
 hideInToc: true
@@ -551,7 +540,7 @@ clicksStart: 1
 
 <v-clicks>
 
-This allow movement of elements on the screen and can be done relative to the window similar to the behavior of `position: fixed` `clientY` or `clientX` or relative to the document similar to the behavior of `position: absolute` `pageY` or `pageX`.Back to `getBoundingClientRect` methods, it returns a `DOMRect` object with the size of an element and its position relative to the viewport. `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, `left`. `x/y` and `width/height` full describes the rectangle. 
+This allow movement of elements on the screen and can be done relative to the window similar to the behavior of `position: fixed` `clientY` or `clientX` or relative to the document similar to the behavior of `position: absolute` `pageY` or `pageX`.Back to `getBoundingClientRect` methods, it returns a `DOMRect` object with the size of an element and its position relative to the viewport. `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, `left`. `x/y` and `width/height` full describes the rectangle.
 
 left = x, top = y, right = x + width, bottom = y + height.
 
@@ -561,7 +550,7 @@ Remember that element appended to a page using coordinates from another element 
 
 ```js{monaco-run} {autorun: false}
 // FIX: use the deprecated pageXOffset and pageYOffset with the right values
-const element = document.querySelector(`[data-slidev-no="74"] h1`);
+const element = document.querySelector(`[data-slidev-no="109"] h1`);
 function getCoords(elem) { let box = elem.getBoundingClientRect(); return { top: box.top + window.pageYOffset, right: box.right + window.pageXOffset, bottom: box.bottom + window.pageYOffset, left: box.left + window.pageXOffset }; }
 console.log(getCoords(element));
 ```
@@ -574,23 +563,25 @@ name: Class Activity
 clicksStart: 1
 ---
 
-Show a note(tooltip) on all the three corners of an element as shown in the image. 
+Build out the content of the image with html,css. Use JavaScript to append a note(tooltip) on all the three corners of an element as shown in the image. Create a function `positionAt(anchor, position, elem)` that positions elem, depending on position near anchor element. Position can be `top`, `right`, `bottom` according to the image.
 
-![alt text](/image.png){.w-full.h-100}
+BONUS: The function should be able to handle the case when there is not enough space for the tooltip to be displayed in the specified position. Consider implementing [floating ui](https://floating-ui.com/) to help.
+
+![alt text](/image.png){.w-full.h-80}
 
 ---
 hideInToc: true
 name: Assignment
-clicksStart: 1 
+clicksStart: 1
 ---
 
 # Assignment
+
 <div mt-2 />
 
 [Use JavaScript to create the class activity image entirely.]{.text-xl}
 
-
-<GeneralQuote @click="$slidev.nav.next()"  quote="See you on the other side, where we will discuss the Events in JavaScript, May the forth be with you."  />
+<GeneralQuote @click="$slidev.nav.next()" quote="See you on the other side, where we will discuss the Events in JavaScript, May the fourth be with you." />
 
 # References
 

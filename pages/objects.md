@@ -5,6 +5,7 @@ hideInToc: true
 ---
 
 # Objects
+
 <div mt-2 />
 
 - basics of objects
@@ -16,7 +17,6 @@ hideInToc: true
 - object properties configuration
   - flags(writable, enumerable, configurable) and descriptors
   - property getters and setters
-
 
 ---
 hideInToc: true
