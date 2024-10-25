@@ -596,7 +596,7 @@ const blob = new Blob(chunks)
 hideInToc: true
 ---
 
-<BestPractice />
+<BestPractices />
 
 ---
 hideInToc: true
