@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "npx playwright-core install chromium",
-    "build": "slidev build",
+    "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider --max_old_space_size=8192' slidev build",
     "dev": "nodemon -e 'md,js,mjs,cjs,json' -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
     "export": "slidev export",
     "export:pdf": "npm run export -- --timeout 60000s --with-toc --output ./_export/javascript-note.pdf",
@@ -25,6 +25,7 @@
     "@iconify-json/mdi": "^1.2.1",
     "@slidev/types": "0.50.0-beta.4",
     "@vue/compiler-sfc": "^3.5.12",
+    "cross-env": "^7.0.3",
     "markdown-it-magic-link": "^0.1.4",
     "nano-staged": "^0.8.0",
     "nodemon": "^3.1.7",

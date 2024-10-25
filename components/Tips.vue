@@ -80,33 +80,38 @@ const role = computed(() => {
 
 .tip {
   background-color: var(--tip-bg, #660792);
-  color: var(--tip-text, #ffffff);
-  --uno: b-l-[#660792] light: bg-[#66079270] light: text-black;
+  /* color: var(--tip-text, #ffffff); */
+  --uno: b-l-[#660792] light: bg-[#66079270];
 }
 
 .tip__icon,
 .tip__type {
   color: var(--tip-icon, #660792);
-  --uno: dark: color-white;
+  /* --uno: dark: color-white ; */
+}
+
+.dark .tip__icon,
+.dark .tip__type {
+  --tip-icon: #fff;
 }
 
 /* Dynamic background colors */
 .info {
   --tip-bg: #111a2b;
   --tip-icon: #2196f3;
-  --uno: b-l-[#2196f3] light: bg-[#2196f370] light: text-black;
+  --uno: b-l-[#2196f3] light: bg-[#2196f370];
 }
 
 .success {
   --tip-bg: #132a1a;
   --tip-icon: #4caf50;
-  --uno: b-l-[#4caf50] light: bg-[#4caf5070] light: text-black;
+  --uno: b-l-[#4caf50] light: bg-[#4caf5070];
 }
 
 .danger {
   --tip-bg: #2b1518;
   --tip-icon: #ff4d4f;
-  --uno: b-l-[#ff4d4f] light: bg-[#ff4d4f70] light: text-black;
+  --uno: b-l-[#ff4d4f] light: bg-[#ff4d4f70];
 }
 
 /* Deep styling */
