@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "npx playwright-core install chromium",
-    "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider --max_old_space_size=8192 slidev build",
+    "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider --max_old_space_size=8192' slidev build",
     "dev": "nodemon -e 'md,js,mjs,cjs,json' -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
     "export": "slidev export",
     "export:pdf": "npm run export -- --timeout 60000s --with-toc --output ./_export/javascript-note.pdf",
