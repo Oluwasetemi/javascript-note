@@ -93,7 +93,7 @@ interface AddEventListenerOptions extends EventListenerOptions {
 ```
 
 ```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="112"] h1`)
+const elem = document.querySelector(`[data-slidev-no="180"] h1`)
 const handler = () => alert('Click!')
 elem.addEventListener('click', handler, { once: true })
 // elem.addEventListener('mouseover', handler);
@@ -114,7 +114,7 @@ hideInToc: true
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler.
 
 ```js {monaco-run}{autorun: false}
-const elem = document.querySelector(`[data-slidev-no="113"] h1`)
+const elem = document.querySelector(`[data-slidev-no="181"] h1`)
 
 elem.addEventListener('click', function (event) {
   // show the event type, the element and the coordinates of the click
@@ -163,7 +163,7 @@ You can stop the bubbling by calling `event.stopPropagation()` or `event.stopImm
 ```html
 <body onclick="alert('body click')">
   <div id="elem" style="border: 1px solid black; padding: 10px">
-    <button @click="alert('button clicked')">Click me</button>
+    <button onclick="alert('button clicked')">Click me</button>
   </div>
 </body>
 ```
@@ -182,7 +182,7 @@ hideInToc: true
 <v-clicks>
 
 ```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="115"] h1`)
+const elem = document.querySelector(`[data-slidev-no="183"] h1`)
 const parent = elem.parentElement
 const grandParent = parent.parentElement
 
@@ -341,18 +341,17 @@ When an event happens, the browser does something with it. For instance, a click
 
 To prevent the default action, we can use `event.preventDefault()`. returning `false` from an event handler is the same as calling `event.preventDefault()` and `event.stopPropagation()`.
 
-<!-- prettier-ignore-start -->
-```js {monaco-run}
-const link = document.querySelector(`[data-slidev-no="119"] a`)
+<!-- prettier-ignore -->
+```js {monaco-run} {lineNumbers: true, autorun: false}
+const link = document.querySelector(`[data-slidev-no="187"] a`)
 link.addEventListener('click', function(event) {
   event.preventDefault(); event.stopPropagation();
   alert('Link click!');
 });
 ```
-<!-- prettier-ignore-end -->
 
 ```js {monaco-run}
-const h1 = document.querySelector(`[data-slidev-no="118"] h1`)
+const h1 = document.querySelector(`[data-slidev-no="187"] h1`)
 h1.oncontextmenu = function (event) {
   alert('Content menu clicked')
 }
@@ -420,7 +419,7 @@ For completely new events, we can use `CustomEvent` class. It has an additional 
 
 <!-- prettier-ignore-start -->
 ```js {monaco-run}{autorun: false}
-const element = document.querySelector(`[data-slidev-no="121"] h1`)
+const element = document.querySelector(`[data-slidev-no="189"] h1`)
 element.onclick = function() { element.dispatchEvent(new CustomEvent("hello", { detail: { name: "John" } })); };
 element.addEventListener('hello', function(event) {
   console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');

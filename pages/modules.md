@@ -18,7 +18,7 @@ hideInToc: true
 
 # Module basics
 
-
+<div />
 
 [What is a module?]{.text-gradient.font-hand.text-10.pr-3.pl-0}
 
@@ -55,10 +55,75 @@ import { sayHi } from './sayHi.js'
 
 ---
 hideInToc: true
-
 ---
 
-# Export and Import
+# What is Importing?
+
+- Importing is the method by which you make exported code available in another JavaScript file. This is essential for assembling various components and libraries to build complex applications.
+
+- Import \* as `<var name>`: This syntax allows you to import all exported code from a module and assign it to a single object. This is useful when you want to import multiple modules into a single file.
+
+- Usually, we put a list of what to import in curly braces import {...}, like this:
+
+<div flex="~ row" gap-10>
+
+```js
+// 📁 main.js
+import { sayHi, sayBye } from './say.js'
+
+sayHi('John') // Hello, John!
+sayBye('John') // Bye, John!
+```
+
+```js
+// 📁 main.js
+import { sayHi as hi, sayBye as bye } from './say.js'
+
+hi('John') // Hello, John!
+bye('John') // Bye, John!
+```
+
+```js
+// 📁 main.js
+import * as say from './say.js'
+
+say.sayHi('John')
+say.sayBye('John')
+```
+
+</div>
+
+---
+hideInToc: true
+name: Export and Import
+---
+
+- But if there’s a lot to import, we can import everything as an object using `import * as <var name>`, for instance:
+
+- At first sight, “import everything” seems such a cool thing, short to write, why should we ever explicitly list what we need to import?
+
+- Explicitly listing what to import gives shorter names: sayHi() instead of say.sayHi().
+- Explicit list of imports gives better overview of the code structure: what is used and where. It makes code support and refactoring easier.
+
+<div flex="~ row" gap-10>
+
+```js
+// 📁 say.js
+...
+export {sayHi as hi, sayBye as bye};
+
+//Now hi and bye are official names to be used in imports:
+```
+
+```js
+// 📁 main.js
+import * as say from './say.js'
+
+say.hi('John') // Hello, John!
+say.bye('John') // Bye, John!
+```
+
+</div>
 
 - Export and import directives have several syntax variants(named, renamed, default, dynamic).
 
@@ -66,19 +131,10 @@ hideInToc: true
 
 For instance, here all exports are valid:
 
+<!-- prettier-ignore -->
 ```js
 // export an array
-export let months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-]
+export let months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', ]
 // export a constant
 export const MODULES_BECAME_STANDARD_YEAR = 2015
 // export a class
