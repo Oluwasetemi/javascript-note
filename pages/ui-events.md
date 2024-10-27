@@ -15,7 +15,6 @@ hideInToc: true
 - Keyboard: keydown and keyup
 - Scrolling
 
-
 ---
 hideInToc: true
 layout: center
@@ -29,7 +28,7 @@ JavaScript mouse events are actions that can be detected by a web page when the 
 
 Key Mouse Events
 
-- click-  Detects when a button is pressed and released on a single element.
+- click- Detects when a button is pressed and released on a single element.
 
 - dbclick- Occurs when an element is clicked twice in quick succession.
 
@@ -47,19 +46,19 @@ Example: Creating a Clickable Button
 
 Consider a button that changes its color every time it is clicked. This simple interaction can be implemented using the click event.
 
- <div flex='~ row' gap-10>
+ <div grid grid-col-2>
 
 ```html
-    <div>
-    <button id="colorButton">Click me to change color</button>
+<div>
+  <button id="colorButton">Click me to change color</button>
 </div>
 ```
 
 ```js
-      document.getElementById('colorButton').addEventListener('click', function() {
-        this.style.backgroundColor = this.style.backgroundColor === 'red' ? 'blue' : 'red';
-    });
-
+document.getElementById('colorButton').addEventListener('click', function () {
+  this.style.backgroundColor =
+    this.style.backgroundColor === 'red' ? 'blue' : 'red'
+})
 ```
 
 </div>
@@ -81,13 +80,13 @@ The mouseover event occurs when a mouse pointer comes over an element, and mouse
 ![alt mouseout/mouseover](image.png)
 
 Example: Text Highlighting on Mouse Over
-<div flex='~ row' gap='10>'
+
+<div flex='~ row' gap='10'>
 
 ```html
 <div>
   <p id="hoverText">Hover over me to highlight.</p>
 </div>
-
 ```
 
 ```js
@@ -111,38 +110,41 @@ Example: Text Highlighting on Mouse Over
 <v-clicks>
 
 ## Events mouseenter and mouseleave
-  
+
 - Events mouseenter/mouseleave do not bubble
 
 - When the pointer enters an element – mouseenter triggers. The exact location of the pointer inside the element or its descendants doesn’t matter.
 
- When the pointer leaves an element – mouseleave triggers.
+When the pointer leaves an element – mouseleave triggers.
 
 <div flow="~ row" gap='10'>
 
 ```html
-    <div id="parent" onmouseenter="mouselog(event)" onmouseleave="mouselog(event)">parent
-    <div id="child">child</div>
-  </div>
+<div id="parent" onmouseenter="mouselog(event)" onmouseleave="mouselog(event)">
+  parent
+  <div id="child">child</div>
+</div>
 
-  <textarea id="text"></textarea>
-  <input type="button" onclick="text.value=''" value="Clear"/>
-
+<textarea id="text"></textarea>
+<input type="button" onclick="text.value=''" value="Clear" />
 ```
 
 ```js
-
- function mouselog(event) {
-  let d = new Date();
-  text.value += `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()} | ${event.type} [target: ${event.target.id}]\n`.replace(/(:|^)(\d\D)/, '$10$2');
-  text.scrollTop = text.scrollHeight;
+function mouselog(event) {
+  let d = new Date()
+  text.value +=
+    `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()} | ${event.type} [target: ${event.target.id}]\n`.replace(
+      /(:|^)(\d\D)/,
+      '$10$2',
+    )
+  text.scrollTop = text.scrollHeight
 }
-
 ```
 
 </div>
 
 </v-clicks>
+
 ---
 hideInToc: true
 ---
@@ -156,40 +158,37 @@ Drag-and-drop is a user interface interaction that allows users to grab an objec
 - The basic Drag’n’Drop algorithm looks like this:
 
 ```js
-
-    ball.onmousedown = function(event) {
+ball.onmousedown = function (event) {
   // (1) prepare to moving: make absolute and on top by z-index
-  ball.style.position = 'absolute';
-  ball.style.zIndex = 1000;
+  ball.style.position = 'absolute'
+  ball.style.zIndex = 1000
 
   // move it out of any current parents directly into body
   // to make it positioned relative to the body
-  document.body.append(ball);
+  document.body.append(ball)
 
   // centers the ball at (pageX, pageY) coordinates
   function moveAt(pageX, pageY) {
-    ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
-    ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
+    ball.style.left = pageX - ball.offsetWidth / 2 + 'px'
+    ball.style.top = pageY - ball.offsetHeight / 2 + 'px'
   }
 
   // move our absolutely positioned ball under the pointer
-  moveAt(event.pageX, event.pageY);
+  moveAt(event.pageX, event.pageY)
 
   function onMouseMove(event) {
-    moveAt(event.pageX, event.pageY);
+    moveAt(event.pageX, event.pageY)
   }
 
   // (2) move the ball on mousemove
-  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mousemove', onMouseMove)
 
   // (3) drop the ball, remove unneeded handlers
-  ball.onmouseup = function() {
-    document.removeEventListener('mousemove', onMouseMove);
-    ball.onmouseup = null;
-  };
-
-};
-
+  ball.onmouseup = function () {
+    document.removeEventListener('mousemove', onMouseMove)
+    ball.onmouseup = null
+  }
+}
 ```
 
 </v-clicks>
@@ -208,19 +207,19 @@ Pointer events are named similarly to mouse events. With just three different ev
 - pointcancel
 - gotpointercapture
 - lostpointercapture
-  
+
 Pointer events have the same properties as mouse events, such as clientX/Y, target, etc., plus some others:
 
 <!-- <div grid="~ col-2" gap-10> -->
 
-pointerId: the unique identifier of the pointer causing the event. Browser-generated. Allows us to handle multiple pointers, such as a touchscreen with stylus and    multi-touch (examples will follow).
+pointerId: the unique identifier of the pointer causing the event. Browser-generated. Allows us to handle multiple pointers, such as a touchscreen with stylus and multi-touch (examples will follow).
 
 pointerType – the pointing device type. Must be a string, one of: “mouse”, “pen” or “touch”.
 
 Width - the width of the area where the pointer (e.g. a finger) touches the device. Where unsupported, e.g. for a mouse, it’s always 1.
 
 Height: the height of the area where the pointer touches the device. Where unsupported, it’s always 1.
-  
+
 pressure: the pressure of the pointer tip, in range from 0 to 1. For devices that don’t support pressure must be either 0.5 (pressed) or 0.
 
 <!-- </div> -->
@@ -266,17 +265,15 @@ The scroll event allows reacting to a page or element scrolling. There are quite
 
 For instance:
 
-  Show/hide additional controls or information depending on where in the document the user is.
-  Load more data when the user scrolls down till the end of the page.
+Show/hide additional controls or information depending on where in the document the user is.
+Load more data when the user scrolls down till the end of the page.
 
 Here’s a small function to show the current scroll:
 
 ```js
-
-  window.addEventListener('scroll', function() {
-  document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
-});
-
+window.addEventListener('scroll', function () {
+  document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px'
+})
 ```
 
 In action:
