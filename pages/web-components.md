@@ -8,13 +8,13 @@ hideInToc: true
 
 <div mt-2 />
 
-- Basics
-- Custom Elements
-- Shadow DOM
-- Templates Elements
-- Shadow DOM Slots, Composition
-- Shadow DOM CSS
-- Shadow DOM Events
+- <a @click="$slidev.nav.next()">Basics</a>
+- <a @click="$nav.go($nav.currentPage+5)">Custom Elements</a>
+- <a @click="$nav.go($nav.currentPage+11)">Shadow DOM</a>
+- <a @click="$nav.go($nav.currentPage+16)">Templates Elements</a>
+- <a @click="$nav.go($nav.currentPage+23)"> Shadow DOM Slots, Composition</a>
+- <a @click="$nav.go($nav.currentPage+32)"> Shadow DOM CSS</a>
+- <a @click="$nav.go($nav.currentPage+42)"> Shadow DOM Events</a>
 
 ---
 hideInToc: true
@@ -32,6 +32,8 @@ hideInToc: true
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 ## Why Web Components Matters
@@ -149,6 +151,8 @@ hideInToc: true
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 ## The Three Pillars of Web Components
 
@@ -246,6 +250,8 @@ hideInToc: true
 
    </v-clicks>
 
+---
+hideInToc: true
 ---
 
 ````md magic-move
@@ -424,6 +430,8 @@ hideInToc: true
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 <div class="mx-auto max-w-xl">
 
@@ -439,6 +447,8 @@ graph TD
 
 </div>
 
+---
+hideInToc: true
 ---
 
 # Creating Custom Elements 🛠️
@@ -470,6 +480,8 @@ customElements.define('my-element', MyElement);
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # Lifecycle Methods Explained
 
@@ -488,6 +500,8 @@ sequenceDiagram
     Disconnected->>Connected: Element re-added
 ```
 
+---
+hideInToc: true
 ---
 
 # Real-World Example: Custom Timer Element ⏰
@@ -536,6 +550,8 @@ customElements.define('time-display', TimeFormatter)
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Common Pitfalls to Avoid ⚠️
@@ -600,6 +616,8 @@ graph TD
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # Key Concepts 🔑
 
@@ -630,6 +648,8 @@ shadow.innerHTML = `
 `
 ```
 
+---
+hideInToc: true
 ---
 
 ## Practical Examples
@@ -683,6 +703,8 @@ graph LR
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 ```css
 <!-- Main document -->
@@ -705,6 +727,8 @@ graph LR
 - IDs can be reused within shadow DOM
 - Events are retargeted to preserve encapsulation
 
+---
+hideInToc: true
 ---
 
 ## Best Practices 👌
@@ -746,11 +770,27 @@ shadow.innerHTML = `
 ```
 
 ---
+hideInToc: true
+---
 
 ### What is the Template Element?
 
 #### The <kbd>template</kbd> element is a powerful HTML feature that acts as a container for HTML content that should be hidden when a page loads. Think of it as a reusable blueprint that remains dormant until activated through JavaScript.
 
+```mermaid
+graph TD
+    A[Template Element] --> B[Hidden from View]
+    A --> C[Syntax Checked]
+    A --> D[Not Rendered]
+    B --> E[Until Cloned]
+    C --> F[Valid HTML]
+    D --> G[No Resources Loaded]
+    E --> H[DOM Insertion]
+    style A fill:#f9f,stroke:#333,stroke-width:4px,color:black
+```
+
+---
+hideInToc: true
 ---
 
 ##### Key Characteristics
@@ -786,6 +826,8 @@ shadow.innerHTML = `
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 ## Visual Representation
 
@@ -801,6 +843,8 @@ sequenceDiagram
     Note over DOM: Content becomes active
 ```
 
+---
+hideInToc: true
 ---
 
 ```js
@@ -837,6 +881,8 @@ sequenceDiagram
 ```
 
 ---
+hideInToc: true
+---
 
 ### Use Cases & Benefits
 
@@ -853,7 +899,7 @@ sequenceDiagram
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700">Reusable UI Componentsa</span>
+                                <span class="text-gray-700">Reusable UI Components</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -923,6 +969,8 @@ sequenceDiagram
     </div>
 
 ---
+hideInToc: true
+---
 
 ### Best Practices
 
@@ -976,8 +1024,10 @@ const content = template.content;
     </div>
 
 ---
+hideInToc: true
+---
 
-### Best Practices
+### Common Patterns
 
 <div class="max-w-4xl mx-auto">  
     <div class="h-[70vh] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
@@ -1024,20 +1074,938 @@ const content = template.content;
 </div>
 
 ---
-
-
+hideInToc: true
 ---
 
+# Shadow DOM Slots and Composition
+
+<v-clicks>
+
+##### Shadow DOM slots provide a powerful way to create reusable web components that can accept and render external content. Think of slots as "holes" in your shadow DOM where you can insert content from the light DOM (regular DOM).
+
+##### Imagine a picture frame (shadow DOM) with designated spaces (slots) where you can insert different photos (light DOM content). The frame remains the same, but you can change the photos easily.
+
+```mermaid
+graph TD
+    A[Light DOM Content] -->|Inserted into| B[Shadow DOM Slot]
+    B -->|Renders in| C[Component]
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style B fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    style C fill:#bfb,stroke:#333,stroke-width:2px,color:black
+```
+
+</v-clicks>
 
 ---
-
-
+hideInToc: true
 ---
 
+# Types of Slots
+
+<v-clicks>
+
+1. Named Slots
+   Named slots are specific placement points identified by a name attribute. Content from the light DOM must have a matching slot attribute to be inserted into these slots.
+
+```js
+<!-- Shadow DOM Template -->
+<div>
+  <h2><slot name="title"></slot></h2>
+  <div><slot name="content"></slot></div>
+</div>
+<!-- Light DOM Usage -->
+<custom-element>
+  <span slot="title">Hello World</span>
+  <p slot="content">This is my content</p>
+</custom-element>
+```
+
+</v-clicks>
 
 ---
-
-
+hideInToc: true
 ---
 
+# CONTD
+
+<v-clicks>
+
+2. Default Slot
+   The default slot (unnamed) captures all light DOM content that isn't assigned to a specific named slot.
+
+```js
+<!-- Shadow DOM Template -->
+<div>
+  <slot name="header"></slot>
+  <slot></slot> <!-- Default slot -->
+</div>
+<!-- Light DOM Usage -->
+<custom-element>
+  <h1 slot="header">Title</h1>
+  <p>This goes to default slot</p>
+  <span>This also goes to default slot</span>
+</custom-element>
+```
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+```mermaid
+graph LR
+    A1["span (title)"] -->|Matches| B1["slot (title)"]
+    A2["p (content)"] -->|Matches| B2["slot (content)"]
+    subgraph Light[Light DOM]
+    A1
+    A2
+    end
+    subgraph Shadow[Shadow DOM]
+    B1
+    B2
+    end
+    style A1 fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style A2 fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style B1 fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    style B2 fill:#bbf,stroke:#333,stroke-width:2px,color:black
+```
+
+---
+hideInToc: true
+---
+
+# Practical Example: Custom Menu Component
+
+```html
+<!-- Usage -->
+<custom-menu>
+  <span slot="title">Food Menu</span>
+  <li slot="item">Pizza</li>
+  <li slot="item">Burger</li>
+  <li slot="item">Salad</li>
+</custom-menu>
+
+<!-- Shadow DOM Template -->
+<div class="menu">
+  <header><slot name="title"></slot></header>
+  <ul>
+    <slot name="item"></slot>
+  </ul>
+</div>
+```
+
+---
+hideInToc: true
+---
+
+```mermaid
+graph TD
+    subgraph Light[Light DOM]
+    A["span: Food Menu"] -->|maps to| C
+    B1["li: Pizza"] -->|maps to| D
+    B2["li: Burger"] -->|maps to| D
+    B3["li: Salad"] -->|maps to| D
+    end
+
+    subgraph Shadow[Shadow DOM]
+    C["title slot"]
+    D["item slot"]
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style B1 fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style B2 fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style B3 fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style C fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    style D fill:#bbf,stroke:#333,stroke-width:2px,color:black
+```
+
+---
+hideInToc: true
+---
+
+<div class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+    <div class="p-6">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Shadow DOM Slot Features and Behaviors</h2>
+      <div class="overflow-x-auto overflow-y-auto max-h-[400px] rounded-lg border border-gray-200">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50 sticky top-0">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Feature</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/4">Example</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-2/4">Description</th>
+            </tr>
+          </thead>
+<tbody class="bg-white divide-y divide-gray-200">
+        <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4">
+                <div class="text-sm font-medium text-gray-900">Fallback Content</div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="p-2 bg-gray-100 rounded-md">
+                  <code class="text-sm text-purple-600">
+                    &lt;slot name="title"&gt;Default Title&lt;/slot&gt;
+                  </code>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-600">
+                  The content inside the slot tag serves as a default value when no matching content is provided in the light DOM.
+                  <div class="mt-2 p-2 bg-blue-50 rounded-md">
+                    <span class="text-blue-600 font-medium">Use Case:</span> Providing default text for optional content areas
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+<tr class="hover:bg-gray-50">
+              <td class="px-6 py-4">
+                <div class="text-sm font-medium text-gray-900">Multiple Elements in One Slot</div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="p-2 bg-gray-100 rounded-md">
+                  <code class="text-sm text-purple-600">
+                    &lt;custom-element&gt;<br>
+                    &nbsp;&nbsp;&lt;p slot="content"&gt;First paragraph&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&lt;p slot="content"&gt;Second paragraph&lt;/p&gt;<br>
+                    &lt;/custom-element&gt;
+                  </code>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-600">
+                  Multiple elements with the same slot name are appended sequentially in the order they appear.
+                  <div class="mt-2 p-2 bg-blue-50 rounded-md">
+                    <span class="text-blue-600 font-medium">Use Case:</span> Creating lists, menu items, or multiple content sections
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+ <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4">
+                <div class="text-sm font-medium text-gray-900">Slot Changes</div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="p-2 bg-gray-100 rounded-md">
+                  <code class="text-sm text-purple-600">
+                    shadowRoot.querySelector('slot')<br>
+                    &nbsp;&nbsp;.addEventListener('slotchange', (e) => {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log('Slot content changed!');<br>
+                    });
+                  </code>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-600">
+                  The slotchange event fires when slot content is added, removed, or changed.
+                  <div class="mt-2 p-2 bg-blue-50 rounded-md">
+                    <span class="text-blue-600 font-medium">Use Case:</span> Responding to dynamic content updates
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+<tr class="hover:bg-gray-50">
+              <td class="px-6 py-4">
+                <div class="text-sm font-medium text-gray-900">Named Slots</div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="p-2 bg-gray-100 rounded-md">
+                  <code class="text-sm text-purple-600">
+                    &lt;div&gt;<br>
+                    &nbsp;&nbsp;&lt;slot name="header"&gt;&lt;/slot&gt;<br>
+                    &nbsp;&nbsp;&lt;slot name="content"&gt;&lt;/slot&gt;<br>
+                    &lt;/div&gt;
+                  </code>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-600">
+                  Named slots allow specific content placement within the shadow DOM.
+                  <div class="mt-2 p-2 bg-blue-50 rounded-md">
+                    <span class="text-blue-600 font-medium">Use Case:</span> Creating structured layouts with defined content areas
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+ <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4">
+                <div class="text-sm font-medium text-gray-900">Default Slot</div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="p-2 bg-gray-100 rounded-md">
+                  <code class="text-sm text-purple-600">
+                    &lt;div&gt;<br>
+                    &nbsp;&nbsp;&lt;slot&gt;Default content&lt;/slot&gt;<br>
+                    &lt;/div&gt;
+                  </code>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-600">
+                  The default (unnamed) slot captures all unassigned light DOM content.
+                  <div class="mt-2 p-2 bg-blue-50 rounded-md">
+                    <span class="text-blue-600 font-medium">Use Case:</span> Handling general content without specific placement needs
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+---
+hideInToc: true
+---
+
+## JavaScript Slot API
+
+Important slot-related methods:
+
+<v-clicks>
+
+1. <kbd>node.assignedSlot</kbd>
+
+- Returns the slot element where a node is assigned
+
+2. <kbd>slot.assignedNodes()</kbd>
+
+- Returns nodes assigned to the slot
+
+3. <kbd>slot.assignedElements()</kbd>
+
+- Returns only element nodes assigned to the slot
+
+```js
+// Get all elements in a slot
+const elements = slot.assignedElements()
+
+// Check which slot an element is assigned to
+const targetSlot = element.assignedSlot
+```
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+## Best Practices
+
+- Always provide fallback content for important slots
+- Use named slots for specific content placement
+- Use the default slot for flexible content areas
+- Monitor slot changes when dynamic content updates are needed
+- Keep slot names semantic and meaningful
+
+---
+hideInToc: true
+---
+
+## Shadow DOM CSS
+
+<v-clicks>
+
+Shadow DOM is a powerful web component feature that provides encapsulation for HTML, CSS, and JavaScript. This guide will explain how to style Shadow DOM elements effectively.
+
+1. Basic Shadow DOM Styling Rules
+   Shadow DOM can contain styles in two ways:
+
+- Using <kbd>style</kbd> tags directly
+- Using <kbd>link rel="stylesheet"</kbd> tags
+
+```mermaid
+graph TD
+    A[Shadow DOM Styling] --> B[Internal Styles]
+    A --> C[External Styles]
+    B --> D[style tags]
+    C --> E[link stylesheet]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:black
+    style B fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    style C fill:#bbf,stroke:#333,stroke-width:2px,color:black
+```
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+2. Host Styling with <kbd>:host</kbd>
+
+##### What is :host?
+
+<kbd>:host</kbd> is a special selector that targets the shadow host (the element containing the shadow tree).
+
+```mermaid
+graph TD
+    A[Light DOM] --> B[custom-dialog]
+    B --> C[Shadow DOM]
+    B --":host targets"--> B
+
+    style B fill:#f96,stroke:#333,stroke-width:2px,color:black
+```
+
+---
+hideInToc: true
+---
+
+Example of :host Usage
+
+```html
+<template id="tmpl">
+  <style>
+    :host {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      border: 1px solid red;
+      padding: 10px;
+    }
+  </style>
+  <slot></slot>
+</template>
+```
+
+---
+hideInToc: true
+---
+
+3. Style Cascading Priority
+
+```mermaid
+graph TD
+    A[Style Priority] --> B[Document Styles]
+    A --> C[Local Styles]
+    B --> D[Higher Priority]
+    C --> E[Lower Priority]
+    C --> F["Unless !important"]
+    F --> G[Highest Priority]
+
+    style G fill:#f96,stroke:#333,stroke-width:2px
+```
+
+---
+hideInToc: true
+---
+
+<Tips type="success" >
+<ul>
+<li>Document styles generally take precedence over local styles</li>
+<li>Local styles with !important override document styles</li>
+<li>This allows for easy customization while maintaining default styles</li>
+</ul>
+</Tips>
+
+4. Conditional Host Styling with <kbd>:host(selector)</kbd>
+
+##### <kbd>:host(selector)</kbd> allows you to apply styles only when the host element matches a specific selector.
+
+```mermaid
+graph LR
+    A[custom-dialog] --> B[Without centered]
+    A --> C[With centered]
+    B --> D[Basic Styles]
+    C --> E[Basic + Centered Styles]
+
+    style C fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    style E fill:#bbf,stroke:#333,stroke-width:2px,color:black
+```
+
+---
+hideInToc: true
+---
+
+```css
+:host([centered]) {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+
+5. Styling Slotted Content
+
+#### Key Points about Slots:
+
+- Slotted elements come from light DOM
+- They use document styles by default
+- Local styles don't directly affect slotted content
+
+---
+hideInToc: true
+---
+
+## Two Ways to Style Slots:
+
+<v-clicks>
+
+```mermaid
+graph TD
+    A[Styling Slots] --> B[Style slot Element]
+    A --> C[Use ::slotted]
+    B --> D[CSS Inheritance]
+    C --> E[Direct Targeting]
+
+    style B fill:#bbf,stroke:#333,stroke-width:2px,color:black
+    style C fill:#bbf,stroke:#333,stroke-width:2px,color:black
+```
+
+<div class="flex item-center gap-5">
+
+<div>
+
+- Method 1: Styling the slot
+
+```css
+slot[name='username'] {
+  font-weight: bold;
+}
+```
+
+</div>
+
+<div>
+
+- Method 2: Using ::slotted
+
+```css
+::slotted(div) {
+  border: 1px solid red;
+}
+```
+
+</div>
+</div>
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+6. CSS Custom Properties for Styling
+
+<v-clicks>
+
+Custom properties (CSS variables) can pierce through shadow DOM boundaries, making them perfect for styling components from outside.
+
+<div class="flex items-center gap-10">
+<div>
+
+```mermaid
+graph TD
+    A[Document] --> B[CSS Custom Property]
+    B --> C[Shadow DOM]
+    C --> D[Internal Styles]
+
+    style B fill:#f96,stroke:#333,stroke-width:2px
+```
+
+</div>
+<div>
+```css
+/* In document */
+user-card {
+  --user-card-field-color: green;
+}
+/* In shadow DOM */
+.field {
+  color: var(--user-card-field-color, black);
+}
+```
+</div>
+</div>
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+<div class="container mx-auto">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="bg-gray-800 text-white px-6 py-4">
+        <h2 class="text-xl font-semibold">Shadow DOM Styling Reference</h2>
+      </div>
+      
+<div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Selector/Method</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Usage</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Scope</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Priority</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider sticky top-0 bg-gray-50">Example</th>
+            </tr>
+          </thead>
+
+<tbody class="bg-white divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <code class="bg-gray-100 px-2 py-1 rounded text-pink-600">:host</code>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">Host element</td>
+              <td class="px-6 py-4 whitespace-nowrap">Shadow DOM</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Lower than document</span>
+              </td>
+              <td class="px-6 py-4">
+                <code class="text-sm text-gray-600">:host { display: block; }</code>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <code class="bg-gray-100 px-2 py-1 rounded text-pink-600">:host(selector)</code>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">Conditional host styling</td>
+              <td class="px-6 py-4 whitespace-nowrap">Shadow DOM</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Lower than document</span>
+              </td>
+              <td class="px-6 py-4">
+                <code class="text-sm text-gray-600">:host(.featured) { margin: 2rem; }</code>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <code class="bg-gray-100 px-2 py-1 rounded text-pink-600">::slotted</code>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">Slotted elements</td>
+              <td class="px-6 py-4 whitespace-nowrap">Shadow DOM</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Higher than basic</span>
+              </td>
+              <td class="px-6 py-4">
+                <code class="text-sm text-gray-600">::slotted(p) { color: blue; }</code>
+              </td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <code class="bg-gray-100 px-2 py-1 rounded text-pink-600">CSS Custom Properties</code>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">Cross-boundary styling</td>
+              <td class="px-6 py-4 whitespace-nowrap">Both</td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Pierces through</span>
+              </td>
+              <td class="px-6 py-4">
+                <code class="text-sm text-gray-600">--theme-color: #007bff;</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+---
+hideInToc: true
+---
+
+### Best Practices
+
+- Use <kbd>:host</kbd> for default component styling
+- Implement CSS custom properties for customization
+- Use <kbd>::slotted</kbd> sparingly and only for direct slot content
+- Keep document styles as overrides
+- Use <kbd>!important</kbd> only when absolutely necessary
+
+---
+hideInToc: true
+---
+
+### Shadow DOM and Event
+
+<v-clicks>
+
+Shadow DOM is like a private, encapsulated space within an HTML element (called the host element) that keeps its internal implementation details hidden from the main document.
+
+```mermaid
+graph TD
+    A[Main Document] --> B[Host Element<br/>user-card]
+    B --> C[Shadow Root]
+    C --> D[Internal Elements<br/>button, div, etc]
+    style B fill:#e6f3ff,stroke:#4a90e2
+    style C fill:#fff3e6,stroke:#f5a623
+    style D fill:#e6ffe6,stroke:#7ed321
+```
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+### Event Retargeting
+
+<v-clicks>
+
+When events occur inside a shadow DOM, the browser performs "event retargeting" to maintain encapsulation. Here's how it works:
+
+```js
+// Example Component
+customElements.define(
+  'user-card',
+  class extends HTMLElement {
+    connectedCallback() {
+      this.attachShadow({ mode: 'open' })
+      this.shadowRoot.innerHTML = `
+      <button>Click me</button>
+    `
+    }
+  },
+)
+```
+
+Event handling behavior:
+
+- Inside Shadow DOM: Event target is the actual element (e.g., <kbd>button</kbd>)
+- Outside Shadow DOM: Event target becomes the host element (e.g., <kbd>user-card</kbd>)
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+### Event Retargeting (Visual)
+
+```mermaid
+graph TD
+    A[Click Event<br/>on Button] --> B{Inside<br/>Shadow DOM?}
+    B -->|Yes| C[Target: BUTTON]
+    B -->|No| D[Target: USER-CARD]
+    style A fill:#f9f9f9,stroke:#333,color:black
+    style B fill:#e6f3ff,stroke:#4a90e2,color:black
+    style C fill:#e6ffe6,stroke:#7ed321,color:black
+    style D fill:#ffe6e6,stroke:#d0021b,color:black
+```
+
+---
+hideInToc: true
+---
+
+### Slotted Elements and Event Handling
+
+<v-clicks>
+
+Slotted elements are special because they physically exist in the light DOM (main document) but appear inside the shadow DOM. They have unique event handling behavior:
+
+```js
+// Example with slotted content
+;<user-card>
+  <span slot="username">John Smith</span>
+</user-card>
+
+customElements.define(
+  'user-card',
+  class extends HTMLElement {
+    connectedCallback() {
+      this.attachShadow({ mode: 'open' })
+      this.shadowRoot.innerHTML = `
+      <div>
+        <slot name="username"></slot>
+      </div>
+    `
+    }
+  },
+)
+```
+
+<b>Key point:</b> Events on slotted elements don't get retargeted because they're actually part of the light DOM.
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+### Slotted Elements Structure
+
+<div class="w-46 mx-auto">
+
+```mermaid
+graph TD
+    A[Light DOM] --> B[user-card]
+    A --> C[span<br/>slot=username]
+    B --> D[Shadow DOM]
+    D --> E[div]
+    E --> F[slot]
+    F -.-> C
+    style A fill:#f9f9f9,stroke:#333
+    style B fill:#e6f3ff,stroke:#4a90e2
+    style C fill:#ffe6e6,stroke:#d0021b
+    style D fill:#fff3e6,stroke:#f5a623
+    style F fill:#e6ffe6,stroke:#7ed321
+```
+
+</div>
+
+---
+hideInToc: true
+---
+
+## Event Bubbling and composedPath()
+
+<v-clicks>
+
+Events bubble through the "flattened" DOM structure, which includes both light and shadow DOM elements. The event.composedPath() method reveals the full path:
+
+```js
+// Click on a slotted element shows path:
+event.composedPath()
+// Returns: [span, slot, div, shadow-root, user-card, body, html, document, window]
+```
+
+## Event Composition Rules
+
+Events have a composed property that determines if they can cross shadow DOM boundaries:
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+<div class="max-w-4xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6 text-white sticky top-0">DOM Events Composition</h1>
+        <div class="rounded-lg shadow-lg">
+            <!-- Sticky header wrapper -->
+            <div class="max-h-[500px] overflow-y-auto rounded-lg">
+                <!-- Table wrapper for horizontal scroll -->
+                <div class="min-w-full inline-block align-middle">
+                    <table class="w-full bg-white">
+                        <thead class="bg-gray-800 text-white sticky top-0">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Composition</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Event Category</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold">Events</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="bg-blue-50">
+                                <td class="px-6 py-4 text-sm font-medium text-blue-800" rowspan="4">composed: true</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">Mouse Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">click</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">dblclick</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">mousedown</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">mouseup</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">mousemove</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50">
+                                <td class="px-6 py-4 text-sm text-gray-700">Keyboard Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">keydown</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">keyup</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50">
+                                <td class="px-6 py-4 text-sm text-gray-700">Focus Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">focus</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">blur</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-blue-50">
+                                <td class="px-6 py-4 text-sm text-gray-700">Input Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">input</span>
+                                    <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2 mb-1">beforeinput</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-50">
+                                <td class="px-6 py-4 text-sm font-medium text-red-800" rowspan="4">composed: false</td>
+                                <td class="px-6 py-4 text-sm text-gray-700">Mouse Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">mouseenter</span>
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">mouseleave</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-50">
+                                <td class="px-6 py-4 text-sm text-gray-700">Resource Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">load</span>
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">unload</span>
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">abort</span>
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">error</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-50">
+                                <td class="px-6 py-4 text-sm text-gray-700">Selection Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">select</span>
+                                </td>
+                            </tr>
+                            <tr class="bg-red-50">
+                                <td class="px-6 py-4 text-sm text-gray-700">Slot Events</td>
+                                <td class="px-6 py-4">
+                                    <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded mr-2 mb-1">slotchange</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+---
+hideInToc: true
+---
+
+## Custom Events
+
+<v-clicks>
+
+When creating custom events that need to cross shadow DOM boundaries, you must set both bubbles and composed to true:
+
+```js
+// Custom event that crosses shadow DOM boundary
+element.dispatchEvent(
+  new CustomEvent('my-event', {
+    bubbles: true,
+    composed: true,
+    detail: 'Event data',
+  }),
+)
+
+// Custom event that stays within shadow DOM
+element.dispatchEvent(
+  new CustomEvent('my-event', {
+    bubbles: true,
+    composed: false,
+    detail: 'Internal event',
+  }),
+)
+```
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+Takeaways:
+
+- Shadow DOM provides encapsulation for web components
+- Event retargeting maintains encapsulation while allowing event handling
+- Slotted elements maintain their original event targeting
+- Most built-in UI events can cross shadow boundaries <kbd> (composed: true) </kbd>
+- Custom events need explicit composed: true to cross shadow boundaries
+- <kbd>event.composedPath()</kbd> reveals the full event path through shadow DOM
+
+---
+hideInToc: true
 ---
