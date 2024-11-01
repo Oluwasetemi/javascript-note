@@ -560,23 +560,13 @@ hideInToc: true
 
 <Tips type="danger">
 <ul>
-<li>Don't access children in constructor</li>
+<p class="text-xl">Don't access children in constructor</p>
 <li>Use <kbd>connectedCallback</kbd> instead</li>
 <li>Children aren't ready in constructor</li>
-</ul>
-</Tips>
-
-<Tips type="danger">
-<ul>
-<li>Don't forget to call <kbd>super()</kbd></li>
+<p class="text-xl">Don't forget to call <kbd>super()</kbd></p>
 <li>Always call in constructor</li>
 <li>Required for proper initialization</li>
-</ul>
-</Tips>
-
-<Tips type="danger">
-<ul>
-<li>Avoid heavy operations in constructor</li>
+<p class="text-xl">Avoid heavy operations in constructor</p>
 <li>Keep it light</li>
 <li><kbd>Move heavy work to connectedCallback</kbd></li>
 </ul>
@@ -623,8 +613,8 @@ hideInToc: true
 
 1. Two Types of DOM Trees
 
-Light Tree: The regular DOM elements we typically work with
-Shadow Tree: Hidden DOM elements encapsulated within a component
+- Light Tree: The regular DOM elements we typically work with
+- Shadow Tree: Hidden DOM elements encapsulated within a component
 
 2. Browser Built-in Examples
    The most common example is the <kbd>input type="range"</kbd>:
@@ -731,43 +721,149 @@ hideInToc: true
 hideInToc: true
 ---
 
-## Best Practices 👌
-
-- Use Open Mode for Components
-
-```js
-// Preferred for custom components
-element.attachShadow({ mode: 'open' })
-```
-
-- Keep Styles Scoped
-
-```html
-shadow.innerHTML = `
-<style>
+<div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+      <div class="px-6 py-2 bg-indigo-600 sticky top-0">
+        <h1 class="text-2xl text-center font-bold text-white"> Best Practices</h1>
+      </div>
+      
+  <div class="relative">
+        <div class="sticky top-0 bg-white z-10">
+          <table class="min-w-full">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700 border-b">Practice</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700 border-b">Implementation</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700 border-b">Purpose</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        
+  <div class="overflow-y-auto max-h-96">
+          <table class="min-w-full">
+            <tbody class="divide-y divide-gray-200">
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
+                    <div class="h-8 w-8 flex-shrink-0 rounded-full bg-green-100 flex items-center justify-center">
+                      <svg class="h-5 w-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                      <div class="font-medium text-gray-900">Use Open Mode</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <pre class="text-sm"><code class="language-javascript">element.attachShadow({ mode: 'open' })</code></pre>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600">
+                  Enables external JavaScript to access the shadow DOM, making debugging and testing easier
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
+                    <div class="h-8 w-8 flex-shrink-0 rounded-full bg-blue-100 flex items-center justify-center">
+                      <svg class="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                      <div class="font-medium text-gray-900">Keep Styles Scoped</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <pre class="text-sm"><code class="language-html">
+          &lt;style&gt;
   :host {
     display: block;
     border: 1px solid #ccc;
   }
-</style>
-`;
-```
-
-- Use Slots for Composition
-
-```html
-<!-- Inside shadow DOM -->
-<div class="wrapper">
-  <slot name="header"></slot>
-  <slot></slot>
-  <!-- default slot -->
-</div>
-<!-- Usage -->
-<custom-element>
-  <h1 slot="header">Title</h1>
-  <p>Content goes in default slot</p>
-</custom-element>
-```
+&lt;/style&gt;</code></pre>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600">
+                  Prevents style leakage and maintains component encapsulation
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
+                    <div class="h-8 w-8 flex-shrink-0 rounded-full bg-purple-100 flex items-center justify-center">
+                      <svg class="h-5 w-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                      <div class="font-medium text-gray-900">Use Slots for Composition</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <pre class="text-sm"><code class="language-html">&lt;div class="wrapper"&gt;
+  &lt;slot name="header"&gt;&lt;/slot&gt;
+  &lt;slot&gt;&lt;/slot&gt;
+&lt;/div&gt;</code></pre>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600">
+                  Enables flexible content distribution and component composition
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
+                    <div class="h-8 w-8 flex-shrink-0 rounded-full bg-yellow-100 flex items-center justify-center">
+                      <svg class="h-5 w-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                      <div class="font-medium text-gray-900">Custom Events</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <pre class="text-sm"><code class="language-javascript">this.dispatchEvent(new CustomEvent('change', {
+  detail: { value: newValue },
+  bubbles: true
+}))</code></pre>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600">
+                  Enables component communication while maintaining encapsulation
+                </td>
+              </tr>
+              <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4">
+                  <div class="flex items-center">
+                    <div class="h-8 w-8 flex-shrink-0 rounded-full bg-red-100 flex items-center justify-center">
+                      <svg class="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                      <div class="font-medium text-gray-900">Lifecycle Callbacks</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <pre class="text-sm"><code class="language-javascript">connectedCallback() {
+  // Setup when element is added to DOM
+}
+disconnectedCallback() {
+  // Cleanup when element is removed
+}</code></pre>
+                </td>
+                <td class="px-6 py-4 text-sm text-gray-600">
+                  Manage setup and cleanup operations effectively
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
 ---
 hideInToc: true
