@@ -42,7 +42,7 @@ let user = new Object()
 let user = {}
 ```
 
-In the code above, we've just created two empty objects.
+In the code above, we've just created two empty <kbd>objects</kbd>.
 
 ---
 hideInToc: true
@@ -98,7 +98,7 @@ We can use multiword property names, but to achieve this we have to wrap the nam
 let school = {
   name: 'AltSchool',
   sector: 'Education',
-  'takes students': true,
+  'takes users': true,
 }
 console.log(school)
 ```
@@ -121,13 +121,15 @@ Note: For multi-word properties (or properties with spaces or special characters
 let school = {
   name: 'AltSchool',
   sector: 'Education',
-  'takes students': true,
+  'takes users': true,
 }
-alert(school['takes students'])
+alert(school['takes users'])
 // this will throw error
-// alert( school."takes students");
+// alert( school."takes users");
 ```
 
+---
+hideInToc: true
 ---
 
 # Contd.
@@ -248,11 +250,11 @@ alert( "height" in tutor );
 When using the <kbd>in</kbd> keyword there must be a property name in a quoted string on the left side of <kbd>in</kbd>. Sometimes the property exists and it stores <kbd>undefined</kbd> which is why we can bring in the <kbd>in</kbd> method.
 
 ```js{monaco-run}{autorun: false}
-let studentDetails = {
+let userDetails = {
   name: undefined
 };
-alert( studentDetails.name );
-alert( "name" in studentDetails );
+alert( userDetails.name );
+alert( "name" in userDetails );
 ```
 
 ---
@@ -294,36 +296,234 @@ hideInToc: true
 When you loop over an objects, we get all properties in creation order but, the irony the case when the key is an integer.
 
 ```js{monaco-run}{autorun: false}
-let user = {
+let footballers = {
   "2": "Messi",
   "3": "Mbappe",
   "1": "Ronaldo"
 };
 
-for (let num in user) {
-  console.log(num);
-  console.log( user[num] );
+for (let footballer in footballers) {
+  console.log(footballer);
+  console.log( footballers[footballer] );
 }
 ```
 
+---
+hideInToc: true
 ---
 
 # Contd.
 
 <div></div>
 In cases where you don't want the num to get rearranged, you can make the number non-integer by adding a <kbd>+</kbd> sign before the numbers.
+
 ```js{monaco-run}{autorun: false}
-let user = {
+let footballers = {
   "+2": "Messi",
   "+3": "Mbappe",
   "+1": "Ronaldo"
+}
+for (let footballer in footballers) {
+alert(+footballer);
+alert( footballers[footballer] );
 };
+```
 
-for (let num in user) {
-alert(+num);
-alert( user[num] );
+---
+hideInToc: true
+---
+
+# Referencing and Copying
+
+<div></div>
+
+In JavaScript, copying values is straightforward with primitive data types like strings and numbers, but it’s different with objects.
+Objects are stored and copied by reference, meaning that a variable assigned to an object doesn’t hold the object itself but rather its
+memory address.
+
+Imagine you have a piece of paper (a variable) with an address written on it (the reference to an object).
+
+When you give someone a copy of this paper, they don’t get a new house; they just get the address. If they go to that address and make changes,
+they’re modifying the same house.
+
+In JavaScript, copying an object works like this. If you assign an object to another variable, both variables still point to the same object in memory.
+Changes made through one variable will reflect in the other because they both "live at" the same address.
+
+However, with simple values like numbers or strings, JavaScript actually gives each variable a fresh piece of paper with the value written directly on it.
+So when you copy it, you get an entirely separate value, not just a shared reference.
+
+---
+hideInToc: true
+---
+
+# Comparison by reference
+
+<div></div>
+
+If two objects reference the same object, they are considered equal. However, if they reference different objects, they are not considered equal, even if their contents are identical.
+
+```js{monaco-run}{autorun:false}
+// 'obj1' references an empty object
+let obj1 = {};
+// 'obj2' is assigned the same reference as 'obj1'
+let obj2 = obj1;
+alert(obj1 == obj2);
+alert(obj1 === obj2);
+```
+
+Take a look at this:
+
+```js{monaco-run}{autorun:false}
+let obj1 = {};      // 'obj1' references a new empty object
+let obj2 = {};      // 'obj2' references another new empty object
+alert(obj1 == obj2);  // false, because both variables reference different objects
+```
+
+---
+hideInToc: true
+---
+
+# Contd.
+
+<div></div>
+You might have seen it somewhere that variables declared with <kbd>const</kbd> can’t be reassigned or redeclared. However, <kbd>objects</kbd> behave differently. 
+Although an object declared with <kbd>const</kbd> cannot be reassigned to a new object, its contents (properties) can still be modified.
+
+This is because the const keyword only protects the variable's reference to the object, not the object's internal structure.
+The variable will always point to the same object in memory, but the object itself can have its properties added, updated, or deleted.
+
+Take a look at this:
+
+```js{monaco-run}{autorun:false}
+const tutor = {
+  name: "Setemi Ojo"
 }
 
+tutor.name = "Oluwasetemi Ojo";
+alert(tutor.name);
 ```
 
+---
+hideInToc: true
+---
+
+# Cloning and merging, Object.assign
+
+To duplicate an object, one way is to manually create a new object and copy over the properties from the original object.
+This approach involves iterating over each property and copying them individually, which creates a shallow copy.
+
+```js{monaco-run}{autorun:false}
+const tutor = {
+  name: "Setemi Ojo",
+  age: 40,
+};
+// Create a new empty object to store the copied properties
+let copy = {};
+
+// Iterate over each property in the 'tutor' object
+for (let key in tutor) {
+  // Copy each property from 'tutor' to 'copy' on the primitive level
+  copy[key] = tutor[key];
+}
+// Modify the 'name' property in the 'copy' object
+copy.name = "Oluwasetemi Ojo";
+
+// Display the 'name' property of the original 'tutor' object
+alert(tutor.name);
+
 ```
+
+---
+hideInToc: true
+---
+
+# Object.assign
+
+<div></div>
+The <kbd>Object.assign()</kbd> method is used to copy the values of all enumerable properties from one or more source <kbd>objects</kbd> to a target object. 
+Let's break down how it works:
+
+```js
+Object.assign(dest, ...sources)
+```
+
+Let's break the syntax down:
+
+- The first argument is the target object.
+- Further arguments is a list of source <kbd>objects</kbd>.
+  How does this works? It copies the properties of all source <kbd>objects</kbd> into the target object, and then returns it as the result.
+
+```js{monaco-run}{autorun:false}
+// Original tutor object
+let tutor = { name: "Setemi Ojo" };
+
+ // Create an empty object for age
+let age = {};
+// Use Object.assign to copy the 'age' property into the 'tutor' object
+Object.assign(age, { age: 40 });
+// Now merge the 'age' object into 'tutor' to add the age property
+Object.assign(tutor, age);
+console.log(tutor);
+```
+
+Note: If the property name already exists, it gets overwritten.
+We can also use <kbd>Object.assign()</kbd> method to perform a simple object clone.
+
+---
+hideInToc: true
+---
+
+# Deep cloning
+
+<div></div>
+To copy a property from a nested object within another object, you can use a cloning loop. 
+This allows you to access and duplicate the specific property you need while keeping the structure intact.
+
+```js{monaco-run}{autorun:false}
+let tutor = {
+  name: "Setemi Ojo",
+  school: {
+    department: "Science",
+    course: "Computer Science"
+  }
+};
+
+let clone = Object.assign({}, tutor);
+alert( tutor.school === clone.school );
+
+tutor.school.department = "Science";
+alert(clone.school.department);
+```
+
+In the code above the <kbd>tutor</kbd> and <kbd>school</kbd> object are yet to be separated. To achieve a separation between both objects, we should
+use <kbd>cloning loop</kbd> to examines each value of <kbd>tutor`[key]`</kbd> and, if it's an object, copy its structure - this is called <kbd>deep cloning</kbd>
+or <kbd>structured cloning</kbd>.
+
+---
+hideInToc: true
+---
+
+# structuredClone()
+
+<div></div>
+
+This methods clones the <kbd>object</kbd> with all nested properties.
+
+```js{monaco-run}{autorun:false}
+let tutor = {
+  name: "Setemi Ojo",
+  school: {
+    department: "Science",
+    course: "Computer Science"
+  }
+};
+
+let clone = structuredClone(tutor);
+alert( tutor.school === clone.school );
+
+tutor.school.department = "Science";
+alert(clone.school.department);
+```
+
+---
+
