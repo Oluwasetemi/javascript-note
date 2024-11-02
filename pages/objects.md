@@ -242,9 +242,9 @@ alert( user.noSuchProperty === undefined );
 We can also make use of a special operator <kbd>in</kbd>
 
 ```js{monaco-run}{autorun: false}
-let tutor = {name: "Setemi", age: 40};
-alert( "age" in tutor );
-alert( "height" in tutor );
+let user = {name: "Setemi", age: 40};
+alert( "age" in user );
+alert( "height" in user );
 ```
 
 When using the <kbd>in</kbd> keyword there must be a property name in a quoted string on the left side of <kbd>in</kbd>. Sometimes the property exists and it stores <kbd>undefined</kbd> which is why we can bring in the <kbd>in</kbd> method.
@@ -395,12 +395,12 @@ The variable will always point to the same object in memory, but the object itse
 Take a look at this:
 
 ```js{monaco-run}{autorun:false}
-const tutor = {
+const user = {
   name: "Setemi Ojo"
 }
 
-tutor.name = "Oluwasetemi Ojo";
-alert(tutor.name);
+user.name = "Oluwasetemi Ojo";
+alert(user.name);
 ```
 
 ---
@@ -412,25 +412,24 @@ hideInToc: true
 To duplicate an object, one way is to manually create a new object and copy over the properties from the original object.
 This approach involves iterating over each property and copying them individually, which creates a shallow copy.
 
-```js{monaco-run}{autorun:false}
-const tutor = {
-  name: "Setemi Ojo",
+```js
+const person = {
+  name: 'Setemi Ojo',
   age: 40,
-};
+}
 // Create a new empty object to store the copied properties
-let copy = {};
+let copy = {}
 
-// Iterate over each property in the 'tutor' object
-for (let key in tutor) {
-  // Copy each property from 'tutor' to 'copy' on the primitive level
-  copy[key] = tutor[key];
+// Iterate over each property in the 'person' object
+for (let key in person) {
+  // Copy each property from 'person' to 'copy' on the primitive level
+  copy[key] = person[key]
 }
 // Modify the 'name' property in the 'copy' object
-copy.name = "Oluwasetemi Ojo";
+copy.name = 'Oluwasetemi Ojo'
 
-// Display the 'name' property of the original 'tutor' object
-alert(tutor.name);
-
+// Display the 'name' property of the original 'person' object
+alert(person.name)
 ```
 
 ---
@@ -440,7 +439,8 @@ hideInToc: true
 # Object.assign
 
 <div></div>
-The <kbd>Object.assign()</kbd> method is used to copy the values of all enumerable properties from one or more source <kbd>objects</kbd> to a target object. 
+
+The <kbd>Object.assign()</kbd> method is used to copy the values of all enumerable properties from one or more source <kbd>objects</kbd> to a target object.
 Let's break down how it works:
 
 ```js
@@ -454,16 +454,16 @@ Let's break the syntax down:
   How does this works? It copies the properties of all source <kbd>objects</kbd> into the target object, and then returns it as the result.
 
 ```js{monaco-run}{autorun:false}
-// Original tutor object
-let tutor = { name: "Setemi Ojo" };
+// Original person object
+let person = { name: "Setemi Ojo" };
 
  // Create an empty object for age
 let age = {};
-// Use Object.assign to copy the 'age' property into the 'tutor' object
+// Use Object.assign to copy the 'age' property into the 'person' object
 Object.assign(age, { age: 40 });
-// Now merge the 'age' object into 'tutor' to add the age property
-Object.assign(tutor, age);
-console.log(tutor);
+// Now merge the 'age' object into 'person' to add the age property
+Object.assign(person, age);
+console.log(person);
 ```
 
 Note: If the property name already exists, it gets overwritten.
@@ -476,11 +476,12 @@ hideInToc: true
 # Deep cloning
 
 <div></div>
-To copy a property from a nested object within another object, you can use a cloning loop. 
+
+To copy a property from a nested object within another object, you can use a cloning loop.
 This allows you to access and duplicate the specific property you need while keeping the structure intact.
 
 ```js{monaco-run}{autorun:false}
-let tutor = {
+let student = {
   name: "Setemi Ojo",
   school: {
     department: "Science",
@@ -488,15 +489,15 @@ let tutor = {
   }
 };
 
-let clone = Object.assign({}, tutor);
-alert( tutor.school === clone.school );
+let clone = Object.assign({}, student);
+alert( student.school === clone.school );
 
-tutor.school.department = "Science";
+student.school.department = "Science";
 alert(clone.school.department);
 ```
 
-In the code above the <kbd>tutor</kbd> and <kbd>school</kbd> object are yet to be separated. To achieve a separation between both objects, we should
-use <kbd>cloning loop</kbd> to examines each value of <kbd>tutor`[key]`</kbd> and, if it's an object, copy its structure - this is called <kbd>deep cloning</kbd>
+In the code above the <kbd>student</kbd> and <kbd>school</kbd> object are yet to be separated. To achieve a separation between both objects, we should
+use <kbd>cloning loop</kbd> to examines each value of <kbd>student`[key]`</kbd> and, if it's an object, copy its structure - this is called <kbd>deep cloning</kbd>
 or <kbd>structured cloning</kbd>.
 
 ---
@@ -508,9 +509,10 @@ hideInToc: true
 <div></div>
 
 This methods clones the <kbd>object</kbd> with all nested properties.
+In the code below <kbd>structuredClone()</kbd> will creates a deep clone of the leader object, meaning that both leader and clone are completely separate objects in memory, including nested objects.
 
 ```js{monaco-run}{autorun:false}
-let tutor = {
+let leader = {
   name: "Setemi Ojo",
   school: {
     department: "Science",
@@ -518,10 +520,11 @@ let tutor = {
   }
 };
 
-let clone = structuredClone(tutor);
-alert( tutor.school === clone.school );
+let clone = structuredClone(leader);
+alert( leader === clone );
 
-tutor.school.department = "Science";
+
+leader.school.department = "Science";
 alert(clone.school.department);
 ```
 
