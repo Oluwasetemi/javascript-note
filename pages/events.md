@@ -93,7 +93,7 @@ interface AddEventListenerOptions extends EventListenerOptions {
 ```
 
 ```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="116"] h1`)
+const elem = document.querySelector(`[data-slidev-no="181"] h1`)
 const handler = () => alert('Click!')
 elem.addEventListener('click', handler, { once: true })
 // elem.addEventListener('mouseover', handler);
@@ -114,7 +114,7 @@ hideInToc: true
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler.
 
 ```js {monaco-run}{autorun: false}
-const elem = document.querySelector(`[data-slidev-no="117"] h1`)
+const elem = document.querySelector(`[data-slidev-no="182"] h1`)
 
 elem.addEventListener('click', function (event) {
   // show the event type, the element and the coordinates of the click
@@ -182,7 +182,7 @@ hideInToc: true
 <v-clicks>
 
 ```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="119"] h1`)
+const elem = document.querySelector(`[data-slidev-no="184"] h1`)
 const parent = elem.parentElement
 const grandParent = parent.parentElement
 
@@ -343,7 +343,7 @@ To prevent the default action, we can use `event.preventDefault()`. returning `f
 
 <!-- prettier-ignore -->
 ```js {monaco-run} {lineNumbers: true, autorun: false}
-const link = document.querySelector(`[data-slidev-no="123"] a`)
+const link = document.querySelector(`[data-slidev-no="188"] a`)
 link.addEventListener('click', function(event) {
   event.preventDefault(); event.stopPropagation();
   alert('Link click!');
@@ -351,7 +351,7 @@ link.addEventListener('click', function(event) {
 ```
 
 ```js {monaco-run}
-const h1 = document.querySelector(`[data-slidev-no="123"] h1`)
+const h1 = document.querySelector(`[data-slidev-no="188"] h1`)
 h1.oncontextmenu = function (event) {
   alert('Content menu clicked')
 }
@@ -419,7 +419,7 @@ For completely new events, we can use `CustomEvent` class. It has an additional 
 
 <!-- prettier-ignore-start -->
 ```js {monaco-run}{autorun: false}
-const element = document.querySelector(`[data-slidev-no="125"] h1`)
+const element = document.querySelector(`[data-slidev-no="190"] h1`)
 element.onclick = function() { element.dispatchEvent(new CustomEvent("hello", { detail: { name: "John" } })); };
 element.addEventListener('hello', function(event) {
   console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');
