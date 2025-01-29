@@ -1,5 +1,10 @@
 <template>
-  <aside class="tip pl-3 b-l-5 b-l-type" :class="type" :role="role">
+  <aside
+    class="tip pl-3 b-l-5 b-l-type"
+    :class="type"
+    :style="{ maxWidth: fullWidth ? '100%' : '' }"
+    :role="role"
+  >
     <section class="flex items-center gap-3 mb-2">
       <div class="tip__icon">
         <slot name="icon">
@@ -37,6 +42,10 @@ const props = defineProps({
     default: 'info',
     validator: (value) =>
       ['tip', 'info', 'success', 'danger'].includes(value as string),
+  },
+  fullWidth: {
+    type: Boolean,
+    default: false,
   },
 })
 
@@ -80,7 +89,6 @@ const role = computed(() => {
 
 .tip {
   background-color: var(--tip-bg, #660792);
-  /* color: var(--tip-text, #ffffff); */
   --uno: b-l-[#660792] light: bg-[#66079270];
 }
 

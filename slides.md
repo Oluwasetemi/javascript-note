@@ -8,10 +8,11 @@ info: |
   join at [AltSchool Africa](https://altschoolafrica.com)
 author: Oluwasetemi
 download: true
+browserExporter: true
 exportFilename: javascript-note
 export:
   format: pdf
-  timeout: 60000
+  timeout: 1600000
   dark: false
   withClicks: false
   withToc: false
@@ -24,6 +25,8 @@ drawings:
 transition: slide-left
 mdc: true
 hideInToc: true
+overviewSnapshots: true
+selectable: true
 ---
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes

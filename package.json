@@ -12,26 +12,26 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@slidev/cli": "0.50.0-beta.4",
-    "@slidev/client": "^0.50.0-beta.8",
+    "@slidev/cli": "51.0.1",
+    "@slidev/client": "^51.0.1",
     "@slidev/theme-default": "latest",
-    "@vueuse/core": "^11.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "@vueuse/core": "^12.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@babel/standalone": "^7.26.2",
-    "@iconify-json/logos": "^1.2.3",
-    "@iconify-json/mdi": "^1.2.1",
-    "@slidev/types": "0.50.0-beta.4",
+    "@babel/standalone": "^7.26.7",
+    "@iconify-json/logos": "^1.2.4",
+    "@iconify-json/mdi": "^1.2.3",
+    "@slidev/types": "51.0.2",
     "@vue/compiler-sfc": "^3.5.13",
     "cross-env": "^7.0.3",
     "markdown-it-magic-link": "^0.1.4",
     "nano-staged": "^0.8.0",
-    "nodemon": "^3.1.7",
-    "playwright-chromium": "^1.49.0",
-    "prettier": "^3.4.1",
+    "nodemon": "^3.1.9",
+    "playwright-chromium": "^1.50.0",
+    "prettier": "^3.4.2",
     "prettier-plugin-slidev": "^1.0.5",
     "simple-git-hooks": "^2.11.1"
   },
@@ -44,5 +44,5 @@
     "*.{js,ts,md,vue,json}": "prettier --write"
   },
   "license": "MIT",
-  "packageManager": "npm@10.9.1"
+  "packageManager": "npm@11.0.0"
 }
