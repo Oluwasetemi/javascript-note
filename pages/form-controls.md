@@ -48,25 +48,24 @@ name: More on Forms
 
 <v-clicks>
 
-A form may have one or many ‹fieldset› elements inside it. They also have elements property that lists form controls inside them. The HTML ‹fieldset› element gets used to group several controls as well as labels (›label›) within a web form. We can access the Fieldset properties via the form.elements property.
+A form may have one or many `fieldset` elements inside it. They also have elements property that lists form controls inside them. The HTML `fieldset` element gets used to group several controls as well as labels (`label`) within a web form. We can access the Fieldset properties via the form.elements property.
 
+<!-- prettier-ignore -->
 ```js{monaco-run} {autorun: false}
 // Create the form element
-const form = document.createElement('form');
-form.id = 'form';
-const fieldset = document.createElement('fieldset');
-fieldset.name = 'userFields';
+const form = document.createElement('form');form.id = 'form';
+const fieldset = document.createElement('fieldset');fieldset.name = 'userFields';
 // Create the legend element
 const legend = document.createElement('legend');
 legend.textContent = 'info';
 // Create the input element
 const input = document.createElement('input');
-input.name = 'login';
-input.type = 'text';
-fieldset.appendChild(legend);
-fieldset.appendChild(input);
+input.name = 'login';input.type = 'text';
+
+fieldset.append(input, legend);
 form.appendChild(fieldset);
 document.body.appendChild(form);
+
 console.log(form.elements.login);
 let userFieldset = form.elements.userFields;
 console.log(userFieldset);
@@ -106,16 +105,18 @@ The form is available as element.form for any element. So, the form references e
 
 ---
 hideInToc: true
+clicksStart: 2
 ---
 
 # Form Element Properties
 
- <v-clicks>
+<v-clicks>
+
 Different form elements have various properties that allow you to interact with them programmatically.
 
 ### Input and Textarea
 
-For input and textarea elements, you can access and modify their values using the value property.
+For `input` and `textarea` elements, you can access and modify their values using the value property.
 We can access their value as input.value (string) or input.checked (boolean) for checkboxes and radio buttons.
 
 ```js
@@ -140,28 +141,26 @@ hideInToc: true
 
 <v-clicks>
 
+<!-- prettier-ignore -->
 ```js{monaco-run} {autorun: false}
-const form = document.createElement("form");
-form.name = "myForm";
-const usernameInput = document.createElement("input");
-usernameInput.name = "username";
-usernameInput.type = "text";
-form.appendChild(usernameInput);
-const rememberCheckbox = document.createElement("input");
-rememberCheckbox.name = "remember";
-rememberCheckbox.type = "checkbox";
-form.appendChild(rememberCheckbox);
-const commentTextarea = document.createElement("textarea");
-commentTextarea.name = "comment";
-form.appendChild(commentTextarea);
+const form = document.createElement("form");form.name = "myForm";
+
+const usernameInput = document.createElement("input");usernameInput.name = "username";usernameInput.type = "text";
+
+// form.appendChild(usernameInput);
+const rememberCheckbox = document.createElement("input");rememberCheckbox.name = "remember";rememberCheckbox.type = "checkbox";
+
+// form.appendChild(rememberCheckbox);
+const commentTextarea = document.createElement("textarea");commentTextarea.name = "comment";
+
+form.append(usernameInput, rememberCheckbox, commentTextarea);
 document.body.appendChild(form);
+
 function updateValues() {
-  form.username.value = "JohnDoe";
-  form.remember.checked = true;
+  form.username.value = "JohnDoe";form.remember.checked = true;
   form.comment.value = "This is a comment.";
   console.log("Username:", form.username.value);
-  console.log("Remember checked:", form.remember.checked);
-  console.log("Comment:", form.comment.value);
+  console.log("Remember checked:", form.remember.checked);console.log("Comment:", form.comment.value);
 }
 updateValues();
 ```
@@ -198,8 +197,7 @@ option = new Option(text, value, defaultSelected, selected)
 ```js
 // Unselected
 let option = new Option('Text', 'value')
-// creates
-;<option value="value">Text</option>
+// creates <option value="value">Text</option>
 ```
 
 ```js
@@ -213,24 +211,22 @@ let option = new Option('Text', 'value', true, true)
 ---
 hideInToc: true
 name: Creating a Select with JavaScript
+clicksStart: 1
 ---
 
 <v-clicks>
 
+<!-- prettier-ignore -->
 ```js{monaco-run} {autorun: false}
-// Create select element
-const select = document.createElement('select');
-select.id = 'select';
+const select = document.createElement('select');select.id = 'select';
 // Define options
 const options = [
-    { value: 'apple', text: 'Apple' },
-    { value: 'pear', text: 'Pear' },
-    { value: 'banana', text: 'Banana' }
+  { value: 'apple', text: 'Apple' },
+  { value: 'pear', text: 'Pear' },
+  { value: 'banana', text: 'Banana' }
 ];
 // Add options to select
-options.forEach(option => {
-    select.add(new Option(option.text, option.value));
-});
+options.forEach(option => { select.add(new Option(option.text, option.value)); });
 // Append select to body
 document.body.appendChild(select);
 // Demonstrate three ways to select the third option (Banana)
@@ -252,36 +248,30 @@ console.log("After method 3 - Selected index:", select.selectedIndex, "Selected 
 ---
 hideInToc: true
 name: Programmatically Modifying Select Options
+clicksStart: 1
 ---
 
 <v-clicks>
 
 ```js{monaco-run} {autorun: false}
 // Create form and select elements
-const form = document.createElement('form');
-const select = document.createElement('select');
-select.name = 'week';
+const form = document.createElement('form');form.name = 'modifyingSelect';
+const select = document.createElement('select');select.name = 'week';
 // Add initial options
-['Monday', 'Tuesday', 'Wednesday'].forEach(day => {
-    select.add(new Option(day));
-});
+['Monday', 'Tuesday', 'Wednesday'].forEach(day => { select.add(new Option(day)); });
 // Append select to form and form to body
 form.appendChild(select);
 document.body.appendChild(form);
-// Now, modify the select element as per the script
-var w = document.forms[0].week;
-w.length = 0; // Clear all options
-var d = [
-    { text: 'Thurs', val: 'thurs' },
-    { text: 'Friday', val: 'fri' },
-    { text: 'Saturday', val: 'sat' },
-    { text: 'Sunday', val: 'sun' },
-];
-for (var i = 0; i < d.length; i++) {
-    w[i] = new Option(d[i].text, d[i].val, false, false);
+// Convert HTML Collection of all the options to arrays
+let options = Array.from(document.forms.modifyingSelect.week.options);
+options.length = 0; // Clear all options
+let newOptionsArray = [ { text: 'Thurs', val: 'thurs' }, { text: 'Friday', val: 'fri' }, { text: 'Saturday', val: 'sat' }, { text: 'Sunday', val: 'sun' }, ];
+
+for (let i = 0; i < newOptionsArray.length; i++) {
+  options[i] = new Option(newOptionsArray[i].text, newOptionsArray[i].val, false, false);
 }
 // Log the final state of the select element
-console.log('Final options:', Array.from(w.options).map(opt => opt.text));
+console.log('Final options:', Array.from(options).map(opt => opt.text));
 ```
 
 </v-clicks>
@@ -356,6 +346,7 @@ In this example, the input field with the id="name" will automatically receive f
 ---
 hideInToc: true
 name: More on Auto Focus
+clicksStart: 3
 ---
 
 # CONTD
@@ -472,6 +463,8 @@ When designing with focus and blur events, it's important to be cautious about u
 Allowing Focus on Any Element: The tabindex Attribute
 By default, only certain elements, like <kbd>input</kbd>, <kbd>button</kbd>, and <kbd>a</kbd>, can receive focus. However, you can make any element focusable using the tabindex attribute.
 
+<div grid="~ cols-2" gap="2">
+
 ```html
 <ul>
   <li tabindex="1">One</li>
@@ -487,11 +480,17 @@ By default, only certain elements, like <kbd>input</kbd>, <kbd>button</kbd>, and
 </style>
 ```
 
+<div>
+
 Elements with tabindex="-1" are not focusable using the keyboard, but can still be focused programmatically using the focus() method.
 
-tabindex="1": First in tab order
-tabindex="0": Follows the natural tab order, but is still focusable
-tabindex="-1": Not focusable via keyboard, but focusable via JavaScript
+- tabindex="1": First in tab order
+- tabindex="0": Follows the natural tab order, but is still focusable
+- tabindex="-1": Not focusable via keyboard, but focusable via JavaScript
+
+</div>
+
+</div>
 
 </v-clicks>
 
@@ -761,6 +760,7 @@ In this example, we're preventing the default form submission and logging a mess
 
 ---
 hideInToc: true
+clicksStart: 2
 ---
 
 <v-clicks>
@@ -879,6 +879,8 @@ hideInToc: true
 
 <v-clicks>
 
+<!-- prettier-ignore-start -->
+
 ```js
 <form>
   <label for="username">Username (4-8 characters):</label>
@@ -915,6 +917,8 @@ hideInToc: true
   <button type="submit">Submit</button>
 </form>
 ```
+
+<!-- prettier-ignore-end -->e
 
 </v-clicks>
 

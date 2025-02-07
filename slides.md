@@ -27,6 +27,7 @@ mdc: true
 hideInToc: true
 overviewSnapshots: true
 selectable: true
+lineNumbers: true
 ---
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes

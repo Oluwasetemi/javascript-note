@@ -24,7 +24,7 @@ const bodyChildren = Array.from(dom.body.childNodes)
 </script>
 
 <template>
-  <div class="DOM">
+  <div class="DOM px-2 h-50 w-full overflow-auto border">
     <!-- <h1>DOM</h1> -->
     <!-- <pre>{{ html }}</pre> -->
     <details>
