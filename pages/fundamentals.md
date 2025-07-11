@@ -9,13 +9,13 @@ hideInToc: true
 <div mt-2 />
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Variables</a>
-- <a @click="$slidev.nav.go($nav.currentPage+5)">Data types</a>
-- <a @click="$slidev.nav.go($nav.currentPage+9)">Interaction: `alert`, `prompt`, `confirm` | `console.log`</a>
-- <a @click="$slidev.nav.go($nav.currentPage+11)">Type Conversions</a>
-- <a @click="$slidev.nav.go($nav.currentPage+13)">Operators: Math, Comparison, Logical, Bitwise, Null Coalescing, Optional Chaining</a>
-- <a @click="$slidev.nav.go($nav.currentPage+21)">Conditional Branching: if, '?', switch</a>
-- <a @click="$slidev.nav.go($nav.currentPage+26)">Loops: while, for, for..in, for..of</a>
-- <a @click="$slidev.nav.go($nav.currentPage+32)">Functions: Declaration, Arrow functions, Function Expressions</a>
+- <a @click="$slidev.nav.go($nav.currentPage+4)">Data types</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">Interaction: `alert`, `prompt`, `confirm` | `console.log`</a>
+- <a @click="$slidev.nav.go($nav.currentPage+9)">Type Conversions</a>
+- <a @click="$slidev.nav.go($nav.currentPage+10)">Operators: Math, Comparison, Logical, Bitwise, Null Coalescing, Optional Chaining</a>
+- <a @click="$slidev.nav.go($nav.currentPage+23)">Conditional Branching: if, '?', switch</a>
+- <a @click="$slidev.nav.go($nav.currentPage+28)">Loops: while, for, for..in, for..of</a>
+- <a @click="$slidev.nav.go($nav.currentPage+34)">Functions: Declaration, Arrow functions, Function Expressions</a>
 
 ---
 hideInToc: true
@@ -74,6 +74,7 @@ console.log(hobby)
 
 ---
 hideInToc: true
+title: Variable Declaration Examples
 ---
 
 - Examples
@@ -143,6 +144,7 @@ let isLagosBig = false
 
 ---
 hideInToc: true
+title: Primitive Datatypes
 ---
 
 - Undefined indicate that a variable has not been assigned a value, or not declared at all.
@@ -185,7 +187,7 @@ name: More on Variable Declaration
 
 Example: To know the type of a value in JS use <span class="text-red"> typeof </span>
 
-```js {monaco-run}
+```js {monaco-run}{autorun: false}
 let name = 'John Dev'
 let age = 21
 let isMarried = false
@@ -196,15 +198,7 @@ const person = {
   name: 'Alice',
   [mySymbol]: 'secret information',
 }
-console.log(
-  typeof name,
-  typeof age,
-  typeof isMarried,
-  typeof height,
-  typeof weight,
-  typeof person,
-  typeof mySymbol,
-)
+console.log(typeof name, typeof age, typeof isMarried, typeof height, typeof weight, typeof person, typeof mySymbol)
 ```
 
 - Note: the typeof null returns object
@@ -282,7 +276,7 @@ hideInToc: true
 2. Numeric conversion - Can be done using the `Number`, `parseInt`, `parseFloat` or `+` unary plus sign.
 3. Boolean coversion - `Boolean` constructor or `!!`
 
-```js {monaco-run} {autorun:false, lines:true}
+```js {monaco-run} {autorun:false, lineNumbers:true}
 console.log(typeof String(2))
 console.log(typeof Number(2).toString())
 let value = '10'
@@ -324,7 +318,7 @@ hideInToc: true
 
 </div>
 
-```js {monaco-run}
+```js {monaco-run}{autorun: false}
 let sumOfTwoNumbers = 20 + 309
 let differenceOfTheIntegers = 90 - 45
 let mul = 2 * 97
@@ -436,7 +430,7 @@ alert(!true); alert(!0)
 hideInToc: true
 ---
 
-# Nullish Coalescing ??
+# Nullish Coalescing ?? and Optional Chaining ?.
 
 - It provide a concise way to handle <span class='text-red'>null</span> or <span class='text-red'>undefined values</span>. It returns the left-hand side operand if it's not null or undefined; otherwise, it returns the right-hand side operand
 
@@ -452,6 +446,17 @@ let name
 let greeting = name ?? `Hello, Stranger!`
 console.log(greeting)
 ```
+
+- Optional Chaining is a JavaScript feature that allows you to safely access nested object properties and call methods without throwing errors if any part of the chain is null or undefined. It uses the `?.` operator.
+
+```js
+if (user && user.address && user.address.street) {
+  console.log(user.address.street);
+}
+
+console.log(user?.address?.street);
+```
+
 
 ---
 hideInToc: true
@@ -574,29 +579,21 @@ name: Switch Example
 let day
 switch (new Date().getDay()) {
   case 0:
-    day = 'Sunday'
-    break
+    { day = 'Sunday'; break}
   case 1:
-    day = 'Monday'
-    break
+    { day = 'Monday'; break}
   case 2:
-    day = 'Tuesday'
-    break
+    { day = 'Tuesday'; break}
   case 3:
-    day = 'Wednesday'
-    break
+    { day = 'Wednesday'; break}
   case 4:
-    day = 'Thursday'
-    break
+    { day = 'Thursday'; break}
   case 5:
-    day = 'Friday'
-    break
+    { day = 'Friday'; break}
   case 6:
-    day = 'Saturday'
-    break
+    { day = 'Saturday'; break}
   default:
-    day = 'Cannot be reached'
-    break
+    { day = 'Cannot be reached'; break}
 }
 console.log(`Today is ${day}`)
 ```
@@ -749,6 +746,7 @@ function name(parameter1, parameter2, ...parameterN) {
 
 ---
 hideInToc: true
+title: Function Examples
 ---
 
 <h5> Example: A function to greet new users </h5>
@@ -773,6 +771,7 @@ console.log(addNumber(7, 20))
 
 ---
 hideInToc: true
+title: Global and Local Variables
 ---
 
 - <h3 class='text-[#5D8392]'> Outer Variable</h3>
@@ -793,6 +792,7 @@ function school() {
 
 ---
 hideInToc: true
+title: Local Variables
 ---
 
 - <h3 class='text-[#5D8392]'>Local Variable</h3>
