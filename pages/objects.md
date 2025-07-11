@@ -8,15 +8,15 @@ hideInToc: true
 
 <div mt-2 />
 
-- basics of objects
-- referencing and copying
-- object methods, `this` keyword
-- constructor functions, operator `new`
-- optional chaining
-- symbol type and Object to primitive conversion
-- object properties configuration
-- flags(writable, enumerable, configurable) and descriptors
-- property getters and setters
+- <a @click="$slidev.nav.go($nav.currentPage+1)">basics of objects</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">referencing and copying</a>
+- <a @click="$slidev.nav.go($nav.currentPage+9)">object methods, `this` keyword</a>
+- <a @click="$slidev.nav.go($nav.currentPage+11)">constructor functions, operator `new`</a>
+- <a @click="$slidev.nav.go($nav.currentPage+13)">optional chaining</a>
+- <a @click="$slidev.nav.go($nav.currentPage+15)">symbol type and Object to primitive conversion</a>
+- <a @click="$slidev.nav.go($nav.currentPage+17)">object properties configuration</a>
+- <a @click="$slidev.nav.go($nav.currentPage+19)">flags(writable, enumerable, configurable) and descriptors</a>
+- <a @click="$slidev.nav.go($nav.currentPage+21)">property getters and setters</a>
 
 ---
 hideInToc: true
@@ -529,4 +529,3 @@ alert(clone.school.department);
 ```
 
 ---
-

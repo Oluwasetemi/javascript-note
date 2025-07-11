@@ -8,8 +8,8 @@ hideInToc: true
 
 <div mt-2 />
 
-- Error handling, "try..catch"
-- Custom errors, extending Error
+- <a @click="$slidev.nav.go($nav.currentPage+1)">Error handling, "try..catch"</a>
+- <a @click="$slidev.nav.go($nav.currentPage+3)">Custom errors, extending Error</a>
 
 ---
 hideInToc: true

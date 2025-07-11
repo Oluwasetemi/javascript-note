@@ -8,14 +8,14 @@ hideInToc: true
 
 <div mt-2 />
 
-- Variables
-- Data types
-- Interaction: `alert`, `prompt`, `confirm` | `console.log`
-- Type Conversions
-- Operators: Math, Comparison, Logical, Bitwise, Null Coalescing, Optional Chaining
-- Conditional Branching: if, '?', switch
-- Loops: while, for, for..in, for..of
-- Functions: Declaration, Arrow functions, Function Expressions
+- <a @click="$slidev.nav.go($nav.currentPage+1)">Variables</a>
+- <a @click="$slidev.nav.go($nav.currentPage+5)">Data types</a>
+- <a @click="$slidev.nav.go($nav.currentPage+9)">Interaction: `alert`, `prompt`, `confirm` | `console.log`</a>
+- <a @click="$slidev.nav.go($nav.currentPage+11)">Type Conversions</a>
+- <a @click="$slidev.nav.go($nav.currentPage+13)">Operators: Math, Comparison, Logical, Bitwise, Null Coalescing, Optional Chaining</a>
+- <a @click="$slidev.nav.go($nav.currentPage+21)">Conditional Branching: if, '?', switch</a>
+- <a @click="$slidev.nav.go($nav.currentPage+26)">Loops: while, for, for..in, for..of</a>
+- <a @click="$slidev.nav.go($nav.currentPage+32)">Functions: Declaration, Arrow functions, Function Expressions</a>
 
 ---
 hideInToc: true
@@ -232,7 +232,7 @@ hideInToc: true
 - The alert() method displays an alert box with a mesage and an OK button
 
 ```js {monaco-run} {autorun:false}
-alert('Hello V4 Frontend Developer, Enjoying Javascript so far?')
+alert('Hello V5 Frontend Developer, Enjoying Javascript so far?')
 ```
 
 #### Prompt{.text-common}
@@ -473,7 +473,7 @@ if (condition) {
 ```js {monaco-run} {autorun:false}
 let day = 'Monday' 
 if (day == 'Monday'){
-    console.log('Today is Monday')
+  console.log('Today is Monday')
 }
 ```
 <p><span text-red>Note:</span> If the condition  is false, the code will not run</p>
@@ -910,9 +910,15 @@ transition: slide-up
 - declare a variable `isMarried` and assign `true` or `false` to it
 - use `alert`, `prompt` and `confirm` to interact with the user
 - display the values of `name`, `age` and `isMarried` in the console
-
 - **Bonus**: use `console.log` to display the values in the console
 
 ```js{monaco-run} {autorun: false}
-// write your code here
+/*
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+*/
 ```

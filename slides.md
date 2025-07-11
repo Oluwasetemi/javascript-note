@@ -70,11 +70,33 @@ hideInToc: true
 
 # Getting Started With JavaScript?
 
+<div />
+
+JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
+
+The truth is this will be an endless journey till mastery, but I can assure you it will be worth it in the end. We will learn JavaScript in the most practical way possible by focusing on fundamental JS that can give us a good grasp of JavaScript, then we will move unto learning JavaScript in the Browser - which is the fundamental purpose of JS in the first place before we could run it near anywhere possible.
+
+JS skills can make you a Backend, Frontend, Mobile, Desktop, and even a Game Developer. So, let's get started. This Note has super cool features like code highlighting, code execution, and even drawing on the slides. You can also export the slides to PDF or PPTX format. Enjoy the journey. 🚀.
+
+> We can't wait to see you at the top.
+
 ---
 hideInToc: true
 ---
 
 # What is JavaScript?
+
+<div />
+
+To get started with JavaScript, you need to understand what JavaScript is. JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. ECMAScript is the standard that JavaScript is based on - ECMAScript 262.
+
+To a beginner, JavaScript is a programming language that is used to make web pages interactive. It is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and much more.
+
+To a frontend developer, JavaScript is the language that is used to create interactive user interfaces. It is the language that is used to add functionality to web pages, such as form validation, animations, and more.
+
+To a backend developer, JavaScript is the language that is used to create server-side applications. It is the language that is used to create APIs, handle requests, and interact with databases, create CLI tools, and more.
+
+To a full-stack developer, JavaScript is the language that is used to create both frontend and backend applications. It is the language that is used to create a complete web application, from the user interface to the server-side logic.
 
 ---
 name: Fundamentals

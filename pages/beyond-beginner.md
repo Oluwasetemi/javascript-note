@@ -8,13 +8,13 @@ hideInToc: true
 
 <div mt-2 />
 
-- Mutation Observer
-- Resize Observer
-- Intersection Observer
-- Selection and Range
-- Web Workers
-- Service Workers
-- Event loop: microtasks and macrotasks
+- <a @click="$slidev.nav.go($nav.currentPage+1)">Mutation Observer</a>
+- <a @click="$slidev.nav.go($nav.currentPage+2)">Resize Observer</a>
+- <a @click="$slidev.nav.go($nav.currentPage+3)">Intersection Observer</a>
+- <a @click="$slidev.nav.go($nav.currentPage+4)">Selection and Range</a>
+- <a @click="$slidev.nav.go($nav.currentPage+5)">Web Workers</a>
+- <a @click="$slidev.nav.go($nav.currentPage+6)">Service Workers</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">Event loop: microtasks and macrotasks</a>
 
 ---
 hideInToc: true

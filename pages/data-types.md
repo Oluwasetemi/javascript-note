@@ -8,18 +8,18 @@ hideInToc: true
 
 <div mt-2 />
 
-- Methods of Primitives
-- Numbers
-- BigInt
-- Strings
-- Arrays and Array Methods
-- Iterables
-- Map and Set
-- WeakMap and WeakSet
-- Object.keys, values, entries, groupBy
-- Destructuring Assignment
-- Date and Time | Intro to Intl API | Temporal
-- JSON methods, toJSON
+- <a @click="$slidev.nav.go($nav.currentPage+1)">Methods of Primitives</a>
+- <a @click="$slidev.nav.go($nav.currentPage+3)">Numbers</a>
+- <a @click="$slidev.nav.go($nav.currentPage+6)">BigInt</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">Strings</a>
+- <a @click="$slidev.nav.go($nav.currentPage+14)">Arrays and Array Methods</a>
+- <a @click="$slidev.nav.go($nav.currentPage+21)">Iterables</a>
+- <a @click="$slidev.nav.go($nav.currentPage+23)">Map and Set</a>
+- <a @click="$slidev.nav.go($nav.currentPage+25)">WeakMap and WeakSet</a>
+- <a @click="$slidev.nav.go($nav.currentPage+27)">Object.keys, values, entries, groupBy</a>
+- <a @click="$slidev.nav.go($nav.currentPage+29)">Destructuring Assignment</a>
+- <a @click="$slidev.nav.go($nav.currentPage+31)">Date and Time | Intro to Intl API | Temporal</a>
+- <a @click="$slidev.nav.go($nav.currentPage+33)">JSON methods, toJSON</a>
 
 ---
 hideInToc: true
@@ -33,7 +33,7 @@ hideInToc: true
 
 <p> A primitive in JavaScript is a simple, immutable data type that represents a single value. Unlike objects, which are collections of properties and methods, primitives are more basic and directly represent their contents.</p>
 
-<div flex="~ row" gap-4xl>
+<div grid="~ cols-2">
 <div>
 
 - Number
@@ -99,12 +99,13 @@ hideInToc: true
 ### Types
 
 <ul>
-<li>Regular numbers (64-bit IEEE-754 "double precision")</li>
-<li>BigInt (for integers of arbitrary length)</li>
+  <li>Regular numbers (64-bit IEEE-754 "double precision")</li>
+  <li>BigInt (for integers of arbitrary length)</li>
 </ul>
+
 <div mt-3 />
 
-<div flex="~ row" gap-xl between>
+<div class="grid grid-cols-2" gap-sm>
 <div>
 
 #### Writing Numbers
@@ -148,12 +149,12 @@ alert(num3.toString(2)) // "11111111"
 hideInToc: true
 ---
 
-<div class="flex justify-between"  >
+<div class="grid grid-cols-2"  >
 <div>
 
 - Rounding
 
-```js {monco-run}
+```js {monaco-run}
 Math.floor(3.6) // 3  - rounds down
 Math.ceil(3.1) // 4  - rounds up
 Math.round(3.5) // 4  - rounds to nearest
@@ -169,7 +170,7 @@ num.toFixed(2) // "1.23"
 
 - Precision Issues
 
-```js {monco-run}
+```js {monaco-run}
 0.1 + 0.2 === 0.3 // false
 0.1 + 0.2 // 0.30000000000000004
 
@@ -189,7 +190,7 @@ hideInToc: true
 
 <div mt-2 />
 <h3> 1. String Creation & Quotes</h3>
-<div class="flex justify-evenly" gap-4xl>
+<div class="grid grid-cols-2" gap-4xl>
 <div>
 
 - Single/Double Quotes
@@ -223,7 +224,7 @@ let multiline = `
 </div>
 
 <h3>2. Character Access & Special Characters</h3>
-<div class="flex justify-evenly " gap-4xl>
+<div class="grid grid-cols-2 " gap-4xl>
 <div>
 
 - Accessing Characters:
@@ -255,7 +256,7 @@ hideInToc: true
 ---
 
 <h3>3. String Methods & Operations</h3>
-<div class='flex justify-evenly'>
+<div class='grid grid-cols-3'>
 <div>
 
 - Searching:
@@ -295,6 +296,9 @@ str.toLowerCase() // "hello"
 </div>
 <h3>4. Important Characteristics</h3>
 
+<div class='grid grid-cols-2'>
+<div>
+
 - Immutability:
 
 ```js
@@ -303,12 +307,18 @@ str[0] = 'h' // Doesn't work
 str = 'hello' // This works (creates new string)
 ```
 
+</div>
+<div>
+
 - Length:
 
 ```js
 let str = 'Hello'
 str.length // 5
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true
@@ -387,7 +397,7 @@ hideInToc: true
 
 # Array Methods
 
-<div flex="~ row" justify-between>
+<div grid="~ cols-2">
 <div>
 <ul><li><span class='text-red'><strong>push</strong></span> adds an element to the end.</li></ul>
 ```js {monaco-run}
@@ -409,7 +419,7 @@ console.log(names)
 </div>
 </div>
 
-<div flex="~ row" justify-between>
+<div grid="~ cols-2">
 <div>
 <ul><li> <span class='text-red'><strong>shift</strong></span> extracts the first element of the array and returns it</li></ul>
 ```js {monaco-run}
@@ -437,7 +447,7 @@ hideInToc: true
 
 # Array Methods
 
-<div flex="~ row" justify-between>
+<div grid="~ cols-2">
 <div>
 <ul><li> <span class='text-red'><strong>reverse:</strong></span> reverses the array in-place, then returns it.</li></ul>
 ```js {monaco-run}
@@ -457,16 +467,19 @@ console.log(names.sort())
 </div>
 </div>
 <div>
+</div>
 
-<div ml-10>
+<div>
+
 <ul><li> <span class='text-red'><strong> slice:</strong></span> creates a new array, copies elements from index start till end (not inclusive) into it.</li></ul>
+
 ```js {monaco-run}
 let names = ['faith', 'ridwan', 'wariz', 'chidinma']
 console.log(names)
 console.log(names.slice()) //get a copyy of the array
-console.log(names.slice(0,2))
+console.log(names.slice(0, 2))
 ```
-</div>
+
 </div>
 
 ---
@@ -477,18 +490,19 @@ hideInToc: true
 
 <div></div>
 Map is a collection of keyed data items, just like an Object. But the main difference is that <span class='text-red'><strong><em>Map allows keys of any type.</em></strong></span><br><br>
+Same API applies to Set, but Set does not have keys, only values.
 
 ### Methods and properties are:<br>
 
 <v-clicks>
 <ul>
-<li>new Map() - creates the map.</li>
-<li>map.set(key, value) – stores the value by the key.</li>
-<li>map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.</li>
-<li>map.has(key) – returns true if the key exists, false otherwise.</li>
-<li>map.delete(key) – removes the element (the key/value pair) by the key.</li>
-<li>map.clear() – removes everything from the map.</li>
-<li>map.size – returns the current element count.</li>
+<li><code>new Map()</code> - creates the map.</li>
+<li><code>map.set(key, value)</code> – stores the value by the key.</li>
+<li><code>map.get(key)</code> – returns the value by the key, undefined if key doesn’t exist in map.</li>
+<li><code>map.has(key)</code> – returns true if the key exists, false otherwise.</li>
+<li><code>map.delete(key)</code> – removes the element (the key/value pair) by the key.</li>
+<li><code>map.clear()</code> – removes everything from the map.</li>
+<li><code>map.size</code> – returns the current element count.</li>
 </ul>
 </v-clicks>
 
@@ -500,20 +514,19 @@ For example:
 
 ```js {monaco-run}
 //create a new Map
-const userInfo = new Map();
+const userInfo = new Map()
 console.log(userInfo)
 userInfo.set('name', 'snickers')
 userInfo.set('age', 30)
 userInfo.set('email', 'snick@gmail.com')
-console.log(userInfo);
-console.log(userInfo.get('name')
-console.log(userInfo.has('name'));
-userInfo.delete('age');
+console.log(userInfo)
+console.log(userInfo.get('name'))
+console.log(userInfo.has('name'))
+userInfo.delete('age')
 console.log(userInfo)
 console.log(userInfo.size) //returns the current element count
 userInfo.clear() //removes everything from the map
 console.log(userInfo)
-
 ```
 
 ---
@@ -570,12 +583,21 @@ let now = new Date()
 alert(now)
 ```
 
+<div grid="~ cols-2">
+<div>
+
 - new Date(date string): Create a Date object with the time equal to number of milliseconds (1/1000 of a second) passed after the Jan 1st of 1970 UTC+0.
 - new Date(year,month)
 - new Date(year,month,day)
 - new Date(year,month,day,hours)
 
+</div>
+<div>
+
 - new Date(year,month,day,hours,minutes)
 - new Date(year,month,day,hours,minutes,seconds)
 - new Date(year,month,day,hours,minutes,seconds,ms)
 - new Date(milliseconds)
+
+</div>
+</div>

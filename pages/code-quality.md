@@ -6,14 +6,15 @@ hideInToc: true
 
 # Code Quality
 
-- Code quality is a set of practices that help to ensure that your code is readable, maintainable, and reliable.
-- Linters
-- Formatters
-- Standards.
-- Types
-- Debugging in the Browser.
-- Writing Tests
-- Performance
+<div mt-2 />
+
+- <a @click="$slidev.nav.go($nav.currentPage+1)">Linters and Code Formatters</a>
+- <a @click="$slidev.nav.go($nav.currentPage+2)">Types</a>
+- <a @click="$slidev.nav.go($nav.currentPage+3)">More on Code Quality</a>
+- <a @click="$slidev.nav.go($nav.currentPage+4)">Test</a>
+- <a @click="$slidev.nav.go($nav.currentPage+5)">More on Test</a>
+- <a @click="$slidev.nav.go($nav.currentPage+6)">Debugging in the Browser</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">A Peep into Performance</a>
 
 ---
 hideInToc: true

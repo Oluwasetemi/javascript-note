@@ -8,14 +8,14 @@ hideInToc: true
 
 <div mt-2 />
 
-- Prototypal Inheritance and Prototype Chain(F.prototype)
-- Native Prototypes and Prototype Methods
-- Class basic syntax
-- Class Inheritance
-- Static Properties and Methods
-- Private and Protected Properties and Methods
-- Extending built-in classes
-- Class checking: `instanceof` and Mixins
+- <a @click="$slidev.nav.go($nav.currentPage+1)">Prototypal Inheritance and Prototype Chain(F.prototype)</a>
+- <a @click="$slidev.nav.go($nav.currentPage+2)">Native Prototypes and Prototype Methods</a>
+- <a @click="$slidev.nav.go($nav.currentPage+3)">Class basic syntax</a>
+- <a @click="$slidev.nav.go($nav.currentPage+4)">Class Inheritance</a>
+- <a @click="$slidev.nav.go($nav.currentPage+5)">Static Properties and Methods</a>
+- <a @click="$slidev.nav.go($nav.currentPage+6)">Private and Protected Properties and Methods</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">Extending built-in classes</a>
+- <a @click="$slidev.nav.go($nav.currentPage+8)">Class checking: `instanceof` and Mixins</a>
 
 ---
 hideInToc: true
