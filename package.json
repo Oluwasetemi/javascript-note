@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "postinstall": "npx playwright-core install chromium",
+    "postinstall": "pnpm dlx playwright-core install chromium",
     "build": "cross-env NODE_OPTIONS='--openssl-legacy-provider --max_old_space_size=8192' slidev build",
     "dev": "nodemon -e 'md,js,mjs,cjs,json' -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
     "export": "slidev export",
@@ -28,19 +28,11 @@
     "@vue/compiler-sfc": "^3.5.13",
     "cross-env": "^7.0.3",
     "markdown-it-magic-link": "^0.1.4",
-    "nano-staged": "^0.8.0",
     "nodemon": "^3.1.9",
     "playwright-chromium": "^1.50.0",
     "prettier": "^3.4.2",
-    "prettier-plugin-slidev": "^1.0.5",
-    "simple-git-hooks": "^2.11.1"
-  },
-  "simple-git-hooks": {
-    "preserveUnused": true
-  },
-  "nano-staged": {
-    "*.{js,ts,md,vue,json}": "prettier --write"
+    "prettier-plugin-slidev": "^1.0.5"
   },
   "license": "MIT",
-  "packageManager": "npm@11.0.0"
+  "packageManager": "pnpm@10.13.1"
 }
