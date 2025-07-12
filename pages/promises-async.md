@@ -8,18 +8,18 @@ hideInToc: true
 
 <div mt-2 />
 
-- <a @click="$slidev.nav.next()">Introduction: Callbacks</a>
-- <a @click="$nav.go($nav.currentPage+1)">Promise basics</a>
-- <a @click="$slidev.nav.next()">Promise chaining</a>
-- <a @click="$slidev.nav.next()">Error handling in Promises</a>
-- <a @click="$slidev.nav.next()">Promise API</a>
-- <a @click="$slidev.nav.next()">Promisify</a>
-- <a @click="$slidev.nav.next()">Microtasks</a>
-- <a @click="$slidev.nav.next()">Async/Await</a>
-- <a @click="$slidev.nav.next()">Callback Hell Problem</a>
-- <a @click="$slidev.nav.next()">Promise Static Methods</a>
-- <a @click="$slidev.nav.next()">Advanced Async/Await Patterns</a>
-- <a @click="$slidev.nav.next()">Common Pitfalls & Best Practices</a>
+- <a @click="$slidev.nav.go($nav.currentPage+1)">Introduction: Callbacks</a>
+- <a @click="$slidev.nav.go($nav.currentPage+2)">Promise basics</a>
+- <a @click="$slidev.nav.go($nav.currentPage+3)">Promise chaining</a>
+- <a @click="$slidev.nav.go($nav.currentPage+4)">Error handling in Promises</a>
+- <a @click="$slidev.nav.go($nav.currentPage+5)">Promise API</a>
+- <a @click="$slidev.nav.go($nav.currentPage+6)">Promisify</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">Microtasks</a>
+- <a @click="$slidev.nav.go($nav.currentPage+8)">Async/Await</a>
+- <a @click="$slidev.nav.go($nav.currentPage+9)">Callback Hell Problem</a>
+- <a @click="$slidev.nav.go($nav.currentPage+10)">Promise Static Methods</a>
+- <a @click="$slidev.nav.go($nav.currentPage+11)">Advanced Async/Await Patterns</a>
+- <a @click="$slidev.nav.go($nav.currentPage+12)">Common Pitfalls & Best Practices</a>
 
 ---
 hideInToc: true
