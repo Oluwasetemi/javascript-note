@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Extension Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .demo-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+        .code {
+            background-color: #f1f3f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Safe Array Extension Demo</h1>
+        
+        <div class="demo-section">
+            <h2>Extended Array with Sum Method</h2>
+            <div class="code">
+class ExtendedArray extends Array {
+    sum() {
+        return this.reduce((acc, curr) => acc + curr, 0);
+    }
+    
+    average() {
+        return this.sum() / this.length;
+    }
+    
+    max() {
+        return Math.max(...this);
+    }
+    
+    min() {
+        return Math.min(...this);
+    }
+}
+
+const myArray = new ExtendedArray(1, 2, 3, 4, 5);
+            </div>
+            
+            <button onclick="runDemo()">Run Demo</button>
+            <div id="output" class="output"></div>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Why This is Safe</h2>
+            <p>✅ We extend Array safely by creating a new class</p>
+            <p>✅ We don't modify the native Array prototype</p>
+            <p>✅ Other code using Array won't be affected</p>
+            <p>✅ We get all Array methods plus our custom ones</p>
+            
+            <h3>Dangerous Alternative (DON'T DO THIS):</h3>
+            <div class="code">
+// ❌ This is dangerous - modifies native prototype
+Array.prototype.sum = function() {
+    return this.reduce((acc, curr) => acc + curr, 0);
+};
+            </div>
+            <p>❌ This affects ALL arrays in the application</p>
+            <p>❌ Can cause conflicts with other libraries</p>
+            <p>❌ Can break existing code</p>
+        </div>
+    </div>
+
+    <script>
+        class ExtendedArray extends Array {
+            sum() {
+                return this.reduce((acc, curr) => acc + curr, 0);
+            }
+            
+            average() {
+                return this.sum() / this.length;
+            }
+            
+            max() {
+                return Math.max(...this);
+            }
+            
+            min() {
+                return Math.min(...this);
+            }
+        }
+
+        function runDemo() {
+            const output = document.getElementById('output');
+            let result = '';
+            
+            try {
+                // Create extended array
+                const myArray = new ExtendedArray(1, 2, 3, 4, 5);
+                
+                result += 'Creating ExtendedArray: [1, 2, 3, 4, 5]\n\n';
+                result += `Array contents: [${myArray.join(', ')}]\n`;
+                result += `Length: ${myArray.length}\n\n`;
+                
+                // Test our custom methods
+                result += 'Custom methods:\n';
+                result += `Sum: ${myArray.sum()}\n`;
+                result += `Average: ${myArray.average()}\n`;
+                result += `Maximum: ${myArray.max()}\n`;
+                result += `Minimum: ${myArray.min()}\n\n`;
+                
+                // Test native Array methods still work
+                result += 'Native Array methods still work:\n';
+                result += `map(x => x * 2): [${myArray.map(x => x * 2).join(', ')}]\n`;
+                result += `filter(x => x > 2): [${myArray.filter(x => x > 2).join(', ')}]\n`;
+                result += `includes(3): ${myArray.includes(3)}\n\n`;
+                
+                // Show inheritance
+                result += 'Inheritance check:\n';
+                result += `myArray instanceof ExtendedArray: ${myArray instanceof ExtendedArray}\n`;
+                result += `myArray instanceof Array: ${myArray instanceof Array}\n\n`;
+                
+                // Test with different data
+                const scores = new ExtendedArray(85, 92, 78, 96, 88);
+                result += 'Test with scores [85, 92, 78, 96, 88]:\n';
+                result += `Average score: ${scores.average()}\n`;
+                result += `Highest score: ${scores.max()}\n`;
+                result += `Lowest score: ${scores.min()}\n`;
+                
+                // Log to console as well
+                console.log('=== Array Extension Demo ===');
+                console.log('Extended Array:', myArray);
+                console.log('Sum:', myArray.sum());
+                console.log('Average:', myArray.average());
+                console.log('Max:', myArray.max());
+                console.log('Min:', myArray.min());
+                
+            } catch (error) {
+                result += `Error: ${error.message}\n`;
+                console.error('Demo error:', error);
+            }
+            
+            output.textContent = result;
+        }
+    </script>
+</body>
+</html>

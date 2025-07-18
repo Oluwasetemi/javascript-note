@@ -16,22 +16,55 @@ hideInToc: true
 - <a @click="$slidev.nav.go($nav.currentPage+6)">Unicode, String internals</a>
 - <a @click="$slidev.nav.go($nav.currentPage+7)">WeakRef and FinalizationRegistry</a>
 
-TODO: How to use these concepts in real life and class exercise to work on.
-
 ---
 hideInToc: true
 ---
 
 # Generators and Async Iterators
 
+Generators simplify iterator-authoring using function* and yield. The async iterator is an experimental feature that allows for async iteration.
+
+<div class="grid grid-cols-2 gap-4">
+  <div>
+    <h3>Generates Values on Demand</h3>
+    <p>Generators are functions that can return multiple values, one at a time, by pausing and resuming execution.</p>
+    
+  </div>
+  <div>
+    <!-- <h3>Diagram</h3> -->
+    <!-- <img src="/assets/generators_diagram.png" alt="Generators Diagram"/> -->
+  </div>
+</div>
+
 ---
 hideInToc: true
 ---
 
-# Proxy and Reflect
+### Proxy and Reflect
 
----
-hideInToc: true
----
+Proxy objects enable attendance to actions by defining custom behavior for fundamental operations.
 
-# Eval: Run a code string
+
+### Eval: Run a Code String Safely
+
+Eval is a function in JavaScript that allows you to execute a string as a JavaScript code.
+
+
+### Currying
+
+Currying is a process in functional programming in which a function with multiple arguments is transformed into a sequence of functions each taking a single argument.
+
+
+### Reference Type
+
+In JavaScript, objects are stored in memory as references.
+
+
+### Unicode and String Internals
+
+Understanding Unicode is key to managing strings and internationalization in JavaScript.
+
+
+### WeakRef and FinalizationRegistry
+
+Weak references allow you to retain a weak reference to an object, which does not prevent the object from being collected by GC.

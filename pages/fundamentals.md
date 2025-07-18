@@ -13,9 +13,9 @@ hideInToc: true
 - <a @click="$slidev.nav.go($nav.currentPage+7)">Interaction: `alert`, `prompt`, `confirm` | `console.log`</a>
 - <a @click="$slidev.nav.go($nav.currentPage+9)">Type Conversions</a>
 - <a @click="$slidev.nav.go($nav.currentPage+10)">Operators: Math, Comparison, Logical, Bitwise, Null Coalescing, Optional Chaining</a>
-- <a @click="$slidev.nav.go($nav.currentPage+23)">Conditional Branching: if, '?', switch</a>
-- <a @click="$slidev.nav.go($nav.currentPage+28)">Loops: while, for, for..in, for..of</a>
-- <a @click="$slidev.nav.go($nav.currentPage+34)">Functions: Declaration, Arrow functions, Function Expressions</a>
+- <a @click="$slidev.nav.go($nav.currentPage+16)">Conditional Branching: if, '?', switch</a>
+- <a @click="$slidev.nav.go($nav.currentPage+22)">Loops: while, for, for..in, for..of</a>
+- <a @click="$slidev.nav.go($nav.currentPage+25)">Functions: Declaration, Arrow functions, Function Expressions</a>
 
 ---
 hideInToc: true

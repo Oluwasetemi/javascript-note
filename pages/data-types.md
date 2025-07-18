@@ -3,7 +3,6 @@ layout: center
 transition: slide-up
 hideInToc: true
 ---
-
 # Data Types
 
 <div mt-2 />
@@ -12,13 +11,13 @@ hideInToc: true
 - <a @click="$slidev.nav.go($nav.currentPage+3)">Numbers and BigInt</a>
 - <a @click="$slidev.nav.go($nav.currentPage+5)">Strings</a>
 - <a @click="$slidev.nav.go($nav.currentPage+8)">Arrays and Array Methods</a>
-- <a @click="$slidev.nav.go($nav.currentPage+21)">Iterables</a> TODO
-- <a @click="$slidev.nav.go($nav.currentPage+22)">Map and Set</a>
-- <a @click="$slidev.nav.go($nav.currentPage+25)">WeakMap and WeakSet</a> TODO
-- <a @click="$slidev.nav.go($nav.currentPage+27)">Object.keys, values, entries, groupBy</a> TODO
-- <a @click="$slidev.nav.go($nav.currentPage+29)">Destructuring Assignment</a> TODO
-- <a @click="$slidev.nav.go($nav.currentPage+27)">Date and Time | Intro to Intl API  | Temporal</a>
-- <a @click="$slidev.nav.go($nav.currentPage+30)">JSON methods, toJSON</a>
+- <a @click="$slidev.nav.go($nav.currentPage+22)">Iterables</a>
+- <a @click="$slidev.nav.go($nav.currentPage+28)">Map and Set</a>
+- <a @click="$slidev.nav.go($nav.currentPage+35)">WeakMap and WeakSet</a>
+- <a @click="$slidev.nav.go($nav.currentPage+38)">Object.keys, values, entries, groupBy</a>
+- <a @click="$slidev.nav.go($nav.currentPage+40)">Destructuring Assignment</a>
+- <a @click="$slidev.nav.go($nav.currentPage+43)">Date and Time | Intro to Intl API  | Temporal</a>
+- <a @click="$slidev.nav.go($nav.currentPage+48)">JSON methods, toJSON</a>
 
 ---
 hideInToc: true
@@ -1005,6 +1004,364 @@ for (const [index, value] of entries) {
 hideInToc: true
 ---
 
+# Iterables
+
+<div mt-2 />
+
+**Iterables** are objects that can be iterated over with `for...of` loops. They implement the **Symbol.iterator** method that returns an iterator.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## What Makes an Object Iterable?
+
+* Must have a `Symbol.iterator` method
+* This method returns an **iterator object**
+* Iterator has a `next()` method returning `{value, done}`
+
+**Built-in Iterables:**
+
+<section grid="~ cols-2" gap-3>
+<div>
+
+- Arrays
+- Strings  
+- Maps
+
+</div>
+
+<div>
+
+- Sets
+- NodeList (DOM)
+- Arguments object
+
+</div>
+
+</section>
+
+</div>
+<div>
+
+## Basic Iteration Example
+
+```js {monaco-run}
+const arr = [1, 2, 3]; const str = 'hello'; const set = new Set([1, 2, 3]);
+
+// All work with for...of
+for (const item of arr) console.log('Array:', item)
+for (const char of str) console.log('String:', char)
+for (const val of set) console.log('Set:', val)
+
+// Manual iteration
+const iterator = arr[Symbol.iterator]()
+console.log('Manual:', iterator.next())
+console.log('Manual:', iterator.next())
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Creating Custom Iterables
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Simple Range Iterator
+
+```js {monaco-run}{autorun: false}
+const range = {
+  from: 1,
+  to: 5,
+  [Symbol.iterator]() {
+    let current = this.from; const last = this.to;  
+    return {
+      next() {
+        if (current <= last) {
+          return { value: current++, done: false }
+        } else {
+          return { done: true }
+        }
+      }
+    }
+  }
+}
+
+for (const num of range) { console.log(num) }
+```
+
+</div>
+<div>
+
+## Fibonacci Iterator
+
+```js {monaco-run}{autorun: false}
+const fibonacci = {
+  [Symbol.iterator]() {
+    let a = 0, b = 1, count = 0; const max = 10;
+    
+    return {
+      next() {
+        if (count < max) {
+          count++
+          if (count === 1) return { value: a, done: false }
+          if (count === 2) return { value: b, done: false }
+          
+          const next = a + b; a = b; b = next;
+          return { value: next, done: false }
+        }
+        return { done: true }
+      }
+    }
+  }
+}
+
+console.log([...fibonacci]) // First 10 Fibonacci numbers
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Array-like vs Iterables
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Array-like Objects
+
+* Have indexed properties and `length`
+* **Cannot** use `for...of` directly
+* Common examples: `arguments`, `NodeList`
+
+```js {monaco-run}
+const arrayLike = {
+  0: 'a', 1: 'b', 2: 'c', length: 3
+}
+
+// for (const item of arrayLike) console.log(item)
+for (let i = 0; i < arrayLike.length; i++) {
+  console.log(arrayLike[i])
+}
+const arr = Array.from(arrayLike)
+console.log('Converted:', arr)
+```
+
+</div>
+<div>
+
+## Making Array-like Iterable
+
+```js {monaco-run}{autorun: false}
+const iterableArrayLike = {
+  0: 'x', 1: 'y', 2: 'z', length: 3,
+  [Symbol.iterator]() {
+    let index = 0; const self = this;
+    return {
+      next: function() {
+        if (index < self.length) {
+          return { value: self[index++], done: false }
+        }
+        return { done: true }
+      }
+    }
+  }
+}
+for (const item of iterableArrayLike) {
+  console.log('for...of:', item)
+}
+console.log('Spread:', [...iterableArrayLike])
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Iterators and Destructuring
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Destructuring with Iterables
+
+```js {monaco-run}
+const colors = ['red', 'green', 'blue', 'yellow']
+
+const [first, second, ...rest] = colors
+console.log('First:', first, 'Second:', second, 'Rest:', rest)
+
+const str = 'hello'
+const [h, e, l1, l2, o] = str
+console.log('Letters:', h, e, l1, l2, o)
+
+const range = {
+  from: 1, to: 3,
+  [Symbol.iterator]: function* () {
+    for (let i = this.from; i <= this.to; i++) yield i
+  }
+}
+
+const [a, b, c] = range
+console.log('Range values:', a, b, c)
+```
+
+</div>
+<div>
+
+## Iterator Helper Methods (ES2026)
+
+```js {monaco-run}
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+try {
+  // take() - takes first n elements
+  const firstThree = numbers.values().take(3)
+  console.log('First three:', [...firstThree])
+  
+  // drop() - skips first n elements  
+  const skipTwo = numbers.values().drop(2)
+  console.log('Skip two:', [...skipTwo])
+  
+  // filter() on iterators
+  const evenNums = numbers.values().filter(x => x % 2 === 0)
+  console.log('Even numbers:', [...evenNums])
+} catch (e) {
+  console.log('Alternative:', numbers.slice(0, 3))
+}
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Generator Functions as Iterables
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Simple Generator
+
+```js {monaco-run}{autorun: false}
+function* numberGenerator() {
+  yield 1
+  yield 2
+  yield 3
+}
+
+const gen = numberGenerator()
+console.log('Generator:', gen)
+
+// console.log('Manual:', gen.next())
+// console.log('Manual:', gen.next())
+for (const num of numberGenerator()) {
+  // console.log('Generated:', num)
+}
+
+console.log('Spread:', [...numberGenerator()])
+```
+
+</div>
+<div>
+
+## Infinite Sequence Generator
+
+```js {monaco-run}{autorun: false}
+function* infiniteSequence() {
+  let i = 0
+  while (true) {
+    yield i++
+  }
+}
+function* takeN(iterable, n) {
+  let count = 0;
+  for (const item of iterable) { if (count >= n) break; yield item; count++; }
+}
+const first5 = takeN(infiniteSequence(), 5);console.log('First 5:', [...first5])
+const evens = []
+for (const num of infiniteSequence()) {
+  if (num % 2 === 0) evens.push(num)
+  if (evens.length >= 2) break
+}
+console.log('First 2 evens:', evens)
+```
+
+</div>
+</div>
+---
+hideInToc: true
+---
+
+# Real-world Iterator Applications
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## DOM Node Iterator
+
+```js {monaco-run}{autorun: false}
+const createNodeIterator = (element) => ({
+  [Symbol.iterator]: function* () {
+    const walker = document.createTreeWalker( element, NodeFilter.SHOW_ELEMENT, null, false )
+    let node
+    while (node = walker.nextNode()) { yield node }
+  }
+})
+const bodyNodes = createNodeIterator(document.body)
+let count = 0
+for (const node of bodyNodes) {
+  count++
+  if (count > 5) break // Limit output
+  console.log('Node:', node.tagName)
+}
+```
+
+</div>
+<div>
+
+## Pagination Iterator
+
+```js {monaco-run}{autorun: false}
+const createPaginationIterator = (data, pageSize) => ({
+  [Symbol.iterator]: function* () {
+    for (let i = 0; i < data.length; i += pageSize) {
+      yield data.slice(i, i + pageSize)
+    }
+  }
+})
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const pages = createPaginationIterator(numbers, 3)
+
+let pageNum = 1
+for (const page of pages) {
+  console.log(`Page ${pageNum}:`, page)
+  pageNum++
+}
+
+// Can also use with spread operator
+console.log('All pages:', [...createPaginationIterator(numbers, 4)])
+```
+
+</div>
+</div>
+
+
+---
+hideInToc: true
+---
+
 # Map and Set
 
 <div></div>
@@ -1015,13 +1372,13 @@ Same API applies to Set, but Set does not have keys, only values.
 
 <v-clicks>
 <ul>
-<li><code>new Map()</code> - creates the map.</li>
-<li><code>map.set(key, value)</code> – stores the value by the key.</li>
-<li><code>map.get(key)</code> – returns the value by the key, undefined if key doesn’t exist in map.</li>
-<li><code>map.has(key)</code> – returns true if the key exists, false otherwise.</li>
-<li><code>map.delete(key)</code> – removes the element (the key/value pair) by the key.</li>
-<li><code>map.clear()</code> – removes everything from the map.</li>
-<li><code>map.size</code> – returns the current element count.</li>
+  <li><code>new Map()</code> / <code>new Set()</code> – creates the map or set.</li>
+  <li><code>map.set(key, value)</code> / <code>set.add(value)</code> – stores the value by the key (Map) or adds a value (Set).</li>
+  <li><code>map.get(key)</code> – returns the value by the key, undefined if key doesn't exist in map.</li>
+  <li><code>map.has(key)</code> / <code>set.has(value)</code> – returns true if the key/value exists, false otherwise.</li>
+  <li><code>map.delete(key)</code> / <code>set.delete(value)</code> – removes the element by the key (Map) or value (Set).</li>
+  <li><code>map.clear()</code> / <code>set.clear()</code> – removes everything from the map or set.</li>
+  <li><code>map.size</code> / <code>set.size</code> – returns the current element count.</li>
 </ul>
 </v-clicks>
 
@@ -1259,6 +1616,401 @@ alert(visitsCountObj['[object Object]']) // 123
 hideInToc: true
 ---
 
+# WeakMap and WeakSet
+
+<div mt-2 />
+
+**WeakMap** and **WeakSet** are "weak" versions of Map and Set that allow **garbage collection** of their keys/values when no other references exist.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## WeakMap
+
+* Keys must be **objects** (not primitives)
+* Keys are **weakly referenced**
+* No iteration methods (`forEach`, `keys`, `values`)
+* No `size` property
+* Keys can be garbage collected
+
+```js {monaco-run}
+const wm = new WeakMap()
+let user = { name: 'John' }
+wm.set(user, 'user metadata')
+console.log(wm.has(user), wm.get(user))
+user = null
+```
+
+</div>
+<div>
+
+## WeakSet
+
+* Values must be **objects** (not primitives)
+* Values are **weakly referenced**
+* No iteration methods
+* No `size` property
+* Values can be garbage collected
+
+```js {monaco-run}
+const ws = new WeakSet()
+let user1 = { name: 'Alice' }
+let user2 = { name: 'Bob' }
+
+// Add objects to WeakSet
+ws.add(user1)
+ws.add(user2)
+console.log(ws.has(user1), ws.has(user2));
+user1 = null
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+## Real-world Use Cases
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+**🔐 Private Data Storage**
+```js {monaco-run}
+const privateData = new WeakMap()
+
+class User {
+  constructor(name) {
+    this.name = name
+    privateData.set(this, { 
+      password: 'secret123',
+      lastLogin: new Date()
+    })
+  }
+  
+  getPrivateData() {
+    return privateData.get(this)
+  }
+}
+
+const user = new User('John')
+console.log(user.getPrivateData())
+```
+
+</div>
+<div>
+
+**📊 Object Metadata**
+```js {monaco-run}
+const visited = new WeakSet()
+
+function markAsVisited(obj) {
+  visited.add(obj)
+}
+
+function isVisited(obj) {
+  return visited.has(obj)
+}
+
+const page = { url: '/home' }
+markAsVisited(page)
+console.log(isVisited(page)) // true
+
+// When page is no longer referenced,
+// it's automatically removed from visited
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+## Key Differences from Map/Set
+
+| Feature                | Map/Set             | WeakMap/WeakSet            |
+| ---------              | ---------           | -----------------          |
+| **Keys/Values**        | Any type            | Objects only               |
+| **Iteration**          | ✅ Possible         | ❌ Not allowed              |
+| **Size**               | ✅ Has `.size`      | ❌ No size property         |
+| **Garbage Collection** | ❌ Prevents GC       | ✅ Allows GC               |
+| **Use Case**           | General collections | Private data,metadata      |
+
+
+---
+hideInToc: true
+---
+
+# Object Static Methods
+
+<div mt-2 />
+
+**Object static methods** provide powerful utilities for working with objects, especially for transforming between objects and arrays.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Object.keys & Object.values
+
+```js {monaco-run}
+const user = { name: 'John', age: 30, city: 'NYC', email: 'john@example.com' }
+
+const keys = Object.keys(user)
+const values = Object.values(user)
+const hasEmail = Object.keys(user).includes('email')
+const allStrings = Object.values(user).every(val => typeof val === 'string')
+
+console.log('Keys:', keys)
+
+// Practical usage
+
+```
+
+</div>
+<div>
+
+## Object.entries & Object.fromEntries
+
+```js {monaco-run}
+const scores = { math: 85, english: 92, science: 78 }
+
+const entries = Object.entries(scores)
+const doubledScores = Object.fromEntries(
+  entries.map(([subject, score]) => [subject, score * 2])
+)
+const highScores = Object.fromEntries(
+  entries.filter(([subject, score]) => score > 80)
+)
+// console.log('Entries:', entries)
+// console.log('Doubled scores:', doubledScores)
+// console.log('High scores:', highScores)
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Object.groupBy (ES2024)
+
+<div mt-2 />
+
+**Object.groupBy()** groups array elements by a key function, returning an object where keys are the group identifiers.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Basic Grouping
+
+```js {monaco-run}
+const students = [ { name: 'Alice', grade: 'A', age: 20 }, { name: 'Bob', grade: 'B', age: 19 }, { name: 'Charlie', grade: 'A', age: 21 }, { name: 'David', grade: 'B', age: 20 }, { name: 'Eve', grade: 'C', age: 19 } ]
+
+// Group by grade
+try {
+  const byGrade = Object.groupBy(students, student => student.grade)
+  // console.log('By grade:', byGrade)
+} catch (e) {
+  console.log('groupby is not available')
+}
+```
+
+</div>
+<div>
+
+## Advanced Grouping
+
+```js {monaco-run}
+const products = [ { name: 'Laptop', price: 1200, category: 'Electronics' }, { name: 'Phone', price: 800, category: 'Electronics' }, { name: 'Shirt', price: 30, category: 'Clothing' }, { name: 'Shoes', price: 80, category: 'Clothing' }, { name: 'Book', price: 15, category: 'Education' } ]
+
+// Group by price range
+const groupByPriceRange = (product) => {
+  if (product.price < 50) return 'cheap'
+  if (product.price < 500) return 'moderate'
+  return 'expensive'
+}
+
+try {
+  const byPriceRange = Object.groupBy(products, groupByPriceRange)
+  // console.log('By price range:', byPriceRange)
+} catch (e) {
+  // console.log('Group is not available')
+}
+```
+
+</div>
+</div>
+
+
+---
+hideInToc: true
+---
+
+# Destructuring
+
+<div mt-2 />
+
+**Destructuring** is a JavaScript expression that allows you to extract values from arrays or properties from objects into distinct variables.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Array Destructuring
+
+```js {monaco-run}
+const colors = ['red', 'green', 'blue', 'yellow']
+
+// Basic destructuring
+const [first, second] = colors
+console.log('First:', first, 'Second:', second)
+const [, , third] = colors
+console.log('Third:', third)
+const [primary, ...others] = colors
+console.log('Primary:', primary, 'Others:', others)
+const [a, b, c, d, e = 'default'] = colors
+console.log('Fifth:', e)
+```
+
+</div>
+<div>
+
+## Object Destructuring
+
+```js {monaco-run}
+const user = { name: 'John', age: 30, city: 'NYC', email: 'john@example.com' }
+
+const { name, age } = user
+const { name: userName, city: location } = user
+const { country = 'USA', phone = 'N/A' } = user
+
+// console.log('Name:', name, 'Age:', age)
+// console.log('User:', userName, 'Location:', location)
+// console.log('Country:', country, 'Phone:', phone)
+
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Nested Destructuring
+
+<div mt-2 />
+
+**Nested destructuring** allows you to extract values from deeply nested objects and arrays.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Nested Object Destructuring
+
+```js {monaco-run}
+const user = {
+  name: 'John',
+  address: { street: '123 Main St', city: 'NYC', country: 'USA' },
+  hobbies: ['reading', 'coding', 'gaming']
+}
+
+const { 
+  name, 
+  address: { city, country },
+  hobbies: [firstHobby, ...otherHobbies]
+} = user
+
+console.log('Name:', name)
+console.log('City:', city, 'Country:', country)
+console.log('First hobby:', firstHobby)
+console.log('Other hobbies:', otherHobbies)
+```
+
+</div>
+<div>
+
+## Mixed Array & Object Destructuring
+
+```js {monaco-run}
+const response = {
+  status: 'success',
+  data: [ { id: 1, name: 'Alice', scores: [85, 92, 78] }, { id: 2, name: 'Bob', scores: [90, 88, 85] } ]
+}
+
+// Extract from nested structure
+const {
+  status,
+  data: [ { name: firstName, scores: [firstScore] }, { name: secondName, scores: [, secondScore] } ]
+} = response
+
+console.log('Status:', status)
+console.log('First user:', firstName, 'Score:', firstScore)
+console.log('Second user:', secondName, 'Score:', secondScore)
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Smart Function Parameters
+
+<div mt-2 />
+
+**Destructuring in function parameters** makes functions more readable and flexible by allowing direct extraction of needed values.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Object Parameter Destructuring
+
+```js {monaco-run}
+// Instead of: function createUser(options) { ... }
+function createUser({ name, age, email, role = 'user' }) {
+  return { id: Date.now(), name, age, email, role, createdAt: new Date() }
+}
+
+const user1 = createUser({ name: 'John', age: 30, email: 'john@example.com' })
+const user2 = createUser({ name: 'Admin', age: 25, email: 'admin@example.com', role: 'admin' })
+console.log('User 1:', user1.name, user1.role)
+console.log('User 2:', user2.name, user2.role)
+```
+
+</div>
+<div>
+
+## Array Parameter Destructuring
+
+```js {monaco-run}
+function processCoordinates([x, y, z = 0]) {
+  return { x: x * 2, y: y * 2, z: z * 2 }
+}
+const point2D = [10, 20];const point3D = [5, 15, 25]
+// console.log(processCoordinates(point2D), processCoordinates(point3D))
+function calculateStats([first, ...rest]) {
+  const sum = first + rest.reduce((a, b) => a + b, 0)
+  return {
+    first,sum,count: rest.length + 1,
+    average: sum / (rest.length + 1)
+  }
+}
+const numbers = [85, 92, 78, 90, 88]
+// console.log('Stats:', calculateStats(numbers))
+```
+
+</div>
+</div>
+
+
+---
+hideInToc: true
+---
+
 # Date and time
 
 <div mt-2 />
@@ -1294,6 +2046,255 @@ alert(now)
 
 </div>
 </div>
+
+---
+hideInToc: true
+---
+
+# Intro to Intl API
+
+<div mt-2 />
+
+The **Intl API** provides language-sensitive string comparison, number formatting, date and time formatting, and other internationalization features.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Common Intl Objects
+
+**Date & Time Formatting:**
+- `Intl.DateTimeFormat` - Format dates/times
+- `Intl.RelativeTimeFormat` - Relative time ("2 hours ago")
+
+**Number Formatting:**
+- `Intl.NumberFormat` - Format numbers
+- `Intl.ListFormat` - Format lists ("A, B, and C")
+
+**Text & Collation:**
+- `Intl.Collator` - String comparison
+- `Intl.PluralRules` - Plural rule selection
+
+```js {monaco-run}
+// Basic usage examples
+const date = new Date()
+const number = 1234567.89
+
+console.log('US:', new Intl.DateTimeFormat('en-US').format(date))
+console.log('DE:', new Intl.DateTimeFormat('de-DE').format(date))
+console.log('US Number:', new Intl.NumberFormat('en-US').format(number))
+console.log('DE Number:', new Intl.NumberFormat('de-DE').format(number))
+```
+
+</div>
+<div>
+
+## Real-world Examples
+
+```js {monaco-run}
+const price = 29.99;const date = new Date()
+const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
+const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
+// console.log('USD:', usdFormatter.format(price))
+// console.log('EUR:', eurFormatter.format(price))
+const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
+// console.log('Yesterday:', rtf.format(-1, 'day'))
+// console.log('Next week:', rtf.format(1, 'week'))
+const listFormatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' })
+// console.log('List:', listFormatter.format(['Apple', 'Banana', 'Cherry']))
+```
+
+</div>
+</div>
+
+
+---
+hideInToc: true
+---
+
+# Intl.DateTimeFormat Deep Dive
+
+<div mt-2 />
+
+**Intl.DateTimeFormat** provides locale-sensitive date and time formatting with extensive customization options.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Basic Date Formatting
+
+```js {monaco-run}{autorun: false}
+const date = new Date('2024-03-15T14:30:00')
+const usFormat = new Intl.DateTimeFormat('en-US')
+const ukFormat = new Intl.DateTimeFormat('en-GB')
+const deFormat = new Intl.DateTimeFormat('de-DE')
+const jaFormat = new Intl.DateTimeFormat('ja-JP')
+const longFormat = new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+
+console.log(usFormat.format(date));
+// console.log(ukFormat.format(date));
+// console.log(deFormat.format(date));
+// console.log(jaFormat.format(date));
+// console.log('Long format:', longFormat.format(date))
+```
+
+</div>
+<div>
+
+## Advanced Formatting Options
+
+```js {monaco-run}{autorun: false}
+const date = new Date('2024-03-15T14:30:00')
+
+const timeFormat = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
+const dateTimeFormat = new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short' })
+const tzFormat = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' })
+
+// console.log('24-hour time:', timeFormat.format(date))
+// console.log('Full date/time:', dateTimeFormat.format(date))
+// console.log('NY timezone:', tzFormat.format(date))
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Intl.NumberFormat & Currency
+
+<div mt-2 />
+
+**Intl.NumberFormat** provides locale-sensitive number formatting including currency, percentages, and units.
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+## Number & Currency Formatting
+
+```js {monaco-run}{autorun: false}
+const number = 1234567.89; const smallNumber = 0.123;
+
+const usNumber = new Intl.NumberFormat('en-US')
+const deNumber = new Intl.NumberFormat('de-DE')
+const usdCurrency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
+const eurCurrency = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
+const percent = new Intl.NumberFormat('en-US', { style: 'percent' })
+// console.log('US Number:', usNumber.format(number))
+// console.log('DE Number:', deNumber.format(number))
+// console.log('USD:', usdCurrency.format(number))
+// console.log('EUR:', eurCurrency.format(number))
+// console.log('Percentage:', percent.format(smallNumber))
+```
+
+</div>
+<div>
+
+## Advanced Number Formatting
+
+```js {monaco-run}{autorun: false}
+const number = 1234567.89
+
+const customFormat = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 })
+const compactFormat = new Intl.NumberFormat('en-US', { notation: 'compact', compactDisplay: 'short' })
+const unitFormat = new Intl.NumberFormat('en-US', { style: 'unit', unit: 'kilometer-per-hour' })
+const scientificFormat = new Intl.NumberFormat('en-US', { notation: 'scientific' })
+
+// console.log('Custom decimals:', customFormat.format(number))
+// console.log('Compact:', compactFormat.format(number))
+// console.log('Speed:', unitFormat.format(120))
+// console.log('Scientific:', scientificFormat.format(number))
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Temporal API (Experimental-Firefox only)
+
+<div mt-2 />
+
+**Temporal** is the modern replacement for JavaScript's `Date` object, providing a comprehensive and intuitive API for date and time manipulation.
+
+<div grid="~ cols-2" gap-3 class="text-[12px]">
+<div>
+
+## Key Temporal Classes
+
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+- `Temporal.Instant` - Precise moment in time
+- `Temporal.ZonedDateTime` - Date/time with timezone
+- `Temporal.PlainDateTime` - Date/time without timezone
+- `Temporal.PlainDate` -  Date only
+
+
+</div>
+<div>
+
+- `Temporal.PlainTime` - Time only
+- `Temporal.Duration` - Time spans
+- `Temporal.Now` - Current time utilities
+- `Temporal.PlainMonthDay`
+- `Temporal.PlainYearMonth`
+
+</div>
+</div>
+
+
+```js {monaco-run}
+if (typeof Temporal !== 'undefined') {
+  const now = Temporal.Now.plainDateISO(); const tomorrow = now.add({ days: 1 });
+  console.log(now.toString(), tomorrow.toString())
+} else {
+  console.log('Temporal not available yet')
+}
+```
+
+</div>
+<div>
+
+## Temporal vs Date Benefits
+
+<div grid="~ cols-2" gap-3>
+<div>
+
+- Mutable (can be accidentally changed)
+- Confusing API with mixed time zones
+- Limited calendar support
+- Poor parsing and formatting
+
+</div>
+<div>
+
+- Immutable objects
+- Clear separation of concepts
+- Multiple calendar systems
+- Precise nanosecond resolution
+- Better string formatting
+
+</div>
+</div>
+
+
+```js {monaco-run}
+try {
+  const date1 = Temporal.PlainDate.from('2024-03-15'); const date2 = Temporal.PlainDate.from('2024-03-20');
+  const duration = date1.until(date2); const futureDate = date1.add({ months: 2, days: 5 });
+  console.log(duration.toString(), futureDate.toString()) //P5D
+} catch (e) {
+  console.log('Temporal not available, using Date fallback')
+}
+```
+
+</div>
+</div>
+
 
 ---
 hideInToc: true
@@ -1346,35 +2347,21 @@ Objects can define a custom `toJSON()` method to control how they are converted 
 
 ```js {monaco-run}
 const date = new Date('2023-12-25T10:30:00Z')
-console.log("Date object:", date)
-console.log("Date.toJSON():", date.toJSON())
-console.log("JSON.stringify(date):", JSON.stringify(date))
+console.log( date, date.toJSON())
+console.log("Date.toJSON():", date.toJSON(), JSON.stringify(date))
 ```
 
 ### Custom toJSON() Implementation
 
 ```js {monaco-run}
 class Person {
-  constructor(name, age, email) {
-    this.name = name
-    this.age = age
-    this.email = email
-    this.password = "secret123" // We don't want this in JSON
-  }
-  
+  constructor(name, age, email) { this.name = name; this.age = age; this.email = email; this.password = "secret123"; }
   toJSON() {
-    return {
-      name: this.name,
-      age: this.age,
-      email: this.email,
-      // Note: password is excluded for security
-      serializedAt: new Date().toISOString()
-    }
+    return { name: this.name, age: this.age, email: this.email, serializedAt: new Date().toISOString() }
   }
 }
-
 const person = new Person("John Doe", 30, "john@example.com")
-console.log("JSON.stringify(person):", JSON.stringify(person))
+// console.log("JSON.stringify(person):", JSON.stringify(person))
 ```
 
 ---
@@ -1387,32 +2374,25 @@ hideInToc: true
 
 ```js {monaco-run}
 class BankAccount {
-  constructor(accountNumber, balance, owner) {
-    this.accountNumber = accountNumber
-    this.balance = balance
-    this.owner = owner
-    this.transactions = []
-  }
-  
+  constructor(accountNumber, balance, owner) { this.accountNumber = accountNumber; this.balance = balance; this.owner = owner; this.transactions = []; }
   toJSON() {
     return {
       accountNumber: this.accountNumber.slice(-4), // Only show last 4 digits
-      balance: this.balance,
-      owner: this.owner,
-      transactionCount: this.transactions.length,
-      // Hide sensitive full account number
+      balance: this.balance, owner: this.owner, transactionCount: this.transactions.length,
       exportedAt: new Date().toISOString()
     }
   }
 }
-
 const account = new BankAccount("1234567890", 1500.75, "Jane Smith")
-console.log("JSON.stringify(account):", JSON.stringify(account))
+// console.log("JSON.stringify(account):", JSON.stringify(account))
 ```
 
 ---
 hideInToc: true
 ---
+
+<div grid="~ cols-2" gap-3>
+<div>
 
 ### toJSON() Returning Different Types
 
@@ -1421,43 +2401,35 @@ class Temperature {
   constructor(celsius) {
     this.celsius = celsius
   }
-  
   toJSON() {
-    // Return a string instead of an object
     return `${this.celsius}°C (${this.celsius * 9/5 + 32}°F)`
   }
 }
-
 const temp = new Temperature(25)
-console.log("JSON.stringify(temp):", JSON.stringify(temp))
+// console.log("JSON.stringify(temp):", JSON.stringify(temp))
 ```
+
+</div>
+<div>
 
 ### Conditional toJSON() Logic
 
 ```js {monaco-run}
 class User {
-  constructor(username, email, isAdmin = false) {
-    this.username = username
-    this.email = email
-    this.isAdmin = isAdmin
-    this.loginCount = 0
-  }
-  
+  constructor(username, email, isAdmin = false) { this.username = username; this.email = email; this.isAdmin = isAdmin; this.loginCount = 0; }
   toJSON() {
     const baseData = { username: this.username, email: this.email }
-    
-    // Include admin data only if user is admin
     if (this.isAdmin) {
       baseData.isAdmin = this.isAdmin
       baseData.loginCount = this.loginCount
     }
-    
     return baseData
   }
 }
-
 const regularUser = new User("johndoe", "john@example.com")
 const adminUser = new User("admin", "admin@example.com", true)
-console.log("Regular user:", JSON.stringify(regularUser))
-console.log("Admin user:", JSON.stringify(adminUser))
+// console.log(JSON.stringify(regularUser), JSON.stringify(adminUser))
 ```
+
+</div>
+</div>

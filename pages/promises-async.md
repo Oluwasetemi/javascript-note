@@ -297,7 +297,8 @@ hideInToc: true
 
 Avoid these common mistakes when working with Promises and async/await:
 
-<div flex gap-3>
+<div grid="~ cols-3" gap-1>
+<div>
 
 ```js
 // ❌ Forgetting to return promises in chains
@@ -311,6 +312,9 @@ fetch('url')
   .then(data => console.log(data))
 
 ```
+
+</div>
+<div>
 
 
 ```js
@@ -330,6 +334,9 @@ async function goodExample() {
 
 ```
 
+</div>
+<div>
+
 ```js
 
 // ❌ Unhandled promise rejections
@@ -339,6 +346,7 @@ fetch('url') // No .catch()!
 fetch('url').catch(error => console.error(error))
 ```
 
+</div>
 </div>
 
 ---

@@ -73,5 +73,18 @@ export default defineCodeRunnersSetup(() => {
         element: el,
       }
     },
+    async html(code, ctx) {
+      console.log(ctx)
+      const highlight = ctx.highlight
+
+      let a = highlight(code, 'html')
+
+      const el = document.createElement('div')
+      el.innerHTML = a
+
+      return {
+        element: el,
+      }
+    },
   }
 })

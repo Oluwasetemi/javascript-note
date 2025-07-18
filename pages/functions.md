@@ -209,8 +209,6 @@ To achieve this we can use the:
 // Using the for loop method
 function raisePower(x, n) {
   let result = 1
-
-  //multiply result by x n times in the loop
   for (let i = 0; i < n; i++) {
     result *= x
   }
@@ -219,6 +217,9 @@ function raisePower(x, n) {
 alert(raisePower(2, 3))
 ```
 
+---
+title: Recursive thinking
+hideInToc: true
 ---
 
 - Recursive thinking: simplify the task and call itself:
@@ -245,6 +246,9 @@ When the raisePower(x, n) is called, the execution splits into two branches:
 2. Recursive Case:
    If n > 1, the function returns x \* raisePower(x, n - 1). This means the function calls itself with n decreased by 1.
 
+---
+title: Example
+hideInToc: true
 ---
 
 Example: If you call raisePower(2, 3), the execution follows these steps:
@@ -308,6 +312,9 @@ In the case of the recursive function from the previous slide, here's what happe
 </ol>
 
 ---
+title: Callstack
+hideInToc: true
+---
 
 A call stack, where execution contexts are saved, is a mechanism used by the interpreter to track its position in a script with multiple function calls. It keeps track of which function is currently running and which functions are being called within it. This helps the interpreter manage and execute functions in the correct order.
 
@@ -345,22 +352,15 @@ In the code:
 - The <kbd>traverseHierarchy</kbd> function prints the employee's name, then recursively calls itself for each of their reports.
 
 ---
+title: Recursive Travesal Example
+hideInToc: true
+---
+
 
 ```js {monaco-run} {autorun: false}
 const company = {
   name: 'CEO',
-  reports: [
-    { name: 'Manager 1', reports: [] },
-    {
-      name: 'Manager 2',
-      reports: [
-        {
-          name: 'Team Lead',
-          reports: [],
-        },
-      ],
-    },
-  ],
+  reports: [ { name: 'Manager 1', reports: [] }, { name: 'Manager 2', reports: [ { name: 'Team Lead', reports: [], }, ], }, ],
 }
 
 function traverseHierarchy(employee) {
@@ -455,6 +455,9 @@ alert(...numbers)
 ```
 
 ---
+title: Spread
+hideInToc: true
+---
 
 - Spread operators can be used to combine arrays
 
@@ -481,6 +484,7 @@ alert([...str])
 
 ---
 hideInToc: true
+title: Difference Between Spread and Rest
 ---
 
 Note:
@@ -582,6 +586,9 @@ outerFunction()
 ```
 
 ---
+title: Example
+hideInToc: true
+---
 
 2. Write a function within a function: In this case, you define a new function entirely inside another function.
 
@@ -620,6 +627,9 @@ This object stores the variables defined in that scope and provides access to it
   functions, but not the other way around.
 
 ---
+title: Example
+hideInToc: true
+---
 
 When a function is executed, a new lexical environment is created for that function, containing:
 
@@ -655,6 +665,9 @@ hideInToc: true
 <kbd>innerFunction</kbd> has access to <kbd>outerVar</kbd> because it’s in the outer function’s lexical environment.
 This environment is created during the function definition and execution process, preserving the context in which variables are declared.
 
+---
+title: More on Functions
+hideInToc: true
 ---
 
 <strong>Step 2: Function Declarations</strong> <br/>
@@ -743,18 +756,13 @@ In contrast, local objects (variables or functions declared within a function) a
 let globalVar = "I'm global";
 
 function localFunction() {
-    // Local variable
     let localVar = "I'm local";
-    // Accessible inside the function (global scope)
     alert(globalVar);
-    // Accessible inside the function (local scope)
     alert(localVar);
 }
 localFunction();
 
-// Accessible (global)
 alert(globalVar);
-// Error: localVar is not defined (only available inside localFunction)
 alert(localVar);
 ```
 
@@ -789,6 +797,9 @@ const sayHi = function () {
 alert(sayHi.name)
 ```
 
+---
+title: Contextual Name 
+hideInToc: true
 ---
 
 Some functions are declared anonymously, but JavaScript's engine can still assign a name to them based on the context in
@@ -946,6 +957,7 @@ alert(result)
 
 ---
 hideInToc: true
+title: Function as a string
 ---
 
 Earlier, we mentioned that when you create a new function, it automatically becomes a closure and creates its own Environment.
@@ -1313,6 +1325,9 @@ alert('End');
 ```
 
 ---
+title: Microtask
+hideInToc: true
+---
 
 A microtask is a small function that gets executed after the currently running function completes, but before the JavaScript engine moves on to the next task in the event loop.
 Microtasks are typically used for operations that need to be performed immediately after the current code execution, such as resolving promises, mutation observer callbacks, or other asynchronous operations
@@ -1380,6 +1395,9 @@ function cachedFunction(fn) {
 ```
 
 ---
+title: Example
+hideInToc: true
+---
 
 ```js{monaco-run}{autorun: false}
 // Example function with an expensive operation
@@ -1441,6 +1459,9 @@ alert(new Toyota('Camry', 2024).year)
 
 </div>
 
+---
+title: Constructor Functions
+hideInToc: true
 ---
 
 <h3>To get a better understanding of how the code in the previous slide works, read through this:</h3>
@@ -1621,6 +1642,9 @@ function outerFunction() {
 ```
 
 ---
+title: Limitations of Arrow Functions
+hideInToc: true
+---
 
 - Secondly, Arrow functions have no <kbd>"this"</kbd>
 
@@ -1644,6 +1668,9 @@ obj.greet();
 
 ```
 
+---
+title: Limitations
+hideInToc: true
 ---
 
 - Thirdly, Arrow functions can't be called with <kbd>new</kbd>

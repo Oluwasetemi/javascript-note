@@ -1,3 +1,4 @@
+
 ---
 layout: two-cols
 transition: slide-up
@@ -31,6 +32,8 @@ hideInToc: true
 - <a @click="$slidev.nav.go($nav.currentPage+16)">Named groups: `"(?<name>...)"`</a>
 - <a @click="$slidev.nav.go($nav.currentPage+17)">Sticky flag "y", searching at position</a>
 - <a @click="$slidev.nav.go($nav.currentPage+18)">Methods of RegExp and String</a>
+- <a @click="$slidev.nav.go($nav.currentPage+19)">RegExp Golf Exercise</a>
+- <a @click="$slidev.nav.go($nav.currentPage+20)">Performance Tips</a>
 
 ---
 hideInToc: true
@@ -38,14 +41,132 @@ hideInToc: true
 
 # Patterns and flags
 
+<PatternsFlags />
+
+---
+
 ---
 hideInToc: true
 ---
 
 # Character classes
 
+<CharacterClasses />
+
+---
+
 ---
 hideInToc: true
 ---
 
 # Unicode: flag "u" and class "\p{...}"
+
+<UnicodeFlags />
+
+---
+hideInToc: true
+---
+
+# Anchors: string start "^" and end "$"
+
+---
+hideInToc: true
+---
+
+# Multiline mode of anchors "^" "$", flag "m"
+
+---
+hideInToc: true
+---
+
+# Word boundary "\b"
+
+---
+hideInToc: true
+---
+
+# Escaping, special characters
+
+---
+hideInToc: true
+---
+
+# Set and ranges "[...]"
+
+---
+hideInToc: true
+---
+
+# Quantifiers "+", "*", "?" and "{n}"
+
+---
+hideInToc: true
+---
+
+# Greedy and lazy quantifiers
+
+---
+hideInToc: true
+---
+
+# Capturing groups "(...)"
+
+---
+hideInToc: true
+---
+
+# Backreferences in patterns: `"\N"` and `"\k<name>"`
+
+---
+hideInToc: true
+---
+
+# Alternation "|"
+
+---
+hideInToc: true
+---
+
+# Lookahead and lookbehind "(?=...)", "(?<=...)"
+
+---
+hideInToc: true
+---
+
+# Catastrophic backtracking
+
+---
+hideInToc: true
+---
+
+# Named groups: `"(?<name>...)"`
+
+---
+hideInToc: true
+---
+
+# Sticky flag "y", searching at position
+
+---
+hideInToc: true
+---
+
+# Methods of RegExp and String
+
+---
+hideInToc: true
+---
+
+# RegExp Golf Exercise
+
+<RegExpGolf />
+
+---
+hideInToc: true
+---
+
+# Performance Tips
+
+<PerformanceTips />
+
+---
