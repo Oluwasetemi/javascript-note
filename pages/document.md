@@ -6,6 +6,8 @@ hideInToc: true
 
 # Document
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">DOM tree and Walking the DOM</a>

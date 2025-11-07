@@ -7,6 +7,8 @@ hideInToc: true
 
 # Regular Expressions
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Patterns and flags</a>

@@ -6,6 +6,8 @@ hideInToc: true
 
 # Form, Controls
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Form properties and methods</a>
@@ -1265,4 +1267,3 @@ Bonus:
 </v-clicks>
 
 ---
-

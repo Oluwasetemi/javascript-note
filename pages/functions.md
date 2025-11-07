@@ -7,6 +7,8 @@ hideInToc: true
 
 # Functions
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Introduction to Functions</a>

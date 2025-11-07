@@ -6,6 +6,8 @@ hideInToc: true
 
 # Beyond Beginner
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Mutation Observer</a>

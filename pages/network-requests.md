@@ -6,6 +6,8 @@ hideInToc: true
 
 # Network Requests
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Fetch and Its API</a>

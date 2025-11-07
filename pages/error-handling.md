@@ -6,6 +6,8 @@ hideInToc: true
 
 # Error Handling
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Error handling, "try..catch"</a>

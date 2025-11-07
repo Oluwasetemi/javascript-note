@@ -6,6 +6,8 @@ hideInToc: true
 
 # Prototypes, Inheritance and Classes
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Prototypal Inheritance and Prototype Chain(F.prototype)</a>

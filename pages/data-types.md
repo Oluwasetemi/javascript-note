@@ -5,6 +5,8 @@ hideInToc: true
 ---
 # Data Types
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Methods of Primitives</a>

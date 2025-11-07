@@ -6,6 +6,8 @@ hideInToc: true
 
 # Modules
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Module basics</a>

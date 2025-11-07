@@ -6,6 +6,8 @@ hideInToc: true
 
 # UI Events
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Mouse events</a>

@@ -6,6 +6,8 @@ hideInToc: true
 
 # Document Resource Loading
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Page: DOMContentLoaded, load, beforeunload, unload</a>

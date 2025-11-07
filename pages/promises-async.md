@@ -6,6 +6,8 @@ hideInToc: true
 
 # Promises and Async/Await
 
+<TocIcon />
+
 <div mt-2 />
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Introduction: Callbacks</a>
