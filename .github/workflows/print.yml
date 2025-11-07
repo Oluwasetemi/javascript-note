@@ -22,6 +22,10 @@ jobs:
         with:
           node-version: 'lts/*'
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
       # Cache node_modules
       - name: Cache node modules
         uses: actions/cache@v4
@@ -29,21 +33,22 @@ jobs:
           path: |
             node_modules
             **/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+            ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Install playwright browsers
-        run: npx playwright install chromium --with-deps
+        run: pnpm exec playwright install chromium --with-deps
 
       - name: Create Export Directory
         run: mkdir -p ./_export
 
       - name: Export
         run: |
-          npm exec slidev export -- --format pdf --output ./_export/javascript-note.pdf
-          # npm exec slidev export -- --format pptx --output ./_export/javascript-note.pptx
+          pnpm exec slidev export -- --format pdf --output ./_export/javascript-note.pdf
+          # pnpm exec slidev export -- --format pptx --output ./_export/javascript-note.pptx
       - name: Generate Body
         run: |
           echo -e "## Welcome to the resource download section\n### Please download the class note in PDF or PPTX (just pictures in png) files from the assets section below"\n Best of Luck and may the fourth be with you. > ./_export/body.txt
