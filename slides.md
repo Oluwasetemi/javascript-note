@@ -459,6 +459,8 @@ src: ./pages/regular-expressions.md
 ---
 
 ---
+hideInToc: true
+---
 
 # Assignments
 

@@ -14,8 +14,8 @@ hideInToc: true
 - <a @click="$nav.go($nav.currentPage+10)">Focusing: focus/blur</a>
 - <a @click="$nav.go($nav.currentPage+18)">Events: change, input, cut, copy, paste</a>
 - <a @click="$nav.go($nav.currentPage+22)">Form submission: event and method submit</a>
-- <a @click="$nav.go($nav.currentPage+8)">Form validation: novalidate, HTML attributes, constraint validation API</a>
-- <a @click="$nav.go($nav.currentPage+8)">Form elements: input, select, textarea, button, label, fieldset, legend</a>
+- <a @click="$nav.go($nav.currentPage+26)">Form validation: novalidate, HTML attributes, constraint validation API</a>
+- <a @click="$nav.go($nav.currentPage+31)">Form elements: input, select, textarea, button, label, fieldset, legend</a>
 
 ---
 hideInToc: true
@@ -1265,5 +1265,3 @@ Bonus:
 </div>
 
 </v-clicks>
-
----
