@@ -177,11 +177,15 @@ hideInToc: true
 
 <v-clicks>
 
+<div class="text-[10px] leading-tight">
+
 - The event object also has properties that allow us to check whether the Ctrl, Alt, and Shift keys were pressed during the event.
 
 - These properties are: `event.shiftKey`, `event.altKey`, `event.ctrlKey`, and `event.metaKey`.
 
 - For instance, to check if the Ctrl key was pressed during a click:
+
+</div>
 
 <div grid="~ cols-2" gap='10'>
 
@@ -195,21 +199,22 @@ element.onclick = function (event) {
 
 ```html
 <button id="button">Alt+Shift+Click on me!</button>
-
 <script>
   button.onclick = function (event) {
-    if (event.altKey && event.shiftKey) {
-      alert('Hooray!')
-    }
+    if (event.altKey && event.shiftKey) { alert('Hooray!') }
   }
 </script>
 ```
 
 </div>
 
+<div class="text-[10px] leading-tight">
+
 Coordinates: clientX/clientY, pageX/pageY
 
 - The event object has the coordinates of the mouse pointer in event.clientX/event.clientY (relative to the window) and event.pageX/event.pageY (relative to the whole document).
+
+</div>
 
 <div grid="~ cols-2" gap='10'>
 
@@ -221,7 +226,9 @@ Coordinates: clientX/clientY, pageX/pageY
 />
 ```
 
+<div>
 <input class="input" onmousemove="this.value=event.clientX+':'+event.clientY" value="Mouse over me">
+</div>
 
 </div>
 
