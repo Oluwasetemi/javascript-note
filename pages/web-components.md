@@ -14,9 +14,9 @@ hideInToc: true
 - <a @click="$nav.go($nav.currentPage+5)">Custom Elements</a>
 - <a @click="$nav.go($nav.currentPage+11)">Shadow DOM</a>
 - <a @click="$nav.go($nav.currentPage+16)">Templates Elements</a>
-- <a @click="$nav.go($nav.currentPage+23)"> Shadow DOM Slots, Composition</a>
-- <a @click="$nav.go($nav.currentPage+32)"> Shadow DOM CSS</a>
-- <a @click="$nav.go($nav.currentPage+42)"> Shadow DOM Events</a>
+- <a @click="$nav.go($nav.currentPage+23)">Shadow DOM Slots, Composition</a>
+- <a @click="$nav.go($nav.currentPage+32)">Shadow DOM CSS</a>
+- <a @click="$nav.go($nav.currentPage+42)">Shadow DOM Events</a>
 
 ---
 hideInToc: true
@@ -43,7 +43,7 @@ hideInToc: true
 <v-clicks>
 
  <div class="max-w-4xl mx-auto">  
- <div class="h-[70vh] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
+ <div class="h-[400px] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
             <div class="grid gap-6 p-2">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div class="bg-blue-600 p-4 sticky top-0 z-10">
@@ -161,7 +161,7 @@ hideInToc: true
 <v-clicks>
 
  <div class="max-w-4xl mx-auto">  
- <div class="h-[70vh] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
+ <div class="h-[400px] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
             <div class="grid gap-6 p-2">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div class="bg-blue-600 p-4 sticky top-0 z-10">
@@ -258,7 +258,6 @@ hideInToc: true
 
 ````md magic-move
 ```js
-// Define a custom element
 class GreetingCard extends HTMLElement {
   constructor() {
     super()
@@ -508,49 +507,107 @@ hideInToc: true
 
 # Real-World Example: Custom Timer Element ⏰
 
-<v-clicks>
+<div class="grid grid-cols-2 gap-6">
 
-````md magic-move
-```js
+<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 max-h-[500px] overflow-y-auto">
+
+
+```js {monaco-run} {autorun:false}
 class TimeFormatter extends HTMLElement {
   constructor() {
     super()
     this.intervalId = null
   }
+
   connectedCallback() {
+    // Attach shadow DOM
+    this.attachShadow({ mode: 'open' })
+
+    // Create the timer display
+    this.shadowRoot.innerHTML = `
+      <style>
+        .timer-container {
+          display: inline-block;
+          padding: 20px 30px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border-radius: 12px;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+          font-family: 'Courier New', monospace;
+        }
+        .time-display {
+          font-size: 2em;
+          color: #ffffff;
+          font-weight: bold;
+          letter-spacing: 2px;
+          text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .label {
+          font-size: 0.8em;
+          color: #e0e0e0;
+          text-align: center;
+          margin-top: 5px;
+        }
+      </style>
+      <div class="timer-container">
+        <div class="time-display">00:00:00</div>
+        <div class="label">Current Time</div>
+      </div>
+    `
+
     // Start the timer
     this.startTimer()
   }
+
   disconnectedCallback() {
-    // Clean up
+    // Clean up when element is removed
     if (this.intervalId) {
       clearInterval(this.intervalId)
     }
   }
+
   startTimer() {
     this.updateTime()
     this.intervalId = setInterval(() => this.updateTime(), 1000)
   }
+
   updateTime() {
     const now = new Date()
-    this.innerHTML = now.toLocaleTimeString()
+    const timeString = now.toLocaleTimeString()
+    const display = this.shadowRoot.querySelector('.time-display')
+    if (display) {
+      display.textContent = timeString
+    }
   }
 }
-customElements.define('time-display', TimeFormatter)
+
+// Register the custom element
+customElements.define('time-formatter', TimeFormatter)
+
+// Create and add to document
+const timer = document.createElement('time-formatter')
+document.body.appendChild(timer)
 ```
 
-```html
-<custom-card title="My Custom Card">
-  <p>This is the card content!</p>
-</custom-card>
-```
-````
-
-<div class="mt-5">
-<TimeFormatter />
 </div>
 
-</v-clicks>
+<div class="bg-white dark:bg-gray-700 rounded-lg p-4 flex justify-center sticky">
+
+
+<div class="text-center ">
+
+<time-formatter />
+
+<div class="mt-6 text-sm text-gray-600 dark:text-gray-300">
+<p class="font-semibold mb-2">Usage:</p>
+<code class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded text-xs block">
+&lt;time-formatter&gt;&lt;/time-formatter&gt;
+</code>
+</div>
+</div>
+
+</div>
+
+</div>
 
 ---
 hideInToc: true
@@ -970,11 +1027,7 @@ hideInToc: true
         // 4. Insert into document
         document.body.appendChild(userCard);
     }
-    createUserCard({
-        name: 'John Doe',
-        email: 'john@example.com',
-        photo: 'john.jpg'
-    });
+    createUserCard({ name: 'John Doe', email: 'john@example.com', photo: 'john.jpg' });
 </script>
 ```
 
@@ -985,7 +1038,7 @@ hideInToc: true
 ### Use Cases & Benefits
 
 <div class="max-w-4xl mx-auto">  
- <div class="h-[70vh] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
+ <div class="h-[500px] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
             <div class="grid gap-6 p-2">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div class="bg-blue-600 p-4 sticky top-0 z-10">
@@ -1073,7 +1126,7 @@ hideInToc: true
 ### Best Practices
 
 <div class="max-w-4xl mx-auto">  
- <div class="h-[70vh] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
+ <div class="h-[500px] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
             <div class="grid gap-6 p-2">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div class="bg-blue-600 p-4 sticky top-0 z-10">
@@ -1128,7 +1181,7 @@ hideInToc: true
 ### Common Patterns
 
 <div class="max-w-4xl mx-auto">  
-    <div class="h-[70vh] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
+    <div class="h-[500px] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
         <div class="grid gap-6 p-2">  
             <!-- List Items Template -->
             <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -1899,12 +1952,14 @@ hideInToc: true
 
 Slotted elements are special because they physically exist in the light DOM (main document) but appear inside the shadow DOM. They have unique event handling behavior:
 
-```js
+```html
 // Example with slotted content
-;<user-card>
+<user-card>
   <span slot="username">John Smith</span>
 </user-card>
+```
 
+```js
 customElements.define(
   'user-card',
   class extends HTMLElement {
@@ -1979,7 +2034,7 @@ hideInToc: true
         <h1 class="text-2xl font-bold mb-6 text-white sticky top-0">DOM Events Composition</h1>
         <div class="rounded-lg shadow-lg">
             <!-- Sticky header wrapper -->
-            <div class="max-h-[500px] overflow-y-auto rounded-lg">
+            <div class="max-h-[450px] overflow-y-auto rounded-lg">
                 <!-- Table wrapper for horizontal scroll -->
                 <div class="min-w-full inline-block align-middle">
                     <table class="w-full bg-white">
@@ -2103,7 +2158,3 @@ Takeaways:
 - Most built-in UI events can cross shadow boundaries <kbd> (composed: true) </kbd>
 - Custom events need explicit composed: true to cross shadow boundaries
 - <kbd>event.composedPath()</kbd> reveals the full event path through shadow DOM
-
----
-hideInToc: true
----
