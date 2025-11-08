@@ -250,7 +250,8 @@ hideInToc: true
 
 <v-clicks>
 
-<div className="w-full max-w-4xl mx-auto rounded-lg border border-blue-200">
+<div className="w-full max-w-4xl mx-auto rounded-lg border border-blue-200 overflow-hidden">
+      <div className="overflow-x-auto">
       <div className="grid grid-cols-3 bg-blue-900 text-white font-semibold">
         <div className="p-3 text-center">Methods</div>
         <div className="p-3 text-center border-l border-blue-700">Syntax</div>
@@ -312,6 +313,7 @@ hideInToc: true
             Checks if a field exists
           </div>
         </div>
+      </div>
       </div>
     </div>
 </v-clicks>
@@ -662,8 +664,8 @@ These requests must meet ALL of these criteria:
                         <div class="bg-gray-800/50 p-4 rounded-lg">
                             <div class="text-gray-300 hover:text-white transition-colors duration-150">Content-Language</div>
                         </div>
-                        <div class="bg-gray-800/50 p-4 rounded-lg space-y-2">
-                            <div class="text-gray-300 hover:text-white transition-colors duration-150">Content-Type (allowed values):</div>
+                        <div class="bg-gray-800/50 p-4 rounded-lg space-y-1">
+                            <div class=" text-gray-300 hover:text-white transition-colors duration-150">Content-Type (allowed values):</div>
                             <div class="space-y-1 ml-4 text-sm">
                                 <div class="text-blue-400 hover:text-blue-300 transition-colors duration-150">• application/x-www-form-urlencoded</div>
                                 <div class="text-green-400 hover:text-green-300 transition-colors duration-150">• multipart/form-data</div>
@@ -675,6 +677,7 @@ These requests must meet ALL of these criteria:
             </div>
         </div>
     </div>
+
 ```js
 // Safe request
 fetch('https://api.example.com/data')
@@ -794,77 +797,77 @@ hideInToc: true
 ---
 
 <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 text-white">CORS Best Practices</h2>
-        <div class="overflow-hidden bg-white rounded-lg border border-gray-200 shadow-lg">
-            <table class="min-w-full table-fixed border-collapse">
-                <thead>
-                    <tr class="bg-gray-800 text-white">
-                        <th class="w-1/4 px-6 py-4 text-left text-sm font-semibold border-b border-gray-600">
-                            Category
-                        </th>
-                        <th class="w-3/4 px-6 py-4 text-left text-sm font-semibold border-b border-gray-600">
-                            Best Practices
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200">
-                    <!-- Security Row -->
-                    <tr class="bg-red-50 border-b border-gray-200">
-                        <td class="px-6 py-4 border-r border-gray-200">
-                            <div class="flex items-center space-x-3">
-                                <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-red-100 text-red-600 font-bold">
-                                    🔒
-                                </div>
-                                <div class="text-base font-semibold text-red-700">Security</div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <ul class="list-disc ml-4 space-y-2 text-red-900">
-                                <li>Don't use <code class="bg-white px-2 py-1 rounded border border-red-200">Access-Control-Allow-Origin: *</code> with credentials</li>
-                                <li>Explicitly list allowed methods and headers</li>
-                                <li>Use specific origins instead of wildcards in production</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <!-- Performance Row -->
-                    <tr class="bg-green-50 border-b border-gray-200">
-                        <td class="px-6 py-4 border-r border-gray-200">
-                            <div class="flex items-center space-x-3">
-                                <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-green-100 text-green-600 font-bold">
-                                    ⚡
-                                </div>
-                                <div class="text-base font-semibold text-green-700">Performance</div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <ul class="list-disc ml-4 space-y-2 text-green-900">
-                                <li>Use <code class="bg-white px-2 py-1 rounded border border-green-200">Access-Control-Max-Age</code> to cache preflight results</li>
-                                <li>Minimize the number of preflight requests</li>
-                                <li>Keep safe requests safe when possible</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <!-- Debugging Row -->
-                    <tr class="bg-blue-50">
-                        <td class="px-6 py-4 border-r border-gray-200">
-                            <div class="flex items-center space-x-3">
-                                <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">
-                                    🔍
-                                </div>
-                                <div class="text-base font-semibold text-blue-700">Debugging</div>
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <ul class="list-disc ml-4 space-y-2 text-blue-900">
-                                <li>Check browser console for CORS errors</li>
-                                <li>Verify server headers in response</li>
-                                <li>Use browser dev tools Network tab to inspect preflight requests</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+      <h2 class="text-2xl font-bold mb-4 text-white">CORS Best Practices</h2>
+      <div class="overflow-hidden bg-white rounded-lg border border-gray-200 shadow-lg">
+          <table class="min-w-full table-fixed border-collapse">
+              <thead>
+                  <tr class="bg-gray-800 text-white">
+                      <th class="w-1/4 px-6 py-4 text-left text-sm font-semibold border-b border-gray-600">
+                          Category
+                      </th>
+                      <th class="w-3/4 px-6 py-4 text-left text-sm font-semibold border-b border-gray-600">
+                          Best Practices
+                      </th>
+                  </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                  <!-- Security Row -->
+                  <tr class="bg-red-50 border-b border-gray-200">
+                      <td class="px-6 py-4 border-r border-gray-200">
+                          <div class="flex items-center space-x-3">
+                              <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-red-100 text-red-600 font-bold">
+                                  🔒
+                              </div>
+                              <div class="text-base font-semibold text-red-700">Security</div>
+                          </div>
+                      </td>
+                      <td class="px-6 py-4">
+                          <ul class="list-disc ml-4 space-y-2 text-red-900">
+                              <li>Don't use <code class="bg-white px-2 py-1 rounded border border-red-200">Access-Control-Allow-Origin: *</code> with credentials</li>
+                              <li>Explicitly list allowed methods and headers</li>
+                              <li>Use specific origins instead of wildcards in production</li>
+                          </ul>
+                      </td>
+                  </tr>
+                  <!-- Performance Row -->
+                  <tr class="bg-green-50 border-b border-gray-200">
+                      <td class="px-6 py-4 border-r border-gray-200">
+                          <div class="flex items-center space-x-3">
+                              <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-green-100 text-green-600 font-bold">
+                                  ⚡
+                              </div>
+                              <div class="text-base font-semibold text-green-700">Performance</div>
+                          </div>
+                      </td>
+                      <td class="px-6 py-4">
+                          <ul class="list-disc ml-4 space-y-2 text-green-900">
+                              <li>Use <code class="bg-white px-2 py-1 rounded border border-green-200">Access-Control-Max-Age</code> to cache preflight results</li>
+                              <li>Minimize the number of preflight requests</li>
+                              <li>Keep safe requests safe when possible</li>
+                          </ul>
+                      </td>
+                  </tr>
+                  <!-- Debugging Row -->
+                  <tr class="bg-blue-50">
+                      <td class="px-6 py-4 border-r border-gray-200">
+                          <div class="flex items-center space-x-3">
+                              <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">
+                                  🔍
+                              </div>
+                              <div class="text-base font-semibold text-blue-700">Debugging</div>
+                          </div>
+                      </td>
+                      <td class="px-6 py-4">
+                          <ul class="list-disc ml-4 space-y-2 text-blue-900">
+                              <li>Check browser console for CORS errors</li>
+                              <li>Verify server headers in response</li>
+                              <li>Use browser dev tools Network tab to inspect preflight requests</li>
+                          </ul>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
     </div>
 
 ---
@@ -1018,7 +1021,7 @@ hideInToc: true
   <div class="bg-white rounded-lg shadow-lg border border-gray-200 h-[600px] flex flex-col">
             <!-- Fixed Header -->
             <div class="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4 rounded-t-lg border-b border-blue-600">
-                <h1 class="text-xl font-bold text-white text-center ">Three Levels Of URL Encoding</h1>
+                <h1 class="text-xl font-bold text-white text-center pt-2">Three Levels Of URL Encoding</h1>
             </div>
 
    <div class="overflow-y-auto overflow-x-auto">
@@ -1091,7 +1094,7 @@ hideInToc: true
   <div class="bg-white rounded-lg shadow-lg border border-gray-200">
     <!-- Header -->
     <div class="bg-gradient-to-r from-green-600 to-green-700 px-6 py-1 rounded-t-lg">
-      <h1 class="text-xl text-center font-bold text-white">Best Practices for URL Encoding</h1>
+      <h1 class="text-xl text-center font-bold text-white pt-2">Best Practices for URL Encoding</h1>
     </div>
 
   <div class="p-4 space-y-6 max-h-80 overflow-y-auto">
@@ -1248,7 +1251,7 @@ hideInToc: true
 let xhr = new XMLHttpRequest()
 
 // 2. Configure the request
-xhr.open('GET', '/api/data')
+xhr.open('GET', 'https://api.oluwasetemi.dev/health')
 
 // 3. Set up event handlers
 xhr.onload = function () {
@@ -1480,10 +1483,10 @@ hideInToc: true
 
   <div class="bg-white rounded-xl shadow-lg overflow-hidden">
             
-  <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-6">
-                <h1 class="text-2xl font-bold text-white">XMLHttpRequest Event Lifecycle</h1>
+  <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-4">
+                <h1 class="text-2xl font-bold text-white pt-3">XMLHttpRequest Event Lifecycle</h1>
             </div>
-  <div class="overflow-auto max-h-[600px]">
+  <div class="overflow-auto max-h-[400px]">
                 <table class="w-full border-collapse">
                     <thead class="sticky top-0 bg-purple-50">
                         <tr>
@@ -1630,10 +1633,10 @@ hideInToc: true
 <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-lg">
        
    <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-t-xl">
-            <h1 class="text-xl text-center font-semibold text-white">XHR Best Practices</h1>
+            <h1 class="text-xl text-center font-semibold text-white p-2">XHR Best Practices</h1>
         </div>
 
- <div class="overflow-auto max-h-[600px] rounded-b-xl">
+ <div class="overflow-auto max-h-[400px] rounded-b-xl">
             <table class="w-full border-collapse">
                 
    <thead class="sticky top-0 bg-slate-50 shadow-sm">
@@ -1899,13 +1902,13 @@ hideInToc: true
 ---
 
 <div class="max-w-7xl mx-auto h-screen p-4">
-  <div class="bg-white rounded-xl shadow-lg overflow-hidden h-[600px] flex flex-col">
+  <div class="bg-white rounded-xl shadow-lg overflow-hidden  flex flex-col">
     <div class="bg-gradient-to-r from-emerald-600 to-emerald-800 p-2 flex-shrink-0">
-      <h1 class="text-2xl font-bold text-white">File Upload Best Practices</h1>
+      <h1 class="text-2xl font-bold text-white pt-2">File Upload Best Practices</h1>
     </div>
     
     
-  <div class="overflow-y-auto flex-1">
+  <div class="overflow-y-auto flex-1 max-h-[400px]">
       <div class="grid md:grid-cols-2 gap-6 p-6">  
         <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
           <div class="flex items-center gap-3 mb-4">
@@ -2269,12 +2272,12 @@ hideInToc: true
         <div class="p-6">
             <h1 class="text-2xl font-bold text-center mb-6 sticky top-0 bg-white text-black">WebSocket Protocol Reference</h1>
             
-   <div class="space-y-8 max-h-[80vh] overflow-y-auto">
+   <div class="space-y-8 max-h-[400px] overflow-y-auto">
                 <div class="border rounded-lg">
                     <div class="bg-gray-100 p-4 sticky top-0">
                         <h2 class="text-lg font-semibold text-black">Protocol Types</h2>
                     </div>
-                    <div class="p-4 space-y-4 max-h-[300px] overflow-y-auto">
+                    <div class="p-4 space-y-4 max-h-[300px]">
                         <div class="flex items-center space-x-4 p-4 bg-red-50 rounded-lg">
                             <span class="icon-[material-symbols--shield-off] text-2xl text-red-500"></span>
                             <div>
@@ -2668,19 +2671,13 @@ data: {"username": "John", "time": "2024-10-25"}
 hideInToc: true
 ---
 
-<section class="overflow-scroll scrollbar-thin scroll-smooth">
-
 # Key Features
 
-<key-feature />
+<div class="max-h-[400px] overflow-y-auto">
 
+<key-features />
 
-
-
-
-
-
-</section>
+</div>
 
 ---
 hideInToc: true
@@ -2688,130 +2685,12 @@ hideInToc: true
 
 # Event Types
 
-<v-clicks>
+<div class="max-h-[400px] overflow-y-auto">
 
-  <div class="max-w-4xl mx-auto h-screen overflow-y-auto px-4">
-  <div class="space-y-8 py-4">
-  <div class="bg-white rounded-lg shadow-lg overflow-hidden max-h-[400px] flex flex-col">
-                <div class="bg-indigo-600 p-4 sticky top-0 z-10">
-                    <h2 class="text-xl font-bold text-white">Standard Events</h2>
-                </div>
-                
-   <div class="p-6 overflow-y-auto">
-                    <div class="grid gap-6">
-                        
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            
-  <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
-                                <div class="font-mono text-sm text-indigo-800 mb-2">message</div>
-                                <div class="text-sm text-indigo-600">Regular message received</div>
-                                <kbd class="block text-black mt-2 p-2 rounded text-sm">
-                                    eventSource.onmessage = (event) => {
-                                        console.log(event.data);
-                                    }
-                                </kbd>
-                            </div>
-                            
-                            
-   <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                                <div class="font-mono text-sm text-green-800 mb-2">open</div>
-                                <div class="text-sm text-green-600">Connection established</div>
-                                <kbd class="block text-black  mt-2 p-2 rounded text-sm">
-                                    eventSource.onopen = () => {
-                                        console.log("Connected!");
-                                    }
-                                </kbd>
-                            </div>
-                            
-                            
-   <div class="bg-red-50 border border-red-200 rounded-lg p-4">
-                                <div class="font-mono text-sm text-red-800 mb-2">error</div>
-                                <div class="text-sm text-red-600">Connection error occurred</div>
-                                <kbd class="block text-black  mt-2 p-2 rounded text-sm">
-                                    eventSource.onerror = (error) => {
-                                        console.error(error);
-                                    }
-                                </kbd>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<event-types />
 
-   <div class="bg-white rounded-lg shadow-lg overflow-hidden max-h-[400px] flex flex-col">
-                <div class="bg-purple-600 p-4 sticky top-0 z-10">
-                    <h2 class="text-xl font-bold text-white">Custom Events</h2>
-                </div>
-                
-   <div class="p-6 overflow-y-auto">
-                    <div class="grid md:grid-cols-2 gap-6">
-   <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                            <h3 class="text-sm font-semibold text-gray-600 mb-2">Server Sends:</h3>
-                            <kbd class="block bg-gray-800 text-black p-4 rounded-md ">
-event: userUpdate
-data: {
-    "id": 123,
-    "status": "online"
-}
-                            </kbd>
-                        </div>
-                        
-                        
-  <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                            <h3 class="text-sm font-semibold text-gray-600 mb-2">Client Handles:</h3>
-                            <kbd class="block bg-gray-800 text-black p-4 rounded-md">
-eventSource.addEventListener('userUpdate', 
-    event => {
-        const userData = JSON.parse(event.data);
-        updateUserStatus(userData);
-    }
-);
-                            </kbd>
-                        </div>
-                    </div>
-                </div>
-            </div>
+</div>
 
-   <div class="bg-white rounded-lg shadow-lg overflow-hidden max-h-[400px] flex flex-col">
-                <div class="bg-blue-600 p-4 sticky top-0 z-10">
-                    <h2 class="text-xl font-bold text-white">Cross-Origin Requests</h2>
-                </div>
-                
-   <div class="p-6 overflow-y-auto">
-                    <div class="space-y-6">
-                        
-  <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                            <h3 class="text-sm font-semibold text-gray-600 mb-2">Basic Cross-Origin Connection:</h3>
-                            <code class="block bg-gray-800 text-green-400 p-4 rounded-md">
-const source = new EventSource("https://api.example.com/events");
-                            </code>
-                        </div>
-                        
-                        
-  <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                            <h3 class="text-sm font-semibold text-gray-600 mb-2">With Credentials:</h3>
-                            <code class="block bg-gray-800 text-green-400 p-4 rounded-md">
-const source = new EventSource("https://api.example.com/events", {
-    withCredentials: true
-});
-                            </code>
-                        </div>
-
-  <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                            <h3 class="text-sm font-semibold text-yellow-800 mb-2">⚠️ CORS Requirements</h3>
-                            <ul class="list-disc list-inside space-y-1 text-sm text-yellow-700">
-                                <li>Server must send <code class="bg-yellow-100 px-1 rounded">Access-Control-Allow-Origin</code> header</li>
-                                <li>For credentials, server must explicitly allow the requesting origin</li>
-                                <li>Wildcards (*) not allowed with credentials</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2941,5 +2820,3 @@ hideInToc: true
       </div>
     </div>
   </div>
-
----
