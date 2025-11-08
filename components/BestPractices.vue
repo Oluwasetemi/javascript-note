@@ -8,7 +8,7 @@
     </h1>
 
     <!-- Scrollable Container -->
-    <div class="overflow-auto h-[calc(100vh-7rem)] rounded-lg custom-scrollbar">
+    <div class="overflow-auto h-[calc(100vh-57rem)] rounded-lg custom-scrollbar">
       <div class="space-y-4 p-4">
         <!-- Memory Management Section -->
         <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">

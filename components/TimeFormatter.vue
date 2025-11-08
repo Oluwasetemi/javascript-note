@@ -101,9 +101,88 @@ const resetTimer = () => {
   startTimer()
 }
 
+// Web Component Registration
+const registerWebComponent = () => {
+  // Check if already defined
+  if (customElements.get('time-formatter')) {
+    return
+  }
+
+  class TimeFormatterElement extends HTMLElement {
+    constructor() {
+      super()
+      this.intervalId = null
+    }
+
+    connectedCallback() {
+      // Attach shadow DOM
+      this.attachShadow({ mode: 'open' })
+
+      // Create the timer display
+      this.shadowRoot.innerHTML = `
+        <style>
+          .timer-container {
+            display: inline-block;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            font-family: 'Courier New', monospace;
+          }
+          .time-display {
+            font-size: 2em;
+            color: #ffffff;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+          }
+          .label {
+            font-size: 0.8em;
+            color: #e0e0e0;
+            text-align: center;
+            margin-top: 5px;
+          }
+        </style>
+        <div class="timer-container">
+          <div class="time-display">00:00:00</div>
+          <div class="label">Current Time</div>
+        </div>
+      `
+
+      // Start the timer
+      this.startTimer()
+    }
+
+    disconnectedCallback() {
+      // Clean up when element is removed
+      if (this.intervalId) {
+        clearInterval(this.intervalId)
+      }
+    }
+
+    startTimer() {
+      this.updateTime()
+      this.intervalId = setInterval(() => this.updateTime(), 1000)
+    }
+
+    updateTime() {
+      const now = new Date()
+      const timeString = now.toLocaleTimeString()
+      const display = this.shadowRoot.querySelector('.time-display')
+      if (display) {
+        display.textContent = timeString
+      }
+    }
+  }
+
+  // Register the custom element
+  customElements.define('time-formatter', TimeFormatterElement)
+}
+
 // Lifecycle hooks
 onMounted(() => {
   startTimer()
+  registerWebComponent()
 })
 
 onUnmounted(() => {
