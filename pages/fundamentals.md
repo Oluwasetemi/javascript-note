@@ -39,10 +39,10 @@ hideInToc: true
 5. Make names maximally descriptive and concise.
 6. Separate multiple words with underscore ( \_ )
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 let message;
 message = 'Hello';
-console.log(message)
+// console.log(message)
 ```
 
 ---
@@ -55,7 +55,7 @@ hideInToc: true
 
 ```js {monaco-run}
 const tutor = 'Mr Setemi'
-console.log(tutor)
+// console.log(tutor)
 // the data Mr setemi is now assigned to variable tutor
 tutor = 'Mr Ojo' //can not be reassigned
 // Therefore values that can change later on should not be declare with const
@@ -68,10 +68,10 @@ tutor = 'Mr Ojo' //can not be reassigned
 ```js {monaco-run}
 let tech_School = 'Altschool'
 tech_School = 'Altschool Africa' // Tech school is now reassigned to Altschool Africa
-console.log(tech_School)
+// console.log(tech_School)
 var hobby = 'reading'
 hobby = 'coding'
-console.log(hobby)
+// console.log(hobby)
 ```
 
 ---
@@ -189,7 +189,7 @@ name: More on Variable Declaration
 
 Example: To know the type of a value in JS use <span class="text-red"> typeof </span>
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let name = 'John Dev'
 let age = 21
 let isMarried = false
@@ -200,17 +200,17 @@ const person = {
   name: 'Alice',
   [mySymbol]: 'secret information',
 }
-console.log(typeof name, typeof age, typeof isMarried, typeof height, typeof weight, typeof person, typeof mySymbol)
+// console.log(typeof name, typeof age, typeof isMarried, typeof height, typeof weight, typeof person, typeof mySymbol)
 ```
 
 - Note: the typeof null returns object
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 let name = 'John';
 let age = 25; let isMarried = false; let height = null;
 let weight = undefined;
 
-console.log(name, age, isMarried, height, weight);
+// console.log(name, age, isMarried, height, weight);
 ```
 
 ---
@@ -219,16 +219,16 @@ hideInToc: true
 
 # Interaction: `alert`, `prompt`, `confirm`
 
-- The alert() method: displays an alert box with a mesage and an OK button.
-- The prompt() method: It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel. It accepts two arguments.
-- The confirm() method: The function shows a modal window with a question and two buttons: OK and Cancel
+- The // alert() method: displays an alert box with a mesage and an OK button.
+- The // prompt() method: It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel. It accepts two arguments.
+- The // confirm() method: The function shows a modal window with a question and two buttons: OK and Cancel
 
 #### Alert{.text-common}
 
-- The alert() method displays an alert box with a mesage and an OK button
+- The // alert() method displays an alert box with a mesage and an OK button
 
-```js {monaco-run} {autorun:false}
-alert('Hello V5 Frontend Developer, Enjoying Javascript so far?')
+```js {monaco-run} {autorun: false}
+// alert('Hello V5 Frontend Developer, Enjoying Javascript so far?')
 ```
 
 #### Prompt{.text-common}
@@ -241,12 +241,12 @@ hideInToc: true
 ---
 
 ```js
-result = prompt(text to show visitor, [default]) //default is an optional parameter, the initial value for the input field
+result = // prompt(text to show visitor, [default]) //default is an optional parameter, the initial value for the input field
 ```
 
-```js {monaco-run} {autorun:false}
-interview_Question = prompt('What is the full meaning of CSS?', '')
-console.log(
+```js {monaco-run} {autorun: false}
+interview_Question = // prompt('What is the full meaning of CSS?', '')
+// console.log(
   interview_Question === 'Cascading Style Sheet' ||
     interview_Question === 'cascading style sheet',
 )
@@ -258,12 +258,12 @@ console.log(
 - The syntax:
 
 ```js
-result = confirm(question)
+result = // confirm(question)
 ```
 
-```js {monaco-run} {autorun:false}
-let altschoolStatus = confirm('Are you a v4 student ?')
-console.log(altschoolStatus)
+```js {monaco-run} {autorun: false}
+let altschoolStatus = // confirm('Are you a v4 student ?')
+// console.log(altschoolStatus)
 ```
 
 ---
@@ -278,16 +278,16 @@ hideInToc: true
 2. Numeric conversion - Can be done using the `Number`, `parseInt`, `parseFloat` or `+` unary plus sign.
 3. Boolean coversion - `Boolean` constructor or `!!`
 
-```js {monaco-run} {autorun:false, lineNumbers:true}
-console.log(typeof String(2))
-console.log(typeof Number(2).toString())
+```js {monaco-run} {autorun: false, lineNumbers: true}
+// console.log(typeof String(2))
+// console.log(typeof Number(2).toString())
 let value = '10'
-console.log(typeof Number('12'))
-console.log(typeof +value)
-console.log(typeof parseInt(value))
-console.log(typeof parseFloat('10.34'))
-console.log(Boolean(value))
-console.log(!!value)
+// console.log(typeof Number('12'))
+// console.log(typeof +value)
+// console.log(typeof parseInt(value))
+// console.log(typeof parseFloat('10.34'))
+// console.log(Boolean(value))
+// console.log(!!value)
 ```
 
 There is a concept that says everything in JavaScript is truthy while `false`, `0`, `''`, `NaN`, `null`, `undefined` are falsy.
@@ -320,14 +320,14 @@ hideInToc: true
 
 </div>
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let sumOfTwoNumbers = 20 + 309
 let differenceOfTheIntegers = 90 - 45
 let mul = 2 * 97
 let div = 24 / 2
 let mod = 59 % 7
 let expo = 2 ** 4
-console.log({ sumOfTwoNumbers, differenceOfTheIntegers, mul, div, mod, expo })
+// console.log({ sumOfTwoNumbers, differenceOfTheIntegers, mul, div, mod, expo })
 ```
 
 ---
@@ -343,13 +343,13 @@ hideInToc: true
    <span text-red>Note:</span> ( = ), it an assignment operator and it is different from the double ( == ).
 
 ```js {monaco-run}
-console.log(5 == '5')
+// console.log(5 == '5')
 ```
 
 2. Strictly equal to ( === ): This checks if two values are the same AND of the same type.
 
 ```js {monaco-run}
-console.log(5 === '5')
+// console.log(5 === '5')
 ```
 
 ---
@@ -360,25 +360,25 @@ name: More on Operators
 3. Not equal to ( != ): This checks if two values are different.
 
 ```js {monaco-run}
-console.log(5 != '6')
+// console.log(5 != '6')
 ```
 
 4. Greater than ( > ): Checks if the left value is bigger than the right.
 
 ```js {monaco-run}
-console.log(10 > 5)
+// console.log(10 > 5)
 ```
 
 5. Less than ( < ): Checks if the left value is smaller is smaller than the right.
 
 ```js {monaco-run}
-console.log(5 < 10)
+// console.log(5 < 10)
 ```
 
 6. Greater than or equal to ( >= ): Checks if the left value is bigger than or the same as the right.
 
 ```js {monaco-run}
-console.log(10 >= 10)
+// console.log(10 >= 10)
 ```
 
 ---
@@ -389,7 +389,7 @@ name: More Examples on Operators
 7. Less than or equal to ( <= ): Checks if the left is smaller than or the same as the right.
 
 ```js {monaco-run}
-console.log(5 <= 5)
+// console.log(5 <= 5)
 ```
 
 - Example: Age-based content access
@@ -398,9 +398,9 @@ console.log(5 <= 5)
 let userAge = 15
 let contentRating = 13
 if (userAge >= contentRating) {
-  console.log('Access granted to the content')
+  // console.log('Access granted to the content')
 } else {
-  console.log("sorry, you're too young for this content")
+  // console.log("sorry, you're too young for this content")
 }
 ```
 
@@ -446,17 +446,17 @@ hideInToc: true
 ```js {monaco-run} {autorun: false}
 let name
 let greeting = name ?? `Hello, Stranger!`
-console.log(greeting)
+// console.log(greeting)
 ```
 
 - Optional Chaining is a JavaScript feature that allows you to safely access nested object properties and call methods without throwing errors if any part of the chain is null or undefined. It uses the `?.` operator.
 
 ```js
 if (user && user.address && user.address.street) {
-  console.log(user.address.street);
+  // console.log(user.address.street);
 }
 
-console.log(user?.address?.street);
+// console.log(user?.address?.street);
 ```
 
 
@@ -477,10 +477,10 @@ if (condition) {
 ```
 
 <br>
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let day = 'Monday' 
 if (day == 'Monday'){
-  console.log('Today is Monday')
+  <!--console.log('Today is Monday')-->
 }
 ```
 <p><span text-red>Note:</span> If the condition  is false, the code will not run</p>
@@ -508,7 +508,7 @@ if (condition) {
 }
 ```
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let age = 20
 let canVote
 if (age < 18) {
@@ -516,7 +516,7 @@ if (age < 18) {
 } else {
   canVote = `user can vote`
 }
-console.log(canVote)
+// console.log(canVote)
 ```
 
 ---
@@ -538,7 +538,7 @@ if (condition1) {
 
 - Example:
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let age = 20
 let canVote
 if (age < 18) {
@@ -548,7 +548,7 @@ if (age < 18) {
 } else {
   canVote = `user is a senior citizen`
 }
-console.log(canVote)
+// console.log(canVote)
 ```
 
 ---
@@ -597,7 +597,7 @@ switch (new Date().getDay()) {
   default:
     { day = 'Cannot be reached'; break}
 }
-console.log(`Today is ${day}`)
+// console.log(`Today is ${day}`)
 ```
 
 ---
@@ -613,16 +613,16 @@ condition ? expressionIfTrue : expressionIfFalse
 
 - Example
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let age = 20
 let canVote = age >= 18 ? 'Yes' : 'No'
-console.log(canVote)
+// console.log(canVote)
 ```
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let temperature = 25
 let weather = temperature > 30 ? 'Hot' : 'Moderate'
-console.log(weather)
+// console.log(weather)
 ```
 
 ---
@@ -643,10 +643,10 @@ while (condition) {
 
 <div flex="1">
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let i = 0
 while (i < 3) {
-  console.log(i)
+  // console.log(i)
   i++
 }
 ```
@@ -655,10 +655,10 @@ while (i < 3) {
 
 <div flex="1">
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let i = 0
 do {
-  console.log(i)
+  // console.log(i)
   i++
 } while (i < 3)
 ```
@@ -683,19 +683,19 @@ hideInToc: true
 name: For of Loop
 ---
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 for (let i = 0; i < 3; i++) {
-  console.log(i)
+  // console.log(i)
 }
 ```
 
 - <span class='text-[#5D8392]'>For of loop</span>: it lets you loop over iterable data strutures such as Arrays, Strings, Maps,set.
 <p>Iterable is an object that has iterable properties, simple put is an object that has countable values</p>
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let language = 'JavaScript'
 for (const char of language) {
-  console.log(`character is : ${char}`)
+  // console.log(`character is : ${char}`)
 }
 ```
 
@@ -712,7 +712,7 @@ for (let property in object) {
 }
 ```
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 const person = {
   firstName: 'John',
   lastName: 'Doe',
@@ -720,7 +720,7 @@ const person = {
   age: '19',
 }
 for (let property in person) {
-  console.log(`${property}: ${person[property]}`)
+  // console.log(`${property}: ${person[property]}`)
 }
 ```
 
@@ -753,22 +753,22 @@ title: Function Examples
 
 <h5> Example: A function to greet new users </h5>
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 function greetUsers(name) {
   return 'Hello, ' + name + ' welcome to JavaScript course 101'
 }
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-console.log(greetingMessage)
+// console.log(greetingMessage)
 ```
 
 <h5> Example: A function to add two number </h5>
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 function addNumber(num1, num2) {
   return num1 + num2
 }
-console.log(addNumber(7, 20))
+// console.log(addNumber(7, 20))
 ```
 
 ---
@@ -825,13 +825,13 @@ let functionName = function (parameters) {
 
 - Example:
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 const greetUsers = function (name) {
   return `Hello, ${name} welcome to JavaScript course 101`
 }
 
 let userName = 'Busola'
-console.log(greetUsers(userName))
+// console.log(greetUsers(userName))
 ```
 
 ---
@@ -841,16 +841,16 @@ name: Arrow Functions
 
 - Arrow functions is a very simple and concise syntax for creating functions.
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 const greetUsers = (name) => `Hello, ${name} welcome to JavaScript course 101`
 
 let userName = 'Busola'
-console.log(greetUsers(userName))
+// console.log(greetUsers(userName))
 ```
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let sumOfTwoNumbers = (a, b) => a + b
-console.log(sumOfTwoNumbers(8, 49))
+// console.log(sumOfTwoNumbers(8, 49))
 ```
 
 ---
@@ -867,7 +867,7 @@ function greetUsers(name) {
 }
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-console.log(greetingMessage)
+// console.log(greetingMessage)
 ```
 
 ```js
@@ -877,7 +877,7 @@ let greetUsers = function (name) {
 }
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-console.log(greetingMessage)
+// console.log(greetingMessage)
 ```
 
 ```js
@@ -887,7 +887,7 @@ let greetUsers = (name) => {
 }
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-console.log(greetingMessage)
+// console.log(greetingMessage)
 ```
 
 ```js
@@ -896,7 +896,7 @@ let greetUsers = (name) =>
   'Hello, ' + name + ' welcome to JavaScript course 101'
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-console.log(greetingMessage)
+// console.log(greetingMessage)
 ```
 ````
 
@@ -914,7 +914,7 @@ transition: slide-up
 - display the values of `name`, `age` and `isMarried` in the console
 - **Bonus**: use `console.log` to display the values in the console
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 /*
 write your code here
 write your code here

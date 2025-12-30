@@ -8,5 +8,5 @@ export function emptyArray<T>(length: number) {
 // #endregion snippet
 
 export function sayHello() {
-  console.log('Hello from snippets/external.ts')
+  // console.log('Hello from snippets/external.ts')
 }

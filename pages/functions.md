@@ -226,14 +226,14 @@ hideInToc: true
 
 - Recursive thinking: simplify the task and call itself:
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Using the recursive method
 function raisePower(x, n){
-    if ( n == 1 ){
-        return x;
-    } else {
-        return x * raisePower(x, n - 1);
-    }
+  if ( n == 1 ){
+    return x;
+  } else {
+    return x * raisePower(x, n - 1);
+  }
 }
 console.log(raisePower(2, 3))
 ```
@@ -752,14 +752,14 @@ hideInToc: true
 The global object in JavaScript provides variables and functions that are accessible from anywhere in your code. These are built-in by default, meaning they are part of the JavaScript language or the runtime environment (like the browser or Node.js).
 In contrast, local objects (variables or functions declared within a function) are only accessible within the block scope where they are declared. Once that block or function finishes execution, those local objects are no longer available.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Global variable
 let globalVar = "I'm global";
 
 function localFunction() {
-    let localVar = "I'm local";
-    console.log(globalVar);
-    console.log(localVar);
+  let localVar = "I'm local";
+  console.log(globalVar);
+  console.log(localVar);
 }
 localFunction();
 
@@ -810,7 +810,7 @@ assigns the variable or property name as the function's name.
 Sometimes, it fails to achieve this task of figuring a right name for the function and it leaves it empty.
 Here's a code example:
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Anonymous function assigned to a variable
 const myFunction = function() {
   console.log("Hello, world!");
@@ -844,7 +844,7 @@ A function object's <kbd>length</kbd> property indicates how many arguments the 
 - Only parameters before the first one with a default value are counted.
 - A destructuring pattern `(e.g., {a, b} or [x, y])` counts as a single parameter.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 function example(a, b = 5, ...rest) {
   // Function body
 }
@@ -969,7 +969,7 @@ This means that functions created with new Function do not have access to the va
 Instead, they can only access global variables. This behavior is different from regular functions that retain a reference to their
 lexical scope.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 let globalVar = 'I am a global variable';
 
 function createClosure() {
@@ -1016,7 +1016,7 @@ setTimeout(function, delay);
 
 Let's run a code using the <kbd>setTimeout</kbd> syntax above
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 function greet() {
   console.log("Hello, world!");
 }
@@ -1128,7 +1128,7 @@ Using nested <kbd>setTimeout</kbd> gives you more control over scheduling compar
 In <kbd>setInterval</kbd>, the next iteration is scheduled regardless of whether the previous one has finished.
 With nested <kbd>setTimeout</kbd>, you can dynamically schedule the next delay based on conditions or the results of the current task.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 function dynamicTimeout(counter = 1) {
   console.log(`Execution #${counter}`);
 
@@ -1170,7 +1170,7 @@ This means the function is queued to run "right after" the current script.
 
 For example, in the following code, "Hello" is printed first, followed immediately by "World":
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 setTimeout(() => {
   console.log("World");
 }, 0);
@@ -1313,7 +1313,7 @@ ordered manner.
 
 <!-- Code Example of a Task -->
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
  // Synchronous task
 console.log('Start');
 
@@ -1374,7 +1374,7 @@ hideInToc: true
 
 <div> </div>
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 // Function that caches results of an expensive computation
 function cachedFunction(fn) {
   // Object to store cached results
@@ -1400,7 +1400,7 @@ title: Example
 hideInToc: true
 ---
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 // Example function with an expensive operation
 function expensiveOperation(num) {
   // In a real scenario, this could be a more complex calculation
@@ -1438,7 +1438,7 @@ ensure that the cache is tied to the specific context (this) of the object.
 
 <div class='overflow-scroll h-60'>
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 // Constructor function for Vehicle
 function Vehicle(make, year) {
   // Set the 'make' and 'year' property for the vehicle
@@ -1551,7 +1551,7 @@ This function above is going to returns a "bound variant" of function <kbd>func<
 
 ## Let's take a look at this code
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 function greet(greeting, name) {
   console.log(`${greeting}, ${name}!`);
 }
@@ -1597,7 +1597,7 @@ As a developer, you often need to write arrow functions in your code for various
 
 This second code will throw an error because unlike traditional function in the first scope, argument is not defined.
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 function traditionalFunction() {
   console.log(arguments);
 }
@@ -1622,7 +1622,7 @@ To handle <kbd>argument</kbd> in Arrow functions, we have use two methods:<br/>
 
 1. Using of rest parameters <kbd>(...args)</kbd>
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 const arrowFunction = (...args) => {
   console.log(args);
 };
@@ -1632,7 +1632,7 @@ arrowFunction(1, 2, 3);
 
 2. Using the <kbd>arguments</kbd> object from the non-arrow function in the lexical scope.
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 function outerFunction() {
   const arrowFunction = () => {
     console.log(arguments);
@@ -1653,7 +1653,7 @@ Arrow functions do not have their own<kbd>this</kbd>. Instead, when a developer 
 
 In the code below, the arrow function inside the <kbd>setTimeout</kbd> retains the <kbd>this</kbd> value from the <kbd>greet</kbd> method, which refers to <kbd>obj</kbd>.
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 const obj = {
   name: 'Alice',
   greet: function() {
@@ -1680,7 +1680,7 @@ Since arrow functions do not have their own<kbd>this</kbd> they can't be used as
 
 This will throw an error:
 
-```js {monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 const Person = (name) => {
   this.name = name
 }
@@ -1694,7 +1694,7 @@ try {
 
 But, with a regular function declaration or expression you can define a constuctor
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 function Person(name) {
   this.name = name;
 }

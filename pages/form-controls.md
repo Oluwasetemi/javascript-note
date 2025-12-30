@@ -53,7 +53,7 @@ name: More on Forms
 A form may have one or many `fieldset` elements inside it. They also have elements property that lists form controls inside them. The HTML `fieldset` element gets used to group several controls as well as labels (`label`) within a web form. We can access the Fieldset properties via the form.elements property.
 
 <!-- prettier-ignore -->
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Create the form element
 const form = document.createElement('form');form.id = 'form';
 const fieldset = document.createElement('fieldset');fieldset.name = 'userFields';
@@ -68,10 +68,10 @@ fieldset.append(input, legend);
 form.appendChild(fieldset);
 document.body.appendChild(form);
 
-console.log(form.elements.login);
+// console.log(form.elements.login);
 let userFieldset = form.elements.userFields;
-console.log(userFieldset);
-console.log(userFieldset.elements.login == form.elements.login); // true
+// console.log(userFieldset);
+// console.log(userFieldset.elements.login == form.elements.login); // true
 ```
 
 </v-clicks>
@@ -98,7 +98,7 @@ The form is available as element.form for any element. So, the form references e
   let login = form.login;
 
   // element -> form
-  console.log(login.form); // HTMLFormElement
+  // console.log(login.form); // HTMLFormElement
 </script>
 
 ```
@@ -144,7 +144,7 @@ hideInToc: true
 <v-clicks>
 
 <!-- prettier-ignore -->
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const form = document.createElement("form");form.name = "myForm";
 
 const usernameInput = document.createElement("input");usernameInput.name = "username";usernameInput.type = "text";
@@ -161,8 +161,8 @@ document.body.appendChild(form);
 function updateValues() {
   form.username.value = "JohnDoe";form.remember.checked = true;
   form.comment.value = "This is a comment.";
-  console.log("Username:", form.username.value);
-  console.log("Remember checked:", form.remember.checked);console.log("Comment:", form.comment.value);
+  // console.log("Username:", form.username.value);
+  // console.log("Remember checked:", form.remember.checked);console.log("Comment:", form.comment.value);
 }
 updateValues();
 ```
@@ -219,7 +219,7 @@ clicksStart: 1
 <v-clicks>
 
 <!-- prettier-ignore -->
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const select = document.createElement('select');select.id = 'select';
 // Define options
 const options = [
@@ -232,16 +232,16 @@ options.forEach(option => { select.add(new Option(option.text, option.value)); }
 // Append select to body
 document.body.appendChild(select);
 // Demonstrate three ways to select the third option (Banana)
-console.log("Initial selected index:", select.selectedIndex);
+// console.log("Initial selected index:", select.selectedIndex);
 // Method 1: Using options[index].selected
 select.options[2].selected = true;
-console.log("After method 1 - Selected index:", select.selectedIndex, "Selected value:", select.value);
+// console.log("After method 1 - Selected index:", select.selectedIndex, "Selected value:", select.value);
 // Method 2: Using selectedIndex
 select.selectedIndex = 2;
-console.log("After method 2 - Selected index:", select.selectedIndex, "Selected value:", select.value);
+// console.log("After method 2 - Selected index:", select.selectedIndex, "Selected value:", select.value);
 // Method 3: Using value
 select.value = 'banana';
-console.log("After method 3 - Selected index:", select.selectedIndex, "Selected value:", select.value);
+// console.log("After method 3 - Selected index:", select.selectedIndex, "Selected value:", select.value);
 // Note: options start from zero, so index 2 means the 3rd option.
 ```
 
@@ -255,7 +255,7 @@ clicksStart: 1
 
 <v-clicks>
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Create form and select elements
 const form = document.createElement('form');form.name = 'modifyingSelect';
 const select = document.createElement('select');select.name = 'week';
@@ -273,7 +273,7 @@ for (let i = 0; i < newOptionsArray.length; i++) {
   options[i] = new Option(newOptionsArray[i].text, newOptionsArray[i].val, false, false);
 }
 // Log the final state of the select element
-console.log('Final options:', Array.from(options).map(opt => opt.text));
+// console.log('Final options:', Array.from(options).map(opt => opt.text));
 ```
 
 </v-clicks>
@@ -724,7 +724,7 @@ const form = document.querySelector('form')
 
 form.addEventListener('submit', function (event) {
   event.preventDefault() // Prevent the form from submitting
-  console.log('Form submitted!')
+  // console.log('Form submitted!')
 
   // You can perform validation or other actions here
 })
@@ -783,11 +783,11 @@ Interestingly, when a form is submitted by pressing Enter in an input field, a c
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    console.log('Form submitted');
+    // console.log('Form submitted');
   });
 
   submitButton.addEventListener('click', function() {
-    console.log('Submit button clicked');
+    // console.log('Submit button clicked');
   });
 </script>
 ```

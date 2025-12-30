@@ -30,7 +30,7 @@ This means that the DOM is fully constructed and ready to be interacted with, ma
 ```js
 // Example
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('DOM is fully loaded and parsed')
+  // console.log('DOM is fully loaded and parsed')
   // Your DOM manipulation code goes here
 })
 ```
@@ -46,7 +46,7 @@ The load event occurs later than the DOMContentLoaded event, which only waits fo
 ```js
 // Example
 window.addEventListener('load', function () {
-  console.log('the whole page is fully loaded')
+  // console.log('the whole page is fully loaded')
   // code to execute after everything has loaded
 })
 ```
@@ -85,7 +85,7 @@ The unload event is fired when the page is being completely unloaded. Unlike bef
 // Example
 window.addEventListener('unload', function () {
   // Perform cleanup or send analytics
-  console.log('Page is unloading')
+  // console.log('Page is unloading')
 })
 ```
 
@@ -286,13 +286,13 @@ Images (`<img>`):
   const img = document.getElementById('myImage')
 
   img.addEventListener('load', function () {
-    console.log('Image loaded successfully!')
+    // console.log('Image loaded successfully!')
     // Do something with the loaded image
     this.classList.add('loaded')
   })
 
   img.addEventListener('error', function () {
-    console.log('Error loading image')
+    // console.log('Error loading image')
     this.src = 'fallback.jpg'
     this.classList.add('error')
   })
@@ -322,12 +322,12 @@ hideInToc: true
       const script = document.createElement('script')
       script.src = url
       script.onload = function () {
-        console.log('Script loaded successfully!')
+        // console.log('Script loaded successfully!')
         resolve(script)
       }
 
       script.onerror = function () {
-        console.log('Error loading script')
+        // console.log('Error loading script')
         reject(new Error(`Script load error for ${url}`))
       }
 
@@ -357,14 +357,14 @@ onerror="console.log('Stylesheet failed to load')" />
       const link = document.createElement('link'); link.rel = 'stylesheet'; link.href = url;
       link.onload = function () { console.log('Stylesheet loaded successfully!'); resolve(link); }
       link.onerror = function () {
-        console.log('Error loading stylesheet')
+        // console.log('Error loading stylesheet')
         reject(new Error(`Stylesheet load error for ${url}`))
       }
       document.head.appendChild(link)
     })
   }
   // loadStylesheet('https://example.com/styles.css')
-  //     .then(() => console.log('Stylesheet is ready!'))
+      .then(() => console.log('Stylesheet is ready!'))
   //     .catch(error => console.error('Stylesheet loading failed:', error));
 </script>
 ```
@@ -388,7 +388,7 @@ function addStyles(cssText) {
   // Add load event (Note: style tags don't typically need load events
   // as they're processed synchronously)
   style.onload = function () {
-    console.log('Styles applied!')
+    // console.log('Styles applied!')
   }
   document.head.appendChild(style)
 }

@@ -94,7 +94,7 @@ interface AddEventListenerOptions extends EventListenerOptions {
 }
 ```
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="277"] h1`)
 const handler = () => console.log('Click!')
 elem.addEventListener('click', handler, { once: true })
@@ -115,15 +115,15 @@ hideInToc: true
 
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler.
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="278"] h1`)
 
 elem.addEventListener('click', function (event) {
   // show the event type, the element and the coordinates of the click
-  console.log(
+  // console.log(
     event.type + ' at ' + event.currentTarget + ' ' + event.eventPhase,
   )
-  console.log(`Coordinates: ${event.clientX}:${event.clientY}`)
+  // console.log(`Coordinates: ${event.clientX}:${event.clientY}`)
   console.dir(event)
 })
 ```
@@ -183,13 +183,13 @@ hideInToc: true
 
 <v-clicks>
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="280"] h1`)
 const parent = elem.parentElement
 const grandParent = parent.parentElement
 
 function listener(e) {
-  console.log('clicked', e.currentTarget.tagName)
+  // console.log('clicked', e.currentTarget.tagName)
 }
 
 elem.addEventListener('click', listener)
@@ -211,11 +211,11 @@ hideInToc: true
 
 Knowing the bubbling and capturing principles can be useful. For instance, if we want to catch an event on the way down, we can use the capturing phase especially during a concept called "event delegation".
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const elems = document.querySelectorAll(`*`)
 
 function listener(e) {
-  console.log('capturing', e.currentTarget.tagName)
+  // console.log('capturing', e.currentTarget.tagName)
 }
 
 for (let elem of elems) {
@@ -247,7 +247,7 @@ Event delegation is a technique involving adding a single event listener to a co
   menu.onclick = function (event) {
     let target = event.target
     if (target.tagName != 'LI') return
-    console.log(target.innerHTML)
+    // console.log(target.innerHTML)
   }
 </script>
 ```
@@ -352,7 +352,7 @@ link.addEventListener('click', function(event) {
 });
 ```
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const h1 = document.querySelector(`[data-slidev-no="284"] h1`)
 h1.oncontextmenu = function (event) {
   console.log('Content menu clicked')
@@ -420,11 +420,11 @@ elem.addEventListener('hello', function (event) {
 For completely new events, we can use `CustomEvent` class. It has an additional `detail` property to pass custom data.
 
 <!-- prettier-ignore-start -->
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="286"] h1`)
 element.onclick = function() { element.dispatchEvent(new CustomEvent("hello", { detail: { name: "John" } })); };
 element.addEventListener('hello', function(event) {
-  console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');
+  // console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');
 });
 ```
 <!-- prettier-ignore-end -->
