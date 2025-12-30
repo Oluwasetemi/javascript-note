@@ -76,7 +76,7 @@ hideInToc: true
 ```js {monaco-run}
 let strObj = { value: 'Hello' }
 strObj.test = 5
-console.log(strObj.test) // Output: 5
+// console.log(strObj.test) // Output: 5
 ```
 
 In this case, strObj is an object, and you can add properties to it using dot notation or bracket notation.
@@ -89,7 +89,7 @@ In this case, strObj is an object, and you can add properties to it using dot no
 ```js
 let greeting = 'Hello'
 greeting = greeting + ' World'
-console.log(greeting) // Output: "Hello World"
+// console.log(greeting) // Output: "Hello World"
 ```
 
 Strings are sequences of characters that are considered immutable. If you want to modify a string, you need to create a new string.
@@ -132,7 +132,7 @@ let microsec = 1e-6 // Scientific notation
 
 ```js {monaco-run} {autorun:false}
 // Hexadecimal (0x)
-alert(0xff) // 255
+console.log(0xff) // 255
 
 // Binary (0b)
 let num1 = 0b11111111 // 255
@@ -142,8 +142,8 @@ let num2 = 0o377 // 255
 
 // Converting to different bases
 let num3 = 255
-alert(num3.toString(16)) // "ff"
-alert(num3.toString(2)) // "11111111"
+console.log(num3.toString(16)) // "ff"
+console.log(num3.toString(2)) // "11111111"
 ```
 
 </div>
@@ -1596,7 +1596,7 @@ let visitsCountMap = new Map()
 // john is the key for the map
 visitsCountMap.set(john, 123)
 
-alert(visitsCountMap.get(john)) // 123
+console.log(visitsCountMap.get(john)) // 123
 ```
 
 <p><span class='text-red'>Note:</span> Using objects as keys is one of the most notable and important Map features. The same does not count for Object. String as a key in Object is fine, but we can't use another Object as a key in Object.</p>
@@ -1611,7 +1611,7 @@ visitsCountObj[ben] = 234 // try to use ben object as the key
 visitsCountObj[john] = 123 // try to use john object as the key, ben object will get replaced
 
 // That's what got written!
-alert(visitsCountObj['[object Object]']) // 123
+console.log(visitsCountObj['[object Object]']) // 123
 ```
 
 ---
@@ -2027,7 +2027,7 @@ To create a new Date object call `new Date()` with one of the following argument
 
 ```js {monaco-run} {autorun:false}
 let now = new Date()
-alert(now)
+console.log(now)
 ```
 
 <div grid="~ cols-2">

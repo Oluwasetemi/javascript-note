@@ -561,12 +561,12 @@ For other elements like checkboxes, radio buttons, or select menus: It triggers 
 
 ````md magic-move
 ```html
-<input type="text" onchange="alert(this.value)" />
+<input type="text" onchange="console.log(this.value)" />
 <input type="button" value="Click me" />
 ```
 
 ```html
-<select onchange="alert(this.value)">
+<select onchange="console.log(this.value)">
   <option value="">Select something</option>
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -577,7 +577,7 @@ For other elements like checkboxes, radio buttons, or select menus: It triggers 
 
 <div flex="~ row" gap-10>
 
-  <select class="focus:outline-blue-500 focus:border focus:rounded-none focus-visited:ring-blueGray " onchange="alert(this.value)">
+  <select class="focus:outline-blue-500 focus:border focus:rounded-none focus-visited:ring-blueGray " onchange="console.log(this.value)">
     <option value="">Select something</option>
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
@@ -585,7 +585,7 @@ For other elements like checkboxes, radio buttons, or select menus: It triggers 
   </select>
 
   <div class="border">
-    <input class="form-basic" type="text" onchange="alert(this.value)">
+    <input class="form-basic" type="text" onchange="console.log(this.value)">
     <input class="mx-4 hover:cursor-pointer" type="button" value="Click me">
   </div>
 
@@ -646,12 +646,12 @@ ClipboardData: The <kbd>event.clipboardData</kbd> object provides access to the 
   const input = document.getElementById('input');
 
   input.onpaste = function(event) {
-    alert("Pasting: " + event.clipboardData.getData('text/plain'));
+    console.log("Pasting: " + event.clipboardData.getData('text/plain'));
     event.preventDefault(); // Prevents pasting
   };
 
   input.oncut = input.oncopy = function(event) {
-    alert(event.type + ': ' + document.getSelection());
+    console.log(event.type + ': ' + document.getSelection());
     event.preventDefault(); // Prevents cutting or copying
   };
 </script>

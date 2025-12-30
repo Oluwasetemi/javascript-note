@@ -130,7 +130,7 @@ When you add the async attribute to a script tag, the browser downloads the scri
 <p>...content before scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => alert('DOM ready!'))
+  document.addEventListener('DOMContentLoaded', () => console.log('DOM ready!'))
 </script>
 
 <script
@@ -163,7 +163,7 @@ When you use the defer attribute, the browser downloads the script in parallel w
 
 <script>
   document.addEventListener('DOMContentLoaded', () =>
-    alert('DOM ready after defer!'),
+    console.log('DOM ready after defer!'),
   )
 </script>
 

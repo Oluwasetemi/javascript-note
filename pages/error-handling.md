@@ -27,20 +27,20 @@ The <span class="text-red">try...catch</span> statement includes a <span class="
 
 ```js{monaco-run} {autorun: false}
 try{
-  alert('Try block');  // The statements to be executed.
+  console.log('Try block');  // The statements to be executed.
 } catch(err) {
-  alert('Catch block'); // Statement that is executed if an exception or error is thrown in the try block.
+  console.log('Catch block'); // Statement that is executed if an exception or error is thrown in the try block.
 } finally{
-  alert('Finally block'); // Statements that are executed before control flow exits the try...catch...finally construct. It executes always
+  console.log('Finally block'); // Statements that are executed before control flow exits the try...catch...finally construct. It executes always
 }
 ```
 
 ```js{monaco-run} {autorun: false}
 try{
   bug;  //error, variable is not defined
-  alert('Try block'); // Will not run cos there's an error
+  console.log('Try block'); // Will not run cos there's an error
 } catch(err) {
-  alert('Catch block') // Statement will run since there's an exception in the try block
+  console.log('Catch block') // Statement will run since there's an exception in the try block
 }
 ```
 
@@ -60,7 +60,7 @@ When an exception is thrown in the <span class="text-red">try</span> block, the 
 ```js{monaco-run} {autorun: false}
 try{
   bug;  //error, variable is not defined
-  alert('Try block'); // Will not run cos there's an error
+  console.log('Try block'); // Will not run cos there's an error
 } catch({ name, message, stack}) {
   console.log(name)// Error name or type
   console.log(message) // Actual error message
