@@ -60,7 +60,7 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 
 The `addEventListener` method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with `removeEventListener`.
 
-```js {monaco}
+```js {monaco-run} {autorun: false}
 elem.addEventListener('click', function () {
   console.log('First handler')
 })
@@ -128,7 +128,7 @@ elem.addEventListener('click', function (event) {
 })
 ```
 
-```html {monaco}
+```html {monaco} {autorun: false}
 <button id="elem">Click me</button>
 <script>
   let obj = {

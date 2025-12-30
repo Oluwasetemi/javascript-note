@@ -73,7 +73,7 @@ hideInToc: true
 
 - To add properties to a value, you need to create an object. For example:
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let strObj = { value: 'Hello' }
 strObj.test = 5
 // console.log(strObj.test) // Output: 5
@@ -385,7 +385,7 @@ let arr = [] // a shorter syntax and it is the preferred method
 ```
 
 <p>Let declare an array of fruits and find the length of the array</p>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let fruits = ["mango", "orange", "apple", "grape"] // An array of fruits
 <!--console.log(fruits)-->
 <!--console.log(fruits.length) // The total count of the elements in the array is its length-->
@@ -1644,7 +1644,7 @@ hideInToc: true
 * No `size` property
 * Keys can be garbage collected
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const wm = new WeakMap()
 let user = { name: 'John' }
 wm.set(user, 'user metadata')

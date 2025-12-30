@@ -128,7 +128,7 @@ const name = function (parameter1, parameter2, parameter3) {
 </div>
 <div class=" mb-4">
 
-```js {monaco-run} {autorun: true}
+```js {monaco-run} {autorun: false}
 const expressionMethod = function (name, age, course) {
   // console.log(`${name} is ${age} years, and they offer ${course} courses`)
 }

@@ -122,7 +122,7 @@ hideInToc: true
 
 # Live Demo: Extending `Array` Safely
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 class ExtendedArray extends Array {
   sum() {
     return this.reduce((acc, curr) => acc + curr, 0);

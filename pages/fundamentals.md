@@ -53,7 +53,7 @@ hideInToc: true
 
 - Variables declared with <span class='text-red'> const </span> do not change and cannot be reassigned.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const tutor = 'Mr Setemi'
 // console.log(tutor)
 // the data Mr setemi is now assigned to variable tutor
@@ -65,7 +65,7 @@ tutor = 'Mr Ojo' //can not be reassigned
 
 - Variables declared with <span class="text-red">'let'</span> and <span class="text-red">'var'</span> can change and be reassigned.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let tech_School = 'Altschool'
 tech_School = 'Altschool Africa' // Tech school is now reassigned to Altschool Africa
 // console.log(tech_School)
@@ -342,13 +342,13 @@ hideInToc: true
 1. Equals to ( == ): This checks if two values are the same, it does not care about the type.<br>
    <span text-red>Note:</span> ( = ), it an assignment operator and it is different from the double ( == ).
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 == '5')
 ```
 
 2. Strictly equal to ( === ): This checks if two values are the same AND of the same type.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 === '5')
 ```
 
@@ -359,25 +359,25 @@ name: More on Operators
 
 3. Not equal to ( != ): This checks if two values are different.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 != '6')
 ```
 
 4. Greater than ( > ): Checks if the left value is bigger than the right.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(10 > 5)
 ```
 
 5. Less than ( < ): Checks if the left value is smaller is smaller than the right.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 < 10)
 ```
 
 6. Greater than or equal to ( >= ): Checks if the left value is bigger than or the same as the right.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(10 >= 10)
 ```
 
@@ -388,13 +388,13 @@ name: More Examples on Operators
 
 7. Less than or equal to ( <= ): Checks if the left is smaller than or the same as the right.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 <= 5)
 ```
 
 - Example: Age-based content access
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let userAge = 15
 let contentRating = 13
 if (userAge >= contentRating) {
@@ -577,7 +577,7 @@ hideInToc: true
 name: Switch Example
 ---
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let day
 switch (new Date().getDay()) {
   case 0:
@@ -780,7 +780,7 @@ title: Global and Local Variables
 
 A variable declared outside a function, becomes <span text-red>global variable</span> also known as outer variable. A function can access an outer variable, it can modify it too.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let university = 'AltSchool Africa'
 // code here CAN use university
 function school() {
@@ -801,7 +801,7 @@ title: Local Variables
 
 A variable declared inside a function is only visible inside the function. Local variables are only recognized inside their function.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // code here can NOT use university
 function university() {
   let university = 'AltSchool Africa'
