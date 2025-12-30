@@ -512,7 +512,7 @@ hideInToc: true
 <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 max-h-[500px] overflow-y-auto">
 
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 class TimeFormatter extends HTMLElement {
   constructor() {
     super()
@@ -1443,7 +1443,7 @@ hideInToc: true
                   <code class="text-sm text-purple-600">
                     shadowRoot.querySelector('slot')<br>
                     &nbsp;&nbsp;.addEventListener('slotchange', (e) => {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;console.log('Slot content changed!');<br>
+                    <!--&nbsp;&nbsp;&nbsp;&nbsp;console.log('Slot content changed!');<br>-->
                     });
                   </code>
                 </div>

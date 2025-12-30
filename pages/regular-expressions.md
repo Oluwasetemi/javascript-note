@@ -85,24 +85,24 @@ const re = new RegExp("pattern", "flags")
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Simple pattern - literal
 const pattern1 = /hello/
-console.log(pattern1.test("hello world"))  // true
+// console.log(pattern1.test("hello world"))  // true
 
 // Using constructor
 const word = "hello"
 const pattern2 = new RegExp(word)
-console.log(pattern2.test("say hello"))    // true
+// console.log(pattern2.test("say hello"))    // true
 
 // Case-sensitive by default
-console.log(/hello/.test("Hello"))   // false
-console.log(/hello/i.test("Hello"))  // true (with i flag)
+// console.log(/hello/.test("Hello"))   // false
+// console.log(/hello/i.test("Hello"))  // true (with i flag)
 
 // Find all occurrences
 const text = "cat bat cat rat"
-console.log(text.match(/cat/))    // ["cat"] - first only
-console.log(text.match(/cat/g))   // ["cat", "cat"] - all
+// console.log(text.match(/cat/))    // ["cat"] - first only
+// console.log(text.match(/cat/g))   // ["cat", "cat"] - all
 ```
 
 </div>
@@ -178,25 +178,25 @@ Match at exact position
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const text = "Cat cat CAT"
 
-console.log(text.match(/cat/))     // ["cat"]
-console.log(text.match(/cat/i))    // ["Cat"]
+// console.log(text.match(/cat/))     // ["cat"]
+// console.log(text.match(/cat/i))    // ["Cat"]
 
 // g flag - all matches
-console.log(text.match(/cat/g))    // ["cat"]
+// console.log(text.match(/cat/g))    // ["cat"]
 // g + i - all matches, case-insensitive
-console.log(text.match(/cat/gi))   // ["Cat", "cat", "CAT"]
+// console.log(text.match(/cat/gi))   // ["Cat", "cat", "CAT"]
 // Multiple lines
 const lines = "line1\nline2\nline3"
 // Without m flag
-console.log(lines.match(/^line/g))   // ["line"]
+// console.log(lines.match(/^line/g))   // ["line"]
 // With m flag - matches each line start
-console.log(lines.match(/^line/gm))  // ["line", "line", "line"]
+// console.log(lines.match(/^line/gm))  // ["line", "line", "line"]
 // Combine flags as needed
 const pattern = /test/gimu
-console.log(pattern.flags)  // "gimu"
+// console.log(pattern.flags)  // "gimu"
 ```
 
 </div>
@@ -286,24 +286,24 @@ Any non-space character
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
-console.log("Room 404".match(/\d+/g))// ["404"]
-console.log("abc123xyz".match(/\D+/g))// ["abc", "xyz"]
+```js {monaco-run} {autorun: false}
+// console.log("Room 404".match(/\d+/g))// ["404"]
+// console.log("abc123xyz".match(/\D+/g))// ["abc", "xyz"]
 
-console.log("hello_world123".match(/\w+/))// ["hello_world123"]
+// console.log("hello_world123".match(/\w+/))// ["hello_world123"]
 
-console.log("hello, world!".match(/\W+/g))// [", ", "!"]
+// console.log("hello, world!".match(/\W+/g))// [", ", "!"]
 
-console.log("a b\tc\nd".match(/\s/g))// [" ", "\t", "\n"]
+// console.log("a b\tc\nd".match(/\s/g))// [" ", "\t", "\n"]
 
-console.log("a b c".match(/\S+/g))// ["a", "b", "c"]
+// console.log("a b c".match(/\S+/g))// ["a", "b", "c"]
 
-console.log("abc".match(/a.c/))     // ["abc"]
-console.log("a\nc".match(/a.c/))    // null
-console.log("a\nc".match(/a.c/s))   // ["a\nc"] (with s flag)
+// console.log("abc".match(/a.c/))     // ["abc"]
+// console.log("a\nc".match(/a.c/))    // null
+// console.log("a\nc".match(/a.c/s))   // ["a\nc"] (with s flag)
 
 // Practical: extract words and numbers
-console.log("Price: $99".match(/\w+/g))// ["Price", "99"]
+// console.log("Price: $99".match(/\w+/g))// ["Price", "99"]
 ```
 
 </div>
@@ -354,27 +354,27 @@ Match characters by Unicode property:
 
 <div style="font-size: 0.65rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const smile = "😀"
-console.log(/^.$/.test(smile))      // false (2 code units)
-console.log(/^.$/u.test(smile))     // true (1 character)
+// console.log(/^.$/.test(smile))      // false (2 code units)
+// console.log(/^.$/u.test(smile))     // true (1 character)
 
 const text = "Hello мир 世界"
-console.log(text.match(/\p{L}+/gu))// ["Hello", "мир", "世界"]
-console.log("Price: ₹১২৩".match(/\p{N}+/gu))// ["১২৩"] - Bengali digits
+// console.log(text.match(/\p{L}+/gu))// ["Hello", "мир", "世界"]
+// console.log("Price: ₹১২৩".match(/\p{N}+/gu))// ["১২৩"] - Bengali digits
 const msg = "Hello 👋 World 🌍"
-console.log(msg.match(/\p{Emoji}/gu))// ["👋", "🌍"]
+// console.log(msg.match(/\p{Emoji}/gu))// ["👋", "🌍"]
 
 const mixed = "Hello Привет مرحبا"
-console.log(mixed.match(/\p{Script=Cyrillic}+/gu))// ["Привет"]
-console.log(mixed.match(/\p{Script=Arabic}+/gu))// ["مرحبا"]
+// console.log(mixed.match(/\p{Script=Cyrillic}+/gu))// ["Привет"]
+// console.log(mixed.match(/\p{Script=Arabic}+/gu))// ["مرحبا"]
 
 // \P{L} - NOT a letter
-console.log("abc123!@#".match(/\P{L}+/gu))// ["123!@#"]
+// console.log("abc123!@#".match(/\P{L}+/gu))// ["123!@#"]
 
 // Practical: validate international names
 const name = "José María"
-console.log(/^\p{L}+(\s\p{L}+)*$/u.test(name))// true
+// console.log(/^\p{L}+(\s\p{L}+)*$/u.test(name))// true
 ```
 
 </div>
@@ -418,24 +418,24 @@ Anchors don't match characters - they match **positions** in the text.
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const text = "Hello World"
-console.log(/^Hello/.test(text))     // true
-console.log(/^World/.test(text))     // false
+// console.log(/^Hello/.test(text))     // true
+// console.log(/^World/.test(text))     // false
 
-console.log(/World$/.test(text))     // true
-console.log(/Hello$/.test(text))     // false
+// console.log(/World$/.test(text))     // true
+// console.log(/Hello$/.test(text))     // false
 
 const exactPattern = /^Hello$/
-console.log(exactPattern.test("Hello"))        // true
-console.log(exactPattern.test("Hello World"))  // false
-console.log(exactPattern.test("Say Hello"))    // false
+// console.log(exactPattern.test("Hello"))        // true
+// console.log(exactPattern.test("Hello World"))  // false
+// console.log(exactPattern.test("Say Hello"))    // false
 
 // Practical: validate 5-digit zip code
 const zipCode = /^\d{5}$/
-console.log(zipCode.test("12345"))   // true
-console.log(zipCode.test("123"))     // false
-console.log(zipCode.test("123456"))  // false
+// console.log(zipCode.test("12345"))   // true
+// console.log(zipCode.test("123"))     // false
+// console.log(zipCode.test("123456"))  // false
 ```
 
 </div>
@@ -475,30 +475,30 @@ With the `m` (multiline) flag:
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const multiline = `First line
 Second line
 Third line`
 
 // WITHOUT multiline flag
-console.log(/^\w+/.exec(multiline))
+// console.log(/^\w+/.exec(multiline))
 // Matches: ["First"] - only first line
 
-console.log(multiline.match(/^\w+/g))
+// console.log(multiline.match(/^\w+/g))
 // Matches: ["First"] - only first line
 
 // WITH multiline flag (m)
-console.log(multiline.match(/^\w+/gm))
+// console.log(multiline.match(/^\w+/gm))
 // Matches: ["First", "Second", "Third"]
 
-console.log(multiline.match(/line$/gm))
+// console.log(multiline.match(/line$/gm))
 // Matches: ["line", "line", "line"]
 
 // Practical: extract all lines starting with numbers
 const log = `1. First task \n Note: reminder \n 2. Second task \n 3. Third task`
 
 const tasks = log.match(/^\d+\..+$/gm)
-console.log(tasks)// ["1. First task", "2. Second task", "3. Third task"]
+// console.log(tasks)// ["1. First task", "2. Second task", "3. Third task"]
 ```
 
 </div>
@@ -549,27 +549,27 @@ hideInToc: true
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const text = "The cat in the catalog"
 
 // Without \b - finds "cat" in "catalog" too
-console.log(text.match(/cat/g))// ["cat", "cat"] - not what we want!
+// console.log(text.match(/cat/g))// ["cat", "cat"] - not what we want!
 
 // With \b - only whole word "cat"
-console.log(text.match(/\bcat\b/g))// ["cat"] - perfect!
+// console.log(text.match(/\bcat\b/g))// ["cat"] - perfect!
 
 // Find words starting with "cat"
-console.log(text.match(/\bcat/g))// ["cat", "cat"] (both "cat" and "catalog")
+// console.log(text.match(/\bcat/g))// ["cat", "cat"] (both "cat" and "catalog")
 
 // Find words ending with "log"
-console.log(text.match(/log\b/g))// ["log"] (from "catalog")
+// console.log(text.match(/log\b/g))// ["log"] (from "catalog")
 
 // Practical: find standalone numbers
 const prices = "Item $99, code A99B, total $199"
-console.log(prices.match(/\b\d+\b/g))// ["99", "199"] - only standalone numbers
+// console.log(prices.match(/\b\d+\b/g))// ["99", "199"] - only standalone numbers
 
 // Replace whole word only
-console.log("I like cats and catfish"
+// console.log("I like cats and catfish"
   .replace(/\bcat\b/g, "dog"))
 // "I like dogs and catfish"
 ```
@@ -633,31 +633,31 @@ These characters have special meaning and must be **escaped** with `\` to match 
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Match a literal dot (.)
 const domain = "site.com"
-console.log(/site.com/.test("siteXcom"))    // true (. = any char)
-console.log(/site\.com/.test("siteXcom"))   // false
-console.log(/site\.com/.test("site.com"))   // true
+// console.log(/site.com/.test("siteXcom"))    // true (. = any char)
+// console.log(/site\.com/.test("siteXcom"))   // false
+// console.log(/site\.com/.test("site.com"))   // true
 
 // Match literal dollar sign ($)
 const price = "$99.99"
-console.log(price.match(/\$\d+\.\d+/))// ["$99.99"]
+// console.log(price.match(/\$\d+\.\d+/))// ["$99.99"]
 
 // Match literal parentheses
 const phone = "(555) 123-4567"
-console.log(phone.match(/\(\d{3}\) \d{3}-\d{4}/))// ["(555) 123-4567"]
+// console.log(phone.match(/\(\d{3}\) \d{3}-\d{4}/))// ["(555) 123-4567"]
 
 // Match literal backslash (\)
 const path = "C:\\Users\\John"
-console.log(path.match(/\w:\\\\/))// ["C:\\"] - need \\\\ to match \\
+// console.log(path.match(/\w:\\\\/))// ["C:\\"] - need \\\\ to match \\
 
 // Match literal question mark (?)
 const url = "page.html?id=5"
-console.log(url.match(/\.html\?/))// [".html?"]
+// console.log(url.match(/\.html\?/))// [".html?"]
 
 // Match literal brackets
-console.log("[123]".match(/\[\d+\]/))// ["[123]"]
+// console.log("[123]".match(/\[\d+\]/))// ["[123]"]
 ```
 
 </div>
@@ -707,29 +707,29 @@ Square brackets `[]` match **any one character** from the set.
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Match vowels
-console.log("hello".match(/[aeiou]/g))// ["e", "o"]
-console.log("Room 42B".match(/[0-9]/g))// ["4", "2"]
+// console.log("hello".match(/[aeiou]/g))// ["e", "o"]
+// console.log("Room 42B".match(/[0-9]/g))// ["4", "2"]
 
 // Ranges: match letters a-f
-console.log("abc123xyz".match(/[a-f]/g))// ["a", "b", "c"]
+// console.log("abc123xyz".match(/[a-f]/g))// ["a", "b", "c"]
 
 // Multiple ranges combined
-console.log("Test123".match(/[a-zA-Z0-9]/g))// ["T", "e", "s", "t", "1", "2", "3"]
+// console.log("Test123".match(/[a-zA-Z0-9]/g))// ["T", "e", "s", "t", "1", "2", "3"]
 
-console.log("ab12cd".match(/[^0-9]/g))// ["a", "b", "c", "d"]
+// console.log("ab12cd".match(/[^0-9]/g))// ["a", "b", "c", "d"]
 
 // Negation: NOT a letter
-console.log("Test 123!".match(/[^a-zA-Z]/g))
+// console.log("Test 123!".match(/[^a-zA-Z]/g))
 // [" ", "1", "2", "3", "!"]
 
 // Special chars in sets (no escape needed)
-console.log("1+2=3".match(/[+=-]/g))// ["+", "="]
+// console.log("1+2=3".match(/[+=-]/g))// ["+", "="]
 
 // Practical: hex color validation
 const hex = "#A5F"
-console.log(hex.match(/#[0-9A-Fa-f]+/))// ["#A5F"]
+// console.log(hex.match(/#[0-9A-Fa-f]+/))// ["#A5F"]
 ```
 
 </div>
@@ -808,28 +808,28 @@ Quantifiers specify **how many times** a pattern should repeat.
 
 <div style="font-size: 0.65rem;">
 
-```js{monaco-run} {autorun: false}
-console.log("Gooooal!".match(/o+/))// ["oooo"]
-console.log("123 456".match(/\d+/g))// ["123", "456"]
+```js {monaco-run} {autorun: false}
+// console.log("Gooooal!".match(/o+/))// ["oooo"]
+// console.log("123 456".match(/\d+/g))// ["123", "456"]
 
-console.log("Gal Goal Goooal".match(/Go*al/g))// ["Gal", "Goal", "Goooal"]
+// console.log("Gal Goal Goooal".match(/Go*al/g))// ["Gal", "Goal", "Goooal"]
 
-console.log("color".match(/colou?r/))    // ["color"]
-console.log("colour".match(/colou?r/))   // ["colour"]
+// console.log("color".match(/colou?r/))    // ["color"]
+// console.log("colour".match(/colou?r/))   // ["colour"]
 
 const zip = "12345"
-console.log(/^\d{5}$/.test(zip))         // true
-console.log(/^\d{5}$/.test("123"))       // false
+// console.log(/^\d{5}$/.test(zip))         // true
+// console.log(/^\d{5}$/.test("123"))       // false
 
 const pass = "abc12345"
-console.log(/^[a-z]{3,5}\d{4,8}$/.test(pass))  // true
+// console.log(/^[a-z]{3,5}\d{4,8}$/.test(pass))  // true
 
 // Practical: phone number
 const phone = "(555) 123-4567"
-console.log(phone.match(/\(\d{3}\) \d{3}-\d{4}/))// ["(555) 123-4567"]
+// console.log(phone.match(/\(\d{3}\) \d{3}-\d{4}/))// ["(555) 123-4567"]
 
 // Practical: find all words (1+ letters)
-console.log("Hello world 123".match(/[a-z]+/gi))// ["Hello", "world"]
+// console.log("Hello world 123".match(/[a-z]+/gi))// ["Hello", "world"]
 ```
 
 </div>
@@ -881,30 +881,30 @@ Add `?` after the quantifier:
 
 <div style="font-size: 0.65rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const html = '<div>Hello</div><div>World</div>'
 
 // GREEDY: .* matches as much as possible
-console.log(html.match(/<div>.*<\/div>/))// ["<div>Hello</div><div>World</div>"]
+// console.log(html.match(/<div>.*<\/div>/))// ["<div>Hello</div><div>World</div>"]
 // Matched from FIRST < to LAST >
 
 // LAZY: .*? matches as little as possible
-console.log(html.match(/<div>.*?<\/div>/g))// ["<div>Hello</div>", "<div>World</div>"]
+// console.log(html.match(/<div>.*?<\/div>/g))// ["<div>Hello</div>", "<div>World</div>"]
 // Matched minimal content between tags
 
 // Another example with quotes
 const str = 'a "witch" and "cat"'
 
 // Greedy - gets everything between first and last quote
-console.log(str.match(/".*"/))// [""witch" and "cat""]
+// console.log(str.match(/".*"/))// [""witch" and "cat""]
 
 // Lazy - gets minimal content between quotes
-console.log(str.match(/".*?"/g))// [""witch"", ""cat""]
+// console.log(str.match(/".*?"/g))// [""witch"", ""cat""]
 
 // Practical: extract tag content
 const text = '<h1>Title</h1><p>Text</p>'
 const tags = text.match(/<.+?>/g)
-console.log(tags)// ["<h1>", "</h1>", "<p>", "</p>"]
+// console.log(tags)// ["<h1>", "</h1>", "<p>", "</p>"]
 ```
 
 </div>
@@ -953,31 +953,31 @@ Parentheses `()` create groups that:
 
 <div style="font-size: 0.65rem;">
 
-```js{monaco-run} {autorun: false}
-console.log("hahaha".match(/(ha)+/))// ["hahaha", "ha"] - matches repeating "ha"
+```js {monaco-run} {autorun: false}
+// console.log("hahaha".match(/(ha)+/))// ["hahaha", "ha"] - matches repeating "ha"
 
 // Capturing parts of a date
 const date = "2024-12-25"
 const match = date.match(/(\d{4})-(\d{2})-(\d{2})/)
-console.log(match[0])  // "2024-12-25" (full)
-console.log(match[1])  // "2024" (year)
-console.log(match[2])  // "12" (month)
-console.log(match[3])  // "25" (day)
+// console.log(match[0])  // "2024-12-25" (full)
+// console.log(match[1])  // "2024" (year)
+// console.log(match[2])  // "12" (month)
+// console.log(match[3])  // "25" (day)
 
 // Using groups in replace
 const name = "John Doe"
 const swapped = name.replace(/(\w+) (\w+)/, '$2, $1')
-console.log(swapped)  // "Doe, John"
+// console.log(swapped)  // "Doe, John"
 
 // Extract email parts
 const email = "user@example.com"
 const parts = email.match(/(.+)@(.+)\.(.+)/)
-console.log(parts[1])  // "user"
-console.log(parts[2])  // "example"
-console.log(parts[3])  // "com"
+// console.log(parts[1])  // "user"
+// console.log(parts[2])  // "example"
+// console.log(parts[3])  // "com"
 
 // Use when you need grouping but not capturing
-console.log("abc abc".match(/(?:abc)+/))// ["abcabc"] - no capture, just grouping
+// console.log("abc abc".match(/(?:abc)+/))// ["abcabc"] - no capture, just grouping
 ```
 
 </div>
@@ -1021,22 +1021,22 @@ Backreferences let you **reuse** a captured group later in the same pattern.
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const text = "hello hello world"
-console.log(text.match(/\b(\w+) \1\b/))// ["hello hello", "hello"]
+// console.log(text.match(/\b(\w+) \1\b/))// ["hello hello", "hello"]
 // \1 references first captured group
 
 // Match same quote type
 const quoted = `"hello" 'world' "test"`
-console.log(quoted.match(/(['"])(.*?)\1/g))// [""hello"", "'world'", ""test""]
+// console.log(quoted.match(/(['"])(.*?)\1/g))// [""hello"", "'world'", ""test""]
 // \1 ensures closing quote matches opening
 
 // Find repeated characters
-console.log("bookkeeper".match(/(\w)\1/g))// ["oo", "kk", "ee"]
+// console.log("bookkeeper".match(/(\w)\1/g))// ["oo", "kk", "ee"]
 
 // Named backreference
 const date = "2024-12-12"
-console.log(date.match(/(?<month>\d{2})-\k<month>/))// Matches when month == day
+// console.log(date.match(/(?<month>\d{2})-\k<month>/))// Matches when month == day
 ```
 
 </div>
@@ -1077,27 +1077,27 @@ The pipe `|` means **OR** - match one pattern **or** another.
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Match different options
-console.log("cat".match(/cat|dog|bird/))  // ["cat"]
-console.log("dog".match(/cat|dog|bird/))  // ["dog"]
+// console.log("cat".match(/cat|dog|bird/))  // ["cat"]
+// console.log("dog".match(/cat|dog|bird/))  // ["dog"]
 
 // With word boundaries
 const text = "I like cats and dogs"
-console.log(text.match(/\b(cat|dog)s?\b/g))// ["cats", "dogs"]
+// console.log(text.match(/\b(cat|dog)s?\b/g))// ["cats", "dogs"]
 
 // Match file extensions
 const file = "image.jpg"
-console.log(file.match(/\.(jpg|png|gif|webp)$/))// [".jpg", "jpg"]
+// console.log(file.match(/\.(jpg|png|gif|webp)$/))// [".jpg", "jpg"]
 
 // Match different date formats
 const dates = ["2024-12-25", "12/25/2024", "25.12.2024"]
 const pattern = /\d{4}-\d{2}-\d{2}|\d{2}\/\d{2}\/\d{4}|\d{2}\.\d{2}\.\d{4}/
-dates.forEach(d => console.log(d.match(pattern)[0]))// Matches all three formats
+// dates.forEach(d => console.log(d.match(pattern)[0]))// Matches all three formats
 
 // Order matters!
-console.log("aa".match(/a|aa/))   // ["a"] - stops at first
-console.log("aa".match(/aa|a/))   // ["aa"] - longer first
+// console.log("aa".match(/a|aa/))   // ["a"] - stops at first
+// console.log("aa".match(/aa|a/))   // ["aa"] - longer first
 ```
 
 </div>
@@ -1162,25 +1162,25 @@ Match if NOT preceded by...
 
 <div style="font-size: 0.65rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Lookahead: find numbers followed by €
-console.log("1€ 2$ 3€".match(/\d(?=€)/g))// ["1", "3"] - matches digits before €
+// console.log("1€ 2$ 3€".match(/\d(?=€)/g))// ["1", "3"] - matches digits before €
 
 // Negative lookahead: NOT followed by
-console.log("file.txt file.js".match(/file(?!\.txt)/g))// ["file"] - from file.js only
+// console.log("file.txt file.js".match(/file(?!\.txt)/g))// ["file"] - from file.js only
 
 // Lookbehind: preceded by $
-console.log("$100 €200".match(/(?<=\$)\d+/))// ["100"] - number after $
+// console.log("$100 €200".match(/(?<=\$)\d+/))// ["100"] - number after $
 
 // Negative lookbehind: NOT preceded by
-console.log("$100 €200".match(/(?<!\$)\d+/g))// ["200"] - not after $
+// console.log("$100 €200".match(/(?<!\$)\d+/g))// ["200"] - not after $
 
 // Password validation (lookahead)
 const hasDigit = /(?=.*\d)/
 const hasLower = /(?=.*[a-z])/
 const hasUpper = /(?=.*[A-Z])/
 const pass = "Abc123"
-console.log( hasDigit.test(pass) && hasLower.test(pass) && hasUpper.test(pass) )  // true
+// console.log( hasDigit.test(pass) && hasLower.test(pass) && hasUpper.test(pass) )  // true
 ```
 
 </div>
@@ -1227,7 +1227,7 @@ Some regex patterns cause **exponential time** to match, freezing your app!
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // BAD: Catastrophic! (Don't run on long strings)
 // /^(a+)+$/ on "aaaa...b" = VERY SLOW
 // GOOD: Use atomic groups or possessive quantifiers
@@ -1246,7 +1246,7 @@ Some regex patterns cause **exponential time** to match, freezing your app!
 
 const safe = "hello"
 const pattern = /^[a-z]+$/  // Simple, safe
-console.log(pattern.test(safe))  // true
+// console.log(pattern.test(safe))  // true
 
 // If you must use complex patterns,
 // add timeouts or use specialized libraries
@@ -1294,27 +1294,27 @@ Use `(?<name>...)` to give groups **descriptive names** instead of numbers.
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // Parse date with named groups
 const date = "2024-12-25"
 const pattern = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
 const match = date.match(pattern)
 
-console.log(match.groups.year)   // "2024"
-console.log(match.groups.month)  // "12"
-console.log(match.groups.day)    // "25"
+// console.log(match.groups.year)   // "2024"
+// console.log(match.groups.month)  // "12"
+// console.log(match.groups.day)    // "25"
 
 const formatted = date.replace( pattern, '$<day>/$<month>/$<year>' )
-console.log(formatted)  // "25/12/2024"
+// console.log(formatted)  // "25/12/2024"
 
 // Parse URL
 const url = "https://example.com:8080/path"
 const urlPattern = /(?<protocol>https?):\/\/(?<domain>[^:\/]+)(:(?<port>\d+))?/
 
 const urlMatch = url.match(urlPattern)
-console.log(urlMatch.groups.protocol)  // "https"
-console.log(urlMatch.groups.domain)    // "example.com"
-console.log(urlMatch.groups.port)      // "8080"
+// console.log(urlMatch.groups.protocol)  // "https"
+// console.log(urlMatch.groups.domain)    // "example.com"
+// console.log(urlMatch.groups.port)      // "8080"
 ```
 
 </div>
@@ -1357,24 +1357,24 @@ The sticky flag makes regex match **only at the exact position** (`lastIndex`).
 
 <div style="font-size: 0.7rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const text = "let x = 10"
 
 // Without sticky - searches from position
 const reg = /\w+/g
 reg.lastIndex = 4
-console.log(reg.exec(text))  // ["x"] - found later
+// console.log(reg.exec(text))  // ["x"] - found later
 
 // With sticky - must match AT position
 const sticky = /\w+/y
 sticky.lastIndex = 0
-console.log(sticky.exec(text))  // ["let"]
+// console.log(sticky.exec(text))  // ["let"]
 
 sticky.lastIndex = 4
-console.log(sticky.exec(text))  // ["x"] - at position 4
+// console.log(sticky.exec(text))  // ["x"] - at position 4
 
 sticky.lastIndex = 3  // space position
-console.log(sticky.exec(text))  // null - no match at 3
+// console.log(sticky.exec(text))  // null - no match at 3
 
 // Practical: simple tokenizer
 function tokenize(str) {
@@ -1388,7 +1388,7 @@ function tokenize(str) {
   return tokens
 }
 
-console.log(tokenize("x = 5"))// ["x", "=", "5"]
+// console.log(tokenize("x = 5"))// ["x", "=", "5"]
 ```
 
 </div>
@@ -1504,22 +1504,22 @@ r.exec("a1")  // ["a1", "a", "1"]
 
 <div style="font-size: 0.65rem;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const text = "abc 123 xyz 456"
 
 // test - boolean check
-console.log(/\d+/.test(text))  // true
+// console.log(/\d+/.test(text))  // true
 // match - get all matches
-console.log(text.match(/\d+/g))  // ["123", "456"]
+// console.log(text.match(/\d+/g))  // ["123", "456"]
 // search - find position
-console.log(text.search(/\d/))  // 4
+// console.log(text.search(/\d/))  // 4
 // replace - substitute
-console.log(text.replace(/\d+/g, '#'))// "abc # xyz #"
+// console.log(text.replace(/\d+/g, '#'))// "abc # xyz #"
 // split - break apart
-console.log(text.split(/\s+/))// ["abc", "123", "xyz", "456"]
+// console.log(text.split(/\s+/))// ["abc", "123", "xyz", "456"]
 // exec - detailed match
 const re = /(\w+) (\d+)/g
-console.log(re.exec(text))// ["abc 123", "abc", "123"]
+// console.log(re.exec(text))// ["abc 123", "abc", "123"]
 ```
 
 </div>

@@ -52,8 +52,8 @@ clicksStart: 1
 
 HTML tags are the core of DOM. The browser converts the HTML tags into a tree structure called the DOM tree. The DOM tree is a representation of the HTML tags in a tree structure. The DOM tree is a hierarchical representation of the HTML tags. The DOM tree is a collection of nodes. Each node is an object representing a part of the document.
 
-```js{monaco-run} {autorun: false}
-console.log(document.documentElement); console.log(document.body); console.log(document.head); console.log(document.title);
+```js {monaco-run} {autorun: false}
+// console.log(document.documentElement); console.log(document.body); console.log(document.head); console.log(document.title);
 ```
 
 The nodes are connected in a tree structure, parent-child relationship, sibling relationship, next-previous relationship, first-last relationship, ancestor-descendant relationship, root-leaf relationship, text-element relationship, comment-element relationship, and in a document type.
@@ -75,10 +75,10 @@ clicksStart: 1
 
 <v-clicks>
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="255"]`)
 const h1 = element.querySelector('h1');
-console.log(h1.textContent)
+// console.log(h1.textContent)
 
 h1.classList.add('text-gradient');
 setTimeout(() => h1.classList.remove('text-gradient'), 3000); // return back
@@ -135,16 +135,16 @@ You can now traverse the DOM tree using the following based the relationships be
 - `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `nextElementSibling`, `previousElementSibling`
 - `nodeType`, `nodeName`, `nodeValue`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="256"]`)
 
-console.log(element.parentNode);console.log(element.parentElement)
-console.log(element.childNodes.length);console.log(element.children.length)
-console.log(element.firstChild);console.log(element.firstElementChild)
-console.log(element.lastChild);console.log(element.lastElementChild)
-console.log(element.nextSibling);console.log(element.nextElementSibling)
-console.log(element.previousSibling);console.log(element.previousElementSibling)
-console.log(element.nodeType);console.log(element.nodeName);console.log(element.nodeValue)
+// console.log(element.parentNode);console.log(element.parentElement)
+// console.log(element.childNodes.length);console.log(element.children.length)
+// console.log(element.firstChild);console.log(element.firstElementChild)
+// console.log(element.lastChild);console.log(element.lastElementChild)
+// console.log(element.nextSibling);console.log(element.nextElementSibling)
+// console.log(element.previousSibling);console.log(element.previousElementSibling)
+// console.log(element.nodeType);console.log(element.nodeName);console.log(element.nodeValue)
 ```
 
 </v-clicks>
@@ -167,12 +167,12 @@ clicksStart: 1
 | SOE    | Frontend | Backend   | Cloud     | Cyber |
 | SOD    | Design   | Marketing | Marketing |       |
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // TODO: Fix the bug on the querySelector
 const table = document.querySelector(`[data-slidev-no="257"]`)
-console.log(table);
-console.log(table.rows); console.log(table.tBodies); console.log(table.tHead); console.log(table.tFoot);
-console.log(table.rows[0]); console.log(table.rows[0].cells); console.log(table.rows[0].cells[0]); //tbody //tr //td //th
+// console.log(table);
+// console.log(table.rows); console.log(table.tBodies); console.log(table.tHead); console.log(table.tFoot);
+// console.log(table.rows[0]); console.log(table.rows[0].cells); console.log(table.rows[0].cells[0]); //tbody //tr //td //th
 //cells, //sectionRowIndex, //rowIndex, //cellIndex
 ```
 
@@ -224,10 +224,10 @@ You can search for elements in the DOM tree using the following methods:
 - `querySelector`, `querySelectorAll`
 - `matches`, `closest`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="259"]`);
 // add a id, class to the element
-console.log(element.id); console.log(element.className); console.log(element.tagName); console.log(element.tagName.toLowerCase());console.log(element.name);
+// console.log(element.id); console.log(element.className); console.log(element.tagName); console.log(element.tagName.toLowerCase());console.log(element.name);
 ```
 
 </v-clicks>
@@ -243,7 +243,7 @@ clicksStart: 1
 
 Important classes to understand the node properties includes - `EventTarget`, `Node`, `Element`, `HTMLElement`-`HTMLBodyElement`-other interface discussed in the [HTML Note](https://karatu.oluwasetemi.dev/85), `Document`-`HTMLDocument`-`DocumentFragment`, `CharacterData`-`Text`-`Comment`.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="260"]`);
 
 console.dir(element)
@@ -251,10 +251,10 @@ console.dir(element)
 
 ## `innerHTML`, `outerHTML`, `textContent`, `innerText`, `nodeValue` or `data`, `hidden`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="260"]`);
 
-console.log(element.innerHTML); console.log(element.outerHTML); console.log(element.textContent); console.log(element.innerText); console.log(element.nodeValue); console.log(element.data); console.log(element.hidden);
+// console.log(element.innerHTML); console.log(element.outerHTML); console.log(element.textContent); console.log(element.innerText); console.log(element.nodeValue); console.log(element.data); console.log(element.hidden);
 ```
 
 NB: other properties include `id`, `className`, `tagName`, `name`, `type`, `value`, `checked`, `selected`, `href`, `src`, `alt`, `title`, `lang`, `dir`, `style`, `dataset`, `attributes`, `classList`.
@@ -271,20 +271,20 @@ clicksStart: 1
 
 Attributes are the properties of the elements. They are the key-value pairs of the elements from the [convertion]{.text-xl.font-fast.text-red title='parsed or read'} of HTML to DOM. You can add your own properties to the element but the html attributes set is fixed according to the [specification](https://html.spec.whatwg.org/){.text-gradient}.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="261"]`);
 
-console.log(element.getAttribute('data-slidev-no')); console.log(element.getAttribute('data-slidev-no') === element.dataset.slidevNo); console.log(element.dataset.slidevNo);
+// console.log(element.getAttribute('data-slidev-no')); console.log(element.getAttribute('data-slidev-no') === element.dataset.slidevNo); console.log(element.dataset.slidevNo);
 ```
 
 ## `setAttribute`, `removeAttribute`, `hasAttribute`, `attributes`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="261"]`);
 
-element.setAttribute('data-slidev-no', '96'); console.log(element.dataset.slidevNo);
-element.removeAttribute('data-slidev-no'); console.log(element.dataset.slidevNo);
-console.log(element.hasAttribute('data-slidev-no')); console.log(element.attributes);
+// element.setAttribute('data-slidev-no', '96'); console.log(element.dataset.slidevNo);
+// element.removeAttribute('data-slidev-no'); console.log(element.dataset.slidevNo);
+// console.log(element.hasAttribute('data-slidev-no')); console.log(element.attributes);
 ```
 
 </v-clicks>
@@ -353,7 +353,7 @@ clicksStart: 1
 
 Let us create this element using JavaScript.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const div = document.createElement('div');
 div.className = "alert p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8] text-[#3c763d]";
 // div.innerHTML = '<strong>Hi there!</strong> You\'ve read an important message.';
@@ -384,7 +384,7 @@ clicksStart: 1
 
 `DocumentFragment` is a lightweight container that can hold nodes. It is not part of the main DOM tree. It is used to hold nodes before they are inserted into the main DOM tree. It is used to improve performance when you want to insert multiple nodes at once.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const fragment = new DocumentFragment();
 
 const div = document.createElement('div');
@@ -419,7 +419,7 @@ You can modify the styles and classes of the elements using the following method
 - `style`, `classList`
 - `getComputedStyle`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 
 const element = document.querySelector(`[data-slidev-no="265"]`);
 
@@ -429,7 +429,7 @@ element.style.setProperty('--uno', 'p-[15px] border border-[#d6e9c6] rounded-[4p
 element.classList.add('alert'); element.classList.add('p-[15px]'); element.classList.add('border'); element.classList.add('border-[#d6e9c6]'); element.classList.add('rounded-[4px]'); element.classList.add('bg-[#dff0d8]'); element.classList.add('text-[#3c763d]');
 element.classList.remove('alert'); element.classList.remove('p-[15px]'); element.classList.remove('border'); element.classList.remove('border-[#d6e9c6]'); element.classList.remove('rounded-[4px]'); element.classList.remove('bg-[#dff0d8]'); element.classList.remove('text-[#3c763d]');
 
-console.log(getComputedStyle(element).color); console.log(getComputedStyle(element).backgroundColor); console.log(getComputedStyle(element).padding); console.log(getComputedStyle(element).border); console.log(getComputedStyle(element).borderRadius);
+// console.log(getComputedStyle(element).color); console.log(getComputedStyle(element).backgroundColor); console.log(getComputedStyle(element).padding); console.log(getComputedStyle(element).border); console.log(getComputedStyle(element).borderRadius);
 ```
 
 </v-clicks>
@@ -448,12 +448,12 @@ You can get the size and position of the elements using the following methods:
 - `clientWidth`, `clientHeight`, `clientLeft`, `clientTop`
 - `scrollWidth`, `scrollHeight`, `scrollLeft`, `scrollTop`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="266"] .view-lines`);
 
-console.log(element.offsetWidth); console.log(element.offsetHeight); console.log(element.offsetLeft); console.log(element.offsetTop); console.log(element.offsetParent);
-console.log(element.clientWidth); console.log(element.clientHeight); console.log(element.clientLeft); console.log(element.clientTop);
-console.log(element.scrollWidth); console.log(element.scrollHeight); console.log(element.scrollLeft); console.log(element.scrollTop);
+// console.log(element.offsetWidth); console.log(element.offsetHeight); console.log(element.offsetLeft); console.log(element.offsetTop); console.log(element.offsetParent);
+// console.log(element.clientWidth); console.log(element.clientHeight); console.log(element.clientLeft); console.log(element.clientTop);
+// console.log(element.scrollWidth); console.log(element.scrollHeight); console.log(element.scrollLeft); console.log(element.scrollTop);
 ```
 
 NB: `offsetWidth` includes padding, border, and scrollbar, `clientWidth` includes padding, `scrollWidth` includes padding and overflowed content. Accurate measurements are gotten from [`getBoundingClientRect`](https://mdn.io/getboundingclientrect) method. Its returns a `DOMRect` object with the size of an element and its position relative to the viewport. `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, `left`. Most geometry properties are read-only but `scrollLeft` and `scrollTop` can be changed.
@@ -477,12 +477,12 @@ You can get the size and position of the window using the following methods:
 - `screenX`, `screenY`
 - `screenLeft`, `screenTop`
 
-```js{monaco-run} {autorun: false}
-console.log({innerWidth: window.innerWidth, innerHeight: window.innerHeight, clientWidth: document.documentElement.clientWidth, clientHeight: document.documentElement.clientHeight});
-console.log(window.outerWidth); console.log(window.outerHeight);
-console.log(window.scrollX); console.log(window.scrollY);
-console.log(window.screenX); console.log(window.screenY);
-console.log(window.screenLeft); console.log(window.screenTop);
+```js {monaco-run} {autorun: false}
+// console.log({innerWidth: window.innerWidth, innerHeight: window.innerHeight, clientWidth: document.documentElement.clientWidth, clientHeight: document.documentElement.clientHeight});
+// console.log(window.outerWidth); console.log(window.outerHeight);
+// console.log(window.scrollX); console.log(window.scrollY);
+// console.log(window.screenX); console.log(window.screenY);
+// console.log(window.screenLeft); console.log(window.screenTop);
 ```
 
 NB: `innerWidth` and `innerHeight` are the viewport size but always prefer `document.documentElement`\* `clientHeight` and `clientWidth`, `outerWidth` and `outerHeight` are the window size, `scrollX` and `scrollY` are the scroll position, `screenX` and `screenY` are the screen position.
@@ -495,9 +495,9 @@ name: More on Window sizes and scrolling
 clicksStart: 1
 ---
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 window.addEventListener('resize', () => {
-  console.log({innerWidth: window.innerWidth, innerHeight: window.innerHeight, clientWidth: document.documentElement.clientWidth, clientHeight: document.documentElement.clientHeight});
+  // console.log({innerWidth: window.innerWidth, innerHeight: window.innerHeight, clientWidth: document.documentElement.clientWidth, clientHeight: document.documentElement.clientHeight});
 });
 ```
 
@@ -550,11 +550,11 @@ left = x, top = y, right = x + width, bottom = y + height.
 
 Remember that element appended to a page using coordinates from another element as `top/left` will be positioned fixed to the element and not the page, setting pos-absolute will make it relative to the page.
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 // FIX: use the deprecated pageXOffset and pageYOffset with the right values
 const element = document.querySelector(`[data-slidev-no="270"] h1`);
 function getCoords(elem) { let box = elem.getBoundingClientRect(); return { top: box.top + window.pageYOffset, right: box.right + window.pageXOffset, bottom: box.bottom + window.pageYOffset, left: box.left + window.pageXOffset }; }
-console.log(getCoords(element));
+// console.log(getCoords(element));
 ```
 
 </v-clicks>

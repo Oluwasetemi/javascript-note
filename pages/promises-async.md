@@ -80,7 +80,7 @@ Promise chaining allows you to perform a sequence of asynchronous operations, wh
 fetch('url')
   .then((response) => response.json())
   .then((data) => {
-    console.log(data)
+    // console.log(data)
     return fetch('another-url')
   })
   .then((response) => response.json())
@@ -129,7 +129,7 @@ The Promise API provides several static methods:
 
 ```js
 Promise.all([promise1, promise2])
-  .then((results) => console.log(results))
+  // .then((results) => console.log(results))
   .catch((error) => console.error('Error:', error))
 ```
 
@@ -162,13 +162,13 @@ Microtasks are tasks that are executed after the currently executing script and 
 Promises use microtasks to handle `.then()` and `.catch()` callbacks.
 
 ```js
-console.log('Start')
+// console.log('Start')
 
 Promise.resolve().then(() => {
-  console.log('Promise resolved')
+  // console.log('Promise resolved')
 })
 
-console.log('End')
+// console.log('End')
 
 // Output:
 // Start
@@ -192,7 +192,7 @@ async function fetchData() {
   try {
     const response = await fetch('url')
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
   } catch (error) {
     console.error('Error:', error)
   }
@@ -219,7 +219,7 @@ getData(id, (data, err) => {
       if (err) throw err
       notifyUser(result, (notification, err) => {
         if (err) throw err
-        console.log('Success!')
+        // console.log('Success!')
       })
     })
   })
@@ -243,7 +243,7 @@ const rejected = Promise.reject(new Error('Failed'))
 
 // Promise.resolve() is useful for converting values to promises
 Promise.resolve('Hello')
-  .then(value => console.log(value)) // 'Hello'
+  // .then(value => console.log(value)) // 'Hello'
 
 // Promise.reject() for immediate rejection
 Promise.reject(new Error('Something went wrong'))

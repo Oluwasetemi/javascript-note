@@ -16,8 +16,8 @@ export default defineCodeRunnersSetup(() => {
         inlineTemplate: true,
       }).content
 
-      // console.log(scripts)
-      // console.log(sfc)
+      console.log(scripts)
+      console.log(sfc)
 
       // Replace Vue imports to object destructuring
       // Only for simple demo, it doesn't work with imports from other packages
@@ -27,13 +27,13 @@ export default defineCodeRunnersSetup(() => {
       )
       scripts += '\nreturn __Component'
 
-      // console.log(scripts)
+      console.log(scripts)
 
       // Create function to evaluate the script and get the component
       // Note this is not sandboxed, it's NOT secure.
       const component = new Function(`return (Vue) => {${scripts}}`)()(Vue)
 
-      // console.log(component)
+      console.log(component)
 
       // Mount the component
       const app = Vue.createApp(component)
@@ -45,12 +45,12 @@ export default defineCodeRunnersSetup(() => {
       }
     },
     async jsx(code, ctx) {
-      console.log(ctx)
+      // console.log(ctx)
       const highlight = ctx.highlight
 
       let a = highlight(code, 'jsx')
 
-      console.log(a)
+      // console.log(a)
 
       const React = await import('react')
       const ReactDOM = await import('react-dom/client')
@@ -67,14 +67,14 @@ export default defineCodeRunnersSetup(() => {
       const el = document.createElement('div')
 
       ReactDOM.createRoot(el).render(React.createElement(Component))
-      console.log(el)
+      // console.log(el)
 
       return {
         element: el,
       }
     },
     async html(code, ctx) {
-      console.log(ctx)
+      // console.log(ctx)
       const highlight = ctx.highlight
 
       let a = highlight(code, 'html')
