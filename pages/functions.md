@@ -863,11 +863,7 @@ function exampleWithRest(a, ...rest) {
   // Function body
 }
 // Output: 1 (only 'a' is counted, rest parameter is excluded)
-<<<<<<< HEAD
-// alert(exampleWithRest.length);
-=======
 console.log(exampleWithRest.length);
->>>>>>> refs/remotes/origin/main
 ```
 
 ---
@@ -1611,11 +1607,7 @@ function traditionalFunction() {
 traditionalFunction(1, 2, 3);
 
 const arrowFunction = () => {
-<<<<<<< HEAD
-  // alert(arguments);
-=======
   console.log(arguments);
->>>>>>> refs/remotes/origin/main
 }
 
 arrowFunction(1, 2, 3);

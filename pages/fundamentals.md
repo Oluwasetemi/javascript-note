@@ -371,21 +371,14 @@ name: More on Operators
 
 5. Less than ( < ): Checks if the left value is smaller is smaller than the right.
 
-<<<<<<< HEAD
-```js {monaco-run}
-=======
 ```js {monaco-run} {autorun: false}
->>>>>>> refs/remotes/origin/main
 // console.log(5 < 10)
 ```
 
 6. Greater than or equal to ( >= ): Checks if the left value is bigger than or the same as the right.
 
-<<<<<<< HEAD
-```js {monaco-run}
-=======
+
 ```js {monaco-run} {autorun: false}
->>>>>>> refs/remotes/origin/main
 // console.log(10 >= 10)
 ```
 
@@ -396,11 +389,7 @@ name: More Examples on Operators
 
 7. Less than or equal to ( <= ): Checks if the left is smaller than or the same as the right.
 
-<<<<<<< HEAD
-```js {monaco-run}
-=======
 ```js {monaco-run} {autorun: false}
->>>>>>> refs/remotes/origin/main
 // console.log(5 <= 5)
 ```
 
@@ -430,24 +419,14 @@ hideInToc: true
 
 2. && (AND): returns true if both operands are truthy. If either operand is falsy, the entire expression evaluate to false. `result = a && b;`
 
-<<<<<<< HEAD
-```js {monaco-run} {autorun: false}
-// alert(true && true); // alert(false && true)
-=======
 ```js{monaco-run} {autorun: false}
 console.log(true && true); console.log(false && true)
->>>>>>> refs/remotes/origin/main
 ```
 
 3. ! (NOT): it inverts the truth value of an expression, meaning returns false if expression is truthy, and true if expression is falsy. `result = !expression;`
 
-<<<<<<< HEAD
-```js {monaco-run} {autorun: false}
-// alert(!true); // alert(!0)
-=======
 ```js{monaco-run} {autorun: false}
 console.log(!true); console.log(!0)
->>>>>>> refs/remotes/origin/main
 ```
 
 ---

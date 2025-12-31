@@ -35,7 +35,7 @@ lineNumbers: true
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes
 
-JavaScript Class Note
+## JavaScript Class Note
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
