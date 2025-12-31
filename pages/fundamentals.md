@@ -786,11 +786,7 @@ let university = 'AltSchool Africa'
 // code here CAN use university
 function school() {
   let message = `You are a student of ${university}`
-<<<<<<< HEAD
-  // alert(message)
-=======
   console.log(message)
->>>>>>> refs/remotes/origin/main
   //code here CAN also use university
 }
 ```
