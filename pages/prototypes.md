@@ -71,7 +71,7 @@ class Animal {
     this.name = name;
   }
   speak() {
-    console.log(`${this.name} makes a noise.`);
+    // console.log(`${this.name} makes a noise.`);
   }
 }
 
@@ -80,7 +80,7 @@ function Animal(name) {
   this.name = name;
 }
 Animal.prototype.speak = function() {
-  console.log(this.name + ' makes a noise.');
+  // console.log(this.name + ' makes a noise.');
 };
 ```
 
@@ -95,13 +95,13 @@ Mixins allow the addition of common functionality or properties to different cla
 ```javascript
 const canEat = {
   eat: function() {
-    console.log('Eating');
+    // console.log('Eating');
   }
 };
 
 const canWalk = {
   walk: function() {
-    console.log('Walking');
+    // console.log('Walking');
   }
 };
 
@@ -122,14 +122,14 @@ hideInToc: true
 
 # Live Demo: Extending `Array` Safely
 
-```js{monaco-run}
+```js {monaco-run} {autorun: false}
 class ExtendedArray extends Array {
   sum() {
     return this.reduce((acc, curr) => acc + curr, 0);
   }
 }
 const myArray = new ExtendedArray(1, 2, 3, 4);
-console.log('Sum:', myArray.sum()); // Console output: Sum: 10
+// console.log('Sum:', myArray.sum()); // Console output: Sum: 10
 ```
 
 This demo creates a new `ExtendedArray` class that extends the native `Array` object safely by adding a `sum` method that sums all elements.

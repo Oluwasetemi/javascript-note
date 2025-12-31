@@ -131,7 +131,7 @@ const contentType = response.headers.get('Content-Type')
 
 // Iterate all headers
 for (let [key, value] of response.headers) {
-  console.log(`${key}: ${value}`)
+  // console.log(`${key}: ${value}`)
 }
 ```
 
@@ -207,13 +207,13 @@ async function sendImage(blob) {
 const response = await fetch(url)
 
 // Status kbd (200, 404, etc.)
-console.log(response.status)
+// console.log(response.status)
 
 // OK if status is 200-299
-console.log(response.ok)
+// console.log(response.ok)
 
 // Response headers
-console.log(response.headers)
+// console.log(response.headers)
 ```
 ````
 
@@ -347,7 +347,7 @@ document.getElementById('userForm').onsubmit = async (e) => {
   });
 
   const result = await response.json();
-  console.log(result);
+  // console.log(result);
 };
 ```
 
@@ -532,10 +532,10 @@ async function downloadWithProgress(url) {
     }, 100)
   }
 
-  console.log('Download complete')
+  // console.log('Download complete')
 }
 function updateProgressUI(progress) {
-  console.log(`Downloaded: ${progress.toFixed(2)}%`)
+  // console.log(`Downloaded: ${progress.toFixed(2)}%`)
 }
 ```
 
@@ -680,7 +680,7 @@ These requests must meet ALL of these criteria:
 
 ```js
 // Safe request
-fetch('https://api.example.com/data')
+fetch('https://api.louwasetemi.dev/posts')
   .then(response => response.json())
   .then(data => console.log(data));
 ```
@@ -930,14 +930,14 @@ let newUrl = new URL('manager', baseUrl) // https://example.com/profile/manager
 
 ### Accessing URL Components
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let url = new URL('https://example.com/path?name=test#section')
 
-console.log(url.protocol) // "https:"
-console.log(url.hostname) // "example.com"
-console.log(url.pathname) // "/path"
-console.log(url.search) // "?name=test"
-console.log(url.hash) // "#section"
+// console.log(url.protocol) // "https:"
+// console.log(url.hostname) // "example.com"
+// console.log(url.pathname) // "/path"
+// console.log(url.search) // "?name=test"
+// console.log(url.hash) // "#section"
 ```
 
 </v-clicks>
@@ -960,19 +960,19 @@ url.searchParams.set('category', 'programming')
 url.searchParams.append('tag', 'JavaScript')
 url.searchParams.append('tag', 'Tutorial')
 // Getting a parameter
-console.log(url.searchParams.get('query')) // "JavaScript Tutorial"
+// console.log(url.searchParams.get('query')) // "JavaScript Tutorial"
 // Getting all parameters with the same name
-console.log(url.searchParams.getAll('tag')) // ["JavaScript", "Tutorial"]
+// console.log(url.searchParams.getAll('tag')) // ["JavaScript", "Tutorial"]
 // Checking for existence of a parameter
-console.log(url.searchParams.has('category')) // true
+// console.log(url.searchParams.has('category')) // true
 // Deleting a parameter
 url.searchParams.delete('category')
-console.log(url.searchParams.has('category')) // false
+// console.log(url.searchParams.has('category')) // false
 // Sorting parameters by name
 url.searchParams.sort()
-console.log([...url.searchParams]) // Sorted parameter list
+// console.log([...url.searchParams]) // Sorted parameter list
 // The full URL with the query string
-console.log(url.toString()) // https://example.com/search?query=JavaScript+Tutorial&tag=JavaScript&tag=Tutorial
+// console.log(url.toString()) // https://example.com/search?query=JavaScript+Tutorial&tag=JavaScript&tag=Tutorial
 ```
 
 </v-clicks>
@@ -1045,7 +1045,7 @@ hideInToc: true
                             <td class="px-6 py-4">
                                 <div class="bg-gray-50 rounded p-4 font-mono text-sm border border-gray-200">
                                     <div class="text-gray-800">let url = new URL('https://example.com/hello world');</div>
-                                    <div class="text-gray-800">console.log(url.href);</div>
+                                    <!--<div class="text-gray-800">console.log(url.href);</div>-->
                                     <div class="text-gray-500 mt-2">// Output: https://example.com/hello%20world</div>
                                 </div>
                             </td>
@@ -1256,7 +1256,7 @@ xhr.open('GET', 'https://api.oluwasetemi.dev/health')
 // 3. Set up event handlers
 xhr.onload = function () {
   if (xhr.status === 200) {
-    console.log('Success:', xhr.response)
+    // console.log('Success:', xhr.response)
   }
 }
 
@@ -1351,7 +1351,7 @@ hideInToc: true
 let xhr = new XMLHttpRequest();
 xhr.responseType = 'json';
 xhr.open('GET', '/api/data');
-xhr.onload = () => console.log(xhr.response);
+<!--xhr.onload = () => console.log(xhr.response);-->
  // Automatically parsed JSON
 xhr.send();
 ```
@@ -1385,7 +1385,7 @@ hideInToc: true
 xhr.onprogress = function(event) {
     if (event.lengthComputable) {
         let percentComplete = (event.loaded / event.total) * 100;
-        console.log(`Downloaded: ${percentComplete}%`);
+        <!--console.log(`Downloaded: ${percentComplete}%`);-->
     }
 };
             </code>
@@ -1402,7 +1402,7 @@ xhr.onprogress = function(event) {
 xhr.upload.onprogress = function(event) {
     if (event.lengthComputable) {
         let percentComplete = (event.loaded / event.total) * 100;
-        console.log(`Uploaded: ${percentComplete}%`);
+        <!--console.log(`Uploaded: ${percentComplete}%`);-->
     }
 };
             </code>
@@ -2240,13 +2240,13 @@ const socket = new WebSocket('wss://example.com/socketserver')
 
 // Connection opened
 socket.onopen = (event) => {
-  console.log('Connected to WebSocket server')
+  // console.log('Connected to WebSocket server')
   socket.send('Hello Server!')
 }
 
 // Listen for messages
 socket.onmessage = (event) => {
-  console.log('Message from server:', event.data)
+  // console.log('Message from server:', event.data)
 }
 
 // Handle errors
@@ -2256,7 +2256,7 @@ socket.onerror = (error) => {
 
 // Connection closed
 socket.onclose = (event) => {
-  console.log('Disconnected from WebSocket server')
+  // console.log('Disconnected from WebSocket server')
 }
 ```
 
@@ -2472,9 +2472,9 @@ hideInToc: true
 ```js
 socket.onclose = (event) => {
   if (event.wasClean) {
-    console.log(`Closed cleanly, code=${event.code}, reason=${event.reason}`)
+    // console.log(`Closed cleanly, code=${event.code}, reason=${event.reason}`)
   } else {
-    console.log('Connection died')
+    // console.log('Connection died')
     // Implement reconnection logic here
   }
 }
@@ -2496,9 +2496,9 @@ const socket = new WebSocket('wss://example.com', ['soap', 'wamp'])
 // socket.binaryType = "arraybuffer";
 socket.onmessage = (event) => {
   if (typeof event.data === 'string') {
-    console.log('Received text data')
+    // console.log('Received text data')
   } else {
-    console.log('Received binary data')
+    // console.log('Received binary data')
   }
 }
 ```
@@ -2641,12 +2641,12 @@ const eventSource = new EventSource('/events/subscribe')
 
 // Handling incoming messages
 eventSource.onmessage = function (event) {
-  console.log('New message:', event.data)
+  // console.log('New message:', event.data)
 }
 
 // Handling connection open
 eventSource.onopen = function () {
-  console.log('Connection established')
+  // console.log('Connection established')
 }
 
 // Handling errors

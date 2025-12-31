@@ -73,13 +73,13 @@ const config = {
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <div id="box"></div> <button onclick="add()">Add</button>
 <script>
   const observer = new MutationObserver(
     (mutations) => {
       mutations.forEach((m) => {
-        console.log('Type and Added', m.type, m.addedNodes.length)
+        // console.log('Type and Added', m.type, m.addedNodes.length)
       })
     })
 
@@ -155,7 +155,7 @@ ResizeObserver watches for changes to:
 
 <div style="font-size: 0.65rem !important;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <div id="box" style="resize: both; overflow: auto; width: 150px; height: 100px; border: 2px solid blue; padding: 10px;">
   Resize me!
 </div>
@@ -256,7 +256,7 @@ IntersectionObserver detects when:
 
 <div style="font-size: 0.65rem !important;">
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 const io = new IntersectionObserver(
   (entries) => {
     entries.forEach(e => {
@@ -301,7 +301,7 @@ The Selection API allows you to programmatically select text content in the DOM.
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <p id="text">This is some selectable text for demonstration.</p>
 <button onclick="selectText()"> Select All </button>
 <button onclick="clearSel()"> Clear </button>
@@ -411,7 +411,7 @@ The Range API allows you to manipulate portions of the document. Perfect for tex
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <div id="content"> Hello <strong>World</strong>! </div>
 <button onclick="highlight()"> Highlight </button>
 <button onclick="reset()">Reset</button>
@@ -547,7 +547,7 @@ Web Workers allow you to run JavaScript in background threads, preventing blocki
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <button onclick="start()">Calculate</button> <div id="result"></div>
 <script>
   function start() {
@@ -596,7 +596,7 @@ Shared workers can be accessed by multiple scripts, windows or iframes.
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <button onclick="connect()"> Increment </button> <div id="sharedResult"></div>
 <script>
   function connect() {
@@ -720,7 +720,7 @@ Service Workers act as a proxy between your web app and the network, enabling of
 
 <div style="font-size: 0.65rem !important;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <button onclick="regSW()"> Register SW </button> <div id="status"></div>
 <script>
   function regSW() {
@@ -728,16 +728,16 @@ Service Workers act as a proxy between your web app and the network, enabling of
       const blob = new Blob([`
         self.addEventListener('install',
           e => {
-            console.log('SW installed')
+            // console.log('SW installed')
             self.skipWaiting()
           })
         self.addEventListener('activate',
           e => {
-            console.log('SW activated')
+            // console.log('SW activated')
           })
         self.addEventListener('fetch',
           e => {
-            console.log('Fetch:', e.request.url)
+            // console.log('Fetch:', e.request.url)
           })
       `], {type: 'application/javascript'})
       navigator.serviceWorker.register(URL.createObjectUR L(blob))
@@ -767,7 +767,7 @@ hideInToc: true
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <button onclick="regCache()"> Register Caching SW </button> <div id="cache"></div>
 <script>
   function regCache() {
@@ -884,7 +884,7 @@ The Event Loop is JavaScript's concurrency model that handles asynchronous opera
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <button onclick="demo()"> Run Demo </button> <div id="output"></div>
 <script>
   function demo() {
@@ -928,7 +928,7 @@ hideInToc: true
 
 <div style="font-size: 0.65rem;">
 
-```html{monaco-run} {autorun: false}
+```html {monaco} {autorun: false}
 <button onclick="priority()"> Show Priority </button> <div id="pOut"></div>
 <script>
   function priority() {

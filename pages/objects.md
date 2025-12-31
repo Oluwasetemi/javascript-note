@@ -66,14 +66,14 @@ let school = {
 
 A property has a key which can also be referred to as <kbd>name</kbd> or <kbd>identifier</kbd> after which the colon comes in <kbd>:</kbd>, and lastly a value to the right of it. In a property, the value at the right hand side is been stored inside the key on the left hand side.
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let school = {
   //lets get the property values of the object:
   name: 'AltSchool',
   sector: 'Education',
 }
-alert(school.name)
-alert(school.sector)
+console.log(school.name)
+console.log(school.sector)
 ```
 
 ---
@@ -96,13 +96,13 @@ delete school.name
 
 We can use multiword property names, but to achieve this we have to wrap the name in a quote:
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let school = {
   name: 'AltSchool',
   sector: 'Education',
   'takes users': true,
 }
-console.log(school)
+// console.log(school)
 ```
 
 If you've noticed, we’ve been adding a comma after the last property in the list. This is called a "trailing" or "hanging" comma. It's not mandatory, but it makes it easier to add, remove, or rearrange properties since all the lines follow the same format.
@@ -119,15 +119,15 @@ In JavaScript, property names with spaces or special characters need to be enclo
 
 Note: For multi-word properties (or properties with spaces or special characters), dot notation won't work because JavaScript will treat them as invalid. In such cases, you need to use square bracket notation.
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let school = {
   name: 'AltSchool',
   sector: 'Education',
   'takes users': true,
 }
-alert(school['takes users'])
+console.log(school['takes users'])
 // this will throw error
-// alert( school."takes users");
+// console.log( school."takes users");
 ```
 
 ---
@@ -139,13 +139,13 @@ hideInToc: true
 <div></div>
 Also, square brackets provide a way to access property names dynamically, which literal strings in dot notation do not allow. This means you can use variables or expressions within square brackets to obtain the property name.
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let school = {
   name: "Setemi Ojo",
   department: "Engineering",
 }
 let key = prompt("What do you want to know about the user?", "department");
-alert([school[key]]);
+console.log([school[key]]);
 ```
 
 ---
@@ -157,18 +157,18 @@ hideInToc: true
 <div></div>
 When creating an object in JavaScript, we can put an expression in square brackets, and this means that the property name will be taken from what's inside the square bracket.
 
-```js{monaco-run}{autorun: false}
-let school = prompt("Which tech school are you attending?", "");
+```js {monaco-run} {autorun: false}
+let school = // prompt("Which tech school are you attending?", "");
 
 let college = {
   [school]: "AltSchool Africa",
 };
 
-console.log(college)
+// console.log(college)
 ```
 
-```js{monaco-run}{autorun: false}
-let school = prompt("Which school are you attending?", "AltSchool");
+```js {monaco-run} {autorun: false}
+let school = // prompt("Which school are you attending?", "AltSchool");
 let sector = {};
 
 // take property name from the school variable
@@ -184,7 +184,7 @@ hideInToc: true
 <div></div>
 Sometimes, we use existing values for property name. Instead of repeating this we can implement the shorthand property.
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const getUser = (name, age) => {
   return {
     name: name,
@@ -192,13 +192,13 @@ const getUser = (name, age) => {
   };
 };
 let user = getUser("Setemi", 40);
-alert(user.name);
+console.log(user.name);
 ```
 
 Checking the block scope above, we have the same words representing the values and the property key.
 Instead of <kbd>name:name</kbd> we can just write <kbd>name</kbd>, like this:
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const getUser = (name, age) => {
   return {
     name,
@@ -206,7 +206,7 @@ const getUser = (name, age) => {
   };
 };
 let user = getUser("Setemi", 40);
-alert(user.age);
+console.log(user.age);
 ```
 
 ---
@@ -217,14 +217,14 @@ hideInToc: true
 
 There are limitations to name we can use for a variable, names like <kbd>for</kbd>, <kbd>let</kbd>, <kbd>return</kbd> are language-reserved but for an object property, there's no such restriction:
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let obj = {
   for: 3,
   let: 1,
   return: 9
 };
 
-alert( obj.for + obj.let + obj.return );
+console.log( obj.for + obj.let + obj.return );
 ```
 
 ---
@@ -236,27 +236,27 @@ hideInToc: true
 <div></div>
 It's possible in object to know if a property really exists, and there won't be an error if the property doesn't exist, instead it will return <kbd>undefined</kbd>.
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let user = {name: "Setemi", age: 40};
-alert( user.noSuchProperty === undefined );
+console.log( user.noSuchProperty === undefined );
 ```
 
 We can also make use of a special operator <kbd>in</kbd>
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let user = {name: "Setemi", age: 40};
-alert( "age" in user );
-alert( "height" in user );
+console.log( "age" in user );
+console.log( "height" in user );
 ```
 
 When using the <kbd>in</kbd> keyword there must be a property name in a quoted string on the left side of <kbd>in</kbd>. Sometimes the property exists and it stores <kbd>undefined</kbd> which is why we can bring in the <kbd>in</kbd> method.
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let userDetails = {
   name: undefined
 };
-alert( userDetails.name );
-alert( "name" in userDetails );
+console.log( userDetails.name );
+console.log( "name" in userDetails );
 ```
 
 ---
@@ -276,7 +276,7 @@ for (key in object) {
 
 Let's use the <kbd>for..in</kbd> loop to output all the <kbd>user</kbd> properties.
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let user = {
   name: "Vinicius",
   age: 24,
@@ -284,7 +284,7 @@ let user = {
 };
 
 for (let key in user) {
-  alert( key );
+  console.log( key );
   console.log( user[key] );
 }
 ```
@@ -297,7 +297,7 @@ hideInToc: true
 
 When you loop over an objects, we get all properties in creation order but, the irony the case when the key is an integer.
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let footballers = {
   "2": "Messi",
   "3": "Mbappe",
@@ -305,8 +305,8 @@ let footballers = {
 };
 
 for (let footballer in footballers) {
-  console.log(footballer);
-  console.log( footballers[footballer] );
+  // console.log(footballer);
+  // console.log( footballers[footballer] );
 }
 ```
 
@@ -319,15 +319,15 @@ hideInToc: true
 <div></div>
 In cases where you don't want the num to get rearranged, you can make the number non-integer by adding a <kbd>+</kbd> sign before the numbers.
 
-```js{monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 let footballers = {
   "+2": "Messi",
   "+3": "Mbappe",
   "+1": "Ronaldo"
 }
 for (let footballer in footballers) {
-alert(+footballer);
-alert( footballers[footballer] );
+console.log(+footballer);
+console.log( footballers[footballer] );
 };
 ```
 
@@ -364,21 +364,21 @@ hideInToc: true
 
 If two objects reference the same object, they are considered equal. However, if they reference different objects, they are not considered equal, even if their contents are identical.
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 // 'obj1' references an empty object
 let obj1 = {};
 // 'obj2' is assigned the same reference as 'obj1'
 let obj2 = obj1;
-alert(obj1 == obj2);
-alert(obj1 === obj2);
+console.log(obj1 == obj2);
+console.log(obj1 === obj2);
 ```
 
 Take a look at this:
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 let obj1 = {};      // 'obj1' references a new empty object
 let obj2 = {};      // 'obj2' references another new empty object
-alert(obj1 == obj2);  // false, because both variables reference different objects
+console.log(obj1 == obj2);  // false, because both variables reference different objects
 ```
 
 ---
@@ -396,13 +396,13 @@ The variable will always point to the same object in memory, but the object itse
 
 Take a look at this:
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 const user = {
   name: "Setemi Ojo"
 }
 
 user.name = "Oluwasetemi Ojo";
-alert(user.name);
+console.log(user.name);
 ```
 
 ---
@@ -431,7 +431,7 @@ for (let key in person) {
 copy.name = 'Oluwasetemi Ojo'
 
 // Display the 'name' property of the original 'person' object
-alert(person.name)
+console.log(person.name)
 ```
 
 ---
@@ -455,7 +455,7 @@ Let's break the syntax down:
 - Further arguments is a list of source <kbd>objects</kbd>.
   How does this works? It copies the properties of all source <kbd>objects</kbd> into the target object, and then returns it as the result.
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 // Original person object
 let person = { name: "Setemi Ojo" };
 
@@ -465,7 +465,7 @@ let age = {};
 Object.assign(age, { age: 40 });
 // Now merge the 'age' object into 'person' to add the age property
 Object.assign(person, age);
-console.log(person);
+// console.log(person);
 ```
 
 Note: If the property name already exists, it gets overwritten.
@@ -482,7 +482,7 @@ hideInToc: true
 To copy a property from a nested object within another object, you can use a cloning loop.
 This allows you to access and duplicate the specific property you need while keeping the structure intact.
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 let student = {
   name: "Setemi Ojo",
   school: {
@@ -492,10 +492,10 @@ let student = {
 };
 
 let clone = Object.assign({}, student);
-alert( student.school === clone.school );
+console.log( student.school === clone.school );
 
 student.school.department = "Science";
-alert(clone.school.department);
+console.log(clone.school.department);
 ```
 
 In the code above the <kbd>student</kbd> and <kbd>school</kbd> object are yet to be separated. To achieve a separation between both objects, we should
@@ -513,7 +513,7 @@ hideInToc: true
 This methods clones the <kbd>object</kbd> with all nested properties.
 In the code below <kbd>structuredClone()</kbd> will creates a deep clone of the leader object, meaning that both leader and clone are completely separate objects in memory, including nested objects.
 
-```js{monaco-run}{autorun:false}
+```js {monaco-run} {autorun: false}
 let leader = {
   name: "Setemi Ojo",
   school: {
@@ -523,11 +523,11 @@ let leader = {
 };
 
 let clone = structuredClone(leader);
-alert( leader === clone );
+console.log( leader === clone );
 
 
 leader.school.department = "Science";
-alert(clone.school.department);
+console.log(clone.school.department);
 ```
 
 ---

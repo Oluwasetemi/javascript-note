@@ -34,7 +34,7 @@ Events are actions or occurrences that happen in the system you are programming,
 Handlers are functions that run in response to events. They can be assigned to handle events. We have the HTML-attribute, DOM-property, and `addEventListener` method to assign handlers. Use `on<event>` properties to assign handlers in HTML or DOM properties.
 
 ```html
-<button onclick="alert('Click!')">Click me</button>
+<button onclick="console.log('Click!')">Click me</button>
 ```
 
 </v-clicks>
@@ -51,7 +51,7 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 <button id="elem">Click me</button>
 <script>
   elem.onclick = function () {
-    alert('Click!')
+    console.log('Click!')
   }
 </script>
 ```
@@ -60,12 +60,12 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 
 The `addEventListener` method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with `removeEventListener`.
 
-```js {monaco}
+```js {monaco-run} {autorun: false}
 elem.addEventListener('click', function () {
-  alert('First handler')
+  console.log('First handler')
 })
 elem.addEventListener('click', function () {
-  alert('Second handler')
+  console.log('Second handler')
 })
 ```
 
@@ -94,9 +94,9 @@ interface AddEventListenerOptions extends EventListenerOptions {
 }
 ```
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="277"] h1`)
-const handler = () => alert('Click!')
+const handler = () => console.log('Click!')
 elem.addEventListener('click', handler, { once: true })
 // elem.addEventListener('mouseover', handler);
 ```
@@ -115,25 +115,25 @@ hideInToc: true
 
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler.
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="278"] h1`)
 
 elem.addEventListener('click', function (event) {
   // show the event type, the element and the coordinates of the click
-  console.log(
+  // console.log(
     event.type + ' at ' + event.currentTarget + ' ' + event.eventPhase,
   )
-  console.log(`Coordinates: ${event.clientX}:${event.clientY}`)
+  // console.log(`Coordinates: ${event.clientX}:${event.clientY}`)
   console.dir(event)
 })
 ```
 
-```html {monaco}
+```html {monaco} {autorun: false}
 <button id="elem">Click me</button>
 <script>
   let obj = {
     handleEvent(event) {
-      alert(event.type + ' at ' + event.currentTarget)
+      console.log(event.type + ' at ' + event.currentTarget)
     },
   }
 
@@ -163,9 +163,9 @@ You can stop the bubbling by calling `event.stopPropagation()` or `event.stopImm
 <div flex="~">
 
 ```html
-<body onclick="alert('body click')">
+<body onclick="console.log('body click')">
   <div id="elem" style="border: 1px solid black; padding: 10px">
-    <button onclick="alert('button clicked')">Click me</button>
+    <button onclick="console.log('button clicked')">Click me</button>
   </div>
 </body>
 ```
@@ -183,13 +183,13 @@ hideInToc: true
 
 <v-clicks>
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="280"] h1`)
 const parent = elem.parentElement
 const grandParent = parent.parentElement
 
 function listener(e) {
-  console.log('clicked', e.currentTarget.tagName)
+  // console.log('clicked', e.currentTarget.tagName)
 }
 
 elem.addEventListener('click', listener)
@@ -211,11 +211,11 @@ hideInToc: true
 
 Knowing the bubbling and capturing principles can be useful. For instance, if we want to catch an event on the way down, we can use the capturing phase especially during a concept called "event delegation".
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const elems = document.querySelectorAll(`*`)
 
 function listener(e) {
-  console.log('capturing', e.currentTarget.tagName)
+  // console.log('capturing', e.currentTarget.tagName)
 }
 
 for (let elem of elems) {
@@ -247,7 +247,7 @@ Event delegation is a technique involving adding a single event listener to a co
   menu.onclick = function (event) {
     let target = event.target
     if (target.tagName != 'LI') return
-    console.log(target.innerHTML)
+    // console.log(target.innerHTML)
   }
 </script>
 ```
@@ -276,13 +276,13 @@ class Menu {
     elem.onclick = this.onClick.bind(this)
   }
   save() {
-    alert('saving')
+    console.log('saving')
   }
   load() {
-    alert('loading')
+    console.log('loading')
   }
   search() {
-    alert('searching')
+    console.log('searching')
   }
 
   onClick(event) {
@@ -348,14 +348,14 @@ To prevent the default action, we can use `event.preventDefault()`. returning `f
 const link = document.querySelector(`[data-slidev-no="284"] a`)
 link.addEventListener('click', function(event) {
   event.preventDefault(); event.stopPropagation();
-  alert('Link click!');
+  console.log('Link click!');
 });
 ```
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const h1 = document.querySelector(`[data-slidev-no="284"] h1`)
 h1.oncontextmenu = function (event) {
-  alert('Content menu clicked')
+  console.log('Content menu clicked')
 }
 ```
 
@@ -408,7 +408,7 @@ hideInToc: true
 ```js
 let helloEvent = new Event('hello', { bubbles: true, cancelable: true })
 elem.addEventListener('hello', function (event) {
-  alert('Hello from ' + event.target.tagName)
+  console.log('Hello from ' + event.target.tagName)
 })
 ```
 
@@ -420,11 +420,11 @@ elem.addEventListener('hello', function (event) {
 For completely new events, we can use `CustomEvent` class. It has an additional `detail` property to pass custom data.
 
 <!-- prettier-ignore-start -->
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="286"] h1`)
 element.onclick = function() { element.dispatchEvent(new CustomEvent("hello", { detail: { name: "John" } })); };
 element.addEventListener('hello', function(event) {
-  console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');
+  // console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');
 });
 ```
 <!-- prettier-ignore-end -->

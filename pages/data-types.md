@@ -73,10 +73,10 @@ hideInToc: true
 
 - To add properties to a value, you need to create an object. For example:
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let strObj = { value: 'Hello' }
 strObj.test = 5
-console.log(strObj.test) // Output: 5
+// console.log(strObj.test) // Output: 5
 ```
 
 In this case, strObj is an object, and you can add properties to it using dot notation or bracket notation.
@@ -89,7 +89,7 @@ In this case, strObj is an object, and you can add properties to it using dot no
 ```js
 let greeting = 'Hello'
 greeting = greeting + ' World'
-console.log(greeting) // Output: "Hello World"
+// console.log(greeting) // Output: "Hello World"
 ```
 
 Strings are sequences of characters that are considered immutable. If you want to modify a string, you need to create a new string.
@@ -126,13 +126,14 @@ let microsec = 1e-6 // Scientific notation
 ```
 
 </div>
+
 <div ml-10>
 
 #### Number Systems
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 // Hexadecimal (0x)
-alert(0xff) // 255
+console.log(0xff) // 255
 
 // Binary (0b)
 let num1 = 0b11111111 // 255
@@ -142,8 +143,8 @@ let num2 = 0o377 // 255
 
 // Converting to different bases
 let num3 = 255
-alert(num3.toString(16)) // "ff"
-alert(num3.toString(2)) // "11111111"
+console.log(num3.toString(16)) // "ff"
+console.log(num3.toString(2)) // "11111111"
 ```
 
 </div>
@@ -159,7 +160,7 @@ title: Rounding Up
 
 - Rounding
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 Math.floor(3.6) // 3  - rounds down
 Math.ceil(3.1) // 4  - rounds up
 Math.round(3.5) // 4  - rounds to nearest
@@ -167,21 +168,22 @@ Math.trunc(3.6) // 3  - removes decimal
 
 // To fixed decimal places
 let num = 1.23456
-console.log(num.toFixed(2)) // "1.23"
+// console.log(num.toFixed(2)) // "1.23"
 ```
 
 </div>
+
 <div>
 
 - Precision Issues
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 0.1 + 0.2 === 0.3 // false
 0.1 + 0.2 // 0.30000000000000004
 
 // Solutions
 let sum = 0.1 + 0.2;
-console.log(+sum.toFixed(2)) // 0.3
+// console.log(+sum.toFixed(2)) // 0.3
 // Proposed syntax (not yet available)
 // Math.sumPrecise([0.1, 0.2, 0.3]); // Would return exactly 0.6
 ```
@@ -197,7 +199,9 @@ hideInToc: true
 
 <div mt-2 />
 <h3> 1. String Creation & Quotes</h3>
+
 <div class="grid grid-cols-2" gap-4xl>
+
 <div>
 
 - Single/Double Quotes
@@ -207,10 +211,12 @@ let name = 'John'
 let name = 'John'
 ```
 
-- Interchangeable <br>
-- Cannot span multiple lines <br>
-- Need escaping for same quotes inside: 'I\'m here'
+- Interchangeable
+- Cannot span multiple lines
+- Need escaping for same quotes inside: `I\'m here`
+
 </div>
+
 <div>
 
 - Backticks:
@@ -227,10 +233,12 @@ let multiline = `
 - Allows expressions: ${...} <br>
 - Supports multiple lines <br>
 - No need to escape quotes <br>
+
 </div>
 </div>
 
 <h3>2. Character Access & Special Characters</h3>
+
 <div class="grid grid-cols-2 " gap-4xl>
 <div>
 
@@ -264,6 +272,7 @@ title: String Methods & Operations
 ---
 
 <h3>3. String Methods & Operations</h3>
+
 <div class='grid grid-cols-3'>
 <div>
 
@@ -376,10 +385,10 @@ let arr = [] // a shorter syntax and it is the preferred method
 ```
 
 <p>Let declare an array of fruits and find the length of the array</p>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let fruits = ["mango", "orange", "apple", "grape"] // An array of fruits
-console.log(fruits)
-console.log(fruits.length) // The total count of the elements in the array is its length
+<!--console.log(fruits)-->
+<!--console.log(fruits.length) // The total count of the elements in the array is its length-->
 ```
 
 ---
@@ -388,16 +397,16 @@ title: Getting and Setting of items in an Arrays
 ---
 
 <ul><li>How do we get values from an array and how do we update an item in an array?🤔</li></ul>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let fruits = ["mango", "orange", "apple", "grape"] 
-console.log(fruits[3]) //syntax: console.log(name of the array[position])
-console.log(fruits[0] ); // Mango
-console.log(fruits[1] ); // Orange
-console.log(fruits[2] ); // Apple
+<!--console.log(fruits[3]) //syntax: console.log(name of the array[position])-->
+<!--console.log(fruits[0] ); // Mango-->
+<!--console.log(fruits[1] ); // Orange-->
+<!--console.log(fruits[2] ); // Apple-->
 fruits [1] = "plum" //this will replace the element
-console.log(fruits) //["mango", "plum", "apple", "grape"]
+<!--console.log(fruits) //["mango", "plum", "apple", "grape"]-->
 fruits [4] = "lemon" //this add a new element to the item.
-console.log(fruits)
+<!--console.log(fruits)-->
 ```
 <p><span class='text-red'>Note:</span> Array elements are numbered, starting with zero. The total count of the elements in the array is its length.</p>
 
@@ -410,21 +419,21 @@ hideInToc: true
 <div grid="~ cols-2">
 <div>
 <ul><li><span class='text-red'><strong>push</strong></span> adds an element to the end.</li></ul>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
-console.log(names)
+<!--console.log(names)-->
 names.push('chidinma')
-console.log(names)
+<!--console.log(names)-->
 ```
 </div>
 
 <div>
 <ul><li> <span class='text-red'><strong> pop</strong></span> takes an element from the end.</li></ul>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz', 'chidinma']
-console.log(names)
+<!--console.log(names)-->
 names.pop()
-console.log(names)
+<!--console.log(names)-->
 ```
 </div>
 </div>
@@ -432,21 +441,21 @@ console.log(names)
 <div grid="~ cols-2">
 <div>
 <ul><li> <span class='text-red'><strong>shift</strong></span> extracts the first element of the array and returns it</li></ul>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
-console.log(names)
+<!--console.log(names)-->
 let shifted = names.shift('chidinma')
-console.log(names, shifted)
+<!--console.log(names, shifted)-->
 ```
 </div>
 
 <div ml-10>
 <ul><li> <span class='text-red'><strong> unshift</strong></span> add the element to the beginning of the array and return the length of the new array</li></ul>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz', 'chidinma']
-console.log(names)
+<!--console.log(names)-->
 let newLength = names.unshift('rola')
-console.log(names, newLength)
+<!--console.log(names, newLength)-->
 ```
 </div>
 </div>
@@ -460,19 +469,19 @@ hideInToc: true
 <div grid="~ cols-2">
 <div>
 <ul><li> <span class='text-red'><strong>reverse:</strong></span> reverses the array in-place, then returns it.</li></ul>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
-console.log(names)
+<!--console.log(names)-->
 names.reverse()
-console.log(names)
+<!--console.log(names)-->
 ```
 </div>
 <div>
 <ul><li><span class='text-red'><strong>sort:</strong></span> sort the values alphabetically.</li></ul>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let names = ['ridwan', 'wariz', 'faith']
-console.log(names)
-console.log(names.sort())
+<!--console.log(names)-->
+<!--console.log(names.sort())-->
 ```
 </div>
 </div>
@@ -483,11 +492,11 @@ console.log(names.sort())
 
 <ul><li> <span class='text-red'><strong> slice:</strong></span> creates a new array, copies elements from index start till end (not inclusive) into it.</li></ul>
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz', 'chidinma']
-console.log(names)
-console.log(names.slice()) //get a copyy of the array
-console.log(names.slice(0, 2))
+// console.log(names)
+// console.log(names.slice()) //get a copyy of the array
+// console.log(names.slice(0, 2))
 ```
 
 </div>
@@ -507,12 +516,12 @@ JavaScript provides several static methods on the Array constructor for creating
 
 * [Array.from()]{.text-red.font-bold} - Creates array from array-like or iterable objects. `Array.fromAsync`?
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const chars = Array.from('hello')
 const numbers = Array.from(new Set([1, 2, 2, 3]))
 const squares = Array.from({length: 5}, (_, i) => i * i)
 
-console.log(chars, numbers, squares)
+// console.log(chars, numbers, squares)
 ```
 
 </div>
@@ -520,8 +529,8 @@ console.log(chars, numbers, squares)
 
 * [Array.isArray()]{.text-red.font-bold} - Checks if a value is an array
 
-```js {monaco-run}{autorun:false}
-console.log(Array.isArray([1, 2, 3]), Array.isArray('hello'), Array.isArray({})) // true
+```js {monaco-run} {autorun: false}
+// console.log(Array.isArray([1, 2, 3]), Array.isArray('hello'), Array.isArray({})) // true
 
 function processArray(data) {
   if (Array.isArray(data)) {
@@ -530,7 +539,7 @@ function processArray(data) {
   return 'Not an array'
 }
 
-console.log(processArray([1, 2, 3]))
+// console.log(processArray([1, 2, 3]))
 ```
 
 </div>
@@ -538,9 +547,9 @@ console.log(processArray([1, 2, 3]))
 
 * [Array.of()]{.text-red.font-bold} - Creates array from arguments
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const arr1 = Array.of(1, 2, 3, 4);const arr2 = Array.of(7);const arr3 = Array(7);
-console.log(arr1, arr2, arr3);
+// console.log(arr1, arr2, arr3);
 ```
 
 ---
@@ -554,19 +563,19 @@ hideInToc: true
 
 * [indexOf()]{.text-red.font-bold} - Returns first index of element
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'apple', 'orange']
-console.log(fruits.indexOf('apple', 1)) // 2
-console.log(fruits.indexOf('apple')) // 0
-console.log(fruits.indexOf('grape')) // -1
+// console.log(fruits.indexOf('apple', 1)) // 2
+// console.log(fruits.indexOf('apple')) // 0
+// console.log(fruits.indexOf('grape')) // -1
 ```
 
 * [lastIndexOf()]{.text-red.font-bold} - Returns last index of element
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'apple', 'orange']
-console.log(fruits.lastIndexOf('apple')) // 2
-console.log(fruits.lastIndexOf('grape')) // -1
+// console.log(fruits.lastIndexOf('apple')) // 2
+// console.log(fruits.lastIndexOf('grape')) // -1
 ```
 
 </div>
@@ -574,21 +583,21 @@ console.log(fruits.lastIndexOf('grape')) // -1
 
 * [includes()]{.text-red.font-bold} - Checks if array contains element
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
-console.log(fruits.includes('banana')) // true
-console.log(fruits.includes('grape')) // false
-console.log(fruits.includes('apple', 1)) // false
+// console.log(fruits.includes('banana')) // true
+// console.log(fruits.includes('grape')) // false
+// console.log(fruits.includes('apple', 1)) // false
 
 ```
 
 * [at()]{.text-red.font-bold} - Returns element at index (supports negative)
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
-console.log(fruits.at(0)) // 'apple'
-console.log(fruits.at(-1)) // 'orange'
-console.log(fruits.at(-2)) // 'banana'
+// console.log(fruits.at(0)) // 'apple'
+// console.log(fruits.at(-1)) // 'orange'
+// console.log(fruits.at(-2)) // 'banana'
 ```
 
 </div>
@@ -605,23 +614,23 @@ hideInToc: true
 
 * [find()]{.text-red.font-bold} - Returns first element that matches
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const users = [{ name: 'John', age: 25 }, { name: 'Jane', age: 30 }, { name: 'Bob', age: 20 } ]
 
 const user = users.find(u => u.age > 25)
 const notFound = users.find(u => u.age > 50)
-console.log(user, notFound)
+// console.log(user, notFound)
 
 ```
 
 * [findIndex()]{.text-red.font-bold} - Returns index of first match
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const users = [{ name: 'John', age: 25 }, { name: 'Jane', age: 30 }, { name: 'Bob', age: 20 }]
 
 const index = users.findIndex(u => u.age > 25)
 const notFound = users.findIndex(u => u.age > 50)
-console.log(index, notFound)
+// console.log(index, notFound)
 ```
 
 </div>
@@ -629,22 +638,22 @@ console.log(index, notFound)
 
 * [findLast()]{.text-red.font-bold} - Returns last element that matches
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
 
 const lastEven = numbers.findLast(n => n % 2 === 0)
 const lastBig = numbers.findLast(n => n > 10)
-console.log(lastEven, lastBig)
+// console.log(lastEven, lastBig)
 ```
 
 * [findLastIndex()]{.text-red.font-bold} - Returns index of last match
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1]
 
 const lastEvenIndex = numbers.findLastIndex(n => n % 2 === 0)
 const lastBigIndex = numbers.findLastIndex(n => n > 10)
-console.log(lastEvenIndex, lastBigIndex)
+// console.log(lastEvenIndex, lastBigIndex)
 ```
 
 </div>
@@ -661,22 +670,22 @@ hideInToc: true
 
 * [map()]{.text-red.font-bold} - Creates new array with transformed elements
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5]
 const doubled = numbers.map(n => n * 2)
-console.log(doubled) // [2, 4, 6, 8, 10]
+// console.log(doubled) // [2, 4, 6, 8, 10]
 
 const users = [{ name: 'John', age: 25 }, { name: 'Jane', age: 30 }]
 const names = users.map(u => u.name)
-console.log(names) // ['John', 'Jane']
+// console.log(names) // ['John', 'Jane']
 ```
 
 * [filter()]{.text-red.font-bold} - Creates new array with elements that pass test
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];const users = [{ name: 'John', age: 25 }, { name: 'Jane', age: 30 }, { name: 'Bob', age: 17 }]
 const evens = numbers.filter(n => n % 2 === 0);const adults = users.filter(u => u.age >= 18)
-console.log(evens, adults)
+// console.log(evens, adults)
 ```
 
 </div>
@@ -684,11 +693,11 @@ console.log(evens, adults)
 
 * [reduce()]{.text-red.font-bold} - Reduces array to single value
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5]
 const sum = numbers.reduce((acc, curr) => acc + curr, 0)
 const max = numbers.reduce((acc, curr) => Math.max(acc, curr))
-console.log(sum, max)
+// console.log(sum, max)
 
 
 // Complex example: group by property
@@ -698,7 +707,7 @@ const grouped = users.reduce((acc, user) => {
   acc[user.department].push(user.name)
   return acc
 }, {})
-console.log(grouped)
+// console.log(grouped)
 ```
 
 </div>
@@ -715,20 +724,20 @@ hideInToc: true
 
 * [forEach()]{.text-red.font-bold} - Executes function for each element
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
 fruits.forEach((fruit, index) => {
-  console.log(`${index}: ${fruit}`)
+  // console.log(`${index}: ${fruit}`)
 })
 ```
 
 * [reduceRight()]{.text-red.font-bold} - Reduce from right to left
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5]
 const rightToLeft = numbers.reduceRight((acc, curr) => { return acc + curr }, 0)
 const concatenated = numbers.reduceRight((acc, curr) => { return acc + curr }, '')
-console.log(rightToLeft, concatenated) // 15
+// console.log(rightToLeft, concatenated) // 15
 
 ```
 
@@ -737,22 +746,22 @@ console.log(rightToLeft, concatenated) // 15
 
 * [some()]{.text-red.font-bold} - Tests if at least one element passes test
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5]
 const hasEven = numbers.some(n => n % 2 === 0)
 const hasNegative = numbers.some(n => n < 0)
-console.log(hasEven, hasNegative) // true
+// console.log(hasEven, hasNegative) // true
 ```
 
 * [every()]{.text-red.font-bold} - Tests if all elements pass test
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [2, 4, 6, 8, 10]
 const allEven = numbers.every(n => n % 2 === 0)
 const allPositive = numbers.every(n => n > 0)
 const allBig = numbers.every(n => n > 5)
 
-console.log(allEven, allPositive, allBig)
+// console.log(allEven, allPositive, allBig)
 ```
 
 </div>
@@ -769,20 +778,20 @@ hideInToc: true
 
 * [join()]{.text-red.font-bold} - Joins array elements into string
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
 const tasks = ['wash dishes', 'do laundry', 'buy groceries']
-console.log( fruits.join(), fruits.join(' - '), fruits.join('') )
-console.log(`Today's tasks: ${tasks.join(', ')}`)
+// console.log( fruits.join(), fruits.join(' - '), fruits.join('') )
+// console.log(`Today's tasks: ${tasks.join(', ')}`)
 ```
 
 * [concat()]{.text-red.font-bold} - Combines arrays into new array
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const arr1 = [1, 2, 3]; const arr2 = [4, 5, 6]; const arr3 = [7, 8, 9];
 const withElements = arr1.concat(10, 11, [12, 13])
 const combined = arr1.concat(arr2, arr3)
-console.log(combined, withElements) 
+// console.log(combined, withElements) 
 ```
 
 </div>
@@ -790,21 +799,21 @@ console.log(combined, withElements)
 
 * [splice()]{.text-red.font-bold} - Changes array by removing/replacing/adding elements
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange', 'grape']
-console.log('Original:', fruits)
+// console.log('Original:', fruits)
 const removed = fruits.splice(1, 2)
-console.log('Removed:', removed) // ['banana', 'orange']
-console.log('After removal:', fruits) // ['apple', 'grape']
+// console.log('Removed:', removed) // ['banana', 'orange']
+// console.log('After removal:', fruits) // ['apple', 'grape']
 
 
 // Add elements at index 1
 fruits.splice(1, 0, 'kiwi', 'mango')
-console.log('After adding:', fruits) // ['apple', 'kiwi', 'mango', 'grape']
+// console.log('After adding:', fruits) // ['apple', 'kiwi', 'mango', 'grape']
 
 // Replace elements
 fruits.splice(1, 2, 'pear')
-console.log('After replacing:', fruits) // ['apple', 'pear', 'grape']
+// console.log('After replacing:', fruits) // ['apple', 'pear', 'grape']
 ```
 
 </div>
@@ -821,21 +830,21 @@ hideInToc: true
 
 * [fill()]{.text-red.font-bold} - Fills array with static value
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const arr1 = new Array(5).fill(0); const arr2 = [1, 2, 3, 4, 5];
 arr2.fill('x', 2, 4)
 const users = new Array(3).fill(null).map(() => ({ name: '', age: 0 }))
-console.log(arr1, arr2) // [0, 0, 0, 0, 0]
+// console.log(arr1, arr2) // [0, 0, 0, 0, 0]
 ```
 
 * [copyWithin()]{.text-red.font-bold} - Copies part of array to another location
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const arr = [1, 2, 3, 4, 5]; const arr2 = ['a', 'b', 'c', 'd', 'e']
-console.log('Original:', arr);
+// console.log('Original:', arr);
 arr.copyWithin(2, 0, 3); arr2.copyWithin(0, 3, 4);
-console.log('After copyWithin:', arr) 
-console.log('Copy d to start:', arr2)
+// console.log('After copyWithin:', arr) 
+// console.log('Copy d to start:', arr2)
 ```
 
 </div>
@@ -843,17 +852,17 @@ console.log('Copy d to start:', arr2)
 
 * [with()]{.text-red.font-bold} - Returns new array with element replaced
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
-console.log('Original:', fruits)
+// console.log('Original:', fruits)
 
 const newFruits = fruits.with(1, 'kiwi')
-console.log('New array:', newFruits) // ['apple', 'kiwi', 'orange']
-console.log('Original unchanged:', fruits) // ['apple', 'banana', 'orange']
+// console.log('New array:', newFruits) // ['apple', 'kiwi', 'orange']
+// console.log('Original unchanged:', fruits) // ['apple', 'banana', 'orange']
 
 // Negative indices work too
 const lastChanged = fruits.with(-1, 'grape')
-console.log('Last changed:', lastChanged) // ['apple', 'banana', 'grape']
+// console.log('Last changed:', lastChanged) // ['apple', 'banana', 'grape']
 ```
 
 </div>
@@ -870,23 +879,23 @@ hideInToc: true
 
 * [toReversed()]{.text-red.font-bold} - Returns new reversed array
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const original = [1, 2, 3, 4, 5]
-console.log('Original:', original)
+// console.log('Original:', original)
 const reversed = original.toReversed()
 
-console.log(reversed, 'Original unchanged:', original) // [5, 4, 3, 2, 1]
+// console.log(reversed, 'Original unchanged:', original) // [5, 4, 3, 2, 1]
 ```
 
 * [toSorted()]{.text-red.font-bold} - Returns new sorted array
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [3, 1, 4, 1, 5, 9, 2, 6]
-console.log('Original:', numbers)
+// console.log('Original:', numbers)
 const sorted = numbers.toSorted()
-console.log('Sorted:', sorted) // [1, 1, 2, 3, 4, 5, 6, 9]
+// console.log('Sorted:', sorted) // [1, 1, 2, 3, 4, 5, 6, 9]
 const descending = numbers.toSorted((a, b) => b - a)
-console.log(numbers, 'Descending:', descending)
+// console.log(numbers, 'Descending:', descending)
 ```
 
 </div>
@@ -894,18 +903,18 @@ console.log(numbers, 'Descending:', descending)
 
 * [toSpliced()]{.text-red.font-bold} - Returns new array with elements removed/added
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange', 'grape']
-console.log('Original:', fruits)
+// console.log('Original:', fruits)
 const removed = fruits.toSpliced(1, 2)
 
-console.log('Removed:', removed) // ['apple', 'grape']
+// console.log('Removed:', removed) // ['apple', 'grape']
 
-console.log('Original unchanged:', fruits)
+// console.log('Original unchanged:', fruits)
 
 const added = fruits.toSpliced(1, 0, 'kiwi', 'mango')
 const replaced = fruits.toSpliced(1, 2, 'pear')
-console.log('Added:', added, 'Replaced:', replaced)
+// console.log('Added:', added, 'Replaced:', replaced)
 
 ```
 
@@ -923,15 +932,15 @@ hideInToc: true
 
 * [flat()]{.text-red.font-bold} - Flattens nested arrays
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const nested = [1, [2, 3], [4, [5, 6]], 7]
 const deepNested = [1, [2, [3, [4, [5]]]]]
 
 const flat1 = nested.flat()
 const flat2 = nested.flat(2)
 const allFlat = deepNested.flat(Infinity)
-console.log('Flat 1 level:', flat1, 'Flat 2 levels:', flat2) // [1, 2, 3, 4, [5, 6], 7]
-console.log('All flat:', allFlat) // [1, 2, 3, 4, 5]
+// console.log('Flat 1 level:', flat1, 'Flat 2 levels:', flat2) // [1, 2, 3, 4, [5, 6], 7]
+// console.log('All flat:', allFlat) // [1, 2, 3, 4, 5]
 ```
 
 </div>
@@ -939,17 +948,17 @@ console.log('All flat:', allFlat) // [1, 2, 3, 4, 5]
 
 * [flatMap()]{.text-red.font-bold} - Maps and flattens in one step
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const sentences = ['hello world', 'how are you', 'fine thanks']
 const numbers = [1, 2, 3, 4]
 
 const words = sentences.flatMap(sentence => sentence.split(' '))
 const duplicated = numbers.flatMap(n => [n, n])
-console.log('Words:', words, 'Duplicated:', duplicated)
+// console.log('Words:', words, 'Duplicated:', duplicated)
 
 const users = [ { name: 'John', hobbies: ['reading', 'swimming'] }, { name: 'Jane', hobbies: ['cooking', 'dancing'] } ]
 const allHobbies = users.flatMap(user => user.hobbies)
-console.log('All hobbies:', allHobbies)
+// console.log('All hobbies:', allHobbies)
 ```
 
 </div>
@@ -966,21 +975,21 @@ hideInToc: true
 
 * [keys()]{.text-red.font-bold} - Returns iterator for array indices and can be used with spread operator
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
 const keys = fruits.keys()
-console.log('Keys iterator:', keys)
+// console.log('Keys iterator:', keys)
 
-for (const key of keys) // { // console.log(key) /* 0, 1, 2 */ }
+for (const key of keys) { // console.log(key) /* 0, 1, 2 */ }
 ```
 
 * [values()]{.text-red.font-bold} - Returns iterator for array values and can be used with spread operator
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
 const values = fruits.values()
-console.log('Values iterator:', values)
-for (const value of values) //{ // console.log(value) // 'apple', 'banana', 'orange' }
+// console.log('Values iterator:', values)
+for (const value of values) { // console.log(value) // 'apple', 'banana', 'orange' }
 ```
 
 </div>
@@ -988,14 +997,14 @@ for (const value of values) //{ // console.log(value) // 'apple', 'banana', 'ora
 
 * [entries()]{.text-red.font-bold} - Returns iterator for key-value pairs and can be used with spread operator
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const fruits = ['apple', 'banana', 'orange']
 
 const entries = fruits.entries()
-console.log('Entries iterator:', entries)
+// console.log('Entries iterator:', entries)
 
 for (const [index, value] of entries) {
-  console.log(`${index}: ${value}`)
+  // console.log(`${index}: ${value}`)
 }
 ```
 
@@ -1047,18 +1056,18 @@ hideInToc: true
 
 ## Basic Iteration Example
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const arr = [1, 2, 3]; const str = 'hello'; const set = new Set([1, 2, 3]);
 
 // All work with for...of
-for (const item of arr) console.log('Array:', item)
-for (const char of str) console.log('String:', char)
-for (const val of set) console.log('Set:', val)
+// for (const item of arr) console.log('Array:', item)
+// for (const char of str) console.log('String:', char)
+// for (const val of set) console.log('Set:', val)
 
 // Manual iteration
 const iterator = arr[Symbol.iterator]()
-console.log('Manual:', iterator.next())
-console.log('Manual:', iterator.next())
+// console.log('Manual:', iterator.next())
+// console.log('Manual:', iterator.next())
 ```
 
 </div>
@@ -1075,7 +1084,7 @@ hideInToc: true
 
 ## Simple Range Iterator
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const range = {
   from: 1,
   to: 5,
@@ -1093,7 +1102,7 @@ const range = {
   }
 }
 
-for (const num of range) { console.log(num) }
+for (const num of range) { //console.log(num) }
 ```
 
 </div>
@@ -1101,7 +1110,7 @@ for (const num of range) { console.log(num) }
 
 ## Fibonacci Iterator
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const fibonacci = {
   [Symbol.iterator]() {
     let a = 0, b = 1, count = 0; const max = 10;
@@ -1122,7 +1131,7 @@ const fibonacci = {
   }
 }
 
-console.log([...fibonacci]) // First 10 Fibonacci numbers
+// console.log([...fibonacci]) // First 10 Fibonacci numbers
 ```
 
 </div>
@@ -1143,17 +1152,17 @@ hideInToc: true
 * **Cannot** use `for...of` directly
 * Common examples: `arguments`, `NodeList`
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const arrayLike = {
   0: 'a', 1: 'b', 2: 'c', length: 3
 }
 
-// for (const item of arrayLike) console.log(item)
+for (const item of arrayLike) console.log(item)
 for (let i = 0; i < arrayLike.length; i++) {
-  console.log(arrayLike[i])
+  // console.log(arrayLike[i])
 }
 const arr = Array.from(arrayLike)
-console.log('Converted:', arr)
+// console.log('Converted:', arr)
 ```
 
 </div>
@@ -1161,7 +1170,7 @@ console.log('Converted:', arr)
 
 ## Making Array-like Iterable
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const iterableArrayLike = {
   0: 'x', 1: 'y', 2: 'z', length: 3,
   [Symbol.iterator]() {
@@ -1177,9 +1186,9 @@ const iterableArrayLike = {
   }
 }
 for (const item of iterableArrayLike) {
-  console.log('for...of:', item)
+  // console.log('for...of:', item)
 }
-console.log('Spread:', [...iterableArrayLike])
+// console.log('Spread:', [...iterableArrayLike])
 ```
 
 </div>
@@ -1196,15 +1205,15 @@ hideInToc: true
 
 ## Destructuring with Iterables
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const colors = ['red', 'green', 'blue', 'yellow']
 
 const [first, second, ...rest] = colors
-console.log('First:', first, 'Second:', second, 'Rest:', rest)
+// console.log('First:', first, 'Second:', second, 'Rest:', rest)
 
 const str = 'hello'
 const [h, e, l1, l2, o] = str
-console.log('Letters:', h, e, l1, l2, o)
+// console.log('Letters:', h, e, l1, l2, o)
 
 const range = {
   from: 1, to: 3,
@@ -1214,7 +1223,7 @@ const range = {
 }
 
 const [a, b, c] = range
-console.log('Range values:', a, b, c)
+// console.log('Range values:', a, b, c)
 ```
 
 </div>
@@ -1222,22 +1231,22 @@ console.log('Range values:', a, b, c)
 
 ## Iterator Helper Methods (ES2026)
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 try {
   // take() - takes first n elements
   const firstThree = numbers.values().take(3)
-  console.log('First three:', [...firstThree])
+  // console.log('First three:', [...firstThree])
   
   // drop() - skips first n elements  
   const skipTwo = numbers.values().drop(2)
-  console.log('Skip two:', [...skipTwo])
+  // console.log('Skip two:', [...skipTwo])
   
   // filter() on iterators
   const evenNums = numbers.values().filter(x => x % 2 === 0)
-  console.log('Even numbers:', [...evenNums])
+  // console.log('Even numbers:', [...evenNums])
 } catch (e) {
-  console.log('Alternative:', numbers.slice(0, 3))
+  // console.log('Alternative:', numbers.slice(0, 3))
 }
 ```
 
@@ -1255,7 +1264,7 @@ hideInToc: true
 
 ## Simple Generator
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 function* numberGenerator() {
   yield 1
   yield 2
@@ -1263,7 +1272,7 @@ function* numberGenerator() {
 }
 
 const gen = numberGenerator()
-console.log('Generator:', gen)
+// console.log('Generator:', gen)
 
 // console.log('Manual:', gen.next())
 // console.log('Manual:', gen.next())
@@ -1271,7 +1280,7 @@ for (const num of numberGenerator()) {
   // console.log('Generated:', num)
 }
 
-console.log('Spread:', [...numberGenerator()])
+// console.log('Spread:', [...numberGenerator()])
 ```
 
 </div>
@@ -1279,7 +1288,7 @@ console.log('Spread:', [...numberGenerator()])
 
 ## Infinite Sequence Generator
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 function* infiniteSequence() {
   let i = 0
   while (true) {
@@ -1290,13 +1299,13 @@ function* takeN(iterable, n) {
   let count = 0;
   for (const item of iterable) { if (count >= n) break; yield item; count++; }
 }
-const first5 = takeN(infiniteSequence(), 5);console.log('First 5:', [...first5])
+const first5 = takeN(infiniteSequence(), 5);// console.log('First 5:', [...first5])
 const evens = []
 for (const num of infiniteSequence()) {
   if (num % 2 === 0) evens.push(num)
   if (evens.length >= 2) break
 }
-console.log('First 2 evens:', evens)
+// console.log('First 2 evens:', evens)
 ```
 
 </div>
@@ -1312,7 +1321,7 @@ hideInToc: true
 
 ## DOM Node Iterator
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const createNodeIterator = (element) => ({
   [Symbol.iterator]: function* () {
     const walker = document.createTreeWalker( element, NodeFilter.SHOW_ELEMENT, null, false )
@@ -1325,7 +1334,7 @@ let count = 0
 for (const node of bodyNodes) {
   count++
   if (count > 5) break // Limit output
-  console.log('Node:', node.tagName)
+  // console.log('Node:', node.tagName)
 }
 ```
 
@@ -1334,7 +1343,7 @@ for (const node of bodyNodes) {
 
 ## Pagination Iterator
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const createPaginationIterator = (data, pageSize) => ({
   [Symbol.iterator]: function* () {
     for (let i = 0; i < data.length; i += pageSize) {
@@ -1348,12 +1357,12 @@ const pages = createPaginationIterator(numbers, 3)
 
 let pageNum = 1
 for (const page of pages) {
-  console.log(`Page ${pageNum}:`, page)
+  // console.log(`Page ${pageNum}:`, page)
   pageNum++
 }
 
 // Can also use with spread operator
-console.log('All pages:', [...createPaginationIterator(numbers, 4)])
+// console.log('All pages:', [...createPaginationIterator(numbers, 4)])
 ```
 
 </div>
@@ -1391,21 +1400,21 @@ title: Examples on Map
 
 For example:
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 //create a new Map
 const userInfo = new Map()
-console.log(userInfo)
+// console.log(userInfo)
 userInfo.set('name', 'snickers')
 userInfo.set('age', 30)
 userInfo.set('email', 'snick@gmail.com')
-console.log(userInfo)
-console.log(userInfo.get('name'))
-console.log(userInfo.has('name'))
+// console.log(userInfo)
+// console.log(userInfo.get('name'))
+// console.log(userInfo.has('name'))
 userInfo.delete('age')
-console.log(userInfo)
-console.log(userInfo.size) //returns the current element count
+// console.log(userInfo)
+// console.log(userInfo.size) //returns the current element count
 userInfo.clear() //removes everything from the map
-console.log(userInfo)
+// console.log(userInfo)
 ```
 
 ---
@@ -1415,22 +1424,22 @@ title: Examples on Set
 
 For example:
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 //create a new Set
 const userInfo = new Set()
-console.log(userInfo)
+// console.log(userInfo)
 userInfo.add('snickers')
 userInfo.add(30)
 userInfo.add('snick@gmail.com')
 userInfo.add('snickers') // Duplicate - won't be added
-console.log(userInfo)
-console.log(userInfo.has('snickers'))
-console.log(userInfo.has(30))
+// console.log(userInfo)
+// console.log(userInfo.has('snickers'))
+// console.log(userInfo.has(30))
 userInfo.delete(30)
-console.log(userInfo)
-console.log(userInfo.size) //returns the current element count
+// console.log(userInfo)
+// console.log(userInfo.size) //returns the current element count
 userInfo.clear() //removes everything from the set
-console.log(userInfo)
+// console.log(userInfo)
 ```
 
 ---
@@ -1449,34 +1458,34 @@ ECMAScript 2025 introduced **7 new Set methods** that provide native set operati
 <div>
 
 **Union & Intersection**
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const frontendSkills = new Set(['JavaScript', 'React', 'CSS'])
 const backendSkills = new Set(['JavaScript', 'Node.js', 'Python'])
 
 // All skills combined
 const allSkills = frontendSkills.union(backendSkills)
-console.log('Union:', allSkills)
+// console.log('Union:', allSkills)
 
 // Common skills only
 const commonSkills = frontendSkills.intersection(backendSkills)
-console.log('Intersection:', commonSkills)
+// console.log('Intersection:', commonSkills)
 ```
 
 </div>
 <div>
 
 **Difference Operations**
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const teamA = new Set(['Alice', 'Bob', 'Charlie'])
 const teamB = new Set(['Bob', 'Charlie', 'David'])
 
 // Only in teamA
 const uniqueToA = teamA.difference(teamB)
-console.log('Difference:', uniqueToA)
+// console.log('Difference:', uniqueToA)
 
 // In either team but not both
 const exclusive = teamA.symmetricDifference(teamB)
-console.log('Symmetric Difference:', exclusive)
+// console.log('Symmetric Difference:', exclusive)
 ```
 
 </div>
@@ -1492,35 +1501,35 @@ hideInToc: true
 <div>
 
 **Subset & Superset**
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const managers = new Set(['John', 'Jane'])
 const allEmployees = new Set(['John', 'Jane', 'Bob', 'Alice'])
 
 // Are all managers employees?
 const isSubset = managers.isSubsetOf(allEmployees)
-console.log('Managers are subset:', isSubset)
+// console.log('Managers are subset:', isSubset)
 
 // Do we have all managers?
 const isSuperset = allEmployees.isSupersetOf(managers)
-console.log('Company has all managers:', isSuperset)
+// console.log('Company has all managers:', isSuperset)
 ```
 
 </div>
 <div>
 
 **Disjoint Check**
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const frontendTeam = new Set(['Alice', 'Bob'])
 const backendTeam = new Set(['Charlie', 'David'])
 const fullstackTeam = new Set(['Alice', 'Eve'])
 
 // No overlap between frontend and backend?
 const noOverlap = frontendTeam.isDisjointFrom(backendTeam)
-console.log('Teams are separate:', noOverlap)
+// console.log('Teams are separate:', noOverlap)
 
 // Any overlap with fullstack?
 const hasOverlap = frontendTeam.isDisjointFrom(fullstackTeam)
-console.log('No fullstack overlap:', hasOverlap)
+// console.log('No fullstack overlap:', hasOverlap)
 ```
 
 </div>
@@ -1558,7 +1567,7 @@ const isSubset = [...setA].every(x => setB.has(x))
 <div>
 
 **✅ The New Way - Native Methods**
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const setA = new Set(['a', 'b', 'c'])
 const setB = new Set(['b', 'c', 'd'])
 
@@ -1568,14 +1577,14 @@ const intersection = setA.intersection(setB)
 const difference = setA.difference(setB)
 const isSubset = setA.isSubsetOf(setB)
 
-console.log('Union:', union)
-console.log('Intersection:', intersection)
-console.log('Difference:', difference)
-console.log('Is subset:', isSubset)
+// console.log('Union:', union)
+// console.log('Intersection:', intersection)
+// console.log('Difference:', difference)
+// console.log('Is subset:', isSubset)
 
 // Chainable operations
 const result = setA.union(setB).difference(new Set(['d']))
-console.log('Chained result:', result)
+// console.log('Chained result:', result)
 ```
 
 </div>
@@ -1587,7 +1596,7 @@ hideInToc: true
 
 ### Map can also use objects as keys. How tho 🤔?
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let john = { name: 'John' }
 
 // for every user, let's store their visits count
@@ -1596,12 +1605,12 @@ let visitsCountMap = new Map()
 // john is the key for the map
 visitsCountMap.set(john, 123)
 
-alert(visitsCountMap.get(john)) // 123
+console.log(visitsCountMap.get(john)) // 123
 ```
 
 <p><span class='text-red'>Note:</span> Using objects as keys is one of the most notable and important Map features. The same does not count for Object. String as a key in Object is fine, but we can't use another Object as a key in Object.</p>
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let john = { name: 'John' }
 let ben = { name: 'Ben' }
 
@@ -1611,7 +1620,7 @@ visitsCountObj[ben] = 234 // try to use ben object as the key
 visitsCountObj[john] = 123 // try to use john object as the key, ben object will get replaced
 
 // That's what got written!
-alert(visitsCountObj['[object Object]']) // 123
+console.log(visitsCountObj['[object Object]']) // 123
 ```
 
 ---
@@ -1635,11 +1644,11 @@ hideInToc: true
 * No `size` property
 * Keys can be garbage collected
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const wm = new WeakMap()
 let user = { name: 'John' }
 wm.set(user, 'user metadata')
-console.log(wm.has(user), wm.get(user))
+// console.log(wm.has(user), wm.get(user))
 user = null
 ```
 
@@ -1654,7 +1663,7 @@ user = null
 * No `size` property
 * Values can be garbage collected
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const ws = new WeakSet()
 let user1 = { name: 'Alice' }
 let user2 = { name: 'Bob' }
@@ -1662,7 +1671,7 @@ let user2 = { name: 'Bob' }
 // Add objects to WeakSet
 ws.add(user1)
 ws.add(user2)
-console.log(ws.has(user1), ws.has(user2));
+// console.log(ws.has(user1), ws.has(user2));
 user1 = null
 ```
 
@@ -1679,7 +1688,8 @@ hideInToc: true
 <div>
 
 **🔐 Private Data Storage**
-```js {monaco-run}
+
+```js {monaco-run} {autorun: false}
 const privateData = new WeakMap()
 
 class User {
@@ -1697,14 +1707,16 @@ class User {
 }
 
 const user = new User('John')
-console.log(user.getPrivateData())
+// console.log(user.getPrivateData())
 ```
 
 </div>
+
 <div>
 
 **📊 Object Metadata**
-```js {monaco-run}
+
+```js {monaco-run} {autorun: false}
 const visited = new WeakSet()
 
 function markAsVisited(obj) {
@@ -1717,7 +1729,7 @@ function isVisited(obj) {
 
 const page = { url: '/home' }
 markAsVisited(page)
-console.log(isVisited(page)) // true
+// console.log(isVisited(page)) // true
 
 // When page is no longer referenced,
 // it's automatically removed from visited
@@ -1756,7 +1768,7 @@ hideInToc: true
 
 ## Object.keys & Object.values
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const user = { name: 'John', age: 30, city: 'NYC', email: 'john@example.com' }
 
 const keys = Object.keys(user)
@@ -1764,7 +1776,7 @@ const values = Object.values(user)
 const hasEmail = Object.keys(user).includes('email')
 const allStrings = Object.values(user).every(val => typeof val === 'string')
 
-console.log('Keys:', keys)
+// console.log('Keys:', keys)
 
 // Practical usage
 
@@ -1775,7 +1787,7 @@ console.log('Keys:', keys)
 
 ## Object.entries & Object.fromEntries
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const scores = { math: 85, english: 92, science: 78 }
 
 const entries = Object.entries(scores)
@@ -1808,7 +1820,7 @@ hideInToc: true
 
 ## Basic Grouping
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const students = [ { name: 'Alice', grade: 'A', age: 20 }, { name: 'Bob', grade: 'B', age: 19 }, { name: 'Charlie', grade: 'A', age: 21 }, { name: 'David', grade: 'B', age: 20 }, { name: 'Eve', grade: 'C', age: 19 } ]
 
 // Group by grade
@@ -1816,7 +1828,7 @@ try {
   const byGrade = Object.groupBy(students, student => student.grade)
   // console.log('By grade:', byGrade)
 } catch (e) {
-  console.log('groupby is not available')
+  // console.log('groupby is not available')
 }
 ```
 
@@ -1825,7 +1837,7 @@ try {
 
 ## Advanced Grouping
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const products = [ { name: 'Laptop', price: 1200, category: 'Electronics' }, { name: 'Phone', price: 800, category: 'Electronics' }, { name: 'Shirt', price: 30, category: 'Clothing' }, { name: 'Shoes', price: 80, category: 'Clothing' }, { name: 'Book', price: 15, category: 'Education' } ]
 
 // Group by price range
@@ -1837,9 +1849,9 @@ const groupByPriceRange = (product) => {
 
 try {
   const byPriceRange = Object.groupBy(products, groupByPriceRange)
-  // console.log('By price range:', byPriceRange)
+  console.log('By price range:', byPriceRange)
 } catch (e) {
-  // console.log('Group is not available')
+  console.log('Group is not available')
 }
 ```
 
@@ -1862,18 +1874,18 @@ hideInToc: true
 
 ## Array Destructuring
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const colors = ['red', 'green', 'blue', 'yellow']
 
 // Basic destructuring
 const [first, second] = colors
-console.log('First:', first, 'Second:', second)
+// console.log('First:', first, 'Second:', second)
 const [, , third] = colors
-console.log('Third:', third)
+// console.log('Third:', third)
 const [primary, ...others] = colors
-console.log('Primary:', primary, 'Others:', others)
+// console.log('Primary:', primary, 'Others:', others)
 const [a, b, c, d, e = 'default'] = colors
-console.log('Fifth:', e)
+// console.log('Fifth:', e)
 ```
 
 </div>
@@ -1881,7 +1893,7 @@ console.log('Fifth:', e)
 
 ## Object Destructuring
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const user = { name: 'John', age: 30, city: 'NYC', email: 'john@example.com' }
 
 const { name, age } = user
@@ -1912,7 +1924,7 @@ hideInToc: true
 
 ## Nested Object Destructuring
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const user = {
   name: 'John',
   address: { street: '123 Main St', city: 'NYC', country: 'USA' },
@@ -1925,10 +1937,10 @@ const {
   hobbies: [firstHobby, ...otherHobbies]
 } = user
 
-console.log('Name:', name)
-console.log('City:', city, 'Country:', country)
-console.log('First hobby:', firstHobby)
-console.log('Other hobbies:', otherHobbies)
+// console.log('Name:', name)
+// console.log('City:', city, 'Country:', country)
+// console.log('First hobby:', firstHobby)
+// console.log('Other hobbies:', otherHobbies)
 ```
 
 </div>
@@ -1936,7 +1948,7 @@ console.log('Other hobbies:', otherHobbies)
 
 ## Mixed Array & Object Destructuring
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const response = {
   status: 'success',
   data: [ { id: 1, name: 'Alice', scores: [85, 92, 78] }, { id: 2, name: 'Bob', scores: [90, 88, 85] } ]
@@ -1948,9 +1960,9 @@ const {
   data: [ { name: firstName, scores: [firstScore] }, { name: secondName, scores: [, secondScore] } ]
 } = response
 
-console.log('Status:', status)
-console.log('First user:', firstName, 'Score:', firstScore)
-console.log('Second user:', secondName, 'Score:', secondScore)
+// console.log('Status:', status)
+// console.log('First user:', firstName, 'Score:', firstScore)
+// console.log('Second user:', secondName, 'Score:', secondScore)
 ```
 
 </div>
@@ -1971,7 +1983,7 @@ hideInToc: true
 
 ## Object Parameter Destructuring
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // Instead of: function createUser(options) { ... }
 function createUser({ name, age, email, role = 'user' }) {
   return { id: Date.now(), name, age, email, role, createdAt: new Date() }
@@ -1979,8 +1991,8 @@ function createUser({ name, age, email, role = 'user' }) {
 
 const user1 = createUser({ name: 'John', age: 30, email: 'john@example.com' })
 const user2 = createUser({ name: 'Admin', age: 25, email: 'admin@example.com', role: 'admin' })
-console.log('User 1:', user1.name, user1.role)
-console.log('User 2:', user2.name, user2.role)
+// console.log('User 1:', user1.name, user1.role)
+// console.log('User 2:', user2.name, user2.role)
 ```
 
 </div>
@@ -1988,7 +2000,7 @@ console.log('User 2:', user2.name, user2.role)
 
 ## Array Parameter Destructuring
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 function processCoordinates([x, y, z = 0]) {
   return { x: x * 2, y: y * 2, z: z * 2 }
 }
@@ -2025,9 +2037,9 @@ To create a new Date object call `new Date()` with one of the following argument
 
 - new Date() : Without arguments – create a Date object for the current date and time:
 
-```js {monaco-run} {autorun:false}
+```js {monaco-run} {autorun: false}
 let now = new Date()
-alert(now)
+console.log(now)
 ```
 
 <div grid="~ cols-2">
@@ -2076,15 +2088,15 @@ The **Intl API** provides language-sensitive string comparison, number formattin
 - `Intl.Collator` - String comparison
 - `Intl.PluralRules` - Plural rule selection
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // Basic usage examples
 const date = new Date()
 const number = 1234567.89
 
-console.log('US:', new Intl.DateTimeFormat('en-US').format(date))
-console.log('DE:', new Intl.DateTimeFormat('de-DE').format(date))
-console.log('US Number:', new Intl.NumberFormat('en-US').format(number))
-console.log('DE Number:', new Intl.NumberFormat('de-DE').format(number))
+// console.log('US:', new Intl.DateTimeFormat('en-US').format(date))
+// console.log('DE:', new Intl.DateTimeFormat('de-DE').format(date))
+// console.log('US Number:', new Intl.NumberFormat('en-US').format(number))
+// console.log('DE Number:', new Intl.NumberFormat('de-DE').format(number))
 ```
 
 </div>
@@ -2092,7 +2104,7 @@ console.log('DE Number:', new Intl.NumberFormat('de-DE').format(number))
 
 ## Real-world Examples
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const price = 29.99;const date = new Date()
 const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
 const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
@@ -2124,7 +2136,7 @@ hideInToc: true
 
 ## Basic Date Formatting
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const date = new Date('2024-03-15T14:30:00')
 const usFormat = new Intl.DateTimeFormat('en-US')
 const ukFormat = new Intl.DateTimeFormat('en-GB')
@@ -2132,7 +2144,7 @@ const deFormat = new Intl.DateTimeFormat('de-DE')
 const jaFormat = new Intl.DateTimeFormat('ja-JP')
 const longFormat = new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
-console.log(usFormat.format(date));
+// console.log(usFormat.format(date));
 // console.log(ukFormat.format(date));
 // console.log(deFormat.format(date));
 // console.log(jaFormat.format(date));
@@ -2144,7 +2156,7 @@ console.log(usFormat.format(date));
 
 ## Advanced Formatting Options
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const date = new Date('2024-03-15T14:30:00')
 
 const timeFormat = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })
@@ -2174,7 +2186,7 @@ hideInToc: true
 
 ## Number & Currency Formatting
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const number = 1234567.89; const smallNumber = 0.123;
 
 const usNumber = new Intl.NumberFormat('en-US')
@@ -2194,7 +2206,7 @@ const percent = new Intl.NumberFormat('en-US', { style: 'percent' })
 
 ## Advanced Number Formatting
 
-```js {monaco-run}{autorun: false}
+```js {monaco-run} {autorun: false}
 const number = 1234567.89
 
 const customFormat = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 })
@@ -2249,12 +2261,12 @@ hideInToc: true
 </div>
 
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 if (typeof Temporal !== 'undefined') {
   const now = Temporal.Now.plainDateISO(); const tomorrow = now.add({ days: 1 });
-  console.log(now.toString(), tomorrow.toString())
+  // console.log(now.toString(), tomorrow.toString())
 } else {
-  console.log('Temporal not available yet')
+  // console.log('Temporal not available yet')
 }
 ```
 
@@ -2284,13 +2296,13 @@ if (typeof Temporal !== 'undefined') {
 </div>
 
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 try {
   const date1 = Temporal.PlainDate.from('2024-03-15'); const date2 = Temporal.PlainDate.from('2024-03-20');
   const duration = date1.until(date2); const futureDate = date1.add({ months: 2, days: 5 });
-  console.log(duration.toString(), futureDate.toString()) //P5D
+  // console.log(duration.toString(), futureDate.toString()) //P5D
 } catch (e) {
-  console.log('Temporal not available, using Date fallback')
+  // console.log('Temporal not available, using Date fallback')
 }
 ```
 
@@ -2315,10 +2327,10 @@ JSON (JavaScript Object Notation) is a lightweight data interchange format. Java
 
 **JSON.stringify()** - Converts JavaScript objects to JSON strings
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const obj = { name: "John", age: 30, city: "New York" }
 const jsonString = JSON.stringify(obj)
-console.log(jsonString)
+// console.log(jsonString)
 // Output: {"name":"John","age":30,"city":"New York"}
 ```
 
@@ -2327,10 +2339,10 @@ console.log(jsonString)
 
 **JSON.parse()** - Converts JSON strings to JavaScript objects
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const jsonString = '{"name":"John","age":30,"city":"New York"}'
 const obj = JSON.parse(jsonString)
-console.log(obj)
+// console.log(obj)
 // Output: {name: "John", age: 30, city: "New York"}
 ```
 
@@ -2347,15 +2359,15 @@ Objects can define a custom `toJSON()` method to control how they are converted 
 
 ### Built-in toJSON() - Date Example
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const date = new Date('2023-12-25T10:30:00Z')
-console.log( date, date.toJSON())
-console.log("Date.toJSON():", date.toJSON(), JSON.stringify(date))
+// console.log( date, date.toJSON())
+// console.log("Date.toJSON():", date.toJSON(), JSON.stringify(date))
 ```
 
 ### Custom toJSON() Implementation
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 class Person {
   constructor(name, age, email) { this.name = name; this.age = age; this.email = email; this.password = "secret123"; }
   toJSON() {
@@ -2374,7 +2386,7 @@ hideInToc: true
 
 ### Security & Data Filtering
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 class BankAccount {
   constructor(accountNumber, balance, owner) { this.accountNumber = accountNumber; this.balance = balance; this.owner = owner; this.transactions = []; }
   toJSON() {
@@ -2398,7 +2410,7 @@ hideInToc: true
 
 ### toJSON() Returning Different Types
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 class Temperature {
   constructor(celsius) {
     this.celsius = celsius
@@ -2416,7 +2428,7 @@ const temp = new Temperature(25)
 
 ### Conditional toJSON() Logic
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 class User {
   constructor(username, email, isAdmin = false) { this.username = username; this.email = email; this.isAdmin = isAdmin; this.loginCount = 0; }
   toJSON() {
@@ -2430,7 +2442,7 @@ class User {
 }
 const regularUser = new User("johndoe", "john@example.com")
 const adminUser = new User("admin", "admin@example.com", true)
-// console.log(JSON.stringify(regularUser), JSON.stringify(adminUser))
+console.log(JSON.stringify(regularUser), JSON.stringify(adminUser))
 ```
 
 </div>
