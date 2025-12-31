@@ -8,7 +8,7 @@ info: |
   join at [AltSchool Africa](https://altschoolafrica.com)
 author: Oluwasetemi
 download: true
-browserExporter: true
+browserExporter: false
 exportFilename: javascript-note
 export:
   format: pdf
