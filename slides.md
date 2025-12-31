@@ -12,10 +12,13 @@ browserExporter: true
 exportFilename: javascript-note
 export:
   format: pdf
-  timeout: 2600000
+  timeout: 600000
   dark: false
   withClicks: false
   withToc: false
+mermaid:
+  theme: default
+  timeout: 180000
 # TODO: add a svg favicon
 # favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center

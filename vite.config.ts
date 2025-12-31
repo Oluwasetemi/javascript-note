@@ -3,6 +3,38 @@ import { defineConfig } from 'vite'
 import '@slidev/cli'
 
 export default defineConfig({
+  build: {
+    chunkSizeWarningLimit: 2000,
+    sourcemap: false, // Disable source maps to save memory and build time
+    minify: 'esbuild', // Use esbuild for faster minification
+    target: 'es2015', // Target modern browsers to reduce polyfills
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Separate Monaco Editor into its own chunk
+          if (id.includes('monaco-editor')) {
+            return 'monaco'
+          }
+          // Separate Shiki into its own chunk
+          if (id.includes('shiki')) {
+            return 'shiki'
+          }
+          // Separate Babel into its own chunk
+          if (id.includes('@babel/standalone')) {
+            return 'babel'
+          }
+          // Vue vendor chunk
+          if (id.includes('vue') || id.includes('@vueuse')) {
+            return 'vue-vendor'
+          }
+          // React vendor chunk
+          if (id.includes('react') || id.includes('react-dom')) {
+            return 'react-vendor'
+          }
+        },
+      },
+    },
+  },
   slidev: {
     markdown: {
       markdownItSetup(md) {
