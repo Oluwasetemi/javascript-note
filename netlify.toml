@@ -1,6 +1,6 @@
 [build]
 publish = "dist"
-command = "bun run build:netlify"
+command = "bun run build"
 
 [build.environment]
 NODE_VERSION = "20"
