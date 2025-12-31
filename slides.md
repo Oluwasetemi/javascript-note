@@ -8,14 +8,17 @@ info: |
   join at [AltSchool Africa](https://altschoolafrica.com)
 author: Oluwasetemi
 download: true
-browserExporter: true
+browserExporter: false
 exportFilename: javascript-note
 export:
   format: pdf
-  timeout: 1600000
+  timeout: 600000
   dark: false
   withClicks: false
   withToc: false
+mermaid:
+  theme: default
+  timeout: 180000
 # TODO: add a svg favicon
 # favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center

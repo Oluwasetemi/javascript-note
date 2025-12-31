@@ -130,7 +130,7 @@ When you add the async attribute to a script tag, the browser downloads the scri
 <p>...content before scripts...</p>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => // alert('DOM ready!'))
+  document.addEventListener('DOMContentLoaded', () => console.log('DOM ready!'))
 </script>
 
 <script
@@ -163,7 +163,7 @@ When you use the defer attribute, the browser downloads the script in parallel w
 
 <script>
   document.addEventListener('DOMContentLoaded', () =>
-    // alert('DOM ready after defer!'),
+    console.log('DOM ready after defer!'),
   )
 </script>
 
@@ -312,8 +312,8 @@ hideInToc: true
 ```html
 <script
   src="external.js"
-  <!--onload="console.log('Script loaded!')"-->
-  <!--onerror="console.log('Script failed to load')"-->
+  onload="console.log('Script loaded!')"
+  onerror="console.log('Script failed to load')"
 ></script>
 
 <script>
@@ -349,13 +349,13 @@ hideInToc: true
 
 <!-- prettier-ignore -->
 ```html
-<!--<link rel="stylesheet" href="styles.css" onload="console.log('Stylesheet loaded!')" -->
-<!--onerror="console.log('Stylesheet failed to load')" />-->
+<link rel="stylesheet" href="styles.css" onload="console.log('Stylesheet loaded!')" 
+onerror="console.log('Stylesheet failed to load')" />
 <script>
   function loadStylesheet(url) {
     return new Promise((resolve, reject) => {
       const link = document.createElement('link'); link.rel = 'stylesheet'; link.href = url;
-      // link.onload = function () { console.log('Stylesheet loaded successfully!'); resolve(link); }
+      link.onload = function () { console.log('Stylesheet loaded successfully!'); resolve(link); }
       link.onerror = function () {
         // console.log('Error loading stylesheet')
         reject(new Error(`Stylesheet load error for ${url}`))

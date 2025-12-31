@@ -73,7 +73,7 @@ hideInToc: true
 
 - To add properties to a value, you need to create an object. For example:
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let strObj = { value: 'Hello' }
 strObj.test = 5
 // console.log(strObj.test) // Output: 5
@@ -133,7 +133,7 @@ let microsec = 1e-6 // Scientific notation
 
 ```js {monaco-run} {autorun: false}
 // Hexadecimal (0x)
-// alert(0xff) // 255
+console.log(0xff) // 255
 
 // Binary (0b)
 let num1 = 0b11111111 // 255
@@ -143,8 +143,8 @@ let num2 = 0o377 // 255
 
 // Converting to different bases
 let num3 = 255
-// alert(num3.toString(16)) // "ff"
-// alert(num3.toString(2)) // "11111111"
+console.log(num3.toString(16)) // "ff"
+console.log(num3.toString(2)) // "11111111"
 ```
 
 </div>
@@ -385,7 +385,7 @@ let arr = [] // a shorter syntax and it is the preferred method
 ```
 
 <p>Let declare an array of fruits and find the length of the array</p>
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let fruits = ["mango", "orange", "apple", "grape"] // An array of fruits
 <!--console.log(fruits)-->
 <!--console.log(fruits.length) // The total count of the elements in the array is its length-->
@@ -1605,7 +1605,7 @@ let visitsCountMap = new Map()
 // john is the key for the map
 visitsCountMap.set(john, 123)
 
-// alert(visitsCountMap.get(john)) // 123
+console.log(visitsCountMap.get(john)) // 123
 ```
 
 <p><span class='text-red'>Note:</span> Using objects as keys is one of the most notable and important Map features. The same does not count for Object. String as a key in Object is fine, but we can't use another Object as a key in Object.</p>
@@ -1620,7 +1620,7 @@ visitsCountObj[ben] = 234 // try to use ben object as the key
 visitsCountObj[john] = 123 // try to use john object as the key, ben object will get replaced
 
 // That's what got written!
-// alert(visitsCountObj['[object Object]']) // 123
+console.log(visitsCountObj['[object Object]']) // 123
 ```
 
 ---
@@ -1644,7 +1644,7 @@ hideInToc: true
 * No `size` property
 * Keys can be garbage collected
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const wm = new WeakMap()
 let user = { name: 'John' }
 wm.set(user, 'user metadata')
@@ -2039,7 +2039,7 @@ To create a new Date object call `new Date()` with one of the following argument
 
 ```js {monaco-run} {autorun: false}
 let now = new Date()
-// alert(now)
+console.log(now)
 ```
 
 <div grid="~ cols-2">

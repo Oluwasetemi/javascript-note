@@ -39,7 +39,7 @@ For instance, if we have a file `sayHi.js` exporting a function:
 ```js
 // 📁 sayHi.js
 export function sayHi(user) {
-  // alert(`Hello, ${user}!`)
+  console.log(`Hello, ${user}!`)
 }
 ```
 
@@ -52,7 +52,7 @@ export function sayHi(user) {
 ```js
 // 📁 sayHi.js
 function sayHi(user) {
-  // alert(`Hello, ${user}!`)
+  console.log(`Hello, ${user}!`)
 }
 export { sayHi }
 ```

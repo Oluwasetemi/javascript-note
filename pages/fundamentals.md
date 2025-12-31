@@ -53,7 +53,7 @@ hideInToc: true
 
 - Variables declared with <span class='text-red'> const </span> do not change and cannot be reassigned.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const tutor = 'Mr Setemi'
 // console.log(tutor)
 // the data Mr setemi is now assigned to variable tutor
@@ -65,7 +65,7 @@ tutor = 'Mr Ojo' //can not be reassigned
 
 - Variables declared with <span class="text-red">'let'</span> and <span class="text-red">'var'</span> can change and be reassigned.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let tech_School = 'Altschool'
 tech_School = 'Altschool Africa' // Tech school is now reassigned to Altschool Africa
 // console.log(tech_School)
@@ -371,13 +371,21 @@ name: More on Operators
 
 5. Less than ( < ): Checks if the left value is smaller is smaller than the right.
 
+<<<<<<< HEAD
 ```js {monaco-run}
+=======
+```js {monaco-run} {autorun: false}
+>>>>>>> refs/remotes/origin/main
 // console.log(5 < 10)
 ```
 
 6. Greater than or equal to ( >= ): Checks if the left value is bigger than or the same as the right.
 
+<<<<<<< HEAD
 ```js {monaco-run}
+=======
+```js {monaco-run} {autorun: false}
+>>>>>>> refs/remotes/origin/main
 // console.log(10 >= 10)
 ```
 
@@ -388,13 +396,17 @@ name: More Examples on Operators
 
 7. Less than or equal to ( <= ): Checks if the left is smaller than or the same as the right.
 
+<<<<<<< HEAD
 ```js {monaco-run}
+=======
+```js {monaco-run} {autorun: false}
+>>>>>>> refs/remotes/origin/main
 // console.log(5 <= 5)
 ```
 
 - Example: Age-based content access
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let userAge = 15
 let contentRating = 13
 if (userAge >= contentRating) {
@@ -418,14 +430,24 @@ hideInToc: true
 
 2. && (AND): returns true if both operands are truthy. If either operand is falsy, the entire expression evaluate to false. `result = a && b;`
 
+<<<<<<< HEAD
 ```js {monaco-run} {autorun: false}
 // alert(true && true); // alert(false && true)
+=======
+```js{monaco-run} {autorun: false}
+console.log(true && true); console.log(false && true)
+>>>>>>> refs/remotes/origin/main
 ```
 
 3. ! (NOT): it inverts the truth value of an expression, meaning returns false if expression is truthy, and true if expression is falsy. `result = !expression;`
 
+<<<<<<< HEAD
 ```js {monaco-run} {autorun: false}
 // alert(!true); // alert(!0)
+=======
+```js{monaco-run} {autorun: false}
+console.log(!true); console.log(!0)
+>>>>>>> refs/remotes/origin/main
 ```
 
 ---
@@ -577,7 +599,7 @@ hideInToc: true
 name: Switch Example
 ---
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let day
 switch (new Date().getDay()) {
   case 0:
@@ -780,12 +802,16 @@ title: Global and Local Variables
 
 A variable declared outside a function, becomes <span text-red>global variable</span> also known as outer variable. A function can access an outer variable, it can modify it too.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 let university = 'AltSchool Africa'
 // code here CAN use university
 function school() {
   let message = `You are a student of ${university}`
+<<<<<<< HEAD
   // alert(message)
+=======
+  console.log(message)
+>>>>>>> refs/remotes/origin/main
   //code here CAN also use university
 }
 ```
@@ -801,7 +827,7 @@ title: Local Variables
 
 A variable declared inside a function is only visible inside the function. Local variables are only recognized inside their function.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // code here can NOT use university
 function university() {
   let university = 'AltSchool Africa'

@@ -1,9 +1,14 @@
 [build]
 publish = "dist"
-command = "npm run build"
+command = "bun run build:netlify"
 
 [build.environment]
 NODE_VERSION = "20"
+NODE_OPTIONS = "--max_old_space_size=4096"
+# Use Bun for faster installs and builds
+BUN_VERSION = "1.3.5"
+# Disable source maps to save memory during build
+GENERATE_SOURCEMAP = "false"
 
 [[redirects]]
 from = "/.well-known/*"

@@ -34,7 +34,7 @@ Events are actions or occurrences that happen in the system you are programming,
 Handlers are functions that run in response to events. They can be assigned to handle events. We have the HTML-attribute, DOM-property, and `addEventListener` method to assign handlers. Use `on<event>` properties to assign handlers in HTML or DOM properties.
 
 ```html
-<button onclick="// alert('Click!')">Click me</button>
+<button onclick="console.log('Click!')">Click me</button>
 ```
 
 </v-clicks>
@@ -51,7 +51,7 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 <button id="elem">Click me</button>
 <script>
   elem.onclick = function () {
-    // alert('Click!')
+    console.log('Click!')
   }
 </script>
 ```
@@ -60,12 +60,12 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 
 The `addEventListener` method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with `removeEventListener`.
 
-```js {monaco}
+```js {monaco-run} {autorun: false}
 elem.addEventListener('click', function () {
-  // alert('First handler')
+  console.log('First handler')
 })
 elem.addEventListener('click', function () {
-  // alert('Second handler')
+  console.log('Second handler')
 })
 ```
 
@@ -96,7 +96,7 @@ interface AddEventListenerOptions extends EventListenerOptions {
 
 ```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="277"] h1`)
-const handler = () => // alert('Click!')
+const handler = () => console.log('Click!')
 elem.addEventListener('click', handler, { once: true })
 // elem.addEventListener('mouseover', handler);
 ```
@@ -128,12 +128,12 @@ elem.addEventListener('click', function (event) {
 })
 ```
 
-```html {monaco}
+```html {monaco} {autorun: false}
 <button id="elem">Click me</button>
 <script>
   let obj = {
     handleEvent(event) {
-      // alert(event.type + ' at ' + event.currentTarget)
+      console.log(event.type + ' at ' + event.currentTarget)
     },
   }
 
@@ -163,9 +163,9 @@ You can stop the bubbling by calling `event.stopPropagation()` or `event.stopImm
 <div flex="~">
 
 ```html
-<body onclick="// alert('body click')">
+<body onclick="console.log('body click')">
   <div id="elem" style="border: 1px solid black; padding: 10px">
-    <button onclick="// alert('button clicked')">Click me</button>
+    <button onclick="console.log('button clicked')">Click me</button>
   </div>
 </body>
 ```
@@ -276,13 +276,13 @@ class Menu {
     elem.onclick = this.onClick.bind(this)
   }
   save() {
-    // alert('saving')
+    console.log('saving')
   }
   load() {
-    // alert('loading')
+    console.log('loading')
   }
   search() {
-    // alert('searching')
+    console.log('searching')
   }
 
   onClick(event) {
@@ -348,14 +348,14 @@ To prevent the default action, we can use `event.preventDefault()`. returning `f
 const link = document.querySelector(`[data-slidev-no="284"] a`)
 link.addEventListener('click', function(event) {
   event.preventDefault(); event.stopPropagation();
-  // alert('Link click!');
+  console.log('Link click!');
 });
 ```
 
 ```js {monaco-run} {autorun: false}
 const h1 = document.querySelector(`[data-slidev-no="284"] h1`)
 h1.oncontextmenu = function (event) {
-  // alert('Content menu clicked')
+  console.log('Content menu clicked')
 }
 ```
 
@@ -408,7 +408,7 @@ hideInToc: true
 ```js
 let helloEvent = new Event('hello', { bubbles: true, cancelable: true })
 elem.addEventListener('hello', function (event) {
-  // alert('Hello from ' + event.target.tagName)
+  console.log('Hello from ' + event.target.tagName)
 })
 ```
 

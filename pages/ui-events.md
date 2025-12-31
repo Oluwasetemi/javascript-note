@@ -192,7 +192,7 @@ hideInToc: true
 ```js
 element.onclick = function (event) {
   if (event.ctrlKey) {
-    // alert('The combination of keys is pressed!')
+    console.log('The combination of keys is pressed!')
   }
 }
 ```
@@ -201,7 +201,7 @@ element.onclick = function (event) {
 <button id="button">Alt+Shift+Click on me!</button>
 <script>
   button.onclick = function (event) {
-    if (event.altKey && event.shiftKey) { // alert('Hooray!') }
+    if (event.altKey && event.shiftKey) { console.log('Hooray!') }
   }
 </script>
 ```

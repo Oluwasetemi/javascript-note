@@ -18,37 +18,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: 'lts/*'
+          bun-version: 1.3.5
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.20.0
-
-      # Cache node_modules
+      # Cache node_modules with Bun
       - name: Cache node modules
         uses: actions/cache@v4
         with:
           path: |
             node_modules
             **/node_modules
-            ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+            ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb', 'bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Install playwright browsers
-        run: pnpm exec playwright install chromium --with-deps
+        run: bun x playwright install chromium --with-deps
 
       - name: Create Export Directory
         run: mkdir -p ./_export
 
       - name: Export
         run: |
-          pnpm exec slidev export -- --format pdf --output ./_export/javascript-note.pdf
-          # pnpm exec slidev export -- --format pptx --output ./_export/javascript-note.pptx
+          bun run export:pdf
+          # bun run export:pptx
       - name: Generate Body
         run: |
           echo -e "## Welcome to the resource download section\n### Please download the class note in PDF or PPTX (just pictures in png) files from the assets section below"\n Best of Luck and may the fourth be with you. > ./_export/body.txt

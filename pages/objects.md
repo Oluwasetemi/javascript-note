@@ -72,8 +72,8 @@ let school = {
   name: 'AltSchool',
   sector: 'Education',
 }
-// alert(school.name)
-// alert(school.sector)
+console.log(school.name)
+console.log(school.sector)
 ```
 
 ---
@@ -125,9 +125,9 @@ let school = {
   sector: 'Education',
   'takes users': true,
 }
-// alert(school['takes users'])
+console.log(school['takes users'])
 // this will throw error
-// // alert( school."takes users");
+// console.log( school."takes users");
 ```
 
 ---
@@ -144,8 +144,8 @@ let school = {
   name: "Setemi Ojo",
   department: "Engineering",
 }
-let key = // prompt("What do you want to know about the user?", "department");
-// alert([school[key]]);
+let key = prompt("What do you want to know about the user?", "department");
+console.log([school[key]]);
 ```
 
 ---
@@ -192,7 +192,7 @@ const getUser = (name, age) => {
   };
 };
 let user = getUser("Setemi", 40);
-// alert(user.name);
+console.log(user.name);
 ```
 
 Checking the block scope above, we have the same words representing the values and the property key.
@@ -206,7 +206,7 @@ const getUser = (name, age) => {
   };
 };
 let user = getUser("Setemi", 40);
-// alert(user.age);
+console.log(user.age);
 ```
 
 ---
@@ -224,7 +224,7 @@ let obj = {
   return: 9
 };
 
-// alert( obj.for + obj.let + obj.return );
+console.log( obj.for + obj.let + obj.return );
 ```
 
 ---
@@ -238,15 +238,15 @@ It's possible in object to know if a property really exists, and there won't be 
 
 ```js {monaco-run} {autorun: false}
 let user = {name: "Setemi", age: 40};
-// alert( user.noSuchProperty === undefined );
+console.log( user.noSuchProperty === undefined );
 ```
 
 We can also make use of a special operator <kbd>in</kbd>
 
 ```js {monaco-run} {autorun: false}
 let user = {name: "Setemi", age: 40};
-// alert( "age" in user );
-// alert( "height" in user );
+console.log( "age" in user );
+console.log( "height" in user );
 ```
 
 When using the <kbd>in</kbd> keyword there must be a property name in a quoted string on the left side of <kbd>in</kbd>. Sometimes the property exists and it stores <kbd>undefined</kbd> which is why we can bring in the <kbd>in</kbd> method.
@@ -255,8 +255,8 @@ When using the <kbd>in</kbd> keyword there must be a property name in a quoted s
 let userDetails = {
   name: undefined
 };
-// alert( userDetails.name );
-// alert( "name" in userDetails );
+console.log( userDetails.name );
+console.log( "name" in userDetails );
 ```
 
 ---
@@ -284,8 +284,8 @@ let user = {
 };
 
 for (let key in user) {
-  // alert( key );
-  // console.log( user[key] );
+  console.log( key );
+  console.log( user[key] );
 }
 ```
 
@@ -326,8 +326,8 @@ let footballers = {
   "+1": "Ronaldo"
 }
 for (let footballer in footballers) {
-// alert(+footballer);
-// alert( footballers[footballer] );
+console.log(+footballer);
+console.log( footballers[footballer] );
 };
 ```
 
@@ -369,8 +369,8 @@ If two objects reference the same object, they are considered equal. However, if
 let obj1 = {};
 // 'obj2' is assigned the same reference as 'obj1'
 let obj2 = obj1;
-// alert(obj1 == obj2);
-// alert(obj1 === obj2);
+console.log(obj1 == obj2);
+console.log(obj1 === obj2);
 ```
 
 Take a look at this:
@@ -378,7 +378,7 @@ Take a look at this:
 ```js {monaco-run} {autorun: false}
 let obj1 = {};      // 'obj1' references a new empty object
 let obj2 = {};      // 'obj2' references another new empty object
-// alert(obj1 == obj2);  // false, because both variables reference different objects
+console.log(obj1 == obj2);  // false, because both variables reference different objects
 ```
 
 ---
@@ -402,7 +402,7 @@ const user = {
 }
 
 user.name = "Oluwasetemi Ojo";
-// alert(user.name);
+console.log(user.name);
 ```
 
 ---
@@ -431,7 +431,7 @@ for (let key in person) {
 copy.name = 'Oluwasetemi Ojo'
 
 // Display the 'name' property of the original 'person' object
-// alert(person.name)
+console.log(person.name)
 ```
 
 ---
@@ -492,10 +492,10 @@ let student = {
 };
 
 let clone = Object.assign({}, student);
-// alert( student.school === clone.school );
+console.log( student.school === clone.school );
 
 student.school.department = "Science";
-// alert(clone.school.department);
+console.log(clone.school.department);
 ```
 
 In the code above the <kbd>student</kbd> and <kbd>school</kbd> object are yet to be separated. To achieve a separation between both objects, we should
@@ -523,11 +523,11 @@ let leader = {
 };
 
 let clone = structuredClone(leader);
-// alert( leader === clone );
+console.log( leader === clone );
 
 
 leader.school.department = "Science";
-// alert(clone.school.department);
+console.log(clone.school.department);
 ```
 
 ---

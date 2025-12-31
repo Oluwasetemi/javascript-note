@@ -229,11 +229,11 @@ hideInToc: true
 ```js {monaco-run} {autorun: false}
 // Using the recursive method
 function raisePower(x, n){
-    if ( n == 1 ){
-        return x;
-    } else {
-        return x * raisePower(x, n - 1);
-    }
+  if ( n == 1 ){
+    return x;
+  } else {
+    return x * raisePower(x, n - 1);
+  }
 }
 // alert(raisePower(2, 3))
 ```
@@ -726,6 +726,7 @@ Variables inside the function are also removed unless they are referenced by som
 JavaScript uses garbage collection to automatically free up memory that is no longer reachable. As with any JavaScript object, the lexical environment and its variables are only kept in memory while they are reachable. Once there are no references left, the garbage collector cleans them up to free memory. This memory management process is important for performance, helping prevent memory leaks by discarding data that is no longer needed.
 
 </div>
+
 ```js {monaco-run} {autorun: false}
 function createUser() {
     let name = "John";
@@ -862,7 +863,11 @@ function exampleWithRest(a, ...rest) {
   // Function body
 }
 // Output: 1 (only 'a' is counted, rest parameter is excluded)
+<<<<<<< HEAD
 // alert(exampleWithRest.length);
+=======
+console.log(exampleWithRest.length);
+>>>>>>> refs/remotes/origin/main
 ```
 
 ---
@@ -1485,9 +1490,9 @@ hideInToc: true
 - Calling <kbd>new Toyota('Camry', 2024)</kbd>:
   This creates a new <kbd>Toyota</kbd> object with the <kbd>make</kbd> <kbd>'Camry'</kbd> and <kbd>year</kbd> <kbd>2024</kbd>, as well as the <kbd>category</kbd> <kbd>'car'</kbd>.
 
-- Alert:
-  The <kbd>alert</kbd> function pops up a message box.
-  <kbd>new Toyota('Camry', 2024).year</kbd> creates a new <kbd>Toyota</kbd> object and accesses its <kbd>year</kbd> property, which is <kbd>2024</kbd>. So, the alert will show <kbd>2024</kbd>.
+- console.log:
+  The <kbd>console.log</kbd> function pops up a message box.
+  <kbd>new Toyota('Camry', 2024).year</kbd> creates a new <kbd>Toyota</kbd> object and accesses its <kbd>year</kbd> property, which is <kbd>2024</kbd>. So, the console.log will show <kbd>2024</kbd>.
 
 ---
 hideInToc: true
@@ -1606,7 +1611,11 @@ function traditionalFunction() {
 traditionalFunction(1, 2, 3);
 
 const arrowFunction = () => {
+<<<<<<< HEAD
   // alert(arguments);
+=======
+  console.log(arguments);
+>>>>>>> refs/remotes/origin/main
 }
 
 arrowFunction(1, 2, 3);
