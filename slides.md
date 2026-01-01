@@ -1,14 +1,14 @@
 ---
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
 title: JavaScript Class Note
-titleTemplate: '%s - AltSchool Africa'
+titleTemplate: '%s - Oluwasetemi Ojo'
 info: |
   AltSchool JavaScript Class Notes
   making of world class developers
   join at [AltSchool Africa](https://altschoolafrica.com)
 author: Oluwasetemi
-download: true
-browserExporter: false
+download: false
+browserExporter: true
 exportFilename: javascript-note
 export:
   format: pdf
