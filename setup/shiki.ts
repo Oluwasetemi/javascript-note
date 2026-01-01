@@ -2,6 +2,11 @@ import { defineShikiSetup, ShikiSetupReturn } from '@slidev/types'
 
 export default defineShikiSetup((): ShikiSetupReturn => {
   return {
-    langs: ['tsx', 'jsx', 'ts', 'js', 'vue', 'html', 'shell', 'py', 'bash'],
+    themes: {
+      light: 'github-light',
+      dark: 'github-dark',
+    },
+    langs: [ 'jsx', 'js', 'sh', 'vue', 'html', 'css', 'markdown' ],
+    transformers: [],
   }
 })

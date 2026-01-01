@@ -8,20 +8,26 @@ hideInToc: true
 
 <TocIcon />
 
-<div mt-2 />
+<div class="mt-2 text-sm">
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Introduction: Callbacks</a>
-- <a @click="$slidev.nav.go($nav.currentPage+2)">Promise basics</a>
-- <a @click="$slidev.nav.go($nav.currentPage+3)">Promise chaining</a>
-- <a @click="$slidev.nav.go($nav.currentPage+4)">Error handling in Promises</a>
-- <a @click="$slidev.nav.go($nav.currentPage+5)">Promise API</a>
-- <a @click="$slidev.nav.go($nav.currentPage+6)">Promisify</a>
-- <a @click="$slidev.nav.go($nav.currentPage+7)">Microtasks</a>
-- <a @click="$slidev.nav.go($nav.currentPage+8)">Async/Await</a>
-- <a @click="$slidev.nav.go($nav.currentPage+9)">Callback Hell Problem</a>
-- <a @click="$slidev.nav.go($nav.currentPage+10)">Promise Static Methods</a>
-- <a @click="$slidev.nav.go($nav.currentPage+11)">Advanced Async/Await Patterns</a>
-- <a @click="$slidev.nav.go($nav.currentPage+12)">Common Pitfalls & Best Practices</a>
+- <a @click="$slidev.nav.go($nav.currentPage+2)">Callback Types</a>
+- <a @click="$slidev.nav.go($nav.currentPage+3)">Real-world Callback Examples</a>
+- <a @click="$slidev.nav.go($nav.currentPage+4)">Callback Patterns</a>
+- <a @click="$slidev.nav.go($nav.currentPage+5)">Creating Functions with Callbacks</a>
+- <a @click="$slidev.nav.go($nav.currentPage+6)">Promise basics</a>
+- <a @click="$slidev.nav.go($nav.currentPage+7)">Promise chaining</a>
+- <a @click="$slidev.nav.go($nav.currentPage+8)">Error handling in Promises</a>
+- <a @click="$slidev.nav.go($nav.currentPage+9)">Promise API</a>
+- <a @click="$slidev.nav.go($nav.currentPage+10)">Promisify</a>
+- <a @click="$slidev.nav.go($nav.currentPage+11)">Microtasks</a>
+- <a @click="$slidev.nav.go($nav.currentPage+12)">Async/Await</a>
+- <a @click="$slidev.nav.go($nav.currentPage+13)">Callback Hell Problem</a>
+- <a @click="$slidev.nav.go($nav.currentPage+14)">Promise Static Methods</a>
+- <a @click="$slidev.nav.go($nav.currentPage+15)">Advanced Async/Await Patterns</a>
+- <a @click="$slidev.nav.go($nav.currentPage+16)">Common Pitfalls & Best Practices</a>
+
+</div>
 
 ---
 hideInToc: true
@@ -29,19 +35,178 @@ hideInToc: true
 
 # Introduction: Callbacks
 
-Callback is a function that will be called when something has finished running or data is returned.
+A **callback** is a function passed as an argument to another function, which is then invoked inside the outer function to complete some kind of action or routine.
 
-```js
-getData(
-  function (data) {},
-  function (err) {},
-) {
-  if (true) {
+Callbacks are fundamental to JavaScript's asynchronous nature and are used extensively in:
+- Event handlers
+- Timer functions
+- HTTP requests
+- File operations
+- Array methods
 
+<div mt-4 />
+
+**Key Concept**: "I'll call you back when I'm done" - The function receiving the callback will execute it at the appropriate time.
+
+---
+hideInToc: true
+---
+
+# Callback Types
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+## Synchronous Callbacks
+
+Executed immediately within the function.
+
+```js {monaco-run} {autorun: false}
+// Array methods use synchronous callbacks
+const numbers = [1, 2, 3, 4, 5]
+
+numbers.forEach(function(num) {
+  console.log(num * 2)
+})
+
+const doubled = numbers.map(num => num * 2)
+console.log(doubled) // [2, 4, 6, 8, 10]
+```
+
+</div>
+<div>
+
+## Asynchronous Callbacks
+
+Executed later, after an operation completes.
+
+```js {monaco-run} {autorun: false}
+// setTimeout uses async callback
+console.log('Start')
+
+setTimeout(function() {
+  console.log('Callback executed after 2s')
+}, 2000)
+
+console.log('End')
+
+// Output order:
+// Start
+// End
+// Callback executed after 2s
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Real-world Callback Examples
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+## Event Listeners
+
+```js {monaco-run} {autorun: false}
+// Callback handles click event
+const button = document.createElement('button')
+button.textContent = 'Click me'
+document.body.appendChild(button)
+
+button.addEventListener('click', function(event) {
+  console.log('Button clicked!', event.target)
+})
+```
+
+</div>
+<div>
+
+## Timer Functions
+
+```js {monaco-run} {autorun: false}
+// setInterval with callback
+let count = 0
+
+const intervalId = setInterval(function() {
+  count++
+  console.log('Count:', count)
+
+  if (count >= 3) {
+    clearInterval(intervalId)
+    console.log('Stopped!')
   }
+}, 1000)
+```
 
-  err()
+</div>
+</div>
+
+---
+hideInToc: true
+---
+
+# Callback Patterns
+
+## Error-First Callbacks (Node.js Convention)
+
+The first parameter is reserved for an error object, the second for successful data.
+
+```js {monaco-run} {autorun: false}
+function readFile(filename, callback) {
+  // Simulate file reading
+  setTimeout(() => {
+    const error = filename === '' ? new Error('Filename required') : null
+    const data = error ? null : 'File content here'
+
+    callback(error, data)
+  }, 1000)
 }
+
+// Usage
+readFile('data.txt', function(err, data) {
+  if (err) {
+    console.error('Error reading file:', err.message)
+    return
+  }
+  console.log('File data:', data)
+})
+```
+
+---
+hideInToc: true
+---
+
+# Creating Functions that Accept Callbacks
+
+```js {monaco-run} {autorun: false}
+// Custom function that uses callbacks
+function fetchUser(userId, successCallback, errorCallback) {
+  setTimeout(() => {
+    // Simulate API call
+    if (userId > 0) {
+      const user = { id: userId, name: 'John Doe', email: 'john@example.com' }
+      successCallback(user)
+    } else {
+      errorCallback(new Error('Invalid user ID'))
+    }
+  }, 1500)
+}
+
+// Using the function
+console.log('Fetching user...')
+
+fetchUser(
+  1,
+  function(user) {
+    console.log('Success! User:', user.name, user.email)
+  },
+  function(error) {
+    console.error('Failed:', error.message)
+  }
+)
 ```
 
 ---

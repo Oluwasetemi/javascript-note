@@ -115,6 +115,8 @@ hideInToc: true
 
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler.
 
+<div grid="~ cols-2" gap="2">
+
 ```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="278"] h1`)
 
@@ -128,7 +130,7 @@ elem.addEventListener('click', function (event) {
 })
 ```
 
-```html {monaco} {autorun: false}
+```html {monaco-run} {autorun: false}
 <button id="elem">Click me</button>
 <script>
   let obj = {
@@ -140,6 +142,8 @@ elem.addEventListener('click', function (event) {
   elem.addEventListener('click', obj)
 </script>
 ```
+
+</div>
 
 </v-clicks>
 

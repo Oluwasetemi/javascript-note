@@ -8,7 +8,7 @@
     "build:netlify": "cross-env NODE_ENV=production NODE_OPTIONS='--openssl-legacy-provider --max_old_space_size=4096' slidev build --timeout 60000",
     "dev": "nodemon -e 'md,js,mjs,cjs,json' -w '../../packages/slidev/dist/*.mjs' --exec \"slidev ./slides.md --open=false --log=info --inspect\"",
     "export": "slidev export",
-    "export:pdf": "bun run export -- --timeout 120000 --with-toc --per-slide --output ./_export/javascript-note.pdf",
+    "export:pdf": "bun run export -- --timeout 120000 --with-toc  --output ./_export/javascript-note.pdf",
     "export:pptx": "bun run export -- --timeout 120000 --with-clicks false --format pptx --output ./_export/javascript-note.pptx",
     "format": "prettier --write ."
   },
