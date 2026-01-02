@@ -76,7 +76,7 @@ clicksStart: 1
 <v-clicks>
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="255"]`)
+const element = document.querySelector(`[data-slidev-no="256"]`)
 const h1 = element.querySelector('h1');
 // console.log(h1.textContent)
 
@@ -136,7 +136,7 @@ You can now traverse the DOM tree using the following based the relationships be
 - `nodeType`, `nodeName`, `nodeValue`
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="256"]`)
+const element = document.querySelector(`[data-slidev-no="258"]`)
 
 // console.log(element.parentNode);console.log(element.parentElement)
 // console.log(element.childNodes.length);console.log(element.children.length)
@@ -169,7 +169,7 @@ clicksStart: 1
 
 ```js {monaco-run} {autorun: false}
 // TODO: Fix the bug on the querySelector
-const table = document.querySelector(`[data-slidev-no="257"]`)
+const table = document.querySelector(`[data-slidev-no="259"]`)
 // console.log(table);
 // console.log(table.rows); console.log(table.tBodies); console.log(table.tHead); console.log(table.tFoot);
 // console.log(table.rows[0]); console.log(table.rows[0].cells); console.log(table.rows[0].cells[0]); //tbody //tr //td //th
@@ -225,7 +225,7 @@ You can search for elements in the DOM tree using the following methods:
 - `matches`, `closest`
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="259"]`);
+const element = document.querySelector(`[data-slidev-no="261"]`);
 // add a id, class to the element
 // console.log(element.id); console.log(element.className); console.log(element.tagName); console.log(element.tagName.toLowerCase());console.log(element.name);
 ```
@@ -244,7 +244,7 @@ clicksStart: 1
 Important classes to understand the node properties includes - `EventTarget`, `Node`, `Element`, `HTMLElement`-`HTMLBodyElement`-other interface discussed in the [HTML Note](https://karatu.oluwasetemi.dev/85), `Document`-`HTMLDocument`-`DocumentFragment`, `CharacterData`-`Text`-`Comment`.
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="260"]`);
+const element = document.querySelector(`[data-slidev-no="262"]`);
 
 console.dir(element)
 ```
@@ -252,7 +252,7 @@ console.dir(element)
 ## `innerHTML`, `outerHTML`, `textContent`, `innerText`, `nodeValue` or `data`, `hidden`
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="260"]`);
+const element = document.querySelector(`[data-slidev-no="262"]`);
 
 // console.log(element.innerHTML); console.log(element.outerHTML); console.log(element.textContent); console.log(element.innerText); console.log(element.nodeValue); console.log(element.data); console.log(element.hidden);
 ```
@@ -272,7 +272,7 @@ clicksStart: 1
 Attributes are the properties of the elements. They are the key-value pairs of the elements from the [convertion]{.text-xl.font-fast.text-red title='parsed or read'} of HTML to DOM. You can add your own properties to the element but the html attributes set is fixed according to the [specification](https://html.spec.whatwg.org/){.text-gradient}.
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="261"]`);
+const element = document.querySelector(`[data-slidev-no="263"]`);
 
 // console.log(element.getAttribute('data-slidev-no')); console.log(element.getAttribute('data-slidev-no') === element.dataset.slidevNo); console.log(element.dataset.slidevNo);
 ```
@@ -280,7 +280,7 @@ const element = document.querySelector(`[data-slidev-no="261"]`);
 ## `setAttribute`, `removeAttribute`, `hasAttribute`, `attributes`
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="261"]`);
+const element = document.querySelector(`[data-slidev-no="263"]`);
 
 // element.setAttribute('data-slidev-no', '96'); console.log(element.dataset.slidevNo);
 // element.removeAttribute('data-slidev-no'); console.log(element.dataset.slidevNo);
@@ -364,7 +364,7 @@ strong.appendChild(textNode1);
 div.appendChild(strong);
 div.appendChild(textNode2);
 
-const element = document.querySelector(`[data-slidev-no="263"] .default`);
+const element = document.querySelector(`[data-slidev-no="265"] .default`);
 element.prepend(div);
 ```
 
@@ -399,7 +399,7 @@ div.appendChild(textNode2);
 fragment.appendChild(div);
 // fragment.appendChild(div.cloneNode(true));
 
-const element = document.querySelector(`[data-slidev-no="264"] .default`);
+const element = document.querySelector(`[data-slidev-no="266"] .default`);
 element.prepend(fragment);
 ```
 
@@ -421,7 +421,7 @@ You can modify the styles and classes of the elements using the following method
 
 ```js {monaco-run} {autorun: false}
 
-const element = document.querySelector(`[data-slidev-no="265"]`);
+const element = document.querySelector(`[data-slidev-no="267"]`);
 
 element.style.color = 'red'; element.style.backgroundColor = 'yellow'; element.style.padding = '15px'; element.style.border = '1px solid #d6e9c6'; element.style.borderRadius = '4px';
 element.style.setProperty('--uno', 'p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8] text-[#3c763d]');
@@ -449,7 +449,7 @@ You can get the size and position of the elements using the following methods:
 - `scrollWidth`, `scrollHeight`, `scrollLeft`, `scrollTop`
 
 ```js {monaco-run} {autorun: false}
-const element = document.querySelector(`[data-slidev-no="266"] .view-lines`);
+const element = document.querySelector(`[data-slidev-no="268"] .view-lines`);
 
 // console.log(element.offsetWidth); console.log(element.offsetHeight); console.log(element.offsetLeft); console.log(element.offsetTop); console.log(element.offsetParent);
 // console.log(element.clientWidth); console.log(element.clientHeight); console.log(element.clientLeft); console.log(element.clientTop);
@@ -552,7 +552,7 @@ Remember that element appended to a page using coordinates from another element 
 
 ```js {monaco-run} {autorun: false}
 // FIX: use the deprecated pageXOffset and pageYOffset with the right values
-const element = document.querySelector(`[data-slidev-no="270"] h1`);
+const element = document.querySelector(`[data-slidev-no="272"] h1`);
 function getCoords(elem) { let box = elem.getBoundingClientRect(); return { top: box.top + window.pageYOffset, right: box.right + window.pageXOffset, bottom: box.bottom + window.pageYOffset, left: box.left + window.pageXOffset }; }
 // console.log(getCoords(element));
 ```

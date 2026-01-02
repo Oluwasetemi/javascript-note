@@ -635,7 +635,7 @@ obj = null
 </div>
 </div>
 
-**Warning**: These are advanced features. Use only when necessary, as they can make code harder to reason about.
+<div class="text-sm"><b>Warning</b>: These are advanced features. Use only when necessary, as they can make code harder to reason about.</div>
 
 ---
 hideInToc: true

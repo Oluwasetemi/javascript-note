@@ -57,22 +57,16 @@ Example: Creating a Clickable Button
 
 Consider a button that changes its color every time it is clicked. This simple interaction can be implemented using the click event.
 
- <div grid grid-col-2>
-
-```html
+```html {monaco-run} {autorun: false}
 <div>
   <button id="colorButton">Click me to change color</button>
 </div>
+<script>
+  document.getElementById('colorButton').addEventListener('click', function () {
+    this.style.backgroundColor = this.style.backgroundColor === 'red' ? 'blue' : 'red'
+  })
+</script>
 ```
-
-```js
-document.getElementById('colorButton').addEventListener('click', function () {
-  this.style.backgroundColor =
-    this.style.backgroundColor === 'red' ? 'blue' : 'red'
-})
-```
-
-</div>
 
 </v-clicks>
 

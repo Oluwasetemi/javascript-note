@@ -156,16 +156,13 @@ The first parameter is reserved for an error object, the second for successful d
 
 ```js {monaco-run} {autorun: false}
 function readFile(filename, callback) {
-  // Simulate file reading
   setTimeout(() => {
     const error = filename === '' ? new Error('Filename required') : null
     const data = error ? null : 'File content here'
-
     callback(error, data)
   }, 1000)
 }
 
-// Usage
 readFile('data.txt', function(err, data) {
   if (err) {
     console.error('Error reading file:', err.message)
@@ -185,7 +182,6 @@ hideInToc: true
 // Custom function that uses callbacks
 function fetchUser(userId, successCallback, errorCallback) {
   setTimeout(() => {
-    // Simulate API call
     if (userId > 0) {
       const user = { id: userId, name: 'John Doe', email: 'john@example.com' }
       successCallback(user)
@@ -195,18 +191,9 @@ function fetchUser(userId, successCallback, errorCallback) {
   }, 1500)
 }
 
-// Using the function
 console.log('Fetching user...')
 
-fetchUser(
-  1,
-  function(user) {
-    console.log('Success! User:', user.name, user.email)
-  },
-  function(error) {
-    console.error('Failed:', error.message)
-  }
-)
+fetchUser( 1, function(user) { console.log('Success! User:', user.name, user.email) }, function(error) { console.error('Failed:', error.message) } )
 ```
 
 ---
@@ -399,24 +386,30 @@ hideInToc: true
 
 # Promise Static Methods
 
-Beyond Promise.all(), there are other useful static methods:
-
 ```js
 // Create immediately resolved/rejected promises
 const resolved = Promise.resolve(42)
 const rejected = Promise.reject(new Error('Failed'))
 
 // Promise.resolve() is useful for converting values to promises
-Promise.resolve('Hello')
-  // .then(value => console.log(value)) // 'Hello'
+Promise.resolve('Hello')// .then(value => console.log(value)) // 'Hello'
 
 // Promise.reject() for immediate rejection
-Promise.reject(new Error('Something went wrong'))
-  .catch(error => console.error(error.message))
+Promise.reject(new Error('Something went wrong')).catch(error => console.error(error.message))
 
 // Converting thenable objects to promises
 const thenable = { then: (resolve) => resolve('Converted!') }
 Promise.resolve(thenable).then(value => console.log(value))
+
+// Promise.try() - Wraps a function call in a Promise for uniform error handling.Ensures both sync and async errors are caught as rejected promises
+Promise.try(() => {
+  return riskyOperation()
+}).then(result => console.log(result)).catch(error => console.error('Caught:', error))
+// Example: Handle both sync and async errors uniformly
+Promise.try(() => {
+  if (Math.random() > 0.5) { throw new Error('Sync error') // Synchronous error }
+  return fetch('url') // Asynchronous operation
+}).catch(error => console.error('Handled:', error))
 ```
 
 ---
@@ -426,6 +419,8 @@ hideInToc: true
 # Advanced Async/Await Patterns
 
 Understanding sequential vs parallel execution is crucial for performance:
+
+<div style="max-height: 400px; overflow-y: auto;">
 
 ```js
 // Sequential execution (slower - 6 seconds total)
@@ -455,6 +450,8 @@ async function withErrorHandling() {
   }
 }
 ```
+
+</div>
 
 ---
 hideInToc: true
@@ -528,7 +525,3 @@ hideInToc: true
 - Understanding execution patterns and avoiding common pitfalls is crucial for robust code.
 
 Thank you for your attention!
-
-```
-
-```

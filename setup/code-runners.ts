@@ -9,35 +9,89 @@ export default defineCodeRunnersSetup(() => {
       const container = document.createElement('div')
       container.className = 'html-runner-container'
       container.style.display = 'flex'
-      container.style.flexDirection = 'column'
+      container.style.flexDirection = 'row'
       container.style.gap = '12px'
+      container.style.height = '200px'
+
+      // Create iframe wrapper for scrolling
+      const iframeWrapper = document.createElement('div')
+      iframeWrapper.style.flex = '1'
+      iframeWrapper.style.minWidth = '0'
+      iframeWrapper.style.overflow = 'auto'
+      iframeWrapper.style.border = '1px solid #e5e7eb'
+      iframeWrapper.style.borderRadius = '8px'
+      iframeWrapper.style.backgroundColor = 'white'
 
       // Create an iframe for isolated HTML rendering
       const iframe = document.createElement('iframe')
       iframe.className = 'html-runner'
       iframe.style.width = '100%'
-      iframe.style.height = '400px'
-      iframe.style.border = '1px solid #e5e7eb'
-      iframe.style.borderRadius = '8px'
+      iframe.style.height = '100%'
+      iframe.style.border = 'none'
       iframe.style.backgroundColor = 'white'
+
+      // Create console container wrapper
+      const consoleContainer = document.createElement('div')
+      consoleContainer.className = 'html-console-container'
+      consoleContainer.style.flex = '1'
+      consoleContainer.style.minWidth = '0'
+      consoleContainer.style.display = 'none' // Hidden initially
+      consoleContainer.style.flexDirection = 'column'
+      consoleContainer.style.backgroundColor = '#1e1e1e'
+      consoleContainer.style.borderRadius = '8px'
+      consoleContainer.style.overflow = 'hidden'
+
+      // Create console header with clear button
+      const consoleHeader = document.createElement('div')
+      consoleHeader.style.padding = '8px 12px'
+      consoleHeader.style.backgroundColor = '#2d2d2d'
+      consoleHeader.style.borderBottom = '1px solid #444'
+      consoleHeader.style.display = 'flex'
+      consoleHeader.style.justifyContent = 'space-between'
+      consoleHeader.style.alignItems = 'center'
+
+      const consoleTitle = document.createElement('span')
+      consoleTitle.textContent = 'Console'
+      consoleTitle.style.color = '#d4d4d4'
+      consoleTitle.style.fontFamily = 'monospace'
+      consoleTitle.style.fontSize = '12px'
+      consoleTitle.style.fontWeight = 'bold'
+
+      const clearButton = document.createElement('button')
+      clearButton.textContent = 'Clear'
+      clearButton.style.padding = '4px 12px'
+      clearButton.style.backgroundColor = '#444'
+      clearButton.style.color = '#d4d4d4'
+      clearButton.style.border = 'none'
+      clearButton.style.borderRadius = '4px'
+      clearButton.style.cursor = 'pointer'
+      clearButton.style.fontSize = '11px'
+      clearButton.style.fontFamily = 'monospace'
+      clearButton.onmouseover = () => clearButton.style.backgroundColor = '#555'
+      clearButton.onmouseout = () => clearButton.style.backgroundColor = '#444'
+
+      consoleHeader.appendChild(consoleTitle)
+      consoleHeader.appendChild(clearButton)
 
       // Create console output area
       const consoleOutput = document.createElement('div')
       consoleOutput.className = 'html-console-output'
       consoleOutput.style.padding = '12px'
-      consoleOutput.style.backgroundColor = '#1e1e1e'
       consoleOutput.style.color = '#d4d4d4'
       consoleOutput.style.fontFamily = 'monospace'
-      consoleOutput.style.fontSize = '13px'
-      consoleOutput.style.borderRadius = '8px'
-      consoleOutput.style.maxHeight = '200px'
+      consoleOutput.style.fontSize = '11px'
       consoleOutput.style.overflowY = 'auto'
-      consoleOutput.style.display = 'none' // Hidden initially
+      consoleOutput.style.flex = '1'
+
+      // Clear button functionality
+      clearButton.onclick = () => {
+        consoleOutput.innerHTML = ''
+      }
 
       const logs = []
 
       // Helper to format console output
-      const formatValue = (value) => {
+      const formatValue = (value: string|null|object|undefined) => {
         if (value === null) return 'null'
         if (value === undefined) return 'undefined'
         if (typeof value === 'string') return `"${value}"`
@@ -51,7 +105,7 @@ export default defineCodeRunnersSetup(() => {
         return String(value)
       }
 
-      const addLog = (type, args) => {
+      const addLog = (type: string, args: unknown[]) => {
         const logEntry = document.createElement('div')
         logEntry.style.marginBottom = '4px'
         logEntry.style.paddingBottom = '4px'
@@ -77,15 +131,14 @@ export default defineCodeRunnersSetup(() => {
         logEntry.appendChild(document.createTextNode(message))
 
         consoleOutput.appendChild(logEntry)
-        consoleOutput.style.display = 'block'
+        consoleContainer.style.display = 'flex'
       }
 
-      // Wait for iframe to load before injecting content
+      // Setup console interception before loading content
       iframe.onload = () => {
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document
-        const iframeWindow = iframe.contentWindow
+        const iframeWindow = iframe.contentWindow as any
 
-        if (iframeDoc && iframeWindow) {
+        if (iframeWindow) {
           // Intercept console methods in the iframe
           const originalConsole = {
             log: iframeWindow.console.log,
@@ -94,38 +147,38 @@ export default defineCodeRunnersSetup(() => {
             info: iframeWindow.console.info,
           }
 
-          iframeWindow.console.log = (...args) => {
+          iframeWindow.console.log = (...args: unknown[]) => {
             originalConsole.log.apply(iframeWindow.console, args)
             addLog('log', args)
           }
 
-          iframeWindow.console.error = (...args) => {
+          iframeWindow.console.error = (...args: unknown[]) => {
             originalConsole.error.apply(iframeWindow.console, args)
             addLog('error', args)
           }
 
-          iframeWindow.console.warn = (...args) => {
+          iframeWindow.console.warn = (...args: unknown[]) => {
             originalConsole.warn.apply(iframeWindow.console, args)
             addLog('warn', args)
           }
 
-          iframeWindow.console.info = (...args) => {
+          iframeWindow.console.info = (...args: unknown[]) => {
             originalConsole.info.apply(iframeWindow.console, args)
             addLog('log', args)
           }
-
-          // Inject the HTML code
-          iframeDoc.open()
-          iframeDoc.write(code)
-          iframeDoc.close()
         }
       }
 
-      // Set a blank source to trigger onload
-      iframe.src = 'about:blank'
+      // Use srcdoc instead of deprecated document.write
+      // srcdoc is the modern, recommended way to inject HTML into an iframe
+      iframe.srcdoc = code
 
-      container.appendChild(iframe)
-      container.appendChild(consoleOutput)
+      // Assemble the DOM structure
+      iframeWrapper.appendChild(iframe)
+      consoleContainer.appendChild(consoleHeader)
+      consoleContainer.appendChild(consoleOutput)
+      container.appendChild(iframeWrapper)
+      container.appendChild(consoleContainer)
 
       return {
         element: container,

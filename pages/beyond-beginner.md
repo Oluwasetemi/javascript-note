@@ -79,18 +79,14 @@ const config = {
   const observer = new MutationObserver(
     (mutations) => {
       mutations.forEach((m) => {
-        // console.log('Type and Added', m.type, m.addedNodes.length)
+        console.log('Type and Added', m.type, m.addedNodes.length)
       })
     })
-
   const config = { childList: true, subtree: true};
   const target = document.getElementById('box');
   observer.observe(target, config);
-
   function add() {
-    const div = document.createElement('div')
-    div.textContent = 'New!'
-    target.appendChild(div)
+    const div = document.createElement('div');div.textContent = 'New!';target.appendChild(div);
   }
 </script>
 ```
@@ -560,14 +556,9 @@ Web Workers allow you to run JavaScript in background threads, preventing blocki
         self.postMessage(r.toFixed(2))
       }
     `], {type: 'application/javascript'})
-
     const w = new Worker(URL.createObjectURL(blob))
     w.postMessage(100000)
-
-    w.onmessage = function(e) {
-      document.getElementById('result').textContent = 'Result: ' + e.data; 
-      w.terminate()
-    }
+    w.onmessage = function(e) { document.getElementById('result').textContent = 'Result: ' + e.data;  w.terminate() }
   }
 </script>
 ```
@@ -604,18 +595,11 @@ Shared workers can be accessed by multiple scripts, windows or iframes.
       let count = 0
       self.onconnect = function(e) {
         const p = e.ports[0]
-        p.onmessage = function() {
-          count++
-          p.postMessage('Count: ' + count)
-        }
+        p.onmessage = function() { count++; p.postMessage('Count: ' + count); }
       }
     `], {type: 'application/javascript'})
-
     const w = new SharedWorker(URL.createObjectURL(blob));
-
-    w.port.onmessage = function(e) {
-      document.getElementById('sharedResult').textContent = e.data
-    }
+    w.port.onmessage = function(e) { document.getElementById('sharedResult').textContent = e.data }
     w.port.postMessage('inc')
   }
 </script>
