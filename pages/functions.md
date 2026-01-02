@@ -38,7 +38,7 @@ Check the code below for examples of how functions can be used to perform tasks:
 
 ```js {monaco-run} {autorun: false}
 function greetAllUsers() {
-  // alert('Hello Everyone')
+  // console.log('Hello Everyone')
 }
 greetAllUsers()
 ```
@@ -52,7 +52,7 @@ const getAverageResult = () => {
   let results = [2, 3, 4, 5, 6, 7, 8]
   let sum = results.reduce((acc, num) => acc + num, 0)
   let average = sum / results.length
-  // alert(average)
+  // console.log(average)
 }
 getAverageResult()
 ```
@@ -98,7 +98,7 @@ function name(parameter1, parameter2, parameter3) {
 
 ```js {monaco-run} {autorun: false}
 function declarationMethod(name, age, course) {
-  // alert(`${name} is ${age} years, and they offer ${course} courses`)
+  // console.log(`${name} is ${age} years, and they offer ${course} courses`)
 }
 declarationMethod('AltSchool', 3, 'Engineering')
 ```
@@ -130,7 +130,7 @@ const name = function (parameter1, parameter2, parameter3) {
 
 ```js {monaco-run} {autorun: false}
 const expressionMethod = function (name, age, course) {
-  // alert(`${name} is ${age} years, and they offer ${course} courses`)
+  // console.log(`${name} is ${age} years, and they offer ${course} courses`)
 }
 expressionMethod('AltSchool', 3, 'Engineering')
 ```
@@ -161,7 +161,7 @@ const name = (parameter1, parameter2, parameter3) => {
 
 ```js {monaco-run} {autorun: false}
 const arrowMethod = (name, age, course) => {
-  // alert(`${name} is ${age} years, and they offer ${course} courses`)
+  // console.log(`${name} is ${age} years, and they offer ${course} courses`)
 }
 arrowMethod('AltSchool', 3, 'Engineering')
 ```
@@ -193,7 +193,7 @@ function factorial(n) {
   }
 }
 
-// alert(factorial(5)) // Output: 120
+// console.log(factorial(5)) // Output: 120
 ```
 
 </div>
@@ -216,7 +216,7 @@ function raisePower(x, n) {
   }
   return result
 }
-// alert(raisePower(2, 3))
+// console.log(raisePower(2, 3))
 ```
 
 ---
@@ -235,7 +235,7 @@ function raisePower(x, n){
     return x * raisePower(x, n - 1);
   }
 }
-// alert(raisePower(2, 3))
+// console.log(raisePower(2, 3))
 ```
 
 Let's break down the recursive method we just used in the code above.
@@ -366,7 +366,7 @@ const company = {
 }
 
 function traverseHierarchy(employee) {
-  // alert(employee.name)
+  // console.log(employee.name)
   employee.reports.forEach(traverseHierarchy)
 }
 
@@ -397,9 +397,9 @@ Here's what you need to remember about rest parameters:
 ```js {monaco-run} {autorun: false}
 function example(first, second, ...others) {
   // logs first and second arguments
-  // alert(first, second)
+  // console.log(first, second)
   // logs the rest of the arguments as an array
-  // alert(others)
+  // console.log(others)
 }
 example(1, 2, 3, 4, 5)
 ```
@@ -431,7 +431,7 @@ This makes arguments useful in older code, but rest parameters are preferred in 
 ```js {monaco-run} {autorun: false}
 function showArguments() {
   // Logs all the arguments as an array-like object
-  // alert(arguments)
+  // console.log(arguments)
 }
 
 showArguments(1, 'test', true)
@@ -453,7 +453,7 @@ The spread syntax allows you to take elements from an iterable (such as an array
 
 ```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3]
-// alert(...numbers)
+// console.log(...numbers)
 ```
 
 ---
@@ -481,7 +481,7 @@ const copy = [...original]
 
 ```js {monaco-run} {autorun: false}
 const str = 'hello'
-// alert([...str])
+// console.log([...str])
 ```
 
 ---
@@ -532,10 +532,10 @@ If a variable is declared inside a code block, it is only accessible within that
 {
   // this variable is only visible inside this block
   let isItPresent = 'I am visible only inside my block'
-  // alert(isItPresent)
+  // console.log(isItPresent)
 }
 // this variable is not seen outside the block so it will throw error
-// alert(isItPresent)
+// console.log(isItPresent)
 ```
 
 This helps in keeping the scope of variables limited to specific parts of the code, reducing potential conflicts.
@@ -552,13 +552,13 @@ hideInToc: true
 {
   // show message
   let message = 'I am visible only inside my block'
-  // alert(message)
+  // console.log(message)
 }
 
 {
   // show another message
   let message = 'This message is different from the one inside previous block'
-  // alert(message)
+  // console.log(message)
 }
 ```
 
@@ -578,7 +578,7 @@ There are two ways to create a nested functions:
 ```js {monaco-run} {autorun: false}
 function outerFunction() {
   function innerFunction() {
-    // alert('This is the inner function')
+    // console.log('This is the inner function')
   }
   // Calling the inner function inside the outer function
   innerFunction()
@@ -597,7 +597,7 @@ hideInToc: true
 ```js {monaco-run} {autorun: false}
 function outerFunction() {
   function innerFunction() {
-    // alert('This is the inner function')
+    // console.log('This is the inner function')
   }
   // Call the nested function
   innerFunction()
@@ -648,7 +648,7 @@ function outerFunction() {
   function innerFunction() {
     let innerVar = 'I am inside'
     // Can access outerVar due to lexical scoping
-    // alert(outerVar)
+    // console.log(outerVar)
   }
 
   innerFunction()
@@ -684,7 +684,7 @@ the lexical environment, the JavaScript engine processes all function declaratio
 sayHello()
 
 function sayHello() {
-  // alert('Hello!')
+  // console.log('Hello!')
 }
 ```
 
@@ -705,7 +705,7 @@ This behavior only applies to Function Declarations, not Function Expressions. F
 sayHello()
 
 const sayHello = function () {
-  // alert('Hello!')
+  // console.log('Hello!')
 }
 ```
 
@@ -731,7 +731,7 @@ JavaScript uses garbage collection to automatically free up memory that is no lo
 function createUser() {
     let name = "John";
     return function() {
-        // alert(`User name is: ${name}`);
+        // console.log(`User name is: ${name}`);
     };
 }
 // Function call returns the inner function, keeping 'name' alive
@@ -760,13 +760,13 @@ let globalVar = "I'm global";
 
 function localFunction() {
   let localVar = "I'm local";
-  // alert(globalVar);
-  // alert(localVar);
+  // console.log(globalVar);
+  // console.log(localVar);
 }
 localFunction();
 
-// alert(globalVar);
-// alert(localVar);
+// console.log(globalVar);
+// console.log(localVar);
 ```
 
 ---
@@ -787,17 +787,17 @@ It holds the name of the function and can be accessed programmatically.
 ```js {monaco-run} {autorun: false}
 // Function declaration
 function greet() {
-  // alert('Hello!')
+  // console.log('Hello!')
 }
 
 // Accessing the name property of the function
-// alert(greet.name)
+// console.log(greet.name)
 
 // Function expression
 const sayHi = function () {
-  // alert('Hi!')
+  // console.log('Hi!')
 }
-// alert(sayHi.name)
+// console.log(sayHi.name)
 ```
 
 ---
@@ -815,19 +815,17 @@ Here's a code example:
 ```js {monaco-run} {autorun: false}
 // Anonymous function assigned to a variable
 const myFunction = function() {
-  // alert("Hello, world!");
+  // console.log("Hello, world!");
 };
 
-// alert(myFunction.name);
-
+// console.log(myFunction.name);
 // Anonymous function used as an object method
 const obj = {
   sayHello: function() {
-    // alert("Hi!");
+    // console.log("Hi!");
   }
 };
-
-// alert(obj.sayHello.name);
+// console.log(obj.sayHello.name);
 ```
 
 In both cases, although the functions were declared anonymously, JavaScript assigns them a contextual name based on the
@@ -851,13 +849,13 @@ function example(a, b = 5, ...rest) {
   // Function body
 }
 // Output: 1 (only 'a' is counted)
-// alert(example.length);
+// console.log(example.length);
 
 function exampleWithDestructure({x, y}, z) {
   // Function body
 }
 // Output: 2 (destructured object and 'z' are counted)
-// alert(exampleWithDestructure.length);
+// console.log(exampleWithDestructure.length);
 
 function exampleWithRest(a, ...rest) {
   // Function body
@@ -880,14 +878,14 @@ This allows us to attach additional data or behavior directly to the function.
 ```js {monaco-run} {autorun: false}
 // Declare a function
 function greet() {
-  // alert('Hello!')
+  // console.log('Hello!')
 }
 
 // Add a custom property to the function
 greet.customMessage = 'This is a custom property.'
 
 // Access the custom property
-// alert(greet.customMessage)
+// console.log(greet.customMessage)
 
 // Call the function
 greet()
@@ -920,7 +918,7 @@ const square = function calculateSquare(x) {
   return x * x
 }
 
-// alert(square(4))
+// console.log(square(4))
 ```
 
 In this example, the function is assigned to the variable square, but it is also named calculateSquare within its definition.
@@ -955,7 +953,7 @@ const addThreeNumbers = new Function('a', 'b', 'c', 'return a + b + c;')
 // Call the function with arguments
 const result = addThreeNumbers(5, 10, 15)
 
-// alert(result)
+// console.log(result)
 ```
 
 ---
@@ -985,7 +983,7 @@ function createClosure() {
 }
 
 const func = createClosure();
-// alert(func());
+// console.log(func());
 
 ```
 
@@ -1020,7 +1018,7 @@ Let's run a code using the <kbd>setTimeout</kbd> syntax above
 
 ```js {monaco-run} {autorun: false}
 function greet() {
-  // alert("Hello, world!");
+  // console.log("Hello, world!");
 }
 
 // Schedule the function to run after 2 seconds (2000 ms)
@@ -1049,7 +1047,7 @@ clearTimeout(timerId);
 
 ```js {monaco-run} {autorun: false}
 function greet() {
-  // alert('Hello, world!')
+  // console.log('Hello, world!')
 }
 
 // Schedule the function to run after 5 seconds (5000 ms)
@@ -1095,7 +1093,7 @@ clearInterval(intervalId);
 
 ```js {monaco-run} {autorun: false}
 function sayHello() {
-  // alert('Hello!')
+  // console.log('Hello!')
 }
 
 // Schedule the function to run every 2 seconds
@@ -1122,29 +1120,28 @@ or creating animations, until manually cancelled.
 hideInToc: true
 ---
 
-# Nested setTimeout
+Nested setTimeout
 
-<div> </div>
+
+<div class="text-sm"> 
 
 Using nested <kbd>setTimeout</kbd> gives you more control over scheduling compared to <kbd>setInterval</kbd>.
 In <kbd>setInterval</kbd>, the next iteration is scheduled regardless of whether the previous one has finished.
 With nested <kbd>setTimeout</kbd>, you can dynamically schedule the next delay based on conditions or the results of the current task.
 
+</div>
+
 ```js {monaco-run} {autorun: false}
 function dynamicTimeout(counter = 1) {
-  // alert(`Execution #${counter}`);
-
-  // Adjust the delay dynamically
-  // If counter is less than 5, delay is 1 second, otherwise 2 seconds
+  // console.log(`Execution #${counter}`);
+  // Adjust the delay dynamically, If counter is less than 5, delay is 1 second, otherwise 2 seconds
   let delay = counter < 5 ? 1000 : 2000;
-
   setTimeout(() => {
     // Continue until counter reaches 10
-    if (counter < 10) {
-      // Recursive call to schedule the next execution
+    if (counter < 10) { // Recursive call to schedule the next execution
       dynamicTimeout(counter + 1);
     } else {
-      // alert("Completed.");
+      // console.log("Completed.");
     }
   }, delay);
 }
@@ -1152,9 +1149,11 @@ dynamicTimeout();
 ```
 
 <div class="overflow-scroll h-10">
+
 - Dynamic Scheduling: The next execution time can be adjusted dynamically (in this case, based on counter).
 - Sequential Execution: You ensure that the next setTimeout only starts after the current one finishes.
 - Customizable Conditions: The recursion can stop or modify behavior based on the results of the current task, giving more flexibility.
+
 </div>
 
 ---
@@ -1174,10 +1173,10 @@ For example, in the following code, "Hello" is printed first, followed immediate
 
 ```js {monaco-run} {autorun: false}
 setTimeout(() => {
-  // alert("World");
+  // console.log("World");
 }, 0);
 
-// alert("Hello");
+// console.log("Hello");
 ```
 
 ---
@@ -1217,17 +1216,17 @@ process.nextTick() allows you to queue a callback to be executed before the next
 passed to process.nextTick() is executed immediately after the current operation completes, but before any I/O tasks or timers are handled.
 
 ```js {monaco-run} {autorun: false}
-// alert('Start')
+// console.log('Start')
 
 process.nextTick(() => {
-  // alert('Executed in next tick')
+  // console.log('Executed in next tick')
 })
 
 setTimeout(() => {
-  // alert('Executed in setTimeout')
+  // console.log('Executed in setTimeout')
 }, 0)
 
-// alert('End')
+// console.log('End')
 ```
 
 ---
@@ -1317,14 +1316,14 @@ ordered manner.
 
 ```js {monaco-run} {autorun: false}
  // Synchronous task
-// alert('Start');
+// console.log('Start');
 
 setTimeout(() => {
   // Task
-  // alert('This is a task in the event queue');
+  // console.log('This is a task in the event queue');
 }, 0);
  // Synchronous task
-// alert('End');
+// console.log('End');
 ```
 
 ---
@@ -1339,17 +1338,17 @@ that need to happen very soon.
 Code Example of a Microtask
 
 ```js {monaco-run} {autorun: false}
-// alert('Start')
+// console.log('Start')
 
 setTimeout(() => {
-  // alert('Task (setTimeout)')
+  // console.log('Task (setTimeout)')
 }, 0)
 
 Promise.resolve().then(() => {
-  // alert('Microtask (Promise)')
+  // console.log('Microtask (Promise)')
 })
 
-// alert('End')
+// console.log('End')
 ```
 
 ---
@@ -1384,11 +1383,11 @@ function cachedFunction(fn) {
 
   return function (arg) {
     if (cache[arg] !== undefined) {
-      // alert('Returning cached result')
+      // console.log('Returning cached result')
       // Return cached result if available
       return cache[arg]
     }
-    // alert('Calculating result')
+    // console.log('Calculating result')
     // Call the original function and store result in cache
     let result = fn(arg)
     cache[arg] = result
@@ -1413,8 +1412,8 @@ function expensiveOperation(num) {
 const cachedExpensiveOperation = cachedFunction(expensiveOperation);
 
 // Calling the cached function
-// alert(cachedExpensiveOperation(5));
-// alert(cachedExpensiveOperation(5));
+// console.log(cachedExpensiveOperation(5));
+// console.log(cachedExpensiveOperation(5));
 ```
 
 In this example, the <kbd>cachedFunction</kbd> wraps any function you provide and stores the result of each call in the cache object.
@@ -1424,9 +1423,10 @@ The next time you call the function with the same argument, it will return the c
 hideInToc: true
 ---
 
-# Using "func.call" for the context
+Using `func.call` for the context
 
-<div></div>
+<div class="text-sm">
+
 In JavaScript, func.call allows you to call a function with a specific this context. This is useful when you need to set the <kbd>this</kbd> value 
 explicitly for a function, especially when working with object methods that might be called in different contexts.
 
@@ -1438,26 +1438,24 @@ However, caching can be tricky when dealing with object methods because each obj
 consideration of this can lead to incorrect results. If you want to use caching with methods while respecting this, you'll need to
 ensure that the cache is tied to the specific context (this) of the object.
 
+</div>
+
 <div class='overflow-scroll h-60'>
 
 ```js {monaco-run} {autorun: false}
-// Constructor function for Vehicle
+// Constructor function for Vehicle - // Set the 'make' and 'year' property for the vehicle
 function Vehicle(make, year) {
-  // Set the 'make' and 'year' property for the vehicle
   this.make = make
   this.year = year
 }
-
-// Constructor function for Toyota, inheriting from Vehicle
+// Constructor function for Toyota, inheriting from Vehicle // Call the Vehicle constructor, using 'this' to bind to the Toyota instance
 function Toyota(make, year) {
-  // Call the Vehicle constructor, using 'this' to bind to the Toyota instance
   Vehicle.call(this, make, year)
   // Add a specific property 'category' for Toyota cars
   this.category = 'car'
 }
-
-// Create a new Toyota object and alert the 'year' property
-// alert(new Toyota('Camry', 2024).year)
+// Create a new Toyota object and console.log the 'year' property
+// console.log(new Toyota('Camry', 2024).year)
 ```
 
 </div>
@@ -1555,7 +1553,7 @@ This function above is going to returns a "bound variant" of function <kbd>func<
 
 ```js {monaco-run} {autorun: false}
 function greet(greeting, name) {
-  // alert(`${greeting}, ${name}!`);
+  // console.log(`${greeting}, ${name}!`);
 }
 
 // Use bind to create a new function with a preset 'this' value and argument
@@ -1591,7 +1589,8 @@ hideInToc: true
 
 # Arrow function in details
 
-<div></div>
+<div class="text-sm">
+
 We've already discused the beautiful arrow function at the beginning of this module, but let's go little deeper in what arrow function entails.
 As a developer, you often need to write arrow functions in your code for various tasks like calling <kbd>useEffect</kbd> hooks in React or using <kbd>setTimeout()</kbd> in JavaScript. Arrow functions offer a more concise syntax and have specific benefits, particularly in handling the this context.
 
@@ -1599,18 +1598,18 @@ As a developer, you often need to write arrow functions in your code for various
 
 This second code will throw an error because unlike traditional function in the first scope, argument is not defined.
 
+</div>
+
 ```js {monaco-run} {autorun: false}
 function traditionalFunction() {
-  // alert(arguments);
-}
-
-traditionalFunction(1, 2, 3);
-
-const arrowFunction = () => {
   console.log(arguments);
 }
+traditionalFunction(1, 2, 3);
 
-arrowFunction(1, 2, 3);
+// const arrowFunction = () => {
+//   console.log(arguments);
+// }
+// arrowFunction(1, 2, 3);
 ```
 
 ---
@@ -1626,7 +1625,7 @@ To handle <kbd>argument</kbd> in Arrow functions, we have use two methods:<br/>
 
 ```js {monaco-run} {autorun: false}
 const arrowFunction = (...args) => {
-  // alert(args);
+  // console.log(args);
 };
 
 arrowFunction(1, 2, 3);
@@ -1637,7 +1636,7 @@ arrowFunction(1, 2, 3);
 ```js {monaco-run} {autorun: false}
 function outerFunction() {
   const arrowFunction = () => {
-    // alert(arguments);
+    // console.log(arguments);
   }
 
   arrowFunction();
@@ -1659,10 +1658,10 @@ In the code below, the arrow function inside the <kbd>setTimeout</kbd> retains t
 const obj = {
   name: 'Alice',
   greet: function() {
-    // alert(`Hello, ${this.name}`);
+    // console.log(`Hello, ${this.name}`);
 
     setTimeout(() => {
-      // alert(`Hello again, ${this.name}`);
+      // console.log(`Hello again, ${this.name}`);
     }, 1000);
   }
 };
@@ -1686,11 +1685,10 @@ This will throw an error:
 const Person = (name) => {
   this.name = name
 }
-
 try {
   const person1 = new Person('Alice')
 } catch (error) {
-  // alert(error)
+  // console.log(error)
 }
 ```
 
@@ -1700,7 +1698,6 @@ But, with a regular function declaration or expression you can define a constuct
 function Person(name) {
   this.name = name;
 }
-
 const person1 = new Person('Alice');
-// alert(person1.name);
+console.log(person1.name);
 ```

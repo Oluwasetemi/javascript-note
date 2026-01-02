@@ -646,6 +646,9 @@ These requests must meet ALL of these criteria:
                         <div class="flex items-center gap-3 group">
                             <span class="bg-purple-500/10 text-purple-400 font-mono px-4 py-2 rounded-lg group-hover:bg-purple-500/20 transition-colors duration-150">HEAD</span>
                         </div>
+                        <div class="flex items-center gap-3 group">
+                            <span class="bg-purple-500/10 text-purple-400 font-mono px-4 py-2 rounded-lg group-hover:bg-purple-500/20 transition-colors duration-150">HEAD</span>
+                        </div>
                     </div>
                 </div>
 
@@ -677,13 +680,6 @@ These requests must meet ALL of these criteria:
             </div>
         </div>
     </div>
-
-```js
-// Safe request
-fetch('https://api.louwasetemi.dev/posts')
-  .then(response => response.json())
-  .then(data => console.log(data));
-```
 
 ---
 hideInToc: true
@@ -1311,9 +1307,9 @@ hideInToc: true
 
 <v-clicks>
 
- <h4 class="text-2xl font-bold  text-white">Response Types</h4>
+ <h4 class="text-2xl font-bold text-white">Response Types</h4>
  <div class="flex gap-10">
-<div class="basis-2/4 mx-auto">
+ <div class="basis-2/4 mx-auto">
   <table class="min-w-full table-auto border-collapse border border-gray-300  shadow-lg">
     <thead>
       <tr class="bg-blue-600">
@@ -1351,7 +1347,7 @@ hideInToc: true
 let xhr = new XMLHttpRequest();
 xhr.responseType = 'json';
 xhr.open('GET', '/api/data');
-<!--xhr.onload = () => console.log(xhr.response);-->
+xhr.onload = () => console.log(xhr.response);
  // Automatically parsed JSON
 xhr.send();
 ```
@@ -2106,7 +2102,6 @@ hideInToc: true
 ```js
 async function longPoll() {
   try {
-    // Make request to server
     const response = await fetch('/api/messages')
     if (response.status === 200) {
       // Process the received data
@@ -2116,7 +2111,6 @@ async function longPoll() {
     // Immediately make next request
     await longPoll()
   } catch (error) {
-    // Handle any errors
     console.error('Polling error:', error)
     // Wait before retry
     setTimeout(longPoll, 1000)
@@ -2199,7 +2193,6 @@ try {
 
 ```js
 if (response.status !== 200) {
-  // Handle server error
   console.error('Server error:', response.statusText)
   // Implement exponential backoff
   await exponentialBackoff()
@@ -2492,8 +2485,7 @@ const socket = new WebSocket('wss://example.com', ['soap', 'wamp'])
 #### Binary Data Handling
 
 ```js
-// For ArrayBuffer
-// socket.binaryType = "arraybuffer";
+// For ArrayBuffer socket.binaryType = "arraybuffer";
 socket.onmessage = (event) => {
   if (typeof event.data === 'string') {
     // console.log('Received text data')
