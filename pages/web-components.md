@@ -952,6 +952,8 @@ hideInToc: true
 
 <v-clicks>
 
+<div class="text-sm">
+
 1. Content Isolation
 
 - Content is inert (inactive)
@@ -962,6 +964,8 @@ hideInToc: true
 
 2. Syntax Flexibility
    Unlike regular HTML, templates can contain elements that typically require specific parent elements:
+   
+</div>
 
 ```html
 <!-- ✅ Valid in template -->

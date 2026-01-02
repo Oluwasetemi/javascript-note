@@ -158,7 +158,7 @@ hideInToc: true
 When creating an object in JavaScript, we can put an expression in square brackets, and this means that the property name will be taken from what's inside the square bracket.
 
 ```js {monaco-run} {autorun: false}
-let school = // prompt("Which tech school are you attending?", "");
+let school = prompt("Which tech school are you attending?", "");
 
 let college = {
   [school]: "AltSchool Africa",
@@ -168,7 +168,7 @@ let college = {
 ```
 
 ```js {monaco-run} {autorun: false}
-let school = // prompt("Which school are you attending?", "AltSchool");
+let school = prompt("Which school are you attending?", "AltSchool");
 let sector = {};
 
 // take property name from the school variable
@@ -186,10 +186,7 @@ Sometimes, we use existing values for property name. Instead of repeating this w
 
 ```js {monaco-run} {autorun: false}
 const getUser = (name, age) => {
-  return {
-    name: name,
-    age: age,
-  };
+  return { name: name, age: age, };
 };
 let user = getUser("Setemi", 40);
 console.log(user.name);
@@ -200,10 +197,7 @@ Instead of <kbd>name:name</kbd> we can just write <kbd>name</kbd>, like this:
 
 ```js {monaco-run} {autorun: false}
 const getUser = (name, age) => {
-  return {
-    name,
-    age,
-  };
+  return { name, age, };
 };
 let user = getUser("Setemi", 40);
 console.log(user.age);
@@ -231,9 +225,8 @@ console.log( obj.for + obj.let + obj.return );
 hideInToc: true
 ---
 
-# Property existence test, "in" operator
+# Property existence test, `in` operator, `Object.hasOwn`
 
-<div></div>
 It's possible in object to know if a property really exists, and there won't be an error if the property doesn't exist, instead it will return <kbd>undefined</kbd>.
 
 ```js {monaco-run} {autorun: false}
@@ -241,7 +234,10 @@ let user = {name: "Setemi", age: 40};
 console.log( user.noSuchProperty === undefined );
 ```
 
-We can also make use of a special operator <kbd>in</kbd>
+<div grid="~ cols-2" gap="2">
+
+<section>
+
 
 ```js {monaco-run} {autorun: false}
 let user = {name: "Setemi", age: 40};
@@ -249,14 +245,26 @@ console.log( "age" in user );
 console.log( "height" in user );
 ```
 
+The `Object.hasOwn()` static method returns true if the specified object has the indicated property as its own property. If the property is inherited, or does not exist, the method returns false.
+
+</section>
+
+<section>
+
 When using the <kbd>in</kbd> keyword there must be a property name in a quoted string on the left side of <kbd>in</kbd>. Sometimes the property exists and it stores <kbd>undefined</kbd> which is why we can bring in the <kbd>in</kbd> method.
 
 ```js {monaco-run} {autorun: false}
-let userDetails = {
-  name: undefined
-};
-console.log( userDetails.name );
-console.log( "name" in userDetails );
+let userDetails = { name: undefined };
+console.log(userDetails.name, "name" in userDetails);
+```
+
+</section>
+
+</div>
+
+```js {monaco-run} {autorun: false}
+const object = { prop: "exists", };
+console.log(Object.hasOwn(object, "prop"));
 ```
 
 ---
@@ -438,9 +446,7 @@ console.log(person.name)
 hideInToc: true
 ---
 
-# Object.assign
-
-<div></div>
+`Object.assign`
 
 The <kbd>Object.assign()</kbd> method is used to copy the values of all enumerable properties from one or more source <kbd>objects</kbd> to a target object.
 Let's break down how it works:
@@ -449,16 +455,20 @@ Let's break down how it works:
 Object.assign(dest, ...sources)
 ```
 
+<div class="text-sm">
+
 Let's break the syntax down:
 
 - The first argument is the target object.
 - Further arguments is a list of source <kbd>objects</kbd>.
   How does this works? It copies the properties of all source <kbd>objects</kbd> into the target object, and then returns it as the result.
 
-```js {monaco-run} {autorun: false}
-// Original person object
-let person = { name: "Setemi Ojo" };
+</div>
 
+<div grid="~ cols-2" gap="2">
+
+```js {monaco-run} {autorun: false}
+let person = { name: "Setemi Ojo" };
  // Create an empty object for age
 let age = {};
 // Use Object.assign to copy the 'age' property into the 'person' object
@@ -468,8 +478,13 @@ Object.assign(person, age);
 // console.log(person);
 ```
 
+<div>
 Note: If the property name already exists, it gets overwritten.
 We can also use <kbd>Object.assign()</kbd> method to perform a simple object clone.
+</div>
+
+</div>
+
 
 ---
 hideInToc: true
@@ -529,5 +544,3 @@ console.log( leader === clone );
 leader.school.department = "Science";
 console.log(clone.school.department);
 ```
-
----

@@ -29,7 +29,7 @@ hideInToc: true
 
 <div mt-2 />
 
-#### What Exactly is a Primitive in JavaScript 🧱📚🎯?
+#### What Exactly is a Primitive in JavaScript?
 
 <p> A primitive in JavaScript is a simple, immutable data type that represents a single value. Unlike objects, which are collections of properties and methods, primitives are more basic and directly represent their contents.</p>
 
@@ -230,9 +230,13 @@ let multiline = `
 `
 ```
 
-- Allows expressions: ${...} <br>
-- Supports multiple lines <br>
-- No need to escape quotes <br>
+<div class="text-sm">
+
+- Allows expressions-interpolations: `${...}`
+- Supports multiple lines
+- No need to escape quotes
+
+</div>
 
 </div>
 </div>
@@ -369,13 +373,116 @@ let age = 30;
 
 ---
 hideInToc: true
+title: String API Methods Reference
+---
+
+[String API Methods Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+<div class="grid grid-cols-2 gap-4">
+
+<div>
+
+[Static Methods]{.text-sm.text-red}
+
+<div class="text-[10px]">
+
+- `String.fromCharCode()` - Creates string from Unicode values
+- `String.fromCodePoint()` - Creates string from code points
+- `String.raw()` - Gets raw string form of template strings
+
+</div>
+
+[Instance Methods - Searching & Testing]{.text-sm.text-red}
+
+<div class="text-[10px]">
+
+- `charAt()` - Returns character at index
+- `charCodeAt()` - Returns Unicode of character at index
+- `codePointAt()` - Returns code point value at index
+- `at()` - Returns character at index (supports negative)
+- `indexOf()` - Returns first index of substring
+- `lastIndexOf()` - Returns last index of substring
+- `includes()` - Tests if string contains substring
+- `startsWith()` - Tests if string starts with substring
+- `endsWith()` - Tests if string ends with substring
+- `search()` - Searches for match using regex
+
+</div>
+
+[Instance Methods - Extraction & Manipulation]{.text-sm.text-red}
+
+<div class="text-[10px]">
+
+- `slice()` - Extracts part of string
+- `substring()` - Extracts between two indices
+- `split()` - Splits string into array
+- `concat()` - Combines strings
+- `repeat()` - Repeats string n times
+
+</div>
+
+</div>
+
+<div>
+
+[Instance Methods - Transformation]{.text-sm.text-red}
+
+<div class="text-[10px]">
+
+- `toLowerCase()` - Converts to lowercase
+- `toUpperCase()` - Converts to uppercase
+- `toLocaleLowerCase()` - Locale-aware lowercase
+- `toLocaleUpperCase()` - Locale-aware uppercase
+- `trim()` - Removes whitespace from both ends
+- `trimStart()` - Removes whitespace from start
+- `trimEnd()` - Removes whitespace from end
+- `padStart()` - Pads string from start
+- `padEnd()` - Pads string from end
+- `normalize()` - Returns Unicode normalization form
+
+</div>
+
+[Instance Methods - Pattern Matching]{.text-sm.text-red}
+
+<div class="text-[10px]">
+
+- `match()` - Matches against regex
+- `matchAll()` - Returns all regex matches
+- `replace()` - Replaces first match
+- `replaceAll()` - Replaces all matches
+
+</div>
+
+[Other Methods]{.text-sm.text-red}
+
+<div class="text-[10px]">
+
+- `localeCompare()` - Compares strings in locale
+- `toString()` - Returns string value
+- `valueOf()` - Returns primitive value
+- `isWellFormed()` - Checks if string is well-formed Unicode
+- `toWellFormed()` - Returns well-formed Unicode string
+- `[Symbol.iterator]()` - Returns iterator for string
+
+</div>
+
+</div>
+
+</div>
+
+<style>
+.slidev-layout p {margin: 0!important;}
+</style>
+
+---
+hideInToc: true
 ---
 
 # Arrays
 
 <div></div>
 <p>It is important to know data structure, data structure are things used to store and manipulate data in JavaScript. We have Array, Set, Map, and object. </p>
-<p> <em><strong>ARRAY-></strong></em> are used to store ordered collections of items. Array can store any value like number, object, string. Array is not a primitive type.</p>
+<p> <em><strong>ARRAY</strong></em> are used to store ordered collections of items. Array can store any value like number, object, string. Array is not a primitive type.</p>
 
 - Array Declaration
 
@@ -385,10 +492,11 @@ let arr = [] // a shorter syntax and it is the preferred method
 ```
 
 <p>Let declare an array of fruits and find the length of the array</p>
+
 ```js {monaco-run} {autorun: false}
-let fruits = ["mango", "orange", "apple", "grape"] // An array of fruits
-<!--console.log(fruits)-->
-<!--console.log(fruits.length) // The total count of the elements in the array is its length-->
+let fruits = ["mango", "orange", "apple", "grape"]; // An array of fruits
+// console.log(fruits)
+console.log(fruits.length) // The total count of the elements in the array is its length
 ```
 
 ---
@@ -397,16 +505,17 @@ title: Getting and Setting of items in an Arrays
 ---
 
 <ul><li>How do we get values from an array and how do we update an item in an array?🤔</li></ul>
+
 ```js {monaco-run} {autorun: false}
 let fruits = ["mango", "orange", "apple", "grape"] 
-<!--console.log(fruits[3]) //syntax: console.log(name of the array[position])-->
-<!--console.log(fruits[0] ); // Mango-->
-<!--console.log(fruits[1] ); // Orange-->
-<!--console.log(fruits[2] ); // Apple-->
+console.log(fruits[3]) //syntax: console.log(name of the array[position])
+console.log(fruits[0] ); // Mango
+console.log(fruits[1] ); // Orange
+console.log(fruits[2] ); // Apple
 fruits [1] = "plum" //this will replace the element
-<!--console.log(fruits) //["mango", "plum", "apple", "grape"]-->
+console.log(fruits) //["mango", "plum", "apple", "grape"]
 fruits [4] = "lemon" //this add a new element to the item.
-<!--console.log(fruits)-->
+console.log(fruits)
 ```
 <p><span class='text-red'>Note:</span> Array elements are numbered, starting with zero. The total count of the elements in the array is its length.</p>
 
@@ -419,44 +528,52 @@ hideInToc: true
 <div grid="~ cols-2">
 <div>
 <ul><li><span class='text-red'><strong>push</strong></span> adds an element to the end.</li></ul>
+
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
-<!--console.log(names)-->
+console.log(names)
 names.push('chidinma')
-<!--console.log(names)-->
+console.log(names)
 ```
+
 </div>
 
 <div>
 <ul><li> <span class='text-red'><strong> pop</strong></span> takes an element from the end.</li></ul>
+
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz', 'chidinma']
-<!--console.log(names)-->
+console.log(names)
 names.pop()
-<!--console.log(names)-->
+console.log(names)
 ```
+
 </div>
 </div>
 
 <div grid="~ cols-2">
 <div>
 <ul><li> <span class='text-red'><strong>shift</strong></span> extracts the first element of the array and returns it</li></ul>
+
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
-<!--console.log(names)-->
+console.log(names)
 let shifted = names.shift('chidinma')
-<!--console.log(names, shifted)-->
+console.log(names, shifted)
 ```
+
 </div>
 
 <div ml-10>
 <ul><li> <span class='text-red'><strong> unshift</strong></span> add the element to the beginning of the array and return the length of the new array</li></ul>
+
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz', 'chidinma']
-<!--console.log(names)-->
+console.log(names)
 let newLength = names.unshift('rola')
-<!--console.log(names, newLength)-->
+console.log(names, newLength)
 ```
+
 </div>
 </div>
 
@@ -469,20 +586,24 @@ hideInToc: true
 <div grid="~ cols-2">
 <div>
 <ul><li> <span class='text-red'><strong>reverse:</strong></span> reverses the array in-place, then returns it.</li></ul>
+
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
-<!--console.log(names)-->
+console.log(names);
 names.reverse()
-<!--console.log(names)-->
+console.log(names)
 ```
+
 </div>
 <div>
 <ul><li><span class='text-red'><strong>sort:</strong></span> sort the values alphabetically.</li></ul>
+
 ```js {monaco-run} {autorun: false}
 let names = ['ridwan', 'wariz', 'faith']
-<!--console.log(names)-->
-<!--console.log(names.sort())-->
+console.log(names);
+console.log(names.sort());
 ```
+
 </div>
 </div>
 <div>
@@ -1598,27 +1719,21 @@ hideInToc: true
 
 ```js {monaco-run} {autorun: false}
 let john = { name: 'John' }
-
 // for every user, let's store their visits count
 let visitsCountMap = new Map()
-
 // john is the key for the map
 visitsCountMap.set(john, 123)
-
 console.log(visitsCountMap.get(john)) // 123
 ```
 
 <p><span class='text-red'>Note:</span> Using objects as keys is one of the most notable and important Map features. The same does not count for Object. String as a key in Object is fine, but we can't use another Object as a key in Object.</p>
 
 ```js {monaco-run} {autorun: false}
-let john = { name: 'John' }
-let ben = { name: 'Ben' }
-
-let visitsCountObj = {} // try to use an object
-
-visitsCountObj[ben] = 234 // try to use ben object as the key
-visitsCountObj[john] = 123 // try to use john object as the key, ben object will get replaced
-
+let john = { name: 'John' };
+let ben = { name: 'Ben' };
+let visitsCountObj = {}; // try to use an object
+visitsCountObj[ben] = 234; // try to use ben object as the key
+visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced
 // That's what got written!
 console.log(visitsCountObj['[object Object]']) // 123
 ```
@@ -1634,7 +1749,7 @@ hideInToc: true
 **WeakMap** and **WeakSet** are "weak" versions of Map and Set that allow **garbage collection** of their keys/values when no other references exist.
 
 <div grid="~ cols-2" gap-3>
-<div>
+<div class="text-sm">
 
 ## WeakMap
 
@@ -1653,7 +1768,7 @@ user = null
 ```
 
 </div>
-<div>
+<div class="text-sm">
 
 ## WeakSet
 
