@@ -481,7 +481,7 @@ if (condition) {
 ```js {monaco-run} {autorun: false}
 let day = 'Monday' 
 if (day == 'Monday'){
-  <!--console.log('Today is Monday')-->
+  console.log('Today is Monday')
 }
 ```
 <p><span text-red>Note:</span> If the condition  is false, the code will not run</p>
