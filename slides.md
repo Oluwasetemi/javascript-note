@@ -1,21 +1,24 @@
 ---
 background: https://res.cloudinary.com/drnqdd87d/image/upload/f_auto/nmgakkzd3lmlibnfosps
 title: JavaScript Class Note
-titleTemplate: '%s - AltSchool Africa'
+titleTemplate: '%s - Oluwasetemi Ojo'
 info: |
   AltSchool JavaScript Class Notes
   making of world class developers
   join at [AltSchool Africa](https://altschoolafrica.com)
 author: Oluwasetemi
-download: true
+download: false
 browserExporter: true
 exportFilename: javascript-note
 export:
   format: pdf
-  timeout: 1600000
+  timeout: 600000
   dark: false
   withClicks: false
   withToc: false
+mermaid:
+  theme: default
+  timeout: 180000
 # TODO: add a svg favicon
 # favicon: https://oluwasetemi.dev/favicon-32x32.png
 class: text-center
@@ -32,7 +35,7 @@ lineNumbers: true
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes
 
-JavaScript Class Note
+## JavaScript Class Note
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">

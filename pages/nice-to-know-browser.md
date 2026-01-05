@@ -379,8 +379,8 @@ fetch('/api/data')
 // Geolocation API
 navigator.geolocation.getCurrentPosition(
   position => {
-    console.log('Lat:', position.coords.latitude);
-    console.log('Lng:', position.coords.longitude);
+    // console.log('Lat:', position.coords.latitude);
+    // console.log('Lng:', position.coords.longitude);
   }
 );
 ```
@@ -438,7 +438,7 @@ popup.postMessage('Hello from parent', 'https://example.com');
 // Listen for messages
 window.addEventListener('message', (event) => {
   if (event.origin !== 'https://example.com') return;
-  console.log('Received:', event.data);
+  // console.log('Received:', event.data);
 });
 ```
 
@@ -489,7 +489,7 @@ reader.readAsText(file);
 reader.readAsDataURL(file);
 reader.readAsArrayBuffer(file);
 reader.onload = (e) => {
-  console.log('File content:', e.target.result);
+  // console.log('File content:', e.target.result);
 };
 ```
 

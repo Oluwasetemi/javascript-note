@@ -34,7 +34,7 @@ Events are actions or occurrences that happen in the system you are programming,
 Handlers are functions that run in response to events. They can be assigned to handle events. We have the HTML-attribute, DOM-property, and `addEventListener` method to assign handlers. Use `on<event>` properties to assign handlers in HTML or DOM properties.
 
 ```html
-<button onclick="alert('Click!')">Click me</button>
+<button onclick="console.log('Click!')">Click me</button>
 ```
 
 </v-clicks>
@@ -50,9 +50,7 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 ```html {hide|none|*|1|2,6|3-5|*}
 <button id="elem">Click me</button>
 <script>
-  elem.onclick = function () {
-    alert('Click!')
-  }
+  elem.onclick = function () { console.log('Click!') }
 </script>
 ```
 
@@ -60,13 +58,12 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 
 The `addEventListener` method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with `removeEventListener`.
 
-```js {monaco}
-elem.addEventListener('click', function () {
-  alert('First handler')
-})
-elem.addEventListener('click', function () {
-  alert('Second handler')
-})
+```html {monaco-run} {autorun: false}
+<button id="elem">Click me</button>
+<script>
+  elem.addEventListener('click', function () { console.log('First handler') })
+  elem.addEventListener('click', function () { console.log('Second handler') })
+</script>
 ```
 
 </v-clicks>
@@ -94,9 +91,9 @@ interface AddEventListenerOptions extends EventListenerOptions {
 }
 ```
 
-```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="277"] h1`)
-const handler = () => alert('Click!')
+```js {monaco-run} {autorun: false}
+const elem = document.querySelector(`[data-slidev-no="279"] h1`)
+const handler = () => console.log('Click!')
 elem.addEventListener('click', handler, { once: true })
 // elem.addEventListener('mouseover', handler);
 ```
@@ -115,31 +112,33 @@ hideInToc: true
 
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler.
 
-```js {monaco-run}{autorun: false}
-const elem = document.querySelector(`[data-slidev-no="278"] h1`)
+<div grid="~ cols-2" gap="2">
+
+```js {monaco-run} {autorun: false}
+const elem = document.querySelector(`[data-slidev-no="280"] h1`)
 
 elem.addEventListener('click', function (event) {
   // show the event type, the element and the coordinates of the click
-  console.log(
-    event.type + ' at ' + event.currentTarget + ' ' + event.eventPhase,
-  )
-  console.log(`Coordinates: ${event.clientX}:${event.clientY}`)
+  console.log( event.type + ' at ' + event.currentTarget + ' ' + event.eventPhase, )
+  // console.log(`Coordinates: ${event.clientX}:${event.clientY}`)
   console.dir(event)
 })
 ```
 
-```html {monaco}
+```html {monaco-run} {autorun: false}
 <button id="elem">Click me</button>
 <script>
   let obj = {
     handleEvent(event) {
-      alert(event.type + ' at ' + event.currentTarget)
+      console.log(event.type + ' at ' + event.currentTarget)
     },
   }
 
   elem.addEventListener('click', obj)
 </script>
 ```
+
+</div>
 
 </v-clicks>
 
@@ -163,9 +162,9 @@ You can stop the bubbling by calling `event.stopPropagation()` or `event.stopImm
 <div flex="~">
 
 ```html
-<body onclick="alert('body click')">
+<body onclick="console.log('body click')">
   <div id="elem" style="border: 1px solid black; padding: 10px">
-    <button onclick="alert('button clicked')">Click me</button>
+    <button onclick="console.log('button clicked')">Click me</button>
   </div>
 </body>
 ```
@@ -183,13 +182,13 @@ hideInToc: true
 
 <v-clicks>
 
-```js {monaco-run}
-const elem = document.querySelector(`[data-slidev-no="280"] h1`)
+```js {monaco-run} {autorun: false}
+const elem = document.querySelector(`[data-slidev-no="282"] h1`)
 const parent = elem.parentElement
 const grandParent = parent.parentElement
 
 function listener(e) {
-  console.log('clicked', e.currentTarget.tagName)
+  // console.log('clicked', e.currentTarget.tagName)
 }
 
 elem.addEventListener('click', listener)
@@ -211,11 +210,11 @@ hideInToc: true
 
 Knowing the bubbling and capturing principles can be useful. For instance, if we want to catch an event on the way down, we can use the capturing phase especially during a concept called "event delegation".
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 const elems = document.querySelectorAll(`*`)
 
 function listener(e) {
-  console.log('capturing', e.currentTarget.tagName)
+  // console.log('capturing', e.currentTarget.tagName)
 }
 
 for (let elem of elems) {
@@ -236,7 +235,7 @@ clicksStart: 1
 
 Event delegation is a technique involving adding a single event listener to a common parent rather than adding them to multiple child nodes. The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
 
-```html
+```html {monaco-run} {autorun: false}
 <ul id="menu">
   <li>Home</li>
   <li>About</li>
@@ -276,13 +275,13 @@ class Menu {
     elem.onclick = this.onClick.bind(this)
   }
   save() {
-    alert('saving')
+    console.log('saving')
   }
   load() {
-    alert('loading')
+    console.log('loading')
   }
   search() {
-    alert('searching')
+    console.log('searching')
   }
 
   onClick(event) {
@@ -345,17 +344,17 @@ To prevent the default action, we can use `event.preventDefault()`. returning `f
 
 <!-- prettier-ignore -->
 ```js {monaco-run} {lineNumbers: true, autorun: false}
-const link = document.querySelector(`[data-slidev-no="284"] a`)
+const link = document.querySelector(`[data-slidev-no="286"] a`)
 link.addEventListener('click', function(event) {
   event.preventDefault(); event.stopPropagation();
-  alert('Link click!');
+  console.log('Link click!');
 });
 ```
 
-```js {monaco-run}
-const h1 = document.querySelector(`[data-slidev-no="284"] h1`)
+```js {monaco-run} {autorun: false}
+const h1 = document.querySelector(`[data-slidev-no="286"] h1`)
 h1.oncontextmenu = function (event) {
-  alert('Content menu clicked')
+  console.log('Content menu clicked')
 }
 ```
 
@@ -399,34 +398,48 @@ hideInToc: true
 
 `event.isTrusted` - read-only property that returns a boolean value indicating whether or not the event was initiated by the browser (true) or by a script (false).
 
-```html
+<div grid="~ cols-2" gap="2">
+<div>
+
+## Basic Event
+
+```html {monaco-run} {autorun: false}
 <button id="elem">Click me</button>
+<script>
+  let helloEvent = new Event('hello', {
+    bubbles: true,
+    cancelable: true
+  })
+  elem.addEventListener('hello', function (event) {
+    console.log('Hello from ' + event.target.tagName)
+  })
+  // Trigger the custom event when clicked
+  elem.addEventListener('click', function() {
+    elem.dispatchEvent(helloEvent)
+  })
+</script>
 ```
 
-<div flex="~">
-
-```js
-let helloEvent = new Event('hello', { bubbles: true, cancelable: true })
-elem.addEventListener('hello', function (event) {
-  alert('Hello from ' + event.target.tagName)
-})
-```
-
-  <Hello />
 </div>
+<div>
 
-<v-clicks>
+## CustomEvent with detail
 
 For completely new events, we can use `CustomEvent` class. It has an additional `detail` property to pass custom data.
 
 <!-- prettier-ignore-start -->
-```js {monaco-run}{autorun: false}
-const element = document.querySelector(`[data-slidev-no="286"] h1`)
-element.onclick = function() { element.dispatchEvent(new CustomEvent("hello", { detail: { name: "John" } })); };
-element.addEventListener('hello', function(event) {
-  console.log('Hello, ' + event.detail.name + '!, you fired ' + event.type + ' event');
-});
+```html {monaco-run} {autorun: false}
+<button id="elem">Click to dispatch custom event</button>
+<script>
+  elem.onclick = function() {
+    elem.dispatchEvent(new CustomEvent("hello", { detail: { name: "John" } }))
+  }
+  elem.addEventListener('hello', function(event) {
+    console.log('Hello, ' + event.detail.name + '! You fired ' + event.type + ' event')
+  })
+</script>
 ```
 <!-- prettier-ignore-end -->
 
-</v-clicks>
+</div>
+</div>

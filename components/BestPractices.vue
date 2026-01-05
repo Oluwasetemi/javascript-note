@@ -8,7 +8,7 @@
     </h1>
 
     <!-- Scrollable Container -->
-    <div class="overflow-auto h-[calc(100vh-57rem)] rounded-lg custom-scrollbar">
+    <div class="overflow-auto h-[2000px] rounded-lg custom-scrollbar">
       <div class="space-y-4 p-4">
         <!-- Memory Management Section -->
         <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
@@ -77,7 +77,7 @@
               <p class="text-gray-300 mb-2">{{ item.explanation }}</p>
               <div v-if="item.code" class="relative">
                 <pre
-                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-green-300 font-mono text-sm max-h-[200px] custom-scrollbar"
+                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-green-300 font-mono text-sm h-[200px] custom-scrollbar"
                   >{{ item.code }}</pre
                 >
               </div>
@@ -85,6 +85,7 @@
           </div>
         </div>
       </div>
+      <div class="mt-[1700px]" />
     </div>
   </div>
 </template>

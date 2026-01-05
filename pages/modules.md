@@ -20,7 +20,7 @@ hideInToc: true
 
 # Module basics
 
-<div />
+<div class="text-sm">
 
 [What is a module?]{.text-gradient.font-hand.text-10.pr-3.pl-0}
 
@@ -29,6 +29,8 @@ A module is just a file. Modules can load each other and use special directives 
 Export keyword labels variables and functions that should be accessible from outside the current module then import allows the usage in other modules. Modules have come to JavaScript relatively recently. Before, there were no modules in JavaScript, and every script included in the HTML had access to all other scripts. Which could be a problem for global variables and functions and the order is important. So, modules are a way to solve these problems.
 
 For instance, if we have a file `sayHi.js` exporting a function:
+
+</div>
 
 <div class="grid grid-cols-3 gap-4 text-sm">
 
@@ -39,7 +41,7 @@ For instance, if we have a file `sayHi.js` exporting a function:
 ```js
 // 📁 sayHi.js
 export function sayHi(user) {
-  alert(`Hello, ${user}!`)
+  console.log(`Hello, ${user}!`)
 }
 ```
 
@@ -52,7 +54,7 @@ export function sayHi(user) {
 ```js
 // 📁 sayHi.js
 function sayHi(user) {
-  alert(`Hello, ${user}!`)
+  console.log(`Hello, ${user}!`)
 }
 export { sayHi }
 ```

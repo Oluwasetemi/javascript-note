@@ -57,22 +57,16 @@ Example: Creating a Clickable Button
 
 Consider a button that changes its color every time it is clicked. This simple interaction can be implemented using the click event.
 
- <div grid grid-col-2>
-
-```html
+```html {monaco-run} {autorun: false}
 <div>
   <button id="colorButton">Click me to change color</button>
 </div>
+<script>
+  document.getElementById('colorButton').addEventListener('click', function () {
+    this.style.backgroundColor = this.style.backgroundColor === 'red' ? 'blue' : 'red'
+  })
+</script>
 ```
-
-```js
-document.getElementById('colorButton').addEventListener('click', function () {
-  this.style.backgroundColor =
-    this.style.backgroundColor === 'red' ? 'blue' : 'red'
-})
-```
-
-</div>
 
 </v-clicks>
 
@@ -192,7 +186,7 @@ hideInToc: true
 ```js
 element.onclick = function (event) {
   if (event.ctrlKey) {
-    alert('The combination of keys is pressed!')
+    console.log('The combination of keys is pressed!')
   }
 }
 ```
@@ -201,7 +195,7 @@ element.onclick = function (event) {
 <button id="button">Alt+Shift+Click on me!</button>
 <script>
   button.onclick = function (event) {
-    if (event.altKey && event.shiftKey) { alert('Hooray!') }
+    if (event.altKey && event.shiftKey) { console.log('Hooray!') }
   }
 </script>
 ```

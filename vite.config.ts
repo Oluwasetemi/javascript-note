@@ -3,6 +3,29 @@ import { defineConfig } from 'vite'
 import '@slidev/cli'
 
 export default defineConfig({
+  build: {
+    chunkSizeWarningLimit: 2000,
+    sourcemap: false, // Disable source maps to save memory and build time
+    minify: 'esbuild', // Use esbuild for faster minification
+    target: 'es2015', // Target modern browsers to reduce polyfills
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Only separate truly independent large dependencies
+          // Monaco Editor is independent
+          if (id.includes('monaco-editor')) {
+            return 'monaco'
+          }
+          // Babel is independent
+          if (id.includes('@babel/standalone')) {
+            return 'babel'
+          }
+          // Let Vite handle Vue, Shiki, and other dependencies automatically
+          // to avoid circular dependency issues
+        },
+      },
+    },
+  },
   slidev: {
     markdown: {
       markdownItSetup(md) {

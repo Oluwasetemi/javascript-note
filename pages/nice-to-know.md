@@ -40,9 +40,9 @@ function* numberGenerator() {
 }
 
 const gen = numberGenerator()
-console.log(gen.next().value) // 1
-console.log(gen.next().value) // 2
-console.log(gen.next().value) // 3
+// console.log(gen.next().value) // 1
+// console.log(gen.next().value) // 2
+// console.log(gen.next().value) // 3
 ```
 
 ---
@@ -74,9 +74,9 @@ function* infiniteSequence() {
 }
 
 const gen = infiniteSequence()
-console.log(gen.next().value) // 0
-console.log(gen.next().value) // 1
-console.log(gen.next().value) // 2
+// console.log(gen.next().value) // 0
+// console.log(gen.next().value) // 1
+// console.log(gen.next().value) // 2
 ```
 
 ---
@@ -106,9 +106,9 @@ function* counter(start = 0) {
 }
 
 const gen = counter(10)
-console.log(gen.next().value) // 10
-console.log(gen.next(5).value) // 15
-console.log(gen.next().value) // 16
+// console.log(gen.next().value) // 10
+// console.log(gen.next(5).value) // 15
+// console.log(gen.next().value) // 16
 ```
 
 </div>
@@ -143,7 +143,7 @@ async function* asyncGenerator() {
 
 ;(async () => {
   for await (const value of asyncGenerator()) {
-    console.log(value)
+    // console.log(value)
   }
 })()
 ```
@@ -220,18 +220,18 @@ const user = {
 
 const handler = {
   get(target, prop) {
-    console.log(`Getting ${prop}`)
+    // console.log(`Getting ${prop}`)
     return target[prop]
   },
   set(target, prop, value) {
-    console.log(`Setting ${prop} to ${value}`)
+    // console.log(`Setting ${prop} to ${value}`)
     target[prop] = value
     return true
   },
 }
 
 const proxy = new Proxy(user, handler)
-console.log(proxy.name) // Getting name
+// console.log(proxy.name) // Getting name
 proxy.age = 31 // Setting age to 31
 ```
 
@@ -252,10 +252,10 @@ The Reflect API provides methods that mirror Proxy handler traps. It's useful fo
 const target = { name: 'AltSchool', type: 'Education' }
 
 // Using Reflect
-console.log(Reflect.get(target, 'name')) // AltSchool
+// console.log(Reflect.get(target, 'name')) // AltSchool
 Reflect.set(target, 'location', 'Nigeria')
-console.log(Reflect.has(target, 'location')) // true
-console.log(Reflect.ownKeys(target)) // ['name', 'type', 'location']
+// console.log(Reflect.has(target, 'location')) // true
+// console.log(Reflect.ownKeys(target)) // ['name', 'type', 'location']
 ```
 
 ### Why Reflect?
@@ -283,11 +283,11 @@ eval(string)
 ```js {monaco-run} {autorun: false}
 let code = '2 + 2'
 let result = eval(code)
-console.log(result) // 4
+// console.log(result) // 4
 
 let x = 10
 eval('x = x + 5')
-console.log(x) // 15
+// console.log(x) // 15
 ```
 
 ---
@@ -321,12 +321,12 @@ const data = JSON.parse('{"name": "John"}')
 
 // Instead of eval for calculations
 const calculate = new Function('a', 'b', 'return a + b')
-console.log(calculate(2, 3)) // 5
+// console.log(calculate(2, 3)) // 5
 
 // For dynamic property access
 const obj = { name: 'John' }
 const prop = 'name'
-console.log(obj[prop]) // John
+// console.log(obj[prop]) // John
 ```
 
 </div>
@@ -349,7 +349,7 @@ Currying is a functional programming technique where a function with multiple ar
 function add(a, b, c) {
   return a + b + c
 }
-console.log(add(1, 2, 3)) // 6
+// console.log(add(1, 2, 3)) // 6
 
 // Curried version
 function curriedAdd(a) {
@@ -359,7 +359,7 @@ function curriedAdd(a) {
     }
   }
 }
-console.log(curriedAdd(1)(2)(3)) // 6
+// console.log(curriedAdd(1)(2)(3)) // 6
 ```
 
 ---
@@ -379,12 +379,12 @@ Arrow functions make currying syntax more concise and elegant.
 // Curried arrow function
 const multiply = (a) => (b) => (c) => a * b * c
 
-console.log(multiply(2)(3)(4)) // 24
+// console.log(multiply(2)(3)(4)) // 24
 
 // Partial application
 const double = multiply(2)
 const doubleAndTriple = double(3)
-console.log(doubleAndTriple(5)) // 30
+// console.log(doubleAndTriple(5)) // 30
 ```
 
 </div>
@@ -399,11 +399,11 @@ const greet = (greeting) => (name) => (punctuation) =>
 const sayHello = greet('Hello')
 const sayHelloToJohn = sayHello('John')
 
-console.log(sayHelloToJohn('!')) // Hello, John!
-console.log(sayHelloToJohn('.')) // Hello, John.
+// console.log(sayHelloToJohn('!')) // Hello, John!
+// console.log(sayHelloToJohn('.')) // Hello, John.
 
 const sayGoodbye = greet('Goodbye')
-console.log(sayGoodbye('Jane')('!')) // Goodbye, Jane!
+// console.log(sayGoodbye('Jane')('!')) // Goodbye, Jane!
 ```
 
 </div>
@@ -431,8 +431,8 @@ let a = 10
 let b = a // Copy the value
 b = 20
 
-console.log(a) // 10
-console.log(b) // 20
+// console.log(a) // 10
+// console.log(b) // 20
 // a and b are independent
 ```
 
@@ -446,8 +446,8 @@ let obj1 = { value: 10 }
 let obj2 = obj1 // Copy the reference
 obj2.value = 20
 
-console.log(obj1.value) // 20
-console.log(obj2.value) // 20
+// console.log(obj1.value) // 20
+// console.log(obj2.value) // 20
 // obj1 and obj2 point to same object
 ```
 
@@ -468,16 +468,16 @@ When comparing objects, JavaScript compares references, not the actual content.
 // Same content, different references
 let obj1 = { name: 'John' }
 let obj2 = { name: 'John' }
-console.log(obj1 === obj2) // false (different references)
+// console.log(obj1 === obj2) // false (different references)
 
 // Same reference
 let obj3 = obj1
-console.log(obj1 === obj3) // true (same reference)
+// console.log(obj1 === obj3) // true (same reference)
 
 // Cloning objects
 let obj4 = { ...obj1 } // Shallow copy
-console.log(obj1 === obj4) // false (different reference)
-console.log(obj1.name === obj4.name) // true (same value)
+// console.log(obj1 === obj4) // false (different reference)
+// console.log(obj1.name === obj4.name) // true (same value)
 ```
 
 ### Deep vs Shallow Copy
@@ -499,22 +499,22 @@ JavaScript strings use UTF-16 encoding. Understanding Unicode is essential for w
 
 ```js {monaco-run} {autorun: false}
 // Regular characters
-console.log('A'.charCodeAt(0)) // 65
-console.log('A'.codePointAt(0)) // 65
+// console.log('A'.charCodeAt(0)) // 65
+// console.log('A'.codePointAt(0)) // 65
 
 // Emoji (uses surrogate pairs in UTF-16)
-console.log('😀'.length) // 2 (2 code units)
-console.log('😀'.charCodeAt(0)) // 55357 (high surrogate)
-console.log('😀'.charCodeAt(1)) // 56832 (low surrogate)
-console.log('😀'.codePointAt(0)) // 128512 (actual code point)
+// console.log('😀'.length) // 2 (2 code units)
+// console.log('😀'.charCodeAt(0)) // 55357 (high surrogate)
+// console.log('😀'.charCodeAt(1)) // 56832 (low surrogate)
+// console.log('😀'.codePointAt(0)) // 128512 (actual code point)
 ```
 
 ### String Iteration
 
 ```js {monaco-run} {autorun: false}
 const text = 'Hello 🌍'
-console.log([...text]) // ['H', 'e', 'l', 'l', 'o', ' ', '🌍']
-console.log(text.length) // 8 (7 + 1 surrogate pair)
+// console.log([...text]) // ['H', 'e', 'l', 'l', 'o', ' ', '🌍']
+// console.log(text.length) // 8 (7 + 1 surrogate pair)
 ```
 
 ---
@@ -532,14 +532,14 @@ hideInToc: true
 
 ```js {monaco-run} {autorun: false}
 // Using \u (4 digits)
-console.log('\u0041') // A
+// console.log('\u0041') // A
 
 // Using \u{} (variable length)
-console.log('\u{1F600}') // 😀
-console.log('\u{1F4A1}') // 💡
+// console.log('\u{1F600}') // 😀
+// console.log('\u{1F4A1}') // 💡
 
 // String.fromCodePoint
-console.log(String.fromCodePoint(128512)) // 😀
+// console.log(String.fromCodePoint(128512)) // 😀
 ```
 
 </div>
@@ -552,11 +552,11 @@ console.log(String.fromCodePoint(128512)) // 😀
 let s1 = 'café' // é as single character
 let s2 = 'café' // é as e + combining acute
 
-console.log(s1 === s2) // false (different)
-console.log(s1.length, s2.length) // 4, 5
+// console.log(s1 === s2) // false (different)
+// console.log(s1.length, s2.length) // 4, 5
 
 // Normalize to compare
-console.log(s1.normalize() === s2.normalize()) // true
+// console.log(s1.normalize() === s2.normalize()) // true
 ```
 
 </div>
@@ -583,9 +583,9 @@ let weakRef = new WeakRef(obj)
 // Access the object
 let value = weakRef.deref()
 if (value) {
-  console.log(value.data) // "important"
+  // console.log(value.data) // "important"
 } else {
-  console.log('Object was garbage collected')
+  // console.log('Object was garbage collected')
 }
 
 // After obj is no longer referenced elsewhere, it can be GC'd
@@ -604,7 +604,7 @@ FinalizationRegistry lets you request a callback when an object is garbage colle
 
 ```js
 const registry = new FinalizationRegistry((heldValue) => {
-  console.log(`Object ${heldValue} was garbage collected`)
+  // console.log(`Object ${heldValue} was garbage collected`)
 })
 
 let obj = { name: 'test' }
@@ -635,7 +635,7 @@ obj = null
 </div>
 </div>
 
-**Warning**: These are advanced features. Use only when necessary, as they can make code harder to reason about.
+<div class="text-sm"><b>Warning</b>: These are advanced features. Use only when necessary, as they can make code harder to reason about.</div>
 
 ---
 hideInToc: true
