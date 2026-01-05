@@ -396,10 +396,10 @@ Here's what you need to remember about rest parameters:
 
 ```js {monaco-run} {autorun: false}
 function example(first, second, ...others) {
-  // logs first and second arguments
-  // console.log(first, second)
-  // logs the rest of the arguments as an array
-  // console.log(others)
+  //  logs first and second arguments
+   console.log(first, second)
+  //  logs the rest of the arguments as an array
+   console.log(others)
 }
 example(1, 2, 3, 4, 5)
 ```
@@ -431,7 +431,7 @@ This makes arguments useful in older code, but rest parameters are preferred in 
 ```js {monaco-run} {autorun: false}
 function showArguments() {
   // Logs all the arguments as an array-like object
-  // console.log(arguments)
+  console.log(arguments)
 }
 
 showArguments(1, 'test', true)
@@ -453,7 +453,7 @@ The spread syntax allows you to take elements from an iterable (such as an array
 
 ```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3]
-// console.log(...numbers)
+console.log(...numbers)
 ```
 
 ---
