@@ -431,11 +431,7 @@ This makes arguments useful in older code, but rest parameters are preferred in 
 ```js {monaco-run} {autorun: false}
 function showArguments() {
   // Logs all the arguments as an array-like object
-<<<<<<< HEAD
   console.log(arguments)
-=======
-  // console.log(arguments)
->>>>>>> upstream/main
 }
 
 showArguments(1, 'test', true)
@@ -457,11 +453,7 @@ The spread syntax allows you to take elements from an iterable (such as an array
 
 ```js {monaco-run} {autorun: false}
 const numbers = [1, 2, 3]
-<<<<<<< HEAD
 console.log(...numbers)
-=======
-// console.log(...numbers)
->>>>>>> upstream/main
 ```
 
 ---
