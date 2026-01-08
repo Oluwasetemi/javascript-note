@@ -963,7 +963,14 @@ const users = new Array(3).fill(null).map(() => ({ name: '', age: 0 }))
 ```js {monaco-run} {autorun: false}
 const arr = [1, 2, 3, 4, 5]; const arr2 = ['a', 'b', 'c', 'd', 'e']
 // console.log('Original:', arr);
-arr.copyWithin(2, 0, 3); arr2.copyWithin(0, 3, 4);
+
+// copyWithin(target, start, end)
+// Copy index 0-2 to starting at index 2
+arr.copyWithin(2, 0, 3); // [1, 2, 1, 2, 3] - copies 1,2,3 over positions 2,3,4
+
+// Copy index 3 to starting at index 0 
+arr2.copyWithin(0, 3, 4); // ['d', 'b', 'c', 'd', 'e'] - copies 'd' to position 0
+
 // console.log('After copyWithin:', arr) 
 // console.log('Copy d to start:', arr2)
 ```
