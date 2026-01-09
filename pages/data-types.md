@@ -208,7 +208,7 @@ hideInToc: true
 
 ```js
 let name = 'John'
-let name = 'John'
+let name = "John"
 ```
 
 - Interchangeable
@@ -558,7 +558,7 @@ console.log(names)
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
 console.log(names)
-let shifted = names.shift('chidinma')
+let shifted = names.shift()
 console.log(names, shifted)
 ```
 
