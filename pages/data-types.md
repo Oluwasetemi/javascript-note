@@ -208,7 +208,7 @@ hideInToc: true
 
 ```js
 let name = 'John'
-let name = 'John'
+let name = "John"
 ```
 
 - Interchangeable
