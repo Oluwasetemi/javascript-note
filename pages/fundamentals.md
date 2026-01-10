@@ -494,8 +494,8 @@ name: Conditional Expressions
 ```js
 let size = 25
 if (size == 20) {
-   alert('Your size is 20')
-   alert('Thank you')
+   console.log('Your size is 20')
+   console.log('Thank you')
 }
 ```
 
