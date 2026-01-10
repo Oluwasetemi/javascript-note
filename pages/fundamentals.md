@@ -414,7 +414,7 @@ hideInToc: true
 1. || (OR) : it evaluates its operands from left to right and returns the first operand that is truthy. If all operands are falsy, it returns the last operand. `result = a || b`
 
 ```js {monaco-run} {autorun: false}
- alert(true || false);  alert('Boy' || 4)
+ console.log(true || false);  console.log('Boy' || 4)
 ```
 
 2. && (AND): returns true if both operands are truthy. If either operand is falsy, the entire expression evaluate to false. `result = a && b;`
