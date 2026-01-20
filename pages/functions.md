@@ -1379,21 +1379,24 @@ hideInToc: true
 // Function that caches results of an expensive computation
 function cachedFunction(fn) {
   // Object to store cached results
-  let cache = {}
+  let cache = {} // or use new Map()
 
   return function (arg) {
     if (cache[arg] !== undefined) {
-      // console.log('Returning cached result')
-      // Return cached result if available
+      console.log('Returning cached result')
       return cache[arg]
     }
-    // console.log('Calculating result')
-    // Call the original function and store result in cache
+    console.log('Calculating result')
     let result = fn(arg)
     cache[arg] = result
     return result
   }
 }
+
+const memoizedCacheFunction = cachedFunction(n => n ** 10000)
+
+memoizedCacheFunction(5)
+memoizedCacheFunction(5) // cached result
 ```
 
 ---
@@ -1412,8 +1415,8 @@ function expensiveOperation(num) {
 const cachedExpensiveOperation = cachedFunction(expensiveOperation);
 
 // Calling the cached function
-// console.log(cachedExpensiveOperation(5));
-// console.log(cachedExpensiveOperation(5));
+console.log(cachedExpensiveOperation(5));
+console.log(cachedExpensiveOperation(5));
 ```
 
 In this example, the <kbd>cachedFunction</kbd> wraps any function you provide and stores the result of each call in the cache object.
@@ -1455,7 +1458,7 @@ function Toyota(make, year) {
   this.category = 'car'
 }
 // Create a new Toyota object and console.log the 'year' property
-// console.log(new Toyota('Camry', 2024).year)
+console.log(new Toyota('Camry', 2024).year)
 ```
 
 </div>
@@ -1490,11 +1493,13 @@ hideInToc: true
 
 ---
 hideInToc: true
+class: text-sm
 ---
 
 # func.apply
 
 <div></div>
+
 The <kbd>apply()</kbd> method could be used instead of <kbd>call()</kbd>.
 This method of <kbd>Function</kbd> instances calls this function with a given <kbd>this</kbd> value, and <kbd>argument</kbd> provided as an array (or an array-like object) unlike <kbd>call()</kbd> that expects a list of arguments.
 
@@ -1506,7 +1511,7 @@ func.call(context, ...args)
 func.apply(context, args)
 ```
 
-In cases where your objects fit into the two conditions- both iterable and array like, you can either use the <kbd>func.call()</kbd> or <kbd>func.apply()</kbd> but the later will be faster, beacause of its natural
+In cases where your objects fit into the two conditions- both iterable and array like, you can either use the <kbd>func.call()</kbd> or <kbd>func.apply()</kbd> but the later will be faster, because of its natural
 handling of array-like structures and potential optimizations in the JavaScript engines.
 
 ```js
@@ -1533,8 +1538,8 @@ hideInToc: true
 
 <div></div>
 
-The <kbd>bind()</kbd> method on <kbd>function</kbd> instances creates a new function (let's call it theta). When theta is called,
-it invokes the original function with its this keyword set to the value you specify and with any arguments you provide in <kbd>bind()</kbd> appearing before any arguments passed when calling theta.
+The <kbd>bind()</kbd> method on <kbd>function</kbd> instances creates a new function,
+it invokes the original function with its this keyword set to the value you specify and with any arguments you provide in <kbd>bind()</kbd> appearing before any arguments passed when calling the set function.
 
 ```js
 func.bind(context, ...args)
@@ -1553,7 +1558,7 @@ This function above is going to returns a "bound variant" of function <kbd>func<
 
 ```js {monaco-run} {autorun: false}
 function greet(greeting, name) {
-  // console.log(`${greeting}, ${name}!`);
+  console.log(`${greeting}, ${name}!`);
 }
 
 // Use bind to create a new function with a preset 'this' value and argument
@@ -1606,10 +1611,10 @@ function traditionalFunction() {
 }
 traditionalFunction(1, 2, 3);
 
-// const arrowFunction = () => {
-//   console.log(arguments);
-// }
-// arrowFunction(1, 2, 3);
+const arrowFunction = () => {
+  console.log(arguments);
+}
+arrowFunction(1, 2, 3);
 ```
 
 ---
@@ -1625,7 +1630,7 @@ To handle <kbd>argument</kbd> in Arrow functions, we have use two methods:<br/>
 
 ```js {monaco-run} {autorun: false}
 const arrowFunction = (...args) => {
-  // console.log(args);
+  console.log(args);
 };
 
 arrowFunction(1, 2, 3);
@@ -1636,7 +1641,7 @@ arrowFunction(1, 2, 3);
 ```js {monaco-run} {autorun: false}
 function outerFunction() {
   const arrowFunction = () => {
-    // console.log(arguments);
+    console.log(arguments);
   }
 
   arrowFunction();
@@ -1648,7 +1653,7 @@ title: Limitations of Arrow Functions
 hideInToc: true
 ---
 
-- Secondly, Arrow functions have no <kbd>"this"</kbd>
+- Secondly, Arrow functions have no `this`
 
 Arrow functions do not have their own<kbd>this</kbd>. Instead, when a developer access <kbd>this</kbd> inside an arrow function, it is taken from the surrounding lexical scope.
 
@@ -1658,10 +1663,10 @@ In the code below, the arrow function inside the <kbd>setTimeout</kbd> retains t
 const obj = {
   name: 'Alice',
   greet: function() {
-    // console.log(`Hello, ${this.name}`);
+    console.log(`Hello, ${this.name}`);
 
     setTimeout(() => {
-      // console.log(`Hello again, ${this.name}`);
+      console.log(`Hello again, ${this.name}`);
     }, 1000);
   }
 };
