@@ -415,16 +415,11 @@ The Range API allows you to manipulate portions of the document. Perfect for tex
   function highlight() {
     const range = document.createRange()
     const node = document.getElementById('content').firstChild
-    range.setStart(node, 0)
-    range.setEnd(node, 5)
+    range.setStart(node, 0);range.setEnd(node, 5);
     const span = document.createElement('span')
-    span.style.backgroundColor = 'yellow'
-    range.surroundContents(span)
+    span.style.backgroundColor = 'yellow';range.surroundContents(span);
   }
-
-  function reset() {
-    document.getElementById('content').innerHTML = 'Hello <strong>World</strong>!'
-  }
+  function reset() { document.getElementById('content').innerHTML = 'Hello <strong>World</strong>!' }
 </script>
 ```
 
