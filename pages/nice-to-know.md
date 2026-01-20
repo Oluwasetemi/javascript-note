@@ -173,7 +173,7 @@ Proxy objects enable you to intercept and customize operations performed on obje
 
 A Proxy wraps around an object and allows you to intercept fundamental operations like property access, assignment, enumeration, and function invocation.
 
-```js
+```js {monaco-run} {autorun: false}
 const target = {
   message: 'Hello, World!',
 }
@@ -185,6 +185,7 @@ const handler = {
 }
 
 const proxy = new Proxy(target, handler)
+console.log(proxy.message)
 ```
 
 ---
@@ -220,18 +221,18 @@ const user = {
 
 const handler = {
   get(target, prop) {
-    // console.log(`Getting ${prop}`)
+    console.log(`Getting ${prop}`)
     return target[prop]
   },
   set(target, prop, value) {
-    // console.log(`Setting ${prop} to ${value}`)
+    console.log(`Setting ${prop} to ${value}`)
     target[prop] = value
     return true
   },
 }
 
 const proxy = new Proxy(user, handler)
-// console.log(proxy.name) // Getting name
+console.log(proxy.name) // Getting name
 proxy.age = 31 // Setting age to 31
 ```
 
@@ -252,10 +253,10 @@ The Reflect API provides methods that mirror Proxy handler traps. It's useful fo
 const target = { name: 'AltSchool', type: 'Education' }
 
 // Using Reflect
-// console.log(Reflect.get(target, 'name')) // AltSchool
+console.log(Reflect.get(target, 'name')) // AltSchool
 Reflect.set(target, 'location', 'Nigeria')
-// console.log(Reflect.has(target, 'location')) // true
-// console.log(Reflect.ownKeys(target)) // ['name', 'type', 'location']
+console.log(Reflect.has(target, 'location')) // true
+console.log(Reflect.ownKeys(target)) // ['name', 'type', 'location']
 ```
 
 ### Why Reflect?
@@ -283,11 +284,11 @@ eval(string)
 ```js {monaco-run} {autorun: false}
 let code = '2 + 2'
 let result = eval(code)
-// console.log(result) // 4
+console.log(result) // 4
 
 let x = 10
 eval('x = x + 5')
-// console.log(x) // 15
+console.log(x) // 15
 ```
 
 ---
@@ -583,9 +584,9 @@ let weakRef = new WeakRef(obj)
 // Access the object
 let value = weakRef.deref()
 if (value) {
-  // console.log(value.data) // "important"
+  console.log(value.data) // "important"
 } else {
-  // console.log('Object was garbage collected')
+  console.log('Object was garbage collected')
 }
 
 // After obj is no longer referenced elsewhere, it can be GC'd
@@ -604,7 +605,7 @@ FinalizationRegistry lets you request a callback when an object is garbage colle
 
 ```js
 const registry = new FinalizationRegistry((heldValue) => {
-  // console.log(`Object ${heldValue} was garbage collected`)
+  console.log(`Object ${heldValue} was garbage collected`)
 })
 
 let obj = { name: 'test' }
