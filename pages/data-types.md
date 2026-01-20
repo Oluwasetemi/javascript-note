@@ -1,4 +1,4 @@
----
+ ---
 layout: center
 transition: slide-up
 hideInToc: true
@@ -512,9 +512,9 @@ console.log(fruits[3]) //syntax: console.log(name of the array[position])
 console.log(fruits[0] ); // Mango
 console.log(fruits[1] ); // Orange
 console.log(fruits[2] ); // Apple
-fruits [1] = "plum" //this will replace the element
+fruits[1] = "plum" //this will replace the element
 console.log(fruits) //["mango", "plum", "apple", "grape"]
-fruits [4] = "lemon" //this add a new element to the item.
+fruits[4] = "lemon" //this add a new element to the item.
 console.log(fruits)
 ```
 <p><span class='text-red'>Note:</span> Array elements are numbered, starting with zero. The total count of the elements in the array is its length.</p>
@@ -558,7 +558,7 @@ console.log(names)
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz']
 console.log(names)
-let shifted = names.shift('chidinma')
+let shifted = names.shift()
 console.log(names, shifted)
 ```
 
@@ -963,7 +963,11 @@ const users = new Array(3).fill(null).map(() => ({ name: '', age: 0 }))
 ```js {monaco-run} {autorun: false}
 const arr = [1, 2, 3, 4, 5]; const arr2 = ['a', 'b', 'c', 'd', 'e']
 // console.log('Original:', arr);
-arr.copyWithin(2, 0, 3); arr2.copyWithin(0, 3, 4);
+// copyWithin(target, start, end)
+// Copy index 0-2 to starting at index 2
+arr.copyWithin(2, 0, 3); // [1, 2, 1, 2, 3] - copies 1,2,3 over positions 2,3,4
+// Copy index 3 to starting at index 0 
+arr2.copyWithin(0, 3, 4); // ['d', 'b', 'c', 'd', 'e'] - copies 'd' to position 0
 // console.log('After copyWithin:', arr) 
 // console.log('Copy d to start:', arr2)
 ```
