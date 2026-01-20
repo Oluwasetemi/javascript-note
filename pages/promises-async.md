@@ -110,15 +110,16 @@ hideInToc: true
 
 ## Event Listeners
 
-```js {monaco-run} {autorun: false}
-// Callback handles click event
-const button = document.createElement('button')
-button.textContent = 'Click me'
-document.body.appendChild(button)
-
-button.addEventListener('click', function(event) {
-  console.log('Button clicked!', event.target)
-})
+```html {monaco-run} {autorun: false}
+<script>
+  const button = document.createElement('button')
+  button.textContent = 'Click me'
+  document.body.appendChild(button)
+  
+  button.addEventListener('click', function(event) {
+    console.log('Button clicked!', event.target)
+  })
+</script>
 ```
 
 </div>
