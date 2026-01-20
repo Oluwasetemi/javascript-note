@@ -13,6 +13,7 @@ hideInToc: true
 - <a @click="$slidev.nav.next()">Module basics</a>
 - <a @click="$nav.go($nav.currentPage+2)">Export and Import</a>
 - <a @click="$nav.go($nav.currentPage+6)">Dynamic Imports</a>
+- <a @click="$nav.go($nav.currentPage+7)">The Need for a Bundler</a>
 
 ---
 hideInToc: true
@@ -108,10 +109,7 @@ Import specific exports by name.
 
 ```js
 // 📁 main.js
-import {
-  sayHi as hi,
-  sayBye as bye
-} from './say.js'
+import { sayHi as hi, sayBye as bye } from './say.js'
 
 hi('John')
 bye('John')
@@ -159,8 +157,7 @@ name: Export and Import
 
 ```js
 // Clear what you need
-import { formatDate, parseDate }
-  from './utils.js'
+import { formatDate, parseDate } from './utils.js'
 ```
 
 </div>
@@ -171,10 +168,7 @@ import { formatDate, parseDate }
 
 ```js
 // 📁 say.js
-export {
-  sayHi as hi,
-  sayBye as bye
-}
+export { sayHi as hi, sayBye as bye }
 ```
 
 ```js
@@ -292,6 +286,7 @@ import { heavy } from './heavy.js'
 ```
 
 **Issues:**
+
 - Increases initial load time
 - Loads unused code
 - No conditional loading
@@ -304,14 +299,13 @@ import { heavy } from './heavy.js'
 
 ```js
 // Loaded when needed
-const module = await import(
-  './path/to/module.js'
-)
+const module = await import('./path/to/module.js')
 
 module.doSomething()
 ```
 
 **Benefits:**
+
 - On-demand loading
 - Code splitting
 - Conditional imports
@@ -323,6 +317,7 @@ module.doSomething()
 **Use Cases**
 
 **1. Code Splitting**
+
 ```js
 button.addEventListener('click', async () => {
   const { chart } = await import('./chart.js')
@@ -331,6 +326,7 @@ button.addEventListener('click', async () => {
 ```
 
 **2. Conditional Loading**
+
 ```js
 if (condition) {
   const mod = await import('./feature.js')
@@ -340,4 +336,77 @@ if (condition) {
 
 </div>
 
+</div>
+
+---
+hideInToc: true
+class: text-sm
+---
+
+# The Need for a Bundler
+
+<div grid="~ cols-2" gap="4">
+
+<div>
+
+### Problems Without Bundlers
+
+- **Too many HTTP requests** - Each module = separate request
+- **No backwards compatibility** - Older browsers lack ES module support
+- **No optimization** - No minification, tree-shaking
+- **Dependency management** - Manual ordering of scripts
+- **No code transformation** - Can't use TypeScript, JSX, etc.
+
+```html
+<!-- Without bundler: many requests -->
+<script type="module" src="./a.js"></script>
+<script type="module" src="./b.js"></script>
+<script type="module" src="./c.js"></script>
+<!-- 100+ modules = 100+ requests -->
+```
+
+</div>
+
+<div class="text-[12px]">
+
+### What Bundlers Do
+
+- **Bundle** - Combine modules into fewer files
+- **Minify** - Remove whitespace, shorten names
+- **Tree-shake** - Remove unused code
+- **Transpile** - Convert modern JS to older syntax
+- **Transform** - Process TypeScript, JSX, SASS
+
+```js
+// Bundler output: single optimized file
+// - All modules combined
+// - Dead code removed
+// - Minified for production
+```
+
+<div class="text-[10px]">
+
+| Bundler     | Notes                      |
+| ----------- | -------------------------- |
+| {Vite}    | Fast, modern, uses ESBuild |
+| {webpack} | Feature-rich, widely used  |
+| {Rollup}  | Great for libraries        |
+| {esbuild} | Extremely fast             |
+| {Parcel}  | Zero-config                |
+
+<style>
+  table, td, tr {
+    margin: 2px;
+    padding: 2px;
+    
+    a {
+      margin-bottom: 5px;
+    }
+  }
+</style>
+
+
+</div>
+
+</div>
 </div>
