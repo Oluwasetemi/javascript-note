@@ -414,18 +414,18 @@ hideInToc: true
 1. || (OR) : it evaluates its operands from left to right and returns the first operand that is truthy. If all operands are falsy, it returns the last operand. `result = a || b`
 
 ```js {monaco-run} {autorun: false}
-// alert(true || false); // alert('Boy' || 4)
+ console.log(true || false);  console.log('Boy' || 4)
 ```
 
 2. && (AND): returns true if both operands are truthy. If either operand is falsy, the entire expression evaluate to false. `result = a && b;`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 console.log(true && true); console.log(false && true)
 ```
 
 3. ! (NOT): it inverts the truth value of an expression, meaning returns false if expression is truthy, and true if expression is falsy. `result = !expression;`
 
-```js{monaco-run} {autorun: false}
+```js {monaco-run} {autorun: false}
 console.log(!true); console.log(!0)
 ```
 
@@ -454,10 +454,10 @@ let greeting = name ?? `Hello, Stranger!`
 
 ```js
 if (user && user.address && user.address.street) {
-  // console.log(user.address.street);
+   console.log(user.address.street);
 }
 
-// console.log(user?.address?.street);
+   console.log(user?.address?.street);
 ```
 
 
@@ -481,7 +481,7 @@ if (condition) {
 ```js {monaco-run} {autorun: false}
 let day = 'Monday' 
 if (day == 'Monday'){
-  console.log('Today is Monday')
+  //console.log('Today is Monday')
 }
 ```
 <p><span text-red>Note:</span> If the condition  is false, the code will not run</p>
@@ -494,8 +494,8 @@ name: Conditional Expressions
 ```js
 let size = 25
 if (size == 20) {
-  // alert('Your size is 20')
-  // alert('Thank you')
+   console.log('Your size is 20')
+   console.log('Thank you')
 }
 ```
 
