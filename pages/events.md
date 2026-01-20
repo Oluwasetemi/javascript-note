@@ -92,7 +92,7 @@ interface AddEventListenerOptions extends EventListenerOptions {
 ```
 
 ```js {monaco-run} {autorun: false}
-const elem = document.querySelector(`[data-slidev-no="279"] h1`)
+const elem = document.querySelector(`[data-slidev-no="285"] h1`)
 const handler = () => console.log('Click!')
 elem.addEventListener('click', handler, { once: true })
 // elem.addEventListener('mouseover', handler);
@@ -115,7 +115,7 @@ When an event happens, the browser creates an event object, puts details into it
 <div grid="~ cols-2" gap="2">
 
 ```js {monaco-run} {autorun: false}
-const elem = document.querySelector(`[data-slidev-no="280"] h1`)
+const elem = document.querySelector(`[data-slidev-no="286"] h1`)
 
 elem.addEventListener('click', function (event) {
   // show the event type, the element and the coordinates of the click
@@ -183,7 +183,7 @@ hideInToc: true
 <v-clicks>
 
 ```js {monaco-run} {autorun: false}
-const elem = document.querySelector(`[data-slidev-no="282"] h1`)
+const elem = document.querySelector(`[data-slidev-no="288"] h1`)
 const parent = elem.parentElement
 const grandParent = parent.parentElement
 
@@ -344,7 +344,7 @@ To prevent the default action, we can use `event.preventDefault()`. returning `f
 
 <!-- prettier-ignore -->
 ```js {monaco-run} {lineNumbers: true, autorun: false}
-const link = document.querySelector(`[data-slidev-no="286"] a`)
+const link = document.querySelector(`[data-slidev-no="292"] a`)
 link.addEventListener('click', function(event) {
   event.preventDefault(); event.stopPropagation();
   console.log('Link click!');
@@ -352,7 +352,7 @@ link.addEventListener('click', function(event) {
 ```
 
 ```js {monaco-run} {autorun: false}
-const h1 = document.querySelector(`[data-slidev-no="286"] h1`)
+const h1 = document.querySelector(`[data-slidev-no="292"] h1`)
 h1.oncontextmenu = function (event) {
   console.log('Content menu clicked')
 }

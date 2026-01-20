@@ -237,57 +237,47 @@ url: https://www.toptal.com/developers/keycode
 ---
 hideInToc: true
 layout: full
-dragPos:
-  square: Left,Top,Width,Height,Rotate
 ---
 
 # Drag'n'Drop with mouse events
 
 <v-clicks>
 
-Drag-and-drop is a user interface interaction that allows users to grab an object and move it to a different location on the screen. This interaction is common in file management on your computer, arranging items in games, or editing tools online. Double click the JS logo and drag.The basic Drag’n’Drop algorithm looks like this:
+Drag-and-drop is a user interface interaction that allows users to grab an object and move it to a different location on the screen. The basic algorithm: (1) `mousedown` - prepare element, (2) `mousemove` - move element, (3) `mouseup` - drop and cleanup.
 
-<div class="overflow-auto h-full pb40 grid grid-cols-[70%_30%] gap-10">
+<div class="overflow-auto h-80">
 
-```js
-ball.onmousedown = function (event) {
-  // (1) prepare to moving: make absolute and on top by z-index
-  ball.style.position = 'absolute'
-  ball.style.zIndex = 1000
-
-  // move it out of any current parents directly into body
-  // to make it positioned relative to the body
-  document.body.append(ball)
-
-  // centers the ball at (pageX, pageY) coordinates
-  function moveAt(pageX, pageY) {
-    ball.style.left = pageX - ball.offsetWidth / 2 + 'px'
-    ball.style.top = pageY - ball.offsetHeight / 2 + 'px'
+```html {monaco-run} {autorun: false}
+<div id="container" style="position:relative; height:150px; border:2px dashed #ccc; background:#f9f9f9;">
+  <div id="ball" style="position:absolute; width:50px; height:50px; background:#4CAF50; border-radius:50%; cursor:grab; left:20px; top:20px; display:flex; align-items:center; justify-content:center; color:white; font-size:12px;">Drag</div>
+</div>
+<script>
+  const ball = document.getElementById('ball')
+  ball.onmousedown = function(event) {
+    event.preventDefault() // prevent text selection
+    ball.style.cursor = 'grabbing'
+    const shiftX = event.clientX - ball.getBoundingClientRect().left
+    const shiftY = event.clientY - ball.getBoundingClientRect().top
+    function moveAt(pageX, pageY) {
+      ball.style.left = pageX - shiftX + 'px'
+      ball.style.top = pageY - shiftY + 'px'
+    }
+    function onMouseMove(event) { moveAt(event.pageX, event.pageY) }
+    function onMouseUp() {
+      document.removeEventListener('mousemove', onMouseMove)
+      document.removeEventListener('mouseup', onMouseUp)
+      ball.style.cursor = 'grab'
+    }
+    document.addEventListener('mousemove', onMouseMove)
+    document.addEventListener('mouseup', onMouseUp)
   }
-
-  // move our absolutely positioned ball under the pointer
-  moveAt(event.pageX, event.pageY)
-
-  function onMouseMove(event) {
-    moveAt(event.pageX, event.pageY)
-  }
-
-  // (2) move the ball on mousemove
-  document.addEventListener('mousemove', onMouseMove)
-
-  // (3) drop the ball, remove unneeded handlers
-  ball.onmouseup = function () {
-    document.removeEventListener('mousemove', onMouseMove)
-    ball.onmouseup = null
-  }
-}
+  ball.ondragstart = () => false // disable native drag
+</script>
 ```
 
-<div class="grid place-items-center">
-<img v-drag="square" class="i-logos-javascript text-7xl "></img>
 </div>
 
-</div>
+**Key points:** Use `mousedown` to start, `mousemove` on document to track, `mouseup` to stop. Disable native drag with `ondragstart = () => false`.
 
 </v-clicks>
 
