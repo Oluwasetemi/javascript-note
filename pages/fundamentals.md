@@ -219,13 +219,13 @@ hideInToc: true
 
 # Interaction: `alert`, `prompt`, `confirm`
 
-- The // alert() method: displays an alert box with a mesage and an OK button.
-- The // prompt() method: It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel. It accepts two arguments.
-- The // confirm() method: The function shows a modal window with a question and two buttons: OK and Cancel
+- The alert() method: displays an alert box with a mesage and an OK button.
+- The prompt() method: It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel. It accepts two arguments.
+- The confirm() method: The function shows a modal window with a question and two buttons: OK and Cancel
 
 #### Alert{.text-common}
 
-- The // alert() method displays an alert box with a mesage and an OK button
+- The alert() method displays an alert box with a mesage and an OK button
 
 ```js {monaco-run} {autorun: false}
 // alert('Hello V5 Frontend Developer, Enjoying Javascript so far?')
@@ -241,11 +241,11 @@ hideInToc: true
 ---
 
 ```js
-result = // prompt(text to show visitor, [default]) //default is an optional parameter, the initial value for the input field
+result = prompt(text to show visitor, [default]) //default is an optional parameter, the initial value for the input field
 ```
 
 ```js {monaco-run} {autorun: false}
-interview_Question = // prompt('What is the full meaning of CSS?', '')
+interview_Question = prompt('What is the full meaning of CSS?', '')
 // console.log(
   interview_Question === 'Cascading Style Sheet' ||
     interview_Question === 'cascading style sheet',
@@ -258,11 +258,11 @@ interview_Question = // prompt('What is the full meaning of CSS?', '')
 - The syntax:
 
 ```js
-result = // confirm(question)
+result = confirm(question)
 ```
 
 ```js {monaco-run} {autorun: false}
-let altschoolStatus = // confirm('Are you a v4 student ?')
+let altschoolStatus = confirm('Are you a v4 student ?')
 // console.log(altschoolStatus)
 ```
 
