@@ -223,6 +223,7 @@ console.log( obj.for + obj.let + obj.return );
 
 ---
 hideInToc: true
+class: text-sm
 ---
 
 # Property existence test, `in` operator, `Object.hasOwn`
@@ -475,12 +476,12 @@ let age = {};
 Object.assign(age, { age: 40 });
 // Now merge the 'age' object into 'person' to add the age property
 Object.assign(person, age);
-// console.log(person);
+console.log(JSON.stringify(person));
 ```
 
 <div>
 Note: If the property name already exists, it gets overwritten.
-We can also use <kbd>Object.assign()</kbd> method to perform a simple object clone.
+We can also use `Object.assign()` method to perform a simple object clone.
 </div>
 
 </div>
