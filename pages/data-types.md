@@ -1,4 +1,4 @@
----
+ ---
 layout: center
 transition: slide-up
 hideInToc: true
@@ -512,9 +512,9 @@ console.log(fruits[3]) //syntax: console.log(name of the array[position])
 console.log(fruits[0] ); // Mango
 console.log(fruits[1] ); // Orange
 console.log(fruits[2] ); // Apple
-fruits [1] = "plum" //this will replace the element
+fruits[1] = "plum" //this will replace the element
 console.log(fruits) //["mango", "plum", "apple", "grape"]
-fruits [4] = "lemon" //this add a new element to the item.
+fruits[4] = "lemon" //this add a new element to the item.
 console.log(fruits)
 ```
 <p><span class='text-red'>Note:</span> Array elements are numbered, starting with zero. The total count of the elements in the array is its length.</p>
