@@ -70,6 +70,8 @@ hideInToc: true
 <Toc columns="2" minDepth="1" maxDepth="2"></Toc>
 
 ---
+hideInToc: true
+---
 
 # Getting Started With JavaScript?
 

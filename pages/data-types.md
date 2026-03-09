@@ -1,4 +1,4 @@
- ---
+---
 layout: center
 transition: slide-up
 hideInToc: true
@@ -2182,6 +2182,7 @@ console.log(now)
 
 ---
 hideInToc: true
+class: text-xs
 ---
 
 # Intro to Intl API
@@ -2190,7 +2191,7 @@ hideInToc: true
 
 The **Intl API** provides language-sensitive string comparison, number formatting, date and time formatting, and other internationalization features.
 
-<div grid="~ cols-2" gap-3>
+<div grid="~ cols-2" gap-3 class="text-sm">
 <div>
 
 ## Common Intl Objects
@@ -2206,17 +2207,6 @@ The **Intl API** provides language-sensitive string comparison, number formattin
 **Text & Collation:**
 - `Intl.Collator` - String comparison
 - `Intl.PluralRules` - Plural rule selection
-
-```js {monaco-run} {autorun: false}
-// Basic usage examples
-const date = new Date()
-const number = 1234567.89
-
-// console.log('US:', new Intl.DateTimeFormat('en-US').format(date))
-// console.log('DE:', new Intl.DateTimeFormat('de-DE').format(date))
-// console.log('US Number:', new Intl.NumberFormat('en-US').format(number))
-// console.log('DE Number:', new Intl.NumberFormat('de-DE').format(number))
-```
 
 </div>
 <div>
@@ -2234,6 +2224,17 @@ const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
 // console.log('Next week:', rtf.format(1, 'week'))
 const listFormatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' })
 // console.log('List:', listFormatter.format(['Apple', 'Banana', 'Cherry']))
+```
+
+```js {monaco-run} {autorun: false}
+// Basic usage examples
+const date = new Date()
+const number = 1234567.89
+
+// console.log('US:', new Intl.DateTimeFormat('en-US').format(date))
+// console.log('DE:', new Intl.DateTimeFormat('de-DE').format(date))
+// console.log('US Number:', new Intl.NumberFormat('en-US').format(number))
+// console.log('DE Number:', new Intl.NumberFormat('de-DE').format(number))
 ```
 
 </div>
