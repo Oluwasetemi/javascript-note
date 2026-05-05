@@ -504,7 +504,7 @@ hideInToc: true
 title: Getting and Setting of items in an Arrays
 ---
 
-<ul><li>How do we get values from an array and how do we update an item in an array?🤔</li></ul>
+<ul><li>How do we get values from an array and how do we update an item in an array? <span class="i-mdi-help-circle-outline inline-block" /></li></ul>
 
 ```js {monaco-run} {autorun: false}
 let fruits = ["mango", "orange", "apple", "grape"] 
@@ -1669,7 +1669,7 @@ hideInToc: true
 <div grid="~ cols-2">
 <div>
 
-**❌ The Old Way - Manual Implementation**
+**<span class="i-mdi-close-circle text-red-500 inline-block" /> The Old Way - Manual Implementation**
 ```js
 // Union - messy spread operator
 const union = new Set([...setA, ...setB])
@@ -1691,7 +1691,7 @@ const isSubset = [...setA].every(x => setB.has(x))
 </div>
 <div>
 
-**✅ The New Way - Native Methods**
+**<span class="i-mdi-check-circle text-green-500 inline-block" /> The New Way - Native Methods**
 ```js {monaco-run} {autorun: false}
 const setA = new Set(['a', 'b', 'c'])
 const setB = new Set(['b', 'c', 'd'])
@@ -1719,7 +1719,7 @@ const result = setA.union(setB).difference(new Set(['d']))
 hideInToc: true
 ---
 
-### Map can also use objects as keys. How tho 🤔?
+### Map can also use objects as keys. How tho <span class="i-mdi-help-circle-outline inline-block" />?
 
 ```js {monaco-run} {autorun: false}
 let john = { name: 'John' }
@@ -1806,7 +1806,7 @@ hideInToc: true
 <div grid="~ cols-2" gap-3>
 <div>
 
-**🔐 Private Data Storage**
+**<span class="i-mdi-lock inline-block" /> Private Data Storage**
 
 ```js {monaco-run} {autorun: false}
 const privateData = new WeakMap()
@@ -1833,7 +1833,7 @@ const user = new User('John')
 
 <div>
 
-**📊 Object Metadata**
+**<span class="i-mdi-chart-bar inline-block" /> Object Metadata**
 
 ```js {monaco-run} {autorun: false}
 const visited = new WeakSet()
@@ -1866,9 +1866,9 @@ hideInToc: true
 | Feature                | Map/Set             | WeakMap/WeakSet            |
 | ---------              | ---------           | -----------------          |
 | **Keys/Values**        | Any type            | Objects only               |
-| **Iteration**          | ✅ Possible         | ❌ Not allowed              |
-| **Size**               | ✅ Has `.size`      | ❌ No size property         |
-| **Garbage Collection** | ❌ Prevents GC       | ✅ Allows GC               |
+| **Iteration**          | <span class="i-mdi-check-circle text-green-500 inline-block" /> Possible | <span class="i-mdi-close-circle text-red-500 inline-block" /> Not allowed |
+| **Size**               | <span class="i-mdi-check-circle text-green-500 inline-block" /> Has `.size` | <span class="i-mdi-close-circle text-red-500 inline-block" /> No size property |
+| **Garbage Collection** | <span class="i-mdi-close-circle text-red-500 inline-block" /> Prevents GC | <span class="i-mdi-check-circle text-green-500 inline-block" /> Allows GC |
 | **Use Case**           | General collections | Private data,metadata      |
 
 

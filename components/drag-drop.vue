@@ -35,7 +35,7 @@
        Play File Processing Demo
     </button>
     <button @click="clearFiles" class="btn-secondary">
-      🗑️ Clear Files
+      <span class="i-mdi-delete inline-block" /> Clear Files
     </button>
   </div>
 </template>

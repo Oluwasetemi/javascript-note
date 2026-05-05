@@ -236,7 +236,7 @@ IntersectionObserver detects when:
     Scroll down...
   </div>
   <div id="target" style="padding: 20px; background: lightblue;">
-    Watch me! 👀
+    Watch me! <span class="i-mdi-eye inline-block" />
   </div>
   <div style="height: 150px;"></div>
 </div>
@@ -625,11 +625,11 @@ worker.postMessage(buffer, [buffer])
 <h3 class="text-base mb-2 mt-3">Worker Limitations</h3>
 
 <ul text-xs leading-tight>
-<li>❌ No DOM access</li>
-<li>❌ No window object</li>
-<li>✅ XMLHttpRequest / fetch</li>
-<li>✅ setTimeout / setInterval</li>
-<li>✅ IndexedDB</li>
+<li><span class="i-mdi-close-circle text-red-500 inline-block" /> No DOM access</li>
+<li><span class="i-mdi-close-circle text-red-500 inline-block" /> No window object</li>
+<li><span class="i-mdi-check-circle text-green-500 inline-block" /> XMLHttpRequest / fetch</li>
+<li><span class="i-mdi-check-circle text-green-500 inline-block" /> setTimeout / setInterval</li>
+<li><span class="i-mdi-check-circle text-green-500 inline-block" /> IndexedDB</li>
 </ul>
 </div>
 

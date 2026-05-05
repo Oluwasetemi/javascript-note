@@ -346,7 +346,7 @@ As mentioned earlier, recursive functions are functions that call themselves rep
 Let’s explore an excellent example of recursive traversal in action. Recursive traversal is commonly used to navigate data structures like trees or graphs. By using recursion, we can efficiently explore each node or element in the structure without needing complex loops or additional data tracking mechanisms.
 </p>
 
-# Check next slide for the code example 🐱‍🏍👉🤸‍♂️
+# Check next slide for the code example <span class="i-mdi-arrow-right inline-block" />
 
 In the code:
 

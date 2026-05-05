@@ -1,7 +1,7 @@
 
 <template>
   <button @click="openSecurePopup" class="btn-primary">
-    🔒 Open Secure Popup
+    <span class="i-mdi-lock inline-block" /> Open Secure Popup
   </button>
 
   <div v-if="popupMessage" class="message-box">
@@ -17,7 +17,7 @@
   ></canvas>
 
   <button @click="playSecurityDemo" class="play-btn">
-    ▶️ Play Security Demo
+    <span class="i-mdi-play inline-block" /> Play Security Demo
   </button>
 </template>
 

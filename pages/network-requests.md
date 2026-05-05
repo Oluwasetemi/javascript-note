@@ -812,7 +812,7 @@ hideInToc: true
                       <td class="px-6 py-4 border-r border-gray-200">
                           <div class="flex items-center space-x-3">
                               <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-red-100 text-red-600 font-bold">
-                                  🔒
+                                  <span class="i-mdi-lock text-xl inline-block" />
                               </div>
                               <div class="text-base font-semibold text-red-700">Security</div>
                           </div>
@@ -830,7 +830,7 @@ hideInToc: true
                       <td class="px-6 py-4 border-r border-gray-200">
                           <div class="flex items-center space-x-3">
                               <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-green-100 text-green-600 font-bold">
-                                  ⚡
+                                  <span class="i-mdi-lightning-bolt text-xl inline-block" />
                               </div>
                               <div class="text-base font-semibold text-green-700">Performance</div>
                           </div>
@@ -848,7 +848,7 @@ hideInToc: true
                       <td class="px-6 py-4 border-r border-gray-200">
                           <div class="flex items-center space-x-3">
                               <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold">
-                                  🔍
+                                  <span class="i-mdi-magnify text-xl inline-block" />
                               </div>
                               <div class="text-base font-semibold text-blue-700">Debugging</div>
                           </div>
@@ -2212,10 +2212,10 @@ hideInToc: true
 WebSocket is a protocol that enables two-way persistent communication between a browser and a server. Unlike traditional HTTP, it maintains an open connection, allowing real-time data exchange without repeated requests.
 Perfect for:
 
-- 🎮 Online games
-- 📈 Real-time trading systems
-- 💬 Chat applications
-- 📊 Live data dashboards
+- <span class="i-mdi-gamepad-variant inline-block" /> Online games
+- <span class="i-mdi-trending-up inline-block" /> Real-time trading systems
+- <span class="i-mdi-chat inline-block" /> Chat applications
+- <span class="i-mdi-chart-bar inline-block" /> Live data dashboards
 
 </v-clicks>
 

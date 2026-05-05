@@ -302,7 +302,7 @@ hideInToc: true
 
 <v-clicks>
 
-#### What are Custom Elements? 🤔
+#### What are Custom Elements? <span class="i-mdi-help-circle-outline inline-block" />
 
 ##### Custom Elements allow us to create our own HTML tags with custom functionality, making our code more semantic and reusable. Think of them as creating your own LEGO blocks for the web!
 
@@ -452,7 +452,7 @@ graph TD
 hideInToc: true
 ---
 
-# Creating Custom Elements 🛠️
+# Creating Custom Elements <span class="i-mdi-wrench inline-block" />
 
 <v-clicks>
 ```js
@@ -613,7 +613,7 @@ document.body.appendChild(timer)
 hideInToc: true
 ---
 
-# Common Pitfalls to Avoid ⚠️
+# Common Pitfalls to Avoid <span class="i-mdi-alert inline-block" />
 
 <v-clicks>
 
@@ -668,7 +668,7 @@ graph TD
 hideInToc: true
 ---
 
-# Key Concepts 🔑
+# Key Concepts <span class="i-mdi-key inline-block" />
 
 1. Two Types of DOM Trees
 
@@ -680,7 +680,7 @@ hideInToc: true
 
 <input type="range" />
 
-#### Creating Shadow DOM 🛠️
+#### Creating Shadow DOM <span class="i-mdi-wrench inline-block" />
 
 ```js
 // Create a shadow root
@@ -737,7 +737,7 @@ customElements.define(
 ```
 ````
 
-### Encapsulation Features 🛡️
+### Encapsulation Features <span class="i-mdi-shield inline-block" />
 
 ##### 1. Style Isolation
 

@@ -70,7 +70,7 @@ const re = new RegExp("pattern", "flags")
 
 <div class="mt-0 p-1 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-100 rounded text-[10px]">
 
-**💡 When to use constructor:**
+**<span class="i-mdi-lightbulb inline-block" /> When to use constructor:**
 
 - Pattern is dynamic/from variable
 - Pattern contains forward slashes
@@ -464,7 +464,7 @@ With the `m` (multiline) flag:
 
 <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-100 rounded text-xs">
 
-**💡 Tip:** Lines are separated by `\n` (newline character)
+**<span class="i-mdi-lightbulb inline-block" /> Tip:** Lines are separated by `\n` (newline character)
 
 </div>
 
@@ -538,7 +538,7 @@ hideInToc: true
 
 <div class="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/30 dark:text-yellow-100 rounded text-xs">
 
-**⚠️ Note:** `\B` is the opposite - matches where `\b` doesn't
+**<span class="i-mdi-alert inline-block" /> Note:** `\B` is the opposite - matches where `\b` doesn't
 
 </div>
 
@@ -622,7 +622,7 @@ These characters have special meaning and must be **escaped** with `\` to match 
 
 <div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-100 rounded text-xs">
 
-**💡 Rule:** To match a special character literally, put `\` before it
+**<span class="i-mdi-lightbulb inline-block" /> Rule:** To match a special character literally, put `\` before it
 
 </div>
 
@@ -868,7 +868,7 @@ Add `?` after the quantifier:
 
 <div class="mt-4 p-3 bg-orange-50 dark:bg-orange-900/30 dark:text-orange-100 rounded text-xs">
 
-**🔥 Key difference:**
+**<span class="i-mdi-fire inline-block" /> Key difference:**
 - Greedy: `.*` matches until **last** match
 - Lazy: `.*?` matches until **first** match
 
@@ -1066,7 +1066,7 @@ The pipe `|` means **OR** - match one pattern **or** another.
 
 <div class="mt-4 p-3 bg-indigo-50 dark:bg-indigo-900/30 dark:text-indigo-100 rounded text-xs">
 
-**⚠️ Tip:** Alternation checks from **left to right** and stops at first match
+**<span class="i-mdi-alert inline-block" /> Tip:** Alternation checks from **left to right** and stops at first match
 
 </div>
 
@@ -1214,7 +1214,7 @@ Some regex patterns cause **exponential time** to match, freezing your app!
 
 <div class="mt-4 p-3 bg-red-50 dark:bg-red-900/30 dark:text-red-100 rounded text-xs">
 
-**⚠️ Warning:** These patterns can take seconds or minutes on long strings!
+**<span class="i-mdi-alert inline-block" /> Warning:** These patterns can take seconds or minutes on long strings!
 
 </div>
 
