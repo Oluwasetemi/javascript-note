@@ -384,7 +384,7 @@ class: text-sm
 // - Minified for production
 ```
 
-<div class="text-[10px]">
+<div class="text-[10px] [&_table]:border-collapse [&_td]:py-0.5 [&_td]:px-1 [&_tr]:leading-tight">
 
 | Bundler     | Notes                      |
 | ----------- | -------------------------- |
@@ -393,17 +393,6 @@ class: text-sm
 | {Rollup}  | Great for libraries        |
 | {esbuild} | Extremely fast             |
 | {Parcel}  | Zero-config                |
-
-<style>
-  table, td, tr {
-    margin: 2px;
-    padding: 2px;
-    
-    a {
-      margin-bottom: 5px;
-    }
-  }
-</style>
 
 
 </div>

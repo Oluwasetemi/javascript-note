@@ -1,19 +1,16 @@
 <script setup lang="ts">
-const props = defineProps({
-  quote: {
-    type: String,
-    required: true,
-  },
-  url: {
-    type: String,
-    required: false,
-  },
+defineProps({
+  quote: { type: String, required: true },
+  url: { type: String, required: false },
 })
 </script>
+
 <template>
   <div>
-    <blockquote>
-      <p>{{ quote }}</p>
+    <blockquote
+      class="gq-block font-hand text-2xl italic border-l-5 border-l-blue-500 px-5 py-2.5 my-5 bg-gray-50 text-gray-800"
+    >
+      <p class="m-0">{{ quote }}</p>
       <footer v-if="url">
         <a :href="url">Source</a>
       </footer>
@@ -22,42 +19,19 @@ const props = defineProps({
 </template>
 
 <style scoped>
-blockquote {
-  border-left: 5px solid #007bff;
-  /* Add a left border */
-  padding: 10px 20px;
-  /* Add padding */
-  margin: 20px 0;
-  /* Add margin */
-  background-color: #f9f9f9;
-  /* Light background */
-  color: #333;
-  /* Text color */
-  font-style: italic;
-  /* Italicize text */
-  --uno: font-hand text-2xl;
-}
-
-blockquote p {
-  margin: 0;
-  /* Remove margin from paragraph inside blockquote */
-}
-
-blockquote::before {
-  content: '“';
-  /* Add a quotation mark before the blockquote */
-  font-size: 2em;
-  color: #007bff;
+/* Curly quote pseudo-elements — string content cannot be expressed as UnoCSS utilities inside HTML attributes */
+.gq-block::before {
+  content: '\201C';
+  font-size: 1.5em;
+  color: #3b82f6;
   vertical-align: -0.4em;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
-
-blockquote::after {
-  content: '”';
-  /* Add a quotation mark after the blockquote */
-  font-size: 2em;
-  color: #007bff;
+.gq-block::after {
+  content: '\201D';
+  font-size: 1.5em;
+  color: #3b82f6;
   vertical-align: -0.4em;
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 </style>

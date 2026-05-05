@@ -8,7 +8,7 @@
       class="border border-gray-300 mb-4"
     ></canvas>
 
-    <button @click="toggleAnimation" class="play-btn">
+    <button @click="toggleAnimation" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
       {{ isAnimating ? '⏸️ Stop Animation' : '▶️ Start Animation' }}
     </button>
   </div>
@@ -88,8 +88,3 @@ onUnmounted(() => {
 });
 </script>
 
-<style scoped>
-.play-btn {
-  @apply px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors;
-}
-</style>

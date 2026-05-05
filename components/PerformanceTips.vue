@@ -268,13 +268,3 @@ console.log(\`Time: \${end - start}ms\`)
 // Performance tips component - no interactive state needed
 </script>
 
-<style scoped>
-code {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9em;
-}
-
-pre {
-  overflow-x: auto;
-}
-</style>

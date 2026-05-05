@@ -28,9 +28,10 @@ drawings:
 transition: slide-left
 mdc: true
 hideInToc: true
-overviewSnapshots: true
+overviewSnapshots: false
 selectable: true
 lineNumbers: true
+monacoTypesIgnoreDefaults: true
 ---
 
 # JavaScript [Class]{.text-8xl.font-hand.mr-4.text-gradient} Notes

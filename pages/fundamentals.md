@@ -342,13 +342,13 @@ hideInToc: true
 1. Equals to ( == ): This checks if two values are the same, it does not care about the type.<br>
    <span text-red>Note:</span> ( = ), it an assignment operator and it is different from the double ( == ).
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 == '5')
 ```
 
 2. Strictly equal to ( === ): This checks if two values are the same AND of the same type.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 === '5')
 ```
 
@@ -359,13 +359,13 @@ name: More on Operators
 
 3. Not equal to ( != ): This checks if two values are different.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(5 != '6')
 ```
 
 4. Greater than ( > ): Checks if the left value is bigger than the right.
 
-```js {monaco-run}
+```js {monaco-run} {autorun: false}
 // console.log(10 > 5)
 ```
 

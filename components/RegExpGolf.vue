@@ -218,9 +218,3 @@ const showSolution3 = ref(false)
 const showSolution4 = ref(false)
 </script>
 
-<style scoped>
-code {
-  font-family: 'Courier New', monospace;
-  font-size: 0.9em;
-}
-</style>

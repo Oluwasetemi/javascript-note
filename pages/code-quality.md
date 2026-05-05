@@ -29,7 +29,7 @@ layout: center
   Formatters automatically format code to follow a consistent style across the codebase. They ensure proper indentation, consistent use of quotes, and other stylistic elements. A popular formatter for javascript is {Prettier}.
   Linters prevent bugs and enforce coding rules, while formatters ensure code readability.
 
-You should configure your linter and formatter to work together in your project. This ensures that your code is both error-free and consistently formatted. Typically, you can integrate them into your code editor or build process to automatically check and format your code with tools like <span className="text-red-400">[**Husky**](https://typicode.github.io/husky)</span> or [Simple Git Hooks](https://github.com/toplenboren/simple-git-hooks){.text-red-400.font-bold} and <span className="text-red-400">[**Lint-staged**](http://lint-staged.js.org)</span>.
+You should configure your linter and formatter to work together in your project. This ensures that your code is both error-free and consistently formatted. Typically, you can integrate them into your code editor or build process to automatically check and format your code with tools like <span class="text-red-400">[**Husky**](https://typicode.github.io/husky)</span> or [Simple Git Hooks](https://github.com/toplenboren/simple-git-hooks){.text-red-400.font-bold} and <span class="text-red-400">[**Lint-staged**](http://lint-staged.js.org)</span>.
 
 {TypeScript} is a statically typed superset of JavaScript that adds optional types to the language. It helps catch errors early in the development process and improves code quality by providing better documentation and code completion. TypeScript is a popular choice for large codebases and projects that require high code quality.
 
@@ -157,7 +157,7 @@ Debugging involves identifying and resolving errors within a script. Fortunately
 modern browsers and many other development environments provide debugging tools. 
 These tools offer a user-friendly interface within developer tools, making the debugging process much smoother.
 
-Additionally, they allow developers to step through the code, examining it line by line to understand precisely what&apos;s happening. Every modern browser comes with built-in DevTools. These browsers are <span className="text-green-400">Chrome, Firefox, and Edge</span>. Developer Tools(DevTools) allow us to inspect and change styles, examine the webpage's code(HTML, CSS and Javascript), simulate different devices, debug Javascript, find memory and performance issues. Right click on a webpage and click `Inspect` to open the DevTools.
+Additionally, they allow developers to step through the code, examining it line by line to understand precisely what&apos;s happening. Every modern browser comes with built-in DevTools. These browsers are <span class="text-green-400">Chrome, Firefox, and Edge</span>. Developer Tools(DevTools) allow us to inspect and change styles, examine the webpage's code(HTML, CSS and Javascript), simulate different devices, debug Javascript, find memory and performance issues. Right click on a webpage and click `Inspect` to open the DevTools.
 
 <v-clicks>
 
@@ -187,6 +187,6 @@ You can identify bottlenecks like long-running scripts, slow network requests, o
 The Timeline view gives a detailed breakdown of activities, helping you isolate delays and optimize for better performance.
 It&apos;s crucial for enhancing the user experience by ensuring your site loads quickly and responds smoothly.
 
-<span className="text-green-400">[Lighthouse](https://developer.chrome.com/docs/lighthouse)</span> is an open-source, automated tool for improving the quality of web pages.
+<span class="text-green-400">[Lighthouse](https://developer.chrome.com/docs/lighthouse)</span> is an open-source, automated tool for improving the quality of web pages.
 You can run it against any web page, public or requiring authentication.
 It has audits for performance, accessibility, progressive web apps, SEO, and more.

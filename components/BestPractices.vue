@@ -8,7 +8,7 @@
     </h1>
 
     <!-- Scrollable Container -->
-    <div class="overflow-auto h-[2000px] rounded-lg custom-scrollbar">
+    <div class="overflow-auto h-[2000px] rounded-lg scrollbar-thin">
       <div class="space-y-4 p-4">
         <!-- Memory Management Section -->
         <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
@@ -27,7 +27,7 @@
               <p class="text-gray-300 mb-2">{{ item.explanation }}</p>
               <div v-if="item.code" class="relative">
                 <pre
-                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-blue-300 font-mono text-sm max-h-[200px] custom-scrollbar"
+                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-blue-300 font-mono text-sm max-h-[200px] scrollbar-thin whitespace-pre-wrap break-words"
                   >{{ item.code }}</pre
                 >
               </div>
@@ -52,7 +52,7 @@
               <p class="text-gray-300 mb-2">{{ item.explanation }}</p>
               <div v-if="item.code" class="relative">
                 <pre
-                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-purple-300 font-mono text-sm max-h-[200px] custom-scrollbar"
+                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-purple-300 font-mono text-sm max-h-[200px] scrollbar-thin whitespace-pre-wrap break-words"
                   >{{ item.code }}</pre
                 >
               </div>
@@ -77,7 +77,7 @@
               <p class="text-gray-300 mb-2">{{ item.explanation }}</p>
               <div v-if="item.code" class="relative">
                 <pre
-                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-green-300 font-mono text-sm h-[200px] custom-scrollbar"
+                  class="bg-gray-900 p-4 rounded-lg overflow-x-auto text-green-300 font-mono text-sm h-[200px] scrollbar-thin whitespace-pre-wrap break-words"
                   >{{ item.code }}</pre
                 >
               </div>
@@ -177,32 +177,10 @@ function updateProgressDebounced(progress) {
 </script>
 
 <style scoped>
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #4b5563 #1f2937;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #1f2937;
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #4b5563;
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
-}
-
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
+/* webkit scrollbar pseudo-elements cannot be expressed as UnoCSS utilities */
+.scrollbar-thin { scrollbar-width: thin; scrollbar-color: #4b5563 #1f2937; }
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: #1f2937; border-radius: 3px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 3px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #6b7280; }
 </style>
