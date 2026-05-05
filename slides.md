@@ -70,6 +70,12 @@ hideInToc: true
 
 <Toc columns="2" minDepth="1" maxDepth="2"></Toc>
 
+<div class="flex gap-3 mt-6">
+  <button @click="$router.push('/routes')" class="px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm cursor-pointer hover:bg-blue-500/20 transition-colors flex items-center gap-1.5"><span class="i-mdi-format-list-bulleted inline-block" /> All Sections</button>
+  <button @click="$router.push('/playground')" class="px-4 py-2 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm cursor-pointer hover:bg-green-500/20 transition-colors flex items-center gap-1.5"><span class="i-mdi-code-braces inline-block" /> JS/TS Playground</button>
+  <button @click="$router.push('/changelog')" class="px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 text-sm cursor-pointer hover:bg-purple-500/20 transition-colors flex items-center gap-1.5"><span class="i-mdi-history inline-block" /> Changelog</button>
+</div>
+
 ---
 hideInToc: true
 ---
@@ -82,7 +88,7 @@ JavaScript is a high-level, interpreted programming language that conforms to th
 
 The truth is this will be an endless journey till mastery, but I can assure you it will be worth it in the end. We will learn JavaScript in the most practical way possible by focusing on fundamental JS that can give us a good grasp of JavaScript, then we will move unto learning JavaScript in the Browser - which is the fundamental purpose of JS in the first place before we could run it near anywhere possible.
 
-JS skills can make you a Backend, Frontend, Mobile, Desktop, and even a Game Developer. So, let's get started. This Note has super cool features like code highlighting, code execution, and even drawing on the slides. You can also export the slides to PDF or PPTX format. Enjoy the journey. 🚀.
+JS skills can make you a Backend, Frontend, Mobile, Desktop, and even a Game Developer. So, let's get started. This Note has super cool features like code highlighting, code execution, and even drawing on the slides. You can also export the slides to PDF or PPTX format. Enjoy the journey. <span class="i-mdi-rocket inline-block" />.
 
 > We can't wait to see you at the top.
 
@@ -115,7 +121,7 @@ layout: center
   <span>JavaScript</span>
   <sup v-click>let, functions, loop, if</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Building Blocks 🧱</div>
+<div mt1 forward:delay-300 v-click>Building Blocks <span class="i-mdi-view-grid inline-block" /></div>
 </h1>
 
 ---
@@ -275,7 +281,7 @@ layout: center
 <div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
   <span v-click>Nice to know </span>
   <span>Concepts </span>
-  <sup v-click>generators, proxy, currying, 🦄code</sup>
+  <sup v-click>generators, proxy, currying, <span class="i-mdi-auto-fix inline-block" />code</sup>
 </div>
 <div mt1 forward:delay-300 v-click>Async Iterators, Eval, and Reflect</div>
 </h1>
@@ -418,7 +424,7 @@ layout: center
 <h1 flex="~ col">
 <div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
   <span v-click>network </span>
-  <span>requests 🛜</span>
+  <span>requests <span class="i-mdi-wifi inline-block" /></span>
   <sup v-click>fetch, sockets, server-sent events</sup>
 </div>
 <div mt1 forward:delay-300 v-click>Making API Calls</div>
