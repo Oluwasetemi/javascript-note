@@ -59,6 +59,8 @@ hideInToc: true
 </div>
 </div>
 
+<div text-sm>
+
 Primitive in Js do not have properties. They are immutable values, and attempting to add a property to them will result in an error.
 Here's a breakdown of what happens:
 
@@ -66,6 +68,8 @@ Here's a breakdown of what happens:
 2. str.test = `5;` tries to add a property test with the value 5 to the str primitive.
 3. JavaScript detects that str is a primitive and does not allow properties to be added to it.
 4. An error is thrown, indicating that str is not an object.
+
+</div>
 
 ---
 hideInToc: true
@@ -109,7 +113,7 @@ hideInToc: true
 
 <div mt-3 />
 
-<div class="grid grid-cols-2" gap-sm>
+<div class="grid grid-cols-2">
 <div>
 
 #### Writing Numbers
@@ -155,7 +159,7 @@ hideInToc: true
 title: Rounding Up
 ---
 
-<div class="grid grid-cols-2"  >
+<div class="grid grid-cols-2">
 <div>
 
 - Rounding
@@ -200,7 +204,7 @@ hideInToc: true
 <div mt-2 />
 <h3> 1. String Creation & Quotes</h3>
 
-<div class="grid grid-cols-2" gap-4xl>
+<div class="grid grid-cols-2">
 
 <div>
 
@@ -356,6 +360,7 @@ Basic Comparison:
 ```
 
 <h3> 6. Common Use Cases </h3>
+
 ```js
 // Trimming whitespace
 "  hello  ".trim()  // "hello"
@@ -564,7 +569,7 @@ console.log(names, shifted)
 
 </div>
 
-<div ml-10>
+<div>
 <ul><li> <span class='text-red'><strong> unshift</strong></span> add the element to the beginning of the array and return the length of the new array</li></ul>
 
 ```js {monaco-run} {autorun: false}
@@ -1501,6 +1506,7 @@ hideInToc: true
 # Map and Set
 
 <div></div>
+
 Map is a collection of keyed data items, just like an Object. But the main difference is that <span class='text-red'><strong><em>Map allows keys of any type.</em></strong></span><br><br>
 Same API applies to Set, but Set does not have keys, only values.
 
@@ -1719,7 +1725,7 @@ const result = setA.union(setB).difference(new Set(['d']))
 hideInToc: true
 ---
 
-### Map can also use objects as keys. How tho <span class="i-mdi-help-circle-outline inline-block" />?
+### Map can also use objects as keys. How?
 
 ```js {monaco-run} {autorun: false}
 let john = { name: 'John' }
@@ -1885,7 +1891,7 @@ hideInToc: true
 <div grid="~ cols-2" gap-3>
 <div>
 
-## Object.keys & Object.values
+`Object.keys` & `Object.values`
 
 ```js {monaco-run} {autorun: false}
 const user = { name: 'John', age: 30, city: 'NYC', email: 'john@example.com' }
@@ -1895,16 +1901,14 @@ const values = Object.values(user)
 const hasEmail = Object.keys(user).includes('email')
 const allStrings = Object.values(user).every(val => typeof val === 'string')
 
-// console.log('Keys:', keys)
-
-// Practical usage
-
+// console.log('Keys:', keys, 'Values:' values)
 ```
 
 </div>
 <div>
 
-## Object.entries & Object.fromEntries
+
+`Object.entries` & `Object.fromEntries`
 
 ```js {monaco-run} {autorun: false}
 const scores = { math: 85, english: 92, science: 78 }
@@ -1928,7 +1932,7 @@ const highScores = Object.fromEntries(
 hideInToc: true
 ---
 
-# Object.groupBy (ES2024)
+`Object.groupBy` (ES2024)
 
 <div mt-2 />
 
@@ -1957,7 +1961,7 @@ try {
 ## Advanced Grouping
 
 ```js {monaco-run} {autorun: false}
-const products = [ { name: 'Laptop', price: 1200, category: 'Electronics' }, { name: 'Phone', price: 800, category: 'Electronics' }, { name: 'Shirt', price: 30, category: 'Clothing' }, { name: 'Shoes', price: 80, category: 'Clothing' }, { name: 'Book', price: 15, category: 'Education' } ]
+const products = [{ name: 'Laptop', price: 1200, category: 'Electronics' }, { name: 'Phone', price: 800, category: 'Electronics' }, { name: 'Shirt', price: 30, category: 'Clothing' }, { name: 'Shoes', price: 80, category: 'Clothing' }, { name: 'Book', price: 15, category: 'Education' }]
 
 // Group by price range
 const groupByPriceRange = (product) => {
@@ -2019,10 +2023,7 @@ const { name, age } = user
 const { name: userName, city: location } = user
 const { country = 'USA', phone = 'N/A' } = user
 
-// console.log('Name:', name, 'Age:', age)
-// console.log('User:', userName, 'Location:', location)
-// console.log('Country:', country, 'Phone:', phone)
-
+// console.log('Name:', name, 'Age:', age); console.log('User:', userName, 'Location:', location); console.log('Country:', country, 'Phone:', phone)
 ```
 
 </div>
@@ -2056,10 +2057,7 @@ const {
   hobbies: [firstHobby, ...otherHobbies]
 } = user
 
-// console.log('Name:', name)
-// console.log('City:', city, 'Country:', country)
-// console.log('First hobby:', firstHobby)
-// console.log('Other hobbies:', otherHobbies)
+// console.log('Name:', name); console.log('City:', city, 'Country:', country); console.log('First hobby:', firstHobby); console.log('Other hobbies:', otherHobbies)
 ```
 
 </div>
@@ -2079,9 +2077,7 @@ const {
   data: [ { name: firstName, scores: [firstScore] }, { name: secondName, scores: [, secondScore] } ]
 } = response
 
-// console.log('Status:', status)
-// console.log('First user:', firstName, 'Score:', firstScore)
-// console.log('Second user:', secondName, 'Score:', secondScore)
+// console.log('Status:', status); console.log('First user:', firstName, 'Score:', firstScore); console.log('Second user:', secondName, 'Score:', secondScore)
 ```
 
 </div>
@@ -2217,11 +2213,9 @@ The **Intl API** provides language-sensitive string comparison, number formattin
 const price = 29.99;const date = new Date()
 const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
 const eurFormatter = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
-// console.log('USD:', usdFormatter.format(price))
-// console.log('EUR:', eurFormatter.format(price))
+// console.log('USD:', usdFormatter.format(price)); console.log('EUR:', eurFormatter.format(price))
 const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
-// console.log('Yesterday:', rtf.format(-1, 'day'))
-// console.log('Next week:', rtf.format(1, 'week'))
+// console.log('Yesterday:', rtf.format(-1, 'day')); console.log('Next week:', rtf.format(1, 'week'))
 const listFormatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' })
 // console.log('List:', listFormatter.format(['Apple', 'Banana', 'Cherry']))
 ```
@@ -2264,10 +2258,8 @@ const deFormat = new Intl.DateTimeFormat('de-DE')
 const jaFormat = new Intl.DateTimeFormat('ja-JP')
 const longFormat = new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
-// console.log(usFormat.format(date));
-// console.log(ukFormat.format(date));
-// console.log(deFormat.format(date));
-// console.log(jaFormat.format(date));
+// console.log(usFormat.format(date)); console.log(ukFormat.format(date));
+// console.log(deFormat.format(date)); console.log(jaFormat.format(date));
 // console.log('Long format:', longFormat.format(date))
 ```
 
@@ -2314,10 +2306,8 @@ const deNumber = new Intl.NumberFormat('de-DE')
 const usdCurrency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
 const eurCurrency = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
 const percent = new Intl.NumberFormat('en-US', { style: 'percent' })
-// console.log('US Number:', usNumber.format(number))
-// console.log('DE Number:', deNumber.format(number))
-// console.log('USD:', usdCurrency.format(number))
-// console.log('EUR:', eurCurrency.format(number))
+// console.log('US Number:', usNumber.format(number)); console.log('DE Number:', deNumber.format(number))
+// console.log('USD:', usdCurrency.format(number)); console.log('EUR:', eurCurrency.format(number))
 // console.log('Percentage:', percent.format(smallNumber))
 ```
 
@@ -2347,7 +2337,7 @@ const scientificFormat = new Intl.NumberFormat('en-US', { notation: 'scientific'
 hideInToc: true
 ---
 
-# Temporal API (Experimental-Firefox only)
+# Temporal API
 
 <div mt-2 />
 

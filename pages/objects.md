@@ -554,27 +554,30 @@ hideInToc: true
 
 <div></div>
 
+<div text-sm>
+
 An object method is simply a function stored as a property of an object. You can define methods directly inside an object literal using the shorthand method syntax.
+
+</div>
 
 ```js {monaco-run} {autorun: false}
 let user = {
   name: "Setemi",
-  greet() {
-    return "Hello, I am " + user.name
-  }
+  greet() { return "Hello, I am " + user.name }
 }
 console.log(user.greet())
 ```
 
+<div text-sm>
+
 A method can also reference its own object using the <kbd>this</kbd> keyword. Inside a method, <kbd>this</kbd> refers to the object that called the method.
+
+</div>
 
 ```js {monaco-run} {autorun: false}
 let user = {
-  name: "Setemi",
-  age: 40,
-  greet() {
-    return `Hello, I am ${this.name} and I am ${this.age}`
-  }
+  name: "Setemi",age: 40,
+  greet() { return `Hello, I am ${this.name} and I am ${this.age}` }
 }
 console.log(user.greet())
 ```
@@ -629,7 +632,11 @@ hideInToc: true
 
 <div></div>
 
+<div text-sm> 
+
 Constructor functions are regular functions used as blueprints for creating multiple similar objects. By convention, their names start with an uppercase letter. When called with the <kbd>new</kbd> operator, JavaScript automatically creates a new empty object, assigns it to <kbd>this</kbd>, and returns it.
+
+</div>
 
 ```js {monaco-run} {autorun: false}
 function User(name, age) {
@@ -639,19 +646,19 @@ function User(name, age) {
     return `Hi, I am ${this.name}`
   }
 }
-
 let user1 = new User("Setemi", 40)
 let user2 = new User("Vinicius", 24)
-
-console.log(user1.greet())
-console.log(user2.name)
-console.log(user1 instanceof User)
+console.log(user1.greet(), user2.name, user1 instanceof User); 
 ```
+
+<div text-sm>
 
 The steps when <kbd>new User(...)</kbd> is called:
 1. A new empty object is created and assigned to <kbd>this</kbd>
 2. The function body runs, adding properties to <kbd>this</kbd>
 3. The value of <kbd>this</kbd> is returned automatically
+
+</div>
 
 ---
 hideInToc: true
@@ -722,18 +729,18 @@ hideInToc: true
 
 <div></div>
 
+<div text-sm>
+
 Optional chaining also works for method calls using <kbd>?.()</kbd> and for computed property access using <kbd>?.[]</kbd>.
+
+</div>
 
 ```js {monaco-run} {autorun: false}
 let user = {
   name: "Setemi",
-  admin() {
-    return "I am admin"
-  }
+  admin() { return "I am admin" }
 }
-
 let guest = { name: "Vinicius" }
-
 // ?.() — call method only if it exists
 console.log(user.admin?.())   // "I am admin"
 console.log(guest.admin?.())  // undefined (no error)
@@ -743,16 +750,15 @@ console.log(guest.admin?.())  // undefined (no error)
 let key = "name"
 let user = { name: "Setemi" }
 let empty = null
-
 // ?.[] — access computed property safely
-console.log(user?.[key])   // "Setemi"
-console.log(empty?.[key])  // undefined (no error)
+console.log(user?.[key], empty?.[key])   // "Setemi" // undefined (no error)
 ```
 
 <kbd>?.</kbd> is for reading only — you cannot use it on the left side of an assignment.
 
 ---
 hideInToc: true
+class: text-sm
 ---
 
 # Symbol Type
@@ -765,27 +771,22 @@ A <kbd>Symbol</kbd> is a primitive type whose value is a guaranteed unique ident
 let id1 = Symbol("id")
 let id2 = Symbol("id")
 
-console.log(id1 === id2)        // false — always unique
-console.log(typeof id1)         // "symbol"
-console.log(id1.description)    // "id"
+console.log(id1 === id2, typeof id1, id1.description);    // // false — always unique, "symbol" "id" 
 ```
 
 Symbol-keyed properties are hidden from <kbd>for..in</kbd> loops and <kbd>Object.keys()</kbd>, making them ideal for metadata that should not appear in normal enumeration.
 
 ```js {monaco-run} {autorun: false}
 let id = Symbol("id")
-let user = {
-  name: "Setemi",
-  [id]: 123          // symbol key — computed property syntax
-}
+let user = { name: "Setemi", [id]: 123 }        // symbol key — computed property syntax
 
-console.log(user[id])           // 123
-console.log(Object.keys(user))  // ["name"] — symbol hidden
+console.log(user[id], Object.keys(user))           // 123 // ["name"] — symbol hidden
 for (let key in user) console.log(key) // only "name"
 ```
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 # Object to Primitive Conversion
@@ -798,24 +799,21 @@ You can customise this behaviour with <kbd>Symbol.toPrimitive</kbd> (preferred) 
 
 ```js {monaco-run} {autorun: false}
 let money = {
-  amount: 100,
-  currency: "USD",
+  amount: 100, currency: "USD",
   [Symbol.toPrimitive](hint) {
     if (hint === "string") return `${this.amount} ${this.currency}`
     if (hint === "number") return this.amount
     return this.amount // "default"
   }
 }
-
-console.log(`${money}`)   // "100 USD"  (string hint)
-console.log(+money)       // 100        (number hint)
-console.log(money + 50)   // 150        (default hint)
+console.log(`${money}`, +money, money+50)   // "100 USD"  (string hint) // 100        (number hint) // 150        (default hint)
 ```
 
 Without <kbd>Symbol.toPrimitive</kbd>, JavaScript tries <kbd>valueOf()</kbd> first (for number/default hints), then <kbd>toString()</kbd>. All objects inherit a default <kbd>toString()</kbd> that returns `"[object Object]"` — override it to provide a meaningful string representation.
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 # Object Properties Configuration
@@ -830,29 +828,18 @@ You can inspect these flags with <kbd>Object.getOwnPropertyDescriptor()</kbd> an
 let user = { name: "Setemi" }
 
 let descriptor = Object.getOwnPropertyDescriptor(user, "name")
-console.log(JSON.stringify(descriptor, null, 2))
-// {
-//   "value": "Setemi",
-//   "writable": true,
-//   "enumerable": true,
-//   "configurable": true
-// }
+console.log(JSON.stringify(descriptor, null, 2)) // { "value": "Setemi", "writable": true, "enumerable": true, "configurable": true }
 ```
 
 ```js {monaco-run} {autorun: false}
 let user = {}
-
 Object.defineProperty(user, "id", {
   value: 42,
-  writable: false,
-  enumerable: false,
-  configurable: false
+  writable: false, enumerable: false, configurable: false
 })
-
 console.log(user.id)           // 42
 user.id = 99                   // silently ignored in non-strict mode
-console.log(user.id)           // still 42
-console.log(Object.keys(user)) // [] — not enumerable
+console.log(user.id, Object.keys(user))           // still 42  // [] — not enumerable
 ```
 
 ---
@@ -886,10 +873,14 @@ console.log(obj.PI) // 3.14159
 
 <section>
 
+<div class="mb-10">
+
 **`enumerable: false`**
 The property is hidden from `for..in` and `Object.keys()`.
 
-```js {monaco-run} {autorun: false}
+</div>
+
+```js {monaco-run} {autorun: false} 
 let user = { name: "Setemi" }
 Object.defineProperty(user, "_id", {
   value: 1,
@@ -924,6 +915,7 @@ Use <kbd>Object.freeze(obj)</kbd> to make all properties non-writable and non-co
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 # Property Getters and Setters
@@ -934,13 +926,8 @@ In addition to regular <kbd>data properties</kbd> (which store a value directly)
 
 ```js {monaco-run} {autorun: false}
 let user = {
-  firstName: "Oluwasetemi",
-  lastName: "Ojo",
-
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`
-  },
-
+  firstName: "Oluwasetemi", lastName: "Ojo",
+  get fullName() { return `${this.firstName} ${this.lastName}` },
   set fullName(value) {
     let parts = value.split(" ")
     this.firstName = parts[0]
@@ -950,14 +937,14 @@ let user = {
 
 console.log(user.fullName)       // "Oluwasetemi Ojo"
 user.fullName = "Vinicius Junior"
-console.log(user.firstName)      // "Vinicius"
-console.log(user.lastName)       // "Junior"
+console.log(user.firstName, user.lastName)      // "Vinicius"
 ```
 
 From the outside, getters and setters look exactly like regular properties — no parentheses needed on read.
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 # Contd. — Getters and Setters via `defineProperty`
@@ -973,16 +960,13 @@ function User(firstName, lastName) {
 }
 
 Object.defineProperty(User.prototype, "fullName", {
-  get() {
-    return `${this.firstName} ${this.lastName}`
-  },
+  get() { return `${this.firstName} ${this.lastName}` },
   set(value) {
     let [first, last] = value.split(" ")
     this.firstName = first
     this.lastName = last
   },
-  enumerable: true,
-  configurable: true,
+  enumerable: true, configurable: true,
 })
 
 let user = new User("Setemi", "Ojo")

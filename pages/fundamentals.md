@@ -246,10 +246,7 @@ result = prompt(text to show visitor, [default]) //default is an optional parame
 
 ```js {monaco-run} {autorun: false}
 interview_Question = prompt('What is the full meaning of CSS?', '')
-// console.log(
-  interview_Question === 'Cascading Style Sheet' ||
-    interview_Question === 'cascading style sheet',
-)
+// console.log( interview_Question === 'Cascading Style Sheet' || interview_Question === 'cascading style sheet',)
 ```
 
 #### Confirm{.text-common}
@@ -450,14 +447,18 @@ let greeting = name ?? `Hello, Stranger!`
 // console.log(greeting)
 ```
 
+<div text-sm>
+
 - Optional Chaining is a JavaScript feature that allows you to safely access nested object properties and call methods without throwing errors if any part of the chain is null or undefined. It uses the `?.` operator.
+
+</div>
 
 ```js
 if (user && user.address && user.address.street) {
    console.log(user.address.street);
 }
 
-   console.log(user?.address?.street);
+console.log(user?.address?.street);
 ```
 
 
@@ -478,12 +479,14 @@ if (condition) {
 ```
 
 <br>
+
 ```js {monaco-run} {autorun: false}
 let day = 'Monday' 
 if (day == 'Monday'){
   //console.log('Today is Monday')
 }
 ```
+
 <p><span text-red>Note:</span> If the condition  is false, the code will not run</p>
 
 ---
@@ -671,13 +674,17 @@ do {
 
 ```js
 for (initialization part; condition check; increment part){
-    // loop body
+  // loop body
 }
 ```
+
+<div text-sm>
 
 - Initialization part: is executed (one time) before the execution of the code block
 - Condition Check: defines the condition for executing the code block.
 - Increment: is executed (every time ) after the code block has been executed
+
+</div>
 
 ---
 hideInToc: true
@@ -741,6 +748,7 @@ function name(parameter1, parameter2, ...parameterN) {
 ```
 
 <h4> Important things to note: </h4>
+
 1. The <span class='text-red'> function </span> keyword goes first.
 2. The name of the function follows
 3. A list of parameter (if any) is enclosed in parentheses.
