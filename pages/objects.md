@@ -958,21 +958,17 @@ function User(firstName, lastName) {
   this.firstName = firstName
   this.lastName = lastName
 }
-
 Object.defineProperty(User.prototype, "fullName", {
   get() { return `${this.firstName} ${this.lastName}` },
   set(value) {
     let [first, last] = value.split(" ")
-    this.firstName = first
-    this.lastName = last
+    this.firstName = first; this.lastName = last
   },
   enumerable: true, configurable: true,
 })
 
-let user = new User("Setemi", "Ojo")
-console.log(user.fullName)      // "Setemi Ojo"
-user.fullName = "Vinicius Junior"
-console.log(user.firstName)     // "Vinicius"
+let user = new User("Setemi", "Ojo"); console.log(user.fullName)   // "Setemi Ojo"
+user.fullName = "Vinicius Junior"; console.log(user.firstName)     // "Vinicius"
 ```
 
 A common pattern is using a getter to compute a derived value and a setter to validate input before storing it — keeping the validation logic in one place.

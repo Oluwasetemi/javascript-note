@@ -74,9 +74,7 @@ function* infiniteSequence() {
 }
 
 const gen = infiniteSequence()
-// console.log(gen.next().value) // 0
-// console.log(gen.next().value) // 1
-// console.log(gen.next().value) // 2
+// console.log(gen.next().value, gen.next().value, gen.next().value) // 0 1 2
 ```
 
 ---
@@ -106,9 +104,7 @@ function* counter(start = 0) {
 }
 
 const gen = counter(10)
-// console.log(gen.next().value) // 10
-// console.log(gen.next(5).value) // 15
-// console.log(gen.next().value) // 16
+// console.log(gen.next().value, gen.next(5).value, gen.next().value) // 10, 15, 16
 ```
 
 </div>
@@ -141,7 +137,7 @@ async function* asyncGenerator() {
   yield await Promise.resolve(3)
 }
 
-;(async () => {
+(async () => {
   for await (const value of asyncGenerator()) {
     // console.log(value)
   }
@@ -214,10 +210,7 @@ Proxy handlers (also called traps) intercept operations on the target object.
 <div>
 
 ```js {monaco-run} {autorun: false}
-const user = {
-  name: 'John',
-  age: 30,
-}
+const user = { name: 'John', age: 30, }
 
 const handler = {
   get(target, prop) {
@@ -287,9 +280,7 @@ let result = eval(code)
 console.log(result) // 4
 
 let x = 10
-eval('x = x + 5')
-console.log(x) // 15
-```
+eval('x = x + , 15')
 
 ---
 hideInToc: true

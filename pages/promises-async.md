@@ -111,6 +111,7 @@ hideInToc: true
 ## Event Listeners
 
 ```html {monaco-run} {autorun: false}
+<div></div>
 <script>
   const button = document.createElement('button')
   button.textContent = 'Click me'

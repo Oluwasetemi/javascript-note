@@ -37,12 +37,13 @@ hideInToc: true
 4. Stay away from abbreviations or short names like a, b, and c, unless you know what you’re doing.
 
 5. Make names maximally descriptive and concise.
-6. Separate multiple words with underscore ( \_ )
+6. Separate multiple words with underscore but camelCase(2) should be the first priority ( \_ )
 
 ```js {monaco-run} {autorun: false}
-let message;
-message = 'Hello';
+let message; // Declaration
+message = 'Hello'; // Definition
 // console.log(message)
+const name = 'John Doe' // Combined delcaration and definition
 ```
 
 ---
@@ -639,7 +640,7 @@ hideInToc: true
 
 ```js
 while (condition) {
-  //code block to be executed
+  // code block to be executed
 }
 ```
 
@@ -743,7 +744,7 @@ hideInToc: true
 
 ```js
 function name(parameter1, parameter2, ...parameterN) {
-  //code to be executed
+  // code to be executed
 }
 ```
 
@@ -795,7 +796,7 @@ let university = 'AltSchool Africa'
 function school() {
   let message = `You are a student of ${university}`
   console.log(message)
-  //code here CAN also use university
+  // code here CAN also use university
 }
 ```
 
@@ -814,7 +815,7 @@ A variable declared inside a function is only visible inside the function. Local
 // code here can NOT use university
 function university() {
   let university = 'AltSchool Africa'
-  //code here CAN use university
+  // code here CAN use university
 }
 // code here can NOT use university
 ```
@@ -828,7 +829,7 @@ name: Function Expression
 
 ```js
 let functionName = function (parameters) {
-  //function body
+  // function body
 }
 ```
 
@@ -876,7 +877,7 @@ function greetUsers(name) {
 }
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-// console.log(greetingMessage)
+console.log(greetingMessage)
 ```
 
 ```js
@@ -886,7 +887,7 @@ let greetUsers = function (name) {
 }
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-// console.log(greetingMessage)
+console.log(greetingMessage)
 ```
 
 ```js
@@ -896,7 +897,7 @@ let greetUsers = (name) => {
 }
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-// console.log(greetingMessage)
+console.log(greetingMessage)
 ```
 
 ```js
@@ -905,7 +906,7 @@ let greetUsers = (name) =>
   'Hello, ' + name + ' welcome to JavaScript course 101'
 let userName = 'Busola'
 let greetingMessage = greetUsers(userName)
-// console.log(greetingMessage)
+console.log(greetingMessage)
 ```
 ````
 
@@ -933,3 +934,427 @@ write your code here
 write your code here
 */
 ```
+
+---
+hideInToc: true
+name: Exercises — Variables Q1
+---
+
+# Exercises: Variables
+
+**Q1.** Declare three variables: `fullName` (your name), `studentAge` (your age), and `isEnrolled` (`true`/`false`). Use the most appropriate keyword (`let`, `const`, or `var`) for each. Add a comment explaining your choice.
+
+```js {monaco-run} {autorun: false}
+// write your solution here
+```
+
+---
+hideInToc: true
+name: Exercises — Variables Q2
+---
+
+**Q2.** The code below has errors. Identify and fix all of them:
+
+```js {monaco-run} {autorun: false}
+const 1stName = 'Ada'
+let if = 30
+let myverylongvariablename = 'AltSchool'
+```
+
+---
+hideInToc: true
+name: Exercises — Data Types Q3
+---
+
+# Exercises: Data Types
+
+**Q3.** Declare one variable for each of the 7 JavaScript data types (string, number, boolean, null, undefined, bigint, symbol). Use `typeof` on each and log the results. Which result surprises you and why?
+
+```js {monaco-run} {autorun: false}
+// declare all 7 types, then log typeof each
+```
+
+---
+hideInToc: true
+name: Exercises — Data Types Q4
+---
+
+**Q4.** What will each line print? Write your answer as a comment first, then run the code to verify:
+
+```js {monaco-run} {autorun: false}
+console.log(typeof null)
+console.log(typeof undefined)
+console.log(typeof 42n)
+console.log(typeof function () {})
+```
+
+---
+hideInToc: true
+name: Exercises — Type Conversion Q5
+---
+
+# Exercises: Type Conversion
+
+**Q5.** Convert the string `"25"` to a number using **three different methods**. Log each result and verify the type is `"number"`.
+
+```js {monaco-run} {autorun: false}
+const str = '25'
+// method 1:
+// method 2:
+// method 3:
+```
+
+---
+hideInToc: true
+name: Exercises — Type Conversion Q6
+---
+
+**Q6.** Which values below are **falsy** in JavaScript? Test each using `Boolean()` and log the result:
+
+```js {monaco-run} {autorun: false}
+console.log(Boolean(0))
+console.log(Boolean('0'))
+console.log(Boolean(''))
+console.log(Boolean(null))
+console.log(Boolean(undefined))
+console.log(Boolean(NaN))
+console.log(Boolean(false))
+console.log(Boolean([]))
+console.log(Boolean({}))
+```
+
+---
+hideInToc: true
+name: Exercises — Operators Q7
+---
+
+# Exercises: Operators
+
+**Q7.** Write a program that takes two numbers and prints the result of all 6 math operations: `+`, `-`, `*`, `/`, `%`, `**`.
+
+```js {monaco-run} {autorun: false}
+const a = 10
+const b = 3
+// log all 6 operations with labels
+```
+
+---
+hideInToc: true
+name: Exercises — Operators Q8
+---
+
+**Q8.** What is the output of each line? Write your prediction as a comment, then run the code. Explain the difference between `==` and `===`:
+
+```js {monaco-run} {autorun: false}
+console.log(5 == '5')
+console.log(5 === '5')
+console.log(null == undefined)
+console.log(null === undefined)
+```
+
+---
+hideInToc: true
+name: Exercises — Operators Q9 & Q10
+---
+
+**Q9.** Use the nullish coalescing operator (`??`) to print `"Anonymous"` if `username` is `null` or `undefined`, otherwise print the username:
+
+```js {monaco-run} {autorun: false}
+let username = null
+// write your solution here
+```
+
+**Q10.** Use optional chaining to safely access `user.address.city` without throwing an error:
+
+```js {monaco-run} {autorun: false}
+const user = { name: 'Temi' }
+// write your solution here — should log undefined, not throw
+```
+
+---
+hideInToc: true
+name: Exercises — Conditionals Q11 & Q12
+---
+
+# Exercises: Conditional Branching
+
+**Q11.** Write an `if/else if/else` chain that checks a student's score and prints a grade:
+- 90–100 → `"A"` | 70–89 → `"B"` | 50–69 → `"C"` | Below 50 → `"F"`
+
+```js {monaco-run} {autorun: false}
+const score = 75
+// write your solution here
+```
+
+**Q12.** Rewrite Q11 using only the **ternary operator**:
+
+```js {monaco-run} {autorun: false}
+const score = 75
+const grade = // your ternary expression here
+console.log(grade)
+```
+
+---
+hideInToc: true
+name: Exercises — Conditionals Q13
+---
+
+**Q13.** Write a `switch` statement that takes a day number (0–6) and prints whether it is a `"Weekday"` or `"Weekend"` (0 = Sunday, 6 = Saturday):
+
+```js {monaco-run} {autorun: false}
+const day = 3
+// write your switch statement here
+```
+
+---
+hideInToc: true
+name: Exercises — Loops Q14 & Q15
+---
+
+# Exercises: Loops
+
+**Q14.** Use a `for` loop to print all even numbers from 1 to 20:
+
+```js {monaco-run} {autorun: false}
+// write your solution here
+```
+
+**Q15.** Use a `while` loop to calculate the sum of numbers from 1 to 100. Print the final sum:
+
+```js {monaco-run} {autorun: false}
+// write your solution here
+```
+
+---
+hideInToc: true
+name: Exercises — Loops Q16 & Q17
+---
+
+**Q16.** Given the string `"JavaScript"`, use a `for...of` loop to print each character on its own line:
+
+```js {monaco-run} {autorun: false}
+const language = 'JavaScript'
+// write your solution here
+```
+
+**Q17.** Use a `for...in` loop to print each property and its value from the object below:
+
+```js {monaco-run} {autorun: false}
+const student = { name: 'Chidi', age: 22, school: 'AltSchool', track: 'Frontend' }
+// write your solution here
+```
+
+---
+hideInToc: true
+name: Exercises — Functions Q18 & Q19
+---
+
+# Exercises: Functions
+
+**Q18.** Write a **function declaration** `calculateArea(width, height)` that returns the area of a rectangle. Call it with values of your choice:
+
+```js {monaco-run} {autorun: false}
+// function declaration
+```
+
+**Q19.** Rewrite Q18 as a **function expression** and as an **arrow function** (one-liner):
+
+```js {monaco-run} {autorun: false}
+// function expression
+const calculateAreaExpr = function (width, height) {}
+
+// arrow function (one-liner)
+const calculateAreaArrow =
+```
+
+---
+hideInToc: true
+name: Exercises — Functions Q20 & Q21
+---
+
+**Q20.** Write a function `gradeStudent(score)` that returns the grade letter (A/B/C/F). Then call it inside a loop for these scores and print each result:
+
+```js {monaco-run} {autorun: false}
+function gradeStudent(score) {
+  // reuse your logic from Q11
+}
+
+const scores = [95, 72, 55, 43, 88]
+// loop and log each grade
+```
+
+**Q21.** Write an arrow function `isEven(number)` that returns `true` if the number is even, `false` otherwise:
+
+```js {monaco-run} {autorun: false}
+const isEven = // one-liner arrow function
+console.log(isEven(4))  // true
+console.log(isEven(7))  // false
+```
+
+---
+hideInToc: true
+name: Exercises — Synthesis Q22
+---
+
+# Exercises: Synthesis
+
+**Q22.** Write a program that uses `prompt` to ask the user for their age, converts the input to a number, then prints whether they can vote (18+):
+
+```js {monaco-run} {autorun: false}
+// write your solution here
+```
+
+---
+hideInToc: true
+name: Exercises — Synthesis Q23
+---
+
+**Q23.** Write a function `countVowels(str)` that returns the count of vowels (`a, e, i, o, u`) in a string using a `for...of` loop:
+
+```js {monaco-run} {autorun: false}
+function countVowels(str) {
+  // write your solution here
+}
+console.log(countVowels('javascript'))  // 3
+console.log(countVowels('AltSchool'))   // 3
+```
+
+---
+hideInToc: true
+name: Exercises — Synthesis Q24
+---
+
+**Q24.** Write a function `describeType(value)` that returns a sentence like `"The value 42 is a number"` for any value passed in:
+
+```js {monaco-run} {autorun: false}
+function describeType(value) {
+  // write your solution here
+}
+console.log(describeType(42))          // "The value 42 is a number"
+console.log(describeType('hello'))     // "The value hello is a string"
+console.log(describeType(true))        // "The value true is a boolean"
+console.log(describeType(null))        // "The value null is a object"
+```
+
+---
+hideInToc: true
+name: LeetCode Problems — Intro
+layout: center
+---
+
+# <span class="text-gradient">LeetCode-Style</span> Challenges
+
+Problems that combine **all fundamentals** — variables, operators, loops, conditionals, and functions working together.
+
+<div mt-4 text-sm op70>
+Solve each by writing a function that accepts inputs and returns the correct output.
+</div>
+
+---
+hideInToc: true
+name: LeetCode Problem 1 — FizzBuzz
+---
+
+# Problem 1 — FizzBuzz <span text-green text-sm>Easy</span>
+
+Write a function `fizzBuzz(n)` that returns a string based on these rules:
+- Divisible by **both** 3 and 5 → `"FizzBuzz"`
+- Divisible by **3 only** → `"Fizz"`
+- Divisible by **5 only** → `"Buzz"`
+- Otherwise → the number as a **string**
+
+```js {monaco-run} {autorun: false}
+function fizzBuzz(n) {
+  // write your solution here
+}
+console.log(fizzBuzz(3))   // "Fizz"
+console.log(fizzBuzz(5))   // "Buzz"
+console.log(fizzBuzz(15))  // "FizzBuzz"
+console.log(fizzBuzz(7))   // "7"
+```
+
+<div text-xs op60 mt-2>Concepts: <code>%</code> operator, conditionals, type conversion</div>
+
+---
+hideInToc: true
+name: LeetCode Problem 2 — Count Occurrences
+---
+
+# Problem 2 — Count Occurrences <span text-green text-sm>Easy</span>
+
+Write a function `countChar(str, char)` that returns how many times a specific character appears in a string. Do **not** use any built-in count methods.
+
+```js {monaco-run} {autorun: false}
+function countChar(str, char) {
+  // write your solution here
+}
+console.log(countChar('javascript', 'a'))   // 2
+console.log(countChar('hello world', 'l'))  // 3
+console.log(countChar('banana', 'z'))       // 0
+```
+
+<div text-xs op60 mt-2>Concepts: <code>for...of</code> loop, <code>===</code> comparison, counter variable</div>
+
+---
+hideInToc: true
+name: LeetCode Problem 3 — Reverse a Number
+---
+
+# Problem 3 — Reverse a Number <span text-green text-sm>Easy</span>
+
+Write a function `reverseNumber(n)` that takes a positive integer and returns it reversed as a number. Do **not** use any built-in array methods.
+
+```js {monaco-run} {autorun: false}
+function reverseNumber(n) {
+  // Hint: convert to string first, then loop through it
+}
+console.log(reverseNumber(123))   // 321
+console.log(reverseNumber(1500))  // 51
+console.log(reverseNumber(7))     // 7
+console.log(reverseNumber(1000))  // 1
+```
+
+<div text-xs op60 mt-2>Concepts: type conversion, <code>for</code> loop or <code>for...of</code>, string indexing, <code>Number()</code></div>
+
+---
+hideInToc: true
+name: LeetCode Problem 4 — Temperature Classifier
+---
+
+# Problem 4 — Temperature Classifier <span text-yellow text-sm>Easy-Medium</span>
+
+Write a function `classifyTemp(celsius)` that returns a weather description:
+- Below 0 → `"Freezing"` | 0–10 → `"Cold"` | 11–20 → `"Cool"` | 21–30 → `"Warm"` | Above 30 → `"Hot"`
+
+```js {monaco-run} {autorun: false}
+function classifyTemp(celsius) {
+  // write your solution here
+}
+console.log(classifyTemp(-5))  // "Freezing"
+console.log(classifyTemp(0))   // "Cold"
+console.log(classifyTemp(15))  // "Cool"
+console.log(classifyTemp(25))  // "Warm"
+console.log(classifyTemp(35))  // "Hot"
+```
+
+<div text-xs op60 mt-2>Concepts: <code>if/else if/else</code>, comparison operators, function return values</div>
+
+---
+hideInToc: true
+name: LeetCode Problem 5 — Find the Largest Number
+---
+
+# Problem 5 — Find the Largest Number <span text-yellow text-sm>Easy-Medium</span>
+
+Write a function `findMax(a, b, c)` that takes three numbers and returns the largest one. You **may not** use `Math.max()`.
+
+```js {monaco-run} {autorun: false}
+function findMax(a, b, c) {
+  // write your solution here
+}
+console.log(findMax(3, 7, 2))     // 7
+console.log(findMax(10, 10, 5))   // 10
+console.log(findMax(-1, -5, -3))  // -1
+```
+
+<div text-xs op60 mt-2>Concepts: comparison operators, conditionals, variables</div>
