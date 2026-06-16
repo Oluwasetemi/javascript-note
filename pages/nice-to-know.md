@@ -280,7 +280,8 @@ let result = eval(code)
 console.log(result) // 4
 
 let x = 10
-eval('x = x + , 15')
+eval('x = x + 15')
+```
 
 ---
 hideInToc: true
