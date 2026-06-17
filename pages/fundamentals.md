@@ -945,7 +945,15 @@ name: Exercises — Variables Q1
 **Q1.** Declare three variables: `fullName` (your name), `studentAge` (your age), and `isEnrolled` (`true`/`false`). Use the most appropriate keyword (`let`, `const`, or `var`) for each. Add a comment explaining your choice.
 
 ```js {monaco-run} {autorun: false}
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -971,7 +979,15 @@ name: Exercises — Data Types Q3
 **Q3.** Declare one variable for each of the 7 JavaScript data types (string, number, boolean, null, undefined, bigint, symbol). Use `typeof` on each and log the results. Which result surprises you and why?
 
 ```js {monaco-run} {autorun: false}
-// declare all 7 types, then log typeof each
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -999,9 +1015,14 @@ name: Exercises — Type Conversion Q5
 
 ```js {monaco-run} {autorun: false}
 const str = '25'
-// method 1:
-// method 2:
-// method 3:
+/*
+ * method 1:
+ *
+ * method 2:
+ *
+ * method 3:
+ *
+ */
 ```
 
 ---
@@ -1035,7 +1056,14 @@ name: Exercises — Operators Q7
 ```js {monaco-run} {autorun: false}
 const a = 10
 const b = 3
-// log all 6 operations with labels
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -1061,14 +1089,28 @@ name: Exercises — Operators Q9 & Q10
 
 ```js {monaco-run} {autorun: false}
 let username = null
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 **Q10.** Use optional chaining to safely access `user.address.city` without throwing an error:
 
 ```js {monaco-run} {autorun: false}
 const user = { name: 'Temi' }
-// write your solution here — should log undefined, not throw
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -1083,14 +1125,28 @@ name: Exercises — Conditionals Q11 & Q12
 
 ```js {monaco-run} {autorun: false}
 const score = 75
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 **Q12.** Rewrite Q11 using only the **ternary operator**:
 
 ```js {monaco-run} {autorun: false}
 const score = 75
-const grade = // your ternary expression here
+/*
+ * const grade = ?
+ *
+ *
+ *
+ *
+ *
+ */
 console.log(grade)
 ```
 
@@ -1103,7 +1159,14 @@ name: Exercises — Conditionals Q13
 
 ```js {monaco-run} {autorun: false}
 const day = 3
-// write your switch statement here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -1116,13 +1179,27 @@ name: Exercises — Loops Q14 & Q15
 **Q14.** Use a `for` loop to print all even numbers from 1 to 20:
 
 ```js {monaco-run} {autorun: false}
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 **Q15.** Use a `while` loop to calculate the sum of numbers from 1 to 100. Print the final sum:
 
 ```js {monaco-run} {autorun: false}
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -1134,14 +1211,28 @@ name: Exercises — Loops Q16 & Q17
 
 ```js {monaco-run} {autorun: false}
 const language = 'JavaScript'
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 **Q17.** Use a `for...in` loop to print each property and its value from the object below:
 
 ```js {monaco-run} {autorun: false}
 const student = { name: 'Chidi', age: 22, school: 'AltSchool', track: 'Frontend' }
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -1154,14 +1245,27 @@ name: Exercises — Functions Q18 & Q19
 **Q18.** Write a **function declaration** `calculateArea(width, height)` that returns the area of a rectangle. Call it with values of your choice:
 
 ```js {monaco-run} {autorun: false}
-// function declaration
+/*
+ * function declaration
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 **Q19.** Rewrite Q18 as a **function expression** and as an **arrow function** (one-liner):
 
 ```js {monaco-run} {autorun: false}
-// function expression
-const calculateAreaExpr = function (width, height) {}
+/*
+ * function expression
+ */
+const calculateAreaExpr = function (width, height) {
+  /*
+   *
+   */
+}
 
 // arrow function (one-liner)
 const calculateAreaArrow =
@@ -1176,17 +1280,32 @@ name: Exercises — Functions Q20 & Q21
 
 ```js {monaco-run} {autorun: false}
 function gradeStudent(score) {
-  // reuse your logic from Q11
+  /*
+   * reuse your logic from Q11
+   *
+   *
+   *
+   */
 }
 
 const scores = [95, 72, 55, 43, 88]
-// loop and log each grade
+/*
+ * loop and log each grade
+ *
+ */
 ```
 
 **Q21.** Write an arrow function `isEven(number)` that returns `true` if the number is even, `false` otherwise:
 
 ```js {monaco-run} {autorun: false}
-const isEven = // one-liner arrow function
+/*
+ * const isEven = one-liner arrow function
+ *
+ *
+ *
+ *
+ *
+ */
 console.log(isEven(4))  // true
 console.log(isEven(7))  // false
 ```
@@ -1201,7 +1320,15 @@ name: Exercises — Synthesis Q22
 **Q22.** Write a program that uses `prompt` to ask the user for their age, converts the input to a number, then prints whether they can vote (18+):
 
 ```js {monaco-run} {autorun: false}
-// write your solution here
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 ```
 
 ---
@@ -1213,7 +1340,13 @@ name: Exercises — Synthesis Q23
 
 ```js {monaco-run} {autorun: false}
 function countVowels(str) {
-  // write your solution here
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
 }
 console.log(countVowels('javascript'))  // 3
 console.log(countVowels('AltSchool'))   // 3
@@ -1228,7 +1361,13 @@ name: Exercises — Synthesis Q24
 
 ```js {monaco-run} {autorun: false}
 function describeType(value) {
-  // write your solution here
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
 }
 console.log(describeType(42))          // "The value 42 is a number"
 console.log(describeType('hello'))     // "The value hello is a string"
@@ -1265,7 +1404,13 @@ Write a function `fizzBuzz(n)` that returns a string based on these rules:
 
 ```js {monaco-run} {autorun: false}
 function fizzBuzz(n) {
-  // write your solution here
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
 }
 console.log(fizzBuzz(3))   // "Fizz"
 console.log(fizzBuzz(5))   // "Buzz"
@@ -1286,7 +1431,13 @@ Write a function `countChar(str, char)` that returns how many times a specific c
 
 ```js {monaco-run} {autorun: false}
 function countChar(str, char) {
-  // write your solution here
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
 }
 console.log(countChar('javascript', 'a'))   // 2
 console.log(countChar('hello world', 'l'))  // 3
@@ -1306,7 +1457,13 @@ Write a function `reverseNumber(n)` that takes a positive integer and returns it
 
 ```js {monaco-run} {autorun: false}
 function reverseNumber(n) {
-  // Hint: convert to string first, then loop through it
+  /*
+   * Hint: convert to string first, then loop through it
+   *
+   *
+   *
+   *
+   */
 }
 console.log(reverseNumber(123))   // 321
 console.log(reverseNumber(1500))  // 51
@@ -1328,7 +1485,13 @@ Write a function `classifyTemp(celsius)` that returns a weather description:
 
 ```js {monaco-run} {autorun: false}
 function classifyTemp(celsius) {
-  // write your solution here
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
 }
 console.log(classifyTemp(-5))  // "Freezing"
 console.log(classifyTemp(0))   // "Cold"
@@ -1350,7 +1513,13 @@ Write a function `findMax(a, b, c)` that takes three numbers and returns the lar
 
 ```js {monaco-run} {autorun: false}
 function findMax(a, b, c) {
-  // write your solution here
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
 }
 console.log(findMax(3, 7, 2))     // 7
 console.log(findMax(10, 10, 5))   // 10
