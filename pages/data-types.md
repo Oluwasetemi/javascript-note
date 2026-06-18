@@ -2650,7 +2650,7 @@ console.log(isPalindrome('hello'))                           // false
 
 ---
 hideInToc: true
-name: Exercises — Numbers Q4 & Q5
+name: Exercises — Numbers Q4
 ---
 
 # Exercises: Numbers
@@ -2668,12 +2668,19 @@ name: Exercises — Numbers Q4 & Q5
  */
 ```
 
+---
+hideInToc: true
+name: Exercises — Numbers Q5
+---
+
 **Q5.** Write functions `toBinary(n)` and `toHex(n)` that convert a decimal number to its binary and hex string using `toString(base)`.
 
 ```js {monaco-run} {autorun: false}
 /*
  * const toBinary = ...
  * const toHex = ...
+ *
+ *
  *
  *
  */
