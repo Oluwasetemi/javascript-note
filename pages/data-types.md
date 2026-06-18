@@ -2631,7 +2631,7 @@ hideInToc: true
 name: Exercises — Strings Q3
 ---
 
-**Q3.** Write a function `isPalindrome(str)` that returns `true` if the string reads the same forwards and backwards. Make it **case-insensitive** and ignore spaces.
+**Q3.** Write a function `isPalindrome(str)` that returns `true` if the string reads the same forwards and backwards. Make it **case-insensitive** and ignore spaces and punctuation.
 
 ```js {monaco-run} {autorun: false}
 function isPalindrome(str) {
@@ -2643,9 +2643,9 @@ function isPalindrome(str) {
    *
    */
 }
-console.log(isPalindrome('racecar'))       // true
-console.log(isPalindrome('A man a plan'))  // true
-console.log(isPalindrome('hello'))         // false
+console.log(isPalindrome('racecar'))                         // true
+console.log(isPalindrome('A man, a plan, a canal: Panama'))  // true
+console.log(isPalindrome('hello'))                           // false
 ```
 
 ---
