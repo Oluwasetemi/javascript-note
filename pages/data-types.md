@@ -2557,3 +2557,603 @@ console.log(JSON.stringify(regularUser), JSON.stringify(adminUser))
 
 </div>
 </div>
+
+---
+hideInToc: true
+transition: slide-up
+---
+
+# Assignment or Class Activity
+
+- Write a function to check if a string is a palindrome
+- Create a frequency counter for characters in a string
+- Build a shopping cart using an Array and Map
+- Use destructuring to swap two variables without a temp variable
+- Serialize a User object to JSON, omitting the `password` field
+
+```js {monaco-run} {autorun: false}
+/*
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+*/
+```
+
+---
+hideInToc: true
+name: Exercises — Strings Q1
+---
+
+# Exercises: Strings
+
+**Q1.** Write a function `extractDomain(email)` that extracts the domain part from an email address using `indexOf` and `slice`. No regex allowed.
+
+```js {monaco-run} {autorun: false}
+function extractDomain(email) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(extractDomain('student@altschool.africa'))  // "altschool.africa"
+console.log(extractDomain('admin@gmail.com'))           // "gmail.com"
+```
+
+---
+hideInToc: true
+name: Exercises — Strings Q2
+---
+
+**Q2.** Write a function `capitalize(str)` that capitalizes the first letter of **every word** in a sentence. Use `split`, `map`, and `join`.
+
+```js {monaco-run} {autorun: false}
+function capitalize(str) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(capitalize('hello world from altschool'))  // "Hello World From Altschool"
+console.log(capitalize('the quick brown fox'))          // "The Quick Brown Fox"
+```
+
+---
+hideInToc: true
+name: Exercises — Strings Q3
+---
+
+**Q3.** Write a function `isPalindrome(str)` that returns `true` if the string reads the same forwards and backwards. Make it **case-insensitive** and ignore spaces.
+
+```js {monaco-run} {autorun: false}
+function isPalindrome(str) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(isPalindrome('racecar'))       // true
+console.log(isPalindrome('A man a plan'))  // true
+console.log(isPalindrome('hello'))         // false
+```
+
+---
+hideInToc: true
+name: Exercises — Numbers Q4 & Q5
+---
+
+# Exercises: Numbers
+
+**Q4.** Demonstrate the floating-point precision problem with `0.1 + 0.2`. Then write a function `addDecimals(a, b)` that correctly adds two decimal numbers using `toFixed` and `Number()`.
+
+```js {monaco-run} {autorun: false}
+/*
+ * Show the floating point problem:
+ *
+ *
+ * Fix with toFixed:
+ *
+ *
+ */
+```
+
+**Q5.** Write functions `toBinary(n)` and `toHex(n)` that convert a decimal number to its binary and hex string using `toString(base)`.
+
+```js {monaco-run} {autorun: false}
+/*
+ * const toBinary = ...
+ * const toHex = ...
+ *
+ *
+ */
+console.log(toBinary(255))  // "11111111"
+console.log(toHex(255))     // "ff"
+```
+
+---
+hideInToc: true
+name: Exercises — Numbers Q6
+---
+
+**Q6.** Use `Number()`, `parseInt()`, and `parseFloat()` to parse the values below. Predict the output first as a comment, then run to verify:
+
+```js {monaco-run} {autorun: false}
+// Predict each result before running:
+console.log(Number('12.5px'))       // ?
+console.log(parseInt('12.5px'))     // ?
+console.log(parseFloat('12.5px'))   // ?
+console.log(Number('  42  '))       // ?
+console.log(Number('0xFF'))         // ?
+console.log(Number('1e3'))          // ?
+console.log(Number(''))             // ?
+console.log(Number(null))           // ?
+console.log(Number(true))           // ?
+```
+
+---
+hideInToc: true
+name: Exercises — Arrays Q7 & Q8
+---
+
+# Exercises: Arrays
+
+**Q7.** Write a function `unique(arr)` that removes duplicates **without** using `Set`. Then rewrite it **with** `Set`. Compare both:
+
+```js {monaco-run} {autorun: false}
+function uniqueManual(arr) {
+  /*
+   *
+   *
+   *
+   */
+}
+const uniqueWithSet = (arr) => { /* one-liner */ }
+
+console.log(uniqueManual([1, 2, 2, 3, 1, 4]))  // [1, 2, 3, 4]
+console.log(uniqueWithSet([1, 2, 2, 3, 1, 4]))  // [1, 2, 3, 4]
+```
+
+**Q8.** Write a function `zip(arr1, arr2)` that combines two arrays into pairs. Stop at the shorter array length:
+
+```js {monaco-run} {autorun: false}
+function zip(arr1, arr2) {
+  /*
+   *
+   *
+   *
+   */
+}
+console.log(zip([1, 2, 3], ['a', 'b', 'c']))  // [[1,'a'],[2,'b'],[3,'c']]
+```
+
+---
+hideInToc: true
+name: Exercises — Arrays Q9
+---
+
+**Q9.** Using **separate** `filter`, `map`, and `reduce` calls (no chaining), process the student scores below:
+1. Filter scores ≥ 50 (passing)
+2. Double each passing score
+3. Sum all the doubled scores
+
+```js {monaco-run} {autorun: false}
+const scores = [45, 72, 38, 91, 55, 20, 68, 83]
+
+/*
+ * step 1 — filter:
+ *
+ * step 2 — map:
+ *
+ * step 3 — reduce:
+ *
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Arrays Q10
+---
+
+**Q10.** Write a function `groupByLength(words)` that groups an array of strings by word length. Return an object where keys are lengths and values are arrays of words:
+
+```js {monaco-run} {autorun: false}
+function groupByLength(words) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(groupByLength(['cat', 'dog', 'fish', 'bird', 'ox', 'ant']))
+// { 2: ['ox'], 3: ['cat','dog','ant'], 4: ['fish','bird'] }
+```
+
+---
+hideInToc: true
+name: Exercises — Arrays Q11
+---
+
+**Q11.** Implement `flatten(arr)` that deeply flattens a nested array **without** using `.flat()`. Then verify your result matches `.flat(Infinity)`:
+
+```js {monaco-run} {autorun: false}
+function flatten(arr) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const nested = [1, [2, [3, [4, [5]]]]]
+console.log(flatten(nested))              // [1, 2, 3, 4, 5]
+console.log(nested.flat(Infinity))        // verify: same result
+```
+
+---
+hideInToc: true
+name: Exercises — Map & Set Q12 & Q13
+---
+
+# Exercises: Map & Set
+
+**Q12.** Write a function `wordFrequency(sentence)` that counts how many times each word appears using a `Map`. Return the Map:
+
+```js {monaco-run} {autorun: false}
+function wordFrequency(sentence) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const freq = wordFrequency('the cat sat on the mat the cat')
+console.log(freq.get('the'))  // 3
+console.log(freq.get('cat'))  // 2
+```
+
+**Q13.** Write a function `setOperations(a, b)` that returns an object with `union`, `intersection`, and `difference` (a minus b) of two arrays using `Set`:
+
+```js {monaco-run} {autorun: false}
+function setOperations(a, b) {
+  /*
+   *
+   *
+   *
+   *
+   */
+}
+const result = setOperations([1,2,3,4], [3,4,5,6])
+console.log(result.union)        // [1,2,3,4,5,6]
+console.log(result.intersection) // [3,4]
+console.log(result.difference)   // [1,2]
+```
+
+---
+hideInToc: true
+name: Exercises — Destructuring Q14 & Q15
+---
+
+# Exercises: Destructuring
+
+**Q14.** Destructure the nested object to extract `name`, `city`, and the **first skill**. Use default values where the property may be missing:
+
+```js {monaco-run} {autorun: false}
+const dev = {
+  name: 'Temi',
+  address: { city: 'Lagos', country: 'Nigeria' },
+  skills: ['JavaScript', 'CSS', 'HTML'],
+}
+
+/*
+ * Destructure name, city, and first skill in one line:
+ *
+ *
+ *
+ *
+ */
+```
+
+**Q15.** Write a function `getUserInfo` that uses **destructured parameters** with defaults for `age` (18) and `role` ('student'). Log a sentence describing the user:
+
+```js {monaco-run} {autorun: false}
+function getUserInfo({ name, age = 18, role = 'student' }) {
+  /*
+   *
+   *
+   *
+   */
+}
+getUserInfo({ name: 'Ada' })                        // "Ada, 18, student"
+getUserInfo({ name: 'Chidi', age: 25, role: 'TA' }) // "Chidi, 25, TA"
+```
+
+---
+hideInToc: true
+name: Exercises — Destructuring Q16
+---
+
+**Q16.** Use `Object.entries` and destructuring to transform a price list: double all prices, then filter entries where the doubled price is above 1000. Return a new object:
+
+```js {monaco-run} {autorun: false}
+const prices = { rice: 400, beans: 600, yam: 350, pasta: 250, chicken: 800 }
+
+/*
+ * Use Object.entries to get [key, value] pairs
+ * Double each price
+ * Filter those above 1000
+ * Reconstruct with Object.fromEntries
+ *
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Iterables Q17
+---
+
+# Exercises: Iterables & Generators
+
+**Q17.** Create a custom iterable `Range` class/function that yields integers from `start` to `end` inclusive. Use it in a `for...of` loop and with spread:
+
+```js {monaco-run} {autorun: false}
+function Range(start, end) {
+  /*
+   * Return an object with [Symbol.iterator]
+   *
+   *
+   *
+   *
+   */
+}
+console.log([...new Range(1, 5)])   // [1, 2, 3, 4, 5]
+for (const n of new Range(3, 6)) console.log(n)
+```
+
+---
+hideInToc: true
+name: Exercises — JSON Q18 & Q19
+---
+
+# Exercises: JSON
+
+**Q18.** Write a function `safeStringify(obj, omitKeys)` that serializes an object to JSON while **omitting** specified keys (e.g. `password`, `token`):
+
+```js {monaco-run} {autorun: false}
+function safeStringify(obj, omitKeys = []) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const user = { name: 'Ada', email: 'ada@school.io', password: 'secret123', token: 'abc' }
+console.log(safeStringify(user, ['password', 'token']))
+// '{"name":"Ada","email":"ada@school.io"}'
+```
+
+**Q19.** Demonstrate where `JSON.parse(JSON.stringify(obj))` breaks: show that it fails for `Date`, `undefined`, and `function` values. Then log what comes back instead:
+
+```js {monaco-run} {autorun: false}
+const obj = {
+  created: new Date(),
+  name: 'test',
+  secret: undefined,
+  greet: function() { return 'hi' }
+}
+const clone = JSON.parse(JSON.stringify(obj))
+/*
+ * Log clone and explain what changed for each field:
+ *
+ *
+ *
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Synthesis Q20 & Q21
+---
+
+# Exercises: Synthesis
+
+**Q20.** Write a function `topStudents(data, n)` that takes an array of `{ name, scores[] }` objects, computes each student's average, then returns the top `n` sorted highest-first:
+
+```js {monaco-run} {autorun: false}
+function topStudents(data, n) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const students = [
+  { name: 'Ada', scores: [80, 90, 70] },
+  { name: 'Bola', scores: [95, 88, 92] },
+  { name: 'Chidi', scores: [60, 55, 70] },
+  { name: 'Dapo', scores: [75, 80, 85] },
+]
+console.log(topStudents(students, 2))
+// [{ name: 'Bola', average: 91.67 }, { name: 'Dapo', average: 80 }]
+```
+
+---
+hideInToc: true
+name: Exercises — Synthesis Q22
+---
+
+**Q21.** Write a program using `Map`, destructuring, and array methods to build a **top-5 word frequency counter** from a paragraph. Return an array of `[word, count]` pairs, sorted by count descending:
+
+```js {monaco-run} {autorun: false}
+const text = `JavaScript is a programming language. JavaScript is used in web development.
+Web development uses JavaScript, HTML and CSS. CSS and HTML are also important.`
+
+/*
+ * 1. Split into words, lowercase, strip punctuation
+ * 2. Build a Map of word frequencies
+ * 3. Sort by frequency and take top 5
+ *
+ *
+ */
+```
+
+---
+hideInToc: true
+name: LeetCode Data Types — Intro
+layout: center
+---
+
+# <span class="text-gradient">LeetCode-Style</span> Challenges
+
+Problems that combine **arrays, strings, maps, and sets** — the tools of chapter 2.
+
+<div mt-4 text-sm op70>
+Each problem has one clean solution using the data structures and methods you just learned.
+</div>
+
+---
+hideInToc: true
+name: LeetCode Data Types — Problem 1
+---
+
+# Problem 1 — Two Sum <span text-green text-sm>Easy</span>
+
+Given an array of numbers and a `target`, return the **indices** of the two numbers that add up to the target. Use a `Map` for an O(n) solution.
+
+```js {monaco-run} {autorun: false}
+function twoSum(nums, target) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(twoSum([2, 7, 11, 15], 9))   // [0, 1]
+console.log(twoSum([3, 2, 4], 6))        // [1, 2]
+console.log(twoSum([3, 3], 6))           // [0, 1]
+```
+
+<div text-xs op60 mt-2>Concepts: <code>Map</code>, array indexing, O(n) lookup vs O(n²) brute force</div>
+
+---
+hideInToc: true
+name: LeetCode Data Types — Problem 2
+---
+
+# Problem 2 — Valid Anagram <span text-green text-sm>Easy</span>
+
+Write `isAnagram(s, t)` that returns `true` if `t` is an anagram of `s` (same letters, same count). Use a character frequency `Map`.
+
+```js {monaco-run} {autorun: false}
+function isAnagram(s, t) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(isAnagram('anagram', 'nagaram'))  // true
+console.log(isAnagram('rat', 'car'))          // false
+console.log(isAnagram('listen', 'silent'))    // true
+```
+
+<div text-xs op60 mt-2>Concepts: <code>Map</code> for frequency counting, string iteration, early-exit optimization</div>
+
+---
+hideInToc: true
+name: LeetCode Data Types — Problem 3
+---
+
+# Problem 3 — Group Anagrams <span text-yellow text-sm>Medium</span>
+
+Given an array of strings, group the anagrams together. Return an array of groups. Use a `Map` where the key is the sorted version of each word.
+
+```js {monaco-run} {autorun: false}
+function groupAnagrams(words) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(groupAnagrams(['eat', 'tea', 'tan', 'ate', 'nat', 'bat']))
+// [['eat','tea','ate'], ['tan','nat'], ['bat']]
+```
+
+<div text-xs op60 mt-2>Concepts: <code>Map</code>, <code>sort()</code> as a signature, <code>Array.from(map.values())</code></div>
+
+---
+hideInToc: true
+name: LeetCode Data Types — Problem 4
+---
+
+# Problem 4 — Longest Unique Substring <span text-yellow text-sm>Medium</span>
+
+Write `lengthOfLongestSubstring(s)` that returns the length of the longest substring without repeating characters. Use a `Set` and sliding window.
+
+```js {monaco-run} {autorun: false}
+function lengthOfLongestSubstring(s) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(lengthOfLongestSubstring('abcabcbb'))  // 3 ("abc")
+console.log(lengthOfLongestSubstring('bbbbb'))     // 1 ("b")
+console.log(lengthOfLongestSubstring('pwwkew'))    // 3 ("wke")
+```
+
+<div text-xs op60 mt-2>Concepts: <code>Set</code>, sliding window (two pointers), string character access</div>
+
+---
+hideInToc: true
+name: LeetCode Data Types — Problem 5
+---
+
+# Problem 5 — Flatten & Deduplicate <span text-yellow text-sm>Medium</span>
+
+Write `flatUnique(arr)` that deeply flattens a nested array and returns **sorted unique values**. Use `.flat(Infinity)` and `Set`.
+
+```js {monaco-run} {autorun: false}
+function flatUnique(arr) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(flatUnique([1, [2, [3, 2]], [1, [4, 3]]]))  // [1, 2, 3, 4]
+console.log(flatUnique([[5, 5], [3, [3, 1]], 2]))        // [1, 2, 3, 5]
+```
+
+<div text-xs op60 mt-2>Concepts: <code>flat(Infinity)</code>, <code>Set</code> for deduplication, <code>Array.from</code>, <code>sort</code></div>

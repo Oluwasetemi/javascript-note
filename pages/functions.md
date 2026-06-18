@@ -1706,3 +1706,569 @@ function Person(name) {
 const person1 = new Person('Alice');
 console.log(person1.name);
 ```
+
+---
+hideInToc: true
+transition: slide-up
+---
+
+# Assignment or Class Activity
+
+- Rewrite a recursive factorial using a loop, then back to recursion
+- Build a `makeCounter()` closure with increment, decrement, and reset
+- Write a `debounce` utility using `setTimeout` and `clearTimeout`
+- Use `.call`, `.apply`, and `.bind` on the same method with different contexts
+- Create a `pipe(...fns)` function that chains transformations left-to-right
+
+```js {monaco-run} {autorun: false}
+/*
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+*/
+```
+
+---
+hideInToc: true
+name: Exercises — Function Types Q1
+---
+
+# Exercises: Function Types
+
+**Q1.** Write the same `add(a, b)` function **four ways**: function declaration, function expression, arrow function, and one-liner arrow function. Call each and log the results:
+
+```js {monaco-run} {autorun: false}
+/*
+ * 1. Function declaration:
+ *
+ * 2. Function expression:
+ *
+ * 3. Arrow function:
+ *
+ * 4. One-liner arrow:
+ *
+ */
+console.log(add(3, 4))  // 7 — from declaration
+```
+
+---
+hideInToc: true
+name: Exercises — Function Types Q2 & Q3
+---
+
+**Q2.** Demonstrate **hoisting**: call a function declaration before its definition (works), then try the same with a function expression (fails). Catch the error gracefully:
+
+```js {monaco-run} {autorun: false}
+/*
+ * Call the declaration BEFORE it's defined:
+ *
+ *
+ * Try to call the expression BEFORE it's defined (wrap in try/catch):
+ *
+ *
+ */
+```
+
+**Q3.** Write a higher-order function `applyTwice(fn, value)` that applies `fn` to `value` twice: `applyTwice(x => x * 2, 3)` → 12.
+
+```js {monaco-run} {autorun: false}
+function applyTwice(fn, value) {
+  /*
+   *
+   *
+   */
+}
+console.log(applyTwice(x => x * 2, 3))    // 12
+console.log(applyTwice(x => x + '!', 'hi')) // "hi!!"
+```
+
+---
+hideInToc: true
+name: Exercises — Recursion Q4 & Q5
+---
+
+# Exercises: Recursion
+
+**Q4.** Write a recursive `factorial(n)` and a recursive `fibonacci(n)`. Add a guard clause for invalid inputs (negative numbers, non-integers):
+
+```js {monaco-run} {autorun: false}
+function factorial(n) {
+  /*
+   *
+   *
+   *
+   */
+}
+function fibonacci(n) {
+  /*
+   *
+   *
+   *
+   */
+}
+console.log(factorial(5))   // 120
+console.log(fibonacci(8))   // 21
+```
+
+---
+hideInToc: true
+name: Exercises — Recursion Q5 & Q6
+---
+
+**Q5.** Write a recursive `sumNested(arr)` that sums all numbers in a **deeply nested array**. Use `Array.isArray` to detect nesting:
+
+```js {monaco-run} {autorun: false}
+function sumNested(arr) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(sumNested([1, [2, [3, [4]]]]))   // 10
+console.log(sumNested([1, [2, 3], [4, [5]]]))  // 15
+```
+
+**Q6.** Write a recursive `flattenObj(obj, prefix = '')` that flattens a nested object into dot-notation keys:
+
+```js {monaco-run} {autorun: false}
+function flattenObj(obj, prefix = '') {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(flattenObj({ a: { b: { c: 1 }, d: 2 } }))
+// { 'a.b.c': 1, 'a.d': 2 }
+```
+
+---
+hideInToc: true
+name: Exercises — Rest & Spread Q7 & Q8
+---
+
+# Exercises: Rest & Spread
+
+**Q7.** Write a function `sum(...nums)` using rest parameters that accepts **any number of arguments** and returns their total. Then call it with an array using spread:
+
+```js {monaco-run} {autorun: false}
+function sum(...nums) {
+  /*
+   *
+   *
+   */
+}
+console.log(sum(1, 2, 3))          // 6
+console.log(sum(10, 20, 30, 40))   // 100
+const scores = [5, 15, 25]
+console.log(sum(...scores))         // 45
+```
+
+**Q8.** Write a function `merge(...objects)` that merges any number of objects into one. Later objects should override earlier ones for duplicate keys:
+
+```js {monaco-run} {autorun: false}
+function merge(...objects) {
+  /*
+   *
+   *
+   */
+}
+console.log(merge({ a: 1 }, { b: 2 }, { a: 99, c: 3 }))
+// { a: 99, b: 2, c: 3 }
+```
+
+---
+hideInToc: true
+name: Exercises — Rest & Spread Q9
+---
+
+**Q9.** Write a regular function `logArgs` that converts `arguments` to a real array and logs each element. Then write the same as an arrow function using rest params. Show why `arguments` does **not** work in arrow functions:
+
+```js {monaco-run} {autorun: false}
+// Regular function — uses arguments object:
+function logArgs() {
+  /*
+   *
+   *
+   */
+}
+
+// Arrow function — uses rest params:
+const logArgsArrow = (...args) => {
+  /*
+   *
+   */
+}
+
+logArgs(1, 'hello', true)
+logArgsArrow(1, 'hello', true)
+```
+
+---
+hideInToc: true
+name: Exercises — Closures Q10 & Q11
+---
+
+# Exercises: Closures
+
+**Q10.** Write a `makeCounter(start = 0)` function that returns an **object** with `increment`, `decrement`, and `reset` methods. The internal count must be private (not directly accessible):
+
+```js {monaco-run} {autorun: false}
+function makeCounter(start = 0) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const c = makeCounter(10)
+console.log(c.increment()) // 11
+console.log(c.increment()) // 12
+console.log(c.decrement()) // 11
+console.log(c.reset())     // 10
+```
+
+---
+hideInToc: true
+name: Exercises — Closures Q11 & Q12
+---
+
+**Q11.** Write a `memoize(fn)` function that caches return values using a `Map`. Test it with a slow `fibonacci` that logs "computing…" when it actually runs — cached calls should not log:
+
+```js {monaco-run} {autorun: false}
+function memoize(fn) {
+  /*
+   *
+   *
+   *
+   *
+   */
+}
+const slowFib = memoize((n) => {
+  console.log(`computing fib(${n})`)
+  return n <= 1 ? n : slowFib(n - 1) + slowFib(n - 2)
+})
+console.log(slowFib(5))
+console.log(slowFib(5))  // should NOT log "computing" again
+```
+
+**Q12.** Write `createMultiplier(factor)` that returns a new function multiplying any number by `factor`. Then create `double` and `triple` from it:
+
+```js {monaco-run} {autorun: false}
+function createMultiplier(factor) {
+  /*
+   *
+   *
+   */
+}
+const double = createMultiplier(2)
+const triple = createMultiplier(3)
+console.log(double(5))  // 10
+console.log(triple(4))  // 12
+```
+
+---
+hideInToc: true
+name: Exercises — Scheduling Q13 & Q14
+---
+
+# Exercises: Scheduling
+
+**Q13.** Use `setTimeout` inside a loop to log numbers 1–5 each **1 second apart**. Make sure each iteration captures the correct value (hint: `let` vs `var` matters here):
+
+```js {monaco-run} {autorun: false}
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+```
+
+**Q14.** Write a `debounce(fn, delay)` function that prevents `fn` from firing more than once per `delay` ms. Each new call resets the timer:
+
+```js {monaco-run} {autorun: false}
+function debounce(fn, delay) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const log = debounce((msg) => console.log(msg), 500)
+log('a')  // discarded — called again within 500ms
+log('b')  // discarded
+log('c')  // "c" — last call, fires after 500ms
+```
+
+---
+hideInToc: true
+name: Exercises — call/apply/bind Q15 & Q16
+---
+
+# Exercises: call / apply / bind
+
+**Q15.** Write a `Vehicle` constructor and a `Toyota` constructor. Use `Vehicle.call(this, ...)` inside `Toyota` to inherit Vehicle's properties:
+
+```js {monaco-run} {autorun: false}
+function Vehicle(make, year) {
+  /*
+   *
+   */
+}
+function Toyota(model, year) {
+  /*
+   * Use Vehicle.call here
+   *
+   */
+}
+const car = new Toyota('Camry', 2022)
+console.log(car.make)   // "Toyota"
+console.log(car.model)  // "Camry"
+console.log(car.year)   // 2022
+```
+
+**Q16.** Write a `partial(fn, ...presetArgs)` function using `bind` that lets you preset some arguments and supply the rest later:
+
+```js {monaco-run} {autorun: false}
+function partial(fn, ...presetArgs) {
+  /*
+   *
+   *
+   */
+}
+const add = (a, b, c) => a + b + c
+const add10 = partial(add, 10)
+console.log(add10(5, 3))   // 18
+console.log(add10(1, 1))   // 12
+```
+
+---
+hideInToc: true
+name: Exercises — Arrow Functions Q17 & Q18
+---
+
+# Exercises: Arrow Functions
+
+**Q17.** Demonstrate the `this` difference between a regular method and an arrow function inside `setTimeout`. Show what `this` refers to in each case:
+
+```js {monaco-run} {autorun: false}
+const timer = {
+  name: 'MyTimer',
+  startRegular() {
+    setTimeout(function () {
+      /*
+       * What is `this` here? Log this.name
+       *
+       */
+    }, 100)
+  },
+  startArrow() {
+    setTimeout(() => {
+      /*
+       * What is `this` here? Log this.name
+       *
+       */
+    }, 100)
+  },
+}
+timer.startRegular()
+timer.startArrow()
+```
+
+---
+hideInToc: true
+name: Exercises — Synthesis Q18
+---
+
+# Exercises: Synthesis
+
+**Q18.** Write a `pipe(...fns)` function that composes functions **left-to-right** (output of each becomes input of next). Use `reduce`:
+
+```js {monaco-run} {autorun: false}
+function pipe(...fns) {
+  /*
+   *
+   *
+   *
+   */
+}
+const double = x => x * 2
+const addOne = x => x + 1
+const square = x => x * x
+
+const transform = pipe(double, addOne, square)
+console.log(transform(3))  // ((3*2)+1)² = 49
+console.log(transform(5))  // ((5*2)+1)² = 121
+```
+
+---
+hideInToc: true
+name: LeetCode Functions — Intro
+layout: center
+---
+
+# <span class="text-gradient">LeetCode-Style</span> Challenges
+
+Problems that combine **recursion, closures, higher-order functions, and scheduling** — the tools of chapter 3.
+
+<div mt-4 text-sm op70>
+Each problem has one clean functional solution using the patterns you just learned.
+</div>
+
+---
+hideInToc: true
+name: LeetCode Functions — Problem 1
+---
+
+# Problem 1 — Power Function <span text-green text-sm>Easy</span>
+
+Write `myPow(base, exp)` recursively **without** `Math.pow`. Handle negative exponents: `myPow(2, -3)` → `0.125`.
+
+```js {monaco-run} {autorun: false}
+function myPow(base, exp) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(myPow(2, 10))   // 1024
+console.log(myPow(2, -3))   // 0.125
+console.log(myPow(3, 0))    // 1
+console.log(myPow(5, 3))    // 125
+```
+
+<div text-xs op60 mt-2>Concepts: recursion, base case, negative exponents as <code>1 / myPow(base, -exp)</code></div>
+
+---
+hideInToc: true
+name: LeetCode Functions — Problem 2
+---
+
+# Problem 2 — Memoized Fibonacci <span text-green text-sm>Easy</span>
+
+Implement `memoFib(n)` using a **closure-based cache**. Log how many times the inner compute function actually runs — with memoization it should only run each unique `n` once.
+
+```js {monaco-run} {autorun: false}
+function makeMemoFib() {
+  /*
+   * Create a cache inside this closure
+   * Return a function that checks the cache first
+   *
+   *
+   *
+   */
+}
+const memoFib = makeMemoFib()
+console.log(memoFib(10))  // 55
+console.log(memoFib(10))  // 55 — no recomputation
+console.log(memoFib(15))  // 610
+```
+
+<div text-xs op60 mt-2>Concepts: closures, Map as cache, recursion, call-count tracking</div>
+
+---
+hideInToc: true
+name: LeetCode Functions — Problem 3
+---
+
+# Problem 3 — Curry <span text-yellow text-sm>Medium</span>
+
+Write a `curry(fn)` function that allows calling any multi-argument function **one argument at a time** until all arguments are provided. Use `fn.length` to know how many args are needed.
+
+```js {monaco-run} {autorun: false}
+function curry(fn) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const add = (a, b, c) => a + b + c
+const curriedAdd = curry(add)
+console.log(curriedAdd(1)(2)(3))      // 6
+console.log(curriedAdd(1, 2)(3))      // 6
+console.log(curriedAdd(1)(2, 3))      // 6
+console.log(curriedAdd(1, 2, 3))      // 6
+```
+
+<div text-xs op60 mt-2>Concepts: closures, <code>fn.length</code>, rest params, recursive partial application</div>
+
+---
+hideInToc: true
+name: LeetCode Functions — Problem 4
+---
+
+# Problem 4 — Once <span text-green text-sm>Easy</span>
+
+Write a `once(fn)` function that wraps `fn` so it can only be **called once**. Subsequent calls return the result of the first call without re-executing `fn`.
+
+```js {monaco-run} {autorun: false}
+function once(fn) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const init = once(() => {
+  console.log('initialized!')
+  return 42
+})
+console.log(init())  // logs "initialized!", returns 42
+console.log(init())  // returns 42, does NOT log again
+console.log(init())  // returns 42, does NOT log again
+```
+
+<div text-xs op60 mt-2>Concepts: closures, boolean flag, caching return value</div>
+
+---
+hideInToc: true
+name: LeetCode Functions — Problem 5
+---
+
+# Problem 5 — Event Emitter <span text-yellow text-sm>Medium</span>
+
+Implement a basic `EventEmitter` with `on(event, fn)`, `off(event, fn)`, and `emit(event, ...args)` using a closure and a `Map`:
+
+```js {monaco-run} {autorun: false}
+function createEmitter() {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const emitter = createEmitter()
+const greet = (name) => console.log(`Hello, ${name}!`)
+emitter.on('greet', greet)
+emitter.emit('greet', 'Ada')   // "Hello, Ada!"
+emitter.emit('greet', 'Bola')  // "Hello, Bola!"
+emitter.off('greet', greet)
+emitter.emit('greet', 'Chidi') // nothing — listener removed
+```
+
+<div text-xs op60 mt-2>Concepts: <code>Map</code> of listener arrays, closures, rest params, array mutation</div>
