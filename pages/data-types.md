@@ -2650,12 +2650,15 @@ console.log(isPalindrome('hello'))                           // false
 
 ---
 hideInToc: true
-name: Exercises — Numbers Q4
+name: Exercises — Numbers Q4 & Q5
 ---
 
 # Exercises: Numbers
 
-**Q4.** Demonstrate the floating-point precision problem with `0.1 + 0.2`. Then write a function `addDecimals(a, b)` that correctly adds two decimal numbers using `toFixed` and `Number()`.
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q4.** Demonstrate the floating-point precision problem with `0.1 + 0.2`. Then write `addDecimals(a, b)` that fixes it using `toFixed` and `Number()`.
 
 ```js {monaco-run} {autorun: false}
 /*
@@ -2668,10 +2671,8 @@ name: Exercises — Numbers Q4
  */
 ```
 
----
-hideInToc: true
-name: Exercises — Numbers Q5
----
+</div>
+<div>
 
 **Q5.** Write functions `toBinary(n)` and `toHex(n)` that convert a decimal number to its binary and hex string using `toString(base)`.
 
@@ -2687,6 +2688,9 @@ name: Exercises — Numbers Q5
 console.log(toBinary(255))  // "11111111"
 console.log(toHex(255))     // "ff"
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true
