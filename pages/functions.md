@@ -1759,6 +1759,9 @@ hideInToc: true
 name: Exercises — Function Types Q2 & Q3
 ---
 
+<div class="grid grid-cols-2 gap-4">
+<div>
+
 **Q2.** Demonstrate **hoisting**: call a function declaration before its definition (works), then try the same with a function expression (fails). Catch the error gracefully:
 
 ```js {monaco-run} {autorun: false}
@@ -1772,6 +1775,9 @@ name: Exercises — Function Types Q2 & Q3
  */
 ```
 
+</div>
+<div>
+
 **Q3.** Write a higher-order function `applyTwice(fn, value)` that applies `fn` to `value` twice: `applyTwice(x => x * 2, 3)` → 12.
 
 ```js {monaco-run} {autorun: false}
@@ -1784,6 +1790,9 @@ function applyTwice(fn, value) {
 console.log(applyTwice(x => x * 2, 3))    // 12
 console.log(applyTwice(x => x + '!', 'hi')) // "hi!!"
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true
@@ -1818,6 +1827,9 @@ hideInToc: true
 name: Exercises — Recursion Q5 & Q6
 ---
 
+<div class="grid grid-cols-2 gap-4">
+<div>
+
 **Q5.** Write a recursive `sumNested(arr)` that sums all numbers in a **deeply nested array**. Use `Array.isArray` to detect nesting:
 
 ```js {monaco-run} {autorun: false}
@@ -1833,6 +1845,9 @@ function sumNested(arr) {
 console.log(sumNested([1, [2, [3, [4]]]]))   // 10
 console.log(sumNested([1, [2, 3], [4, [5]]]))  // 15
 ```
+
+</div>
+<div>
 
 **Q6.** Write a recursive `flattenObj(obj, prefix = '')` that flattens a nested object into dot-notation keys:
 
@@ -1850,12 +1865,18 @@ console.log(flattenObj({ a: { b: { c: 1 }, d: 2 } }))
 // { 'a.b.c': 1, 'a.d': 2 }
 ```
 
+</div>
+</div>
+
 ---
 hideInToc: true
 name: Exercises — Rest & Spread Q7 & Q8
 ---
 
 # Exercises: Rest & Spread
+
+<div class="grid grid-cols-2 gap-4">
+<div>
 
 **Q7.** Write a function `sum(...nums)` using rest parameters that accepts **any number of arguments** and returns their total. Then call it with an array using spread:
 
@@ -1872,6 +1893,9 @@ const scores = [5, 15, 25]
 console.log(sum(...scores))         // 45
 ```
 
+</div>
+<div>
+
 **Q8.** Write a function `merge(...objects)` that merges any number of objects into one. Later objects should override earlier ones for duplicate keys:
 
 ```js {monaco-run} {autorun: false}
@@ -1884,6 +1908,9 @@ function merge(...objects) {
 console.log(merge({ a: 1 }, { b: 2 }, { a: 99, c: 3 }))
 // { a: 99, b: 2, c: 3 }
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true
@@ -1943,6 +1970,9 @@ hideInToc: true
 name: Exercises — Closures Q11 & Q12
 ---
 
+<div class="grid grid-cols-2 gap-4">
+<div>
+
 **Q11.** Write a `memoize(fn)` function that caches return values using a `Map`. Test it with a slow `fibonacci` that logs "computing…" when it actually runs — cached calls should not log:
 
 ```js {monaco-run} {autorun: false}
@@ -1962,6 +1992,9 @@ console.log(slowFib(5))
 console.log(slowFib(5))  // should NOT log "computing" again
 ```
 
+</div>
+<div>
+
 **Q12.** Write `createMultiplier(factor)` that returns a new function multiplying any number by `factor`. Then create `double` and `triple` from it:
 
 ```js {monaco-run} {autorun: false}
@@ -1977,12 +2010,18 @@ console.log(double(5))  // 10
 console.log(triple(4))  // 12
 ```
 
+</div>
+</div>
+
 ---
 hideInToc: true
 name: Exercises — Scheduling Q13 & Q14
 ---
 
 # Exercises: Scheduling
+
+<div class="grid grid-cols-2 gap-4">
+<div>
 
 **Q13.** Use `setTimeout` inside a loop to log numbers 1–5 each **1 second apart**. Make sure each iteration captures the correct value (hint: `let` vs `var` matters here):
 
@@ -1996,6 +2035,9 @@ name: Exercises — Scheduling Q13 & Q14
  *
  */
 ```
+
+</div>
+<div>
 
 **Q14.** Write a `debounce(fn, delay)` function that prevents `fn` from firing more than once per `delay` ms. Each new call resets the timer:
 
@@ -2015,12 +2057,18 @@ log('b')  // discarded
 log('c')  // "c" — last call, fires after 500ms
 ```
 
+</div>
+</div>
+
 ---
 hideInToc: true
 name: Exercises — call/apply/bind Q15 & Q16
 ---
 
 # Exercises: call / apply / bind
+
+<div class="grid grid-cols-2 gap-4">
+<div>
 
 **Q15.** Write a `Vehicle` constructor and a `Toyota` constructor. Use `Vehicle.call(this, ...)` inside `Toyota` to inherit Vehicle's properties:
 
@@ -2042,6 +2090,9 @@ console.log(car.model)  // "Camry"
 console.log(car.year)   // 2022
 ```
 
+</div>
+<div>
+
 **Q16.** Write a `partial(fn, ...presetArgs)` function using `bind` that lets you preset some arguments and supply the rest later:
 
 ```js {monaco-run} {autorun: false}
@@ -2056,6 +2107,9 @@ const add10 = partial(add, 10)
 console.log(add10(5, 3))   // 18
 console.log(add10(1, 1))   // 12
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true

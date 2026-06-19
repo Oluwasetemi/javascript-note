@@ -2832,11 +2832,17 @@ name: Exercises — Map & Set Q12 & Q13
 
 # Exercises: Map & Set
 
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+
 **Q12.** Write a function `wordFrequency(sentence)` that counts how many times each word appears using a `Map`. Return the Map:
 
 ```js {monaco-run} {autorun: false}
 function wordFrequency(sentence) {
   /*
+   *
+   *
    *
    *
    *
@@ -2849,11 +2855,16 @@ console.log(freq.get('the'))  // 3
 console.log(freq.get('cat'))  // 2
 ```
 
+</div>
+<div>
+
 **Q13.** Write a function `setOperations(a, b)` that returns an object with `union`, `intersection`, and `difference` (a minus b) of two arrays using `Set`:
 
 ```js {monaco-run} {autorun: false}
 function setOperations(a, b) {
   /*
+   *
+   *
    *
    *
    *
@@ -2866,12 +2877,18 @@ console.log(result.intersection) // [3,4]
 console.log(result.difference)   // [1,2]
 ```
 
+</div>
+</div>
+
 ---
 hideInToc: true
 name: Exercises — Destructuring Q14 & Q15
 ---
 
 # Exercises: Destructuring
+
+<div class="grid grid-cols-2 gap-4">
+<div>
 
 **Q14.** Destructure the nested object to extract `name`, `city`, and the **first skill**. Use default values where the property may be missing:
 
@@ -2888,8 +2905,12 @@ const dev = {
  *
  *
  *
+ *
  */
 ```
+
+</div>
+<div>
 
 **Q15.** Write a function `getUserInfo` that uses **destructured parameters** with defaults for `age` (18) and `role` ('student'). Log a sentence describing the user:
 
@@ -2904,6 +2925,9 @@ function getUserInfo({ name, age = 18, role = 'student' }) {
 getUserInfo({ name: 'Ada' })                        // "Ada, 18, student"
 getUserInfo({ name: 'Chidi', age: 25, role: 'TA' }) // "Chidi, 25, TA"
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true
@@ -2954,6 +2978,9 @@ name: Exercises — JSON Q18 & Q19
 
 # Exercises: JSON
 
+<div class="grid grid-cols-2 gap-4">
+<div>
+
 **Q18.** Write a function `safeStringify(obj, omitKeys)` that serializes an object to JSON while **omitting** specified keys (e.g. `password`, `token`):
 
 ```js {monaco-run} {autorun: false}
@@ -2970,6 +2997,9 @@ const user = { name: 'Ada', email: 'ada@school.io', password: 'secret123', token
 console.log(safeStringify(user, ['password', 'token']))
 // '{"name":"Ada","email":"ada@school.io"}'
 ```
+
+</div>
+<div>
 
 **Q19.** Demonstrate where `JSON.parse(JSON.stringify(obj))` breaks: show that it fails for `Date`, `undefined`, and `function` values. Then log what comes back instead:
 
@@ -2988,6 +3018,9 @@ const clone = JSON.parse(JSON.stringify(obj))
  *
  */
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true
