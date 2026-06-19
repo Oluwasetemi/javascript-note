@@ -2719,7 +2719,10 @@ name: Exercises — Arrays Q7 & Q8
 
 # Exercises: Arrays
 
-**Q7.** Write a function `unique(arr)` that removes duplicates **without** using `Set`. Then rewrite it **with** `Set`. Compare both:
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q7.** Write `unique(arr)` that removes duplicates **without** `Set`. Then rewrite it **with** `Set`. Compare both:
 
 ```js {monaco-run} {autorun: false}
 function uniqueManual(arr) {
@@ -2735,7 +2738,10 @@ console.log(uniqueManual([1, 2, 2, 3, 1, 4]))  // [1, 2, 3, 4]
 console.log(uniqueWithSet([1, 2, 2, 3, 1, 4]))  // [1, 2, 3, 4]
 ```
 
-**Q8.** Write a function `zip(arr1, arr2)` that combines two arrays into pairs. Stop at the shorter array length:
+</div>
+<div>
+
+**Q8.** Write `zip(arr1, arr2)` that combines two arrays into pairs. Stop at the shorter array's length:
 
 ```js {monaco-run} {autorun: false}
 function zip(arr1, arr2) {
@@ -2743,10 +2749,15 @@ function zip(arr1, arr2) {
    *
    *
    *
+   *
+   *
    */
 }
 console.log(zip([1, 2, 3], ['a', 'b', 'c']))  // [[1,'a'],[2,'b'],[3,'c']]
 ```
+
+</div>
+</div>
 
 ---
 hideInToc: true
