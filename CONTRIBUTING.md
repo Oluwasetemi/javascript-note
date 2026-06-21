@@ -50,8 +50,8 @@ If you have an idea for an enhancement, please open an issue [here](https://gith
 
 ### Previous Notes
 
-- [HTML Note](https://karatu.oluwasetemi.dev/)
+- [HTML Note](https://html.oluwasetemi.dev/)
 - [CSS Note](https://css.oluwasetemi.dev/)
-- [Vue Note](https://vue-classnote.oluwasetemi.dev/1)
+- [Vue Note](https://vue.oluwasetemi.dev/1)
 - [TypeScript](https://typescript.oluwasetemi.dev/)
-- [React Note](https://react.oluwasetemi.dev/) WIP
+- [React Note](https://react.oluwasetemi.dev/) 
