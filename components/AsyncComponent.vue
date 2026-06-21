@@ -14,7 +14,7 @@ const run = async () => {
   async function* generateAsyncSequence(start, end) {
     for (let i = start; i <= end; i++) {
       await new Promise(resolve => setTimeout(resolve, 1000));
-      numbers.value.push(i);
+      yield numbers.value.push(i);
     }
   }
   const iterator = generateAsyncSequence(1, 5);

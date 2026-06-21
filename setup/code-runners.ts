@@ -4,7 +4,7 @@ import { defineCodeRunnersSetup } from '@slidev/types'
 export default defineCodeRunnersSetup(() => {
   return {
     // Support HTML with inline JavaScript and CSS
-    html(code, ctx) {
+    html(code) {
       // Create container for iframe and console output
       const container = document.createElement('div')
       container.className = 'html-runner-container'
@@ -88,7 +88,7 @@ export default defineCodeRunnersSetup(() => {
         consoleOutput.innerHTML = ''
       }
 
-      const logs = []
+      const _logs = []
 
       // Helper to format console output
       const formatValue = (value: string|null|object|undefined) => {
@@ -98,7 +98,7 @@ export default defineCodeRunnersSetup(() => {
         if (typeof value === 'object') {
           try {
             return JSON.stringify(value, null, 2)
-          } catch (e) {
+          } catch {
             return String(value)
           }
         }
