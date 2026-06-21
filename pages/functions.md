@@ -833,12 +833,13 @@ variable <kbd>(myFunction)</kbd> and the object property<kbd>(sayHello)</kbd> to
 
 ---
 hideInToc: true
+class: text-sm
 ---
 
 # The "length" property
 
 <div></div>
-A function object's <kbd>length</kbd> property indicates how many arguments the function expects, i.e., the number of formal parameters. Here are some key points to note:
+A function object's `length` property indicates how many arguments the function expects, i.e., the number of formal parameters. Here are some key points to note:
 
 - Rest parameters `(e.g., ...args)` are excluded from the count.
 - Only parameters before the first one with a default value are counted.
@@ -850,13 +851,11 @@ function example(a, b = 5, ...rest) {
 }
 // Output: 1 (only 'a' is counted)
 // console.log(example.length);
-
 function exampleWithDestructure({x, y}, z) {
   // Function body
 }
 // Output: 2 (destructured object and 'z' are counted)
 // console.log(exampleWithDestructure.length);
-
 function exampleWithRest(a, ...rest) {
   // Function body
 }

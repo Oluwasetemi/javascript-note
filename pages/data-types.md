@@ -1110,16 +1110,16 @@ const fruits = ['apple', 'banana', 'orange']
 const keys = fruits.keys()
 // console.log('Keys iterator:', keys)
 
-for (const key of keys) { // console.log(key) /* 0, 1, 2 */ }
+for (const key of keys) { /* console.log(key) */ /* 0, 1, 2 */ }
 ```
 
 * [values()]{.text-red.font-bold} - Returns iterator for array values and can be used with spread operator
 
 ```js {monaco-run} {autorun: false}
-const fruits = ['apple', 'banana', 'orange']
+const fruits = ['apple', 'banana', 'orange', 'guava']
 const values = fruits.values()
 // console.log('Values iterator:', values)
-for (const value of values) { // console.log(value) // 'apple', 'banana', 'orange' }
+for (const value of values) { /* console.log(value) */ /* 'apple', 'banana', 'orange', 'guava' */ }
 ```
 
 </div>
@@ -1232,7 +1232,7 @@ const range = {
   }
 }
 
-for (const num of range) { //console.log(num) }
+for (const num of range) { /* console.log(num) */ }
 ```
 
 </div>
@@ -3207,7 +3207,7 @@ function flatUnique(arr) {
    *
    */
 }
-console.log(flatUnique([1, [2, [3, 2]], [1, [4, 3]]]))  // [1, 2, 3, 4]
+console.log(flatUnique([1, [2, [3, 2]], [1, [4, 3]]]))   // [1, 2, 3, 4]
 console.log(flatUnique([[5, 5], [3, [3, 1]], 2]))        // [1, 2, 3, 5]
 ```
 
