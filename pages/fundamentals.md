@@ -782,6 +782,12 @@ function addNumber(num1, num2) {
 ```
 
 ---
+layout: image
+hideInToc: true
+image: '../syntax.png'
+---
+
+---
 hideInToc: true
 title: Global and Local Variables
 ---

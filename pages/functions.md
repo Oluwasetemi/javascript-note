@@ -72,6 +72,13 @@ There are three common ways to create a function:
 - Function Declaration
 - Function Expression
 - Arrow Function
+- IIFE Immediately Invoked Function Expressions
+
+---
+layout: image
+hideInToc: true
+image: '../JavaScript_Function_Comparison_Guide.png'
+---
 
 ---
 hideInToc: true
@@ -85,11 +92,12 @@ Function Declaration: In a function declaration, the <kbd>function</kbd> keyword
 
 <div class=" mb-4">
 
-```js {monaco-run} {autorun: false}
+```js
 function name(parameter1, parameter2, parameter3) {
   // body
 }
 // calling the function by its name
+name('arg1', 'arg2', 'arg3')
 ```
 
 </div>
@@ -106,6 +114,12 @@ declarationMethod('AltSchool', 3, 'Engineering')
 </div>
 
 ---
+layout: image
+hideInToc: true
+image: '../Programming_Function_Comparison_Guide.png'
+---
+
+---
 hideInToc: true
 ---
 
@@ -118,11 +132,12 @@ Unlike function declarations, function expressions can be anonymous (without a n
 
 <div class=" mb-4">
 
-```js {monaco-run} {autorun: false}
+```js
 const name = function (parameter1, parameter2, parameter3) {
   // body
 }
 // calling the function by its name
+name('arg1', 'arg2', 'arg3')
 ```
 
 </div>
@@ -138,6 +153,12 @@ expressionMethod('AltSchool', 3, 'Engineering')
 </div>
 
 ---
+layout: image
+hideInToc: true
+image: '../diff_declaration_expression.png'
+---
+
+---
 hideInToc: true
 ---
 
@@ -147,13 +168,14 @@ hideInToc: true
 
 Arrow Function: Arrow functions provide a more concise syntax for writing functions in JavaScript. They were introduced in ES6 and are particularly useful for maintaining the lexical scope of the this keyword. Arrow functions can be anonymous and are often used for short functions.
 
-<div class=" mb-4">
+<div class="mb-4">
 
-```js {monaco-run} {autorun: false}
+```js
 const name = (parameter1, parameter2, parameter3) => {
   // body
 }
 // calling the function by its name
+name('arg1', 'arg2', 'arg3')
 ```
 
 </div>
@@ -167,6 +189,48 @@ arrowMethod('AltSchool', 3, 'Engineering')
 ```
 
 </div>
+
+---
+layout: image
+hideInToc: true
+image: '../fxn_syntax.png'
+---
+
+---
+hideInToc: true
+---
+
+# IIFE
+
+<div> </div>
+
+IIFE - The immediately invoked function expression is an interesting version of function with a major value of allow the function to be immediately called after its creation instantly without leaving its declaration phase. Can be used with all the 3 major examples explained above. The key emphasis is on the ability to call itselff immediately in its declaration phase.
+
+<div class=" mb-4">
+
+```js
+// calling the function immediately
+((parameter1, parameter2, parameter3) => {
+  // body
+})(argument1, argument2, argument3)
+```
+
+</div>
+<div class=" mb-4">
+
+```js {monaco-run} {autorun: false}
+((name, age, course) => {
+  // console.log(`${name} is ${age} years, and they offer ${course} courses`)
+})('AltSchool', 3, 'Engineering')
+```
+
+</div>
+
+---
+layout: image
+hideInToc: true
+image: '../iife.png'
+---
 
 ---
 hideInToc: true
@@ -202,7 +266,7 @@ function factorial(n) {
 
 ## Let's dive deep into Recursion
 
-Let's write a function <kbd>raisePower(x, n)</kbd> that raises <kbd>x</kbd> to a natural power of <kbd>n</kbd>. <br/>
+Let's write a function `raisePower(x, n)` that raises `x` to a natural power of `n` <span class="math-var">x<sup>n</sup></span>. <br/>
 To achieve this we can use the:
 
 - Iterative thinking: the <kbd>for</kbd>loop, or
@@ -218,6 +282,28 @@ function raisePower(x, n) {
 }
 // console.log(raisePower(2, 3))
 ```
+
+<style>
+/* 1. Apply a proper math font stack and italicize variables */
+.math-var {
+  font-family: "Cambria Math", "Latin Modern Math", "Times New Roman", serif;
+  font-style: italic;
+}
+
+/* 2. Prevent the superscript from disrupting the paragraph's line-height */
+.math-var sup {
+  font-size: 0.95em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+/* Note: If the exponent is a number (like x²), it should NOT be italicized */
+.math-var sup.number {
+  font-style: normal;
+}
+</style>
 
 ---
 title: Recursive thinking

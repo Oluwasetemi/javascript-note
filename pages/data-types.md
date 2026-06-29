@@ -12,14 +12,14 @@ hideInToc: true
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Methods of Primitives</a>
 - <a @click="$slidev.nav.go($nav.currentPage+3)">Numbers and BigInt</a>
 - <a @click="$slidev.nav.go($nav.currentPage+5)">Strings</a>
-- <a @click="$slidev.nav.go($nav.currentPage+8)">Arrays and Array Methods</a>
-- <a @click="$slidev.nav.go($nav.currentPage+22)">Iterables</a>
-- <a @click="$slidev.nav.go($nav.currentPage+28)">Map and Set</a>
-- <a @click="$slidev.nav.go($nav.currentPage+35)">WeakMap and WeakSet</a>
-- <a @click="$slidev.nav.go($nav.currentPage+38)">Object.keys, values, entries, groupBy</a>
-- <a @click="$slidev.nav.go($nav.currentPage+40)">Destructuring Assignment</a>
-- <a @click="$slidev.nav.go($nav.currentPage+43)">Date and Time | Intro to Intl API  | Temporal</a>
-- <a @click="$slidev.nav.go($nav.currentPage+48)">JSON methods, toJSON</a>
+- <a @click="$slidev.nav.go($nav.currentPage+9)">Arrays and Array Methods</a>
+- <a @click="$slidev.nav.go($nav.currentPage+23)">Iterables</a>
+- <a @click="$slidev.nav.go($nav.currentPage+29)">Map and Set</a>
+- <a @click="$slidev.nav.go($nav.currentPage+36)">WeakMap and WeakSet</a>
+- <a @click="$slidev.nav.go($nav.currentPage+39)">Object.keys, values, entries, groupBy</a>
+- <a @click="$slidev.nav.go($nav.currentPage+41)">Destructuring Assignment</a>
+- <a @click="$slidev.nav.go($nav.currentPage+44)">Date and Time | Intro to Intl API  | Temporal</a>
+- <a @click="$slidev.nav.go($nav.currentPage+49)">JSON methods, toJSON</a>
 
 ---
 hideInToc: true
@@ -1944,7 +1944,7 @@ hideInToc: true
 ## Basic Grouping
 
 ```js {monaco-run} {autorun: false}
-const students = [ { name: 'Alice', grade: 'A', age: 20 }, { name: 'Bob', grade: 'B', age: 19 }, { name: 'Charlie', grade: 'A', age: 21 }, { name: 'David', grade: 'B', age: 20 }, { name: 'Eve', grade: 'C', age: 19 } ]
+const students = [{ name: 'Alice', grade: 'A', age: 20 }, { name: 'Bob', grade: 'B', age: 19 }, { name: 'Charlie', grade: 'A', age: 21 }, { name: 'David', grade: 'B', age: 20 }, { name: 'Eve', grade: 'C', age: 19 }]
 
 // Group by grade
 try {
@@ -2301,7 +2301,7 @@ hideInToc: true
 ```js {monaco-run} {autorun: false}
 const number = 1234567.89; const smallNumber = 0.123;
 
-const usNumber = new Intl.NumberFormat('en-US')
+const usNumber = new Intl.NumberFormat('en-NG')
 const deNumber = new Intl.NumberFormat('de-DE')
 const usdCurrency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
 const eurCurrency = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
