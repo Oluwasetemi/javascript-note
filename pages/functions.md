@@ -12,15 +12,15 @@ hideInToc: true
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Introduction to Functions</a>
-- <a @click="$nav.go($nav.currentPage + 6)">Recursion and Stack</a>
-- <a @click="$nav.go($nav.currentPage + 15)">Rest Parameters and Spread Syntax</a>
-- <a @click="$nav.go($nav.currentPage + 20)">Closure and Variable Scope</a>
-- <a @click="$nav.go($nav.currentPage + 31)">Global Object</a>
-- <a @click="$nav.go($nav.currentPage + 32)">Function Object, NFE and `new Function` syntax</a>
-- <a @click="$nav.go($nav.currentPage + 39)">Scheduling</a>
-- <a @click="$nav.go($nav.currentPage + 54)">Decorators and Forwarding, call/apply, bind</a>
-- <a @click="$nav.go($nav.currentPage + 60)">Function binding</a>
-- <a @click="$nav.go($nav.currentPage + 63)">Arrow functions in details</a>
+- <a @click="$nav.go($nav.currentPage + 12)">Recursion and Stack</a>
+- <a @click="$nav.go($nav.currentPage + 21)">Rest Parameters and Spread Syntax</a>
+- <a @click="$nav.go($nav.currentPage + 26)">Closure and Variable Scope</a>
+- <a @click="$nav.go($nav.currentPage + 37)">Global Object</a>
+- <a @click="$nav.go($nav.currentPage + 38)">Function Object, NFE and `new Function` syntax</a>
+- <a @click="$nav.go($nav.currentPage + 45)">Scheduling</a>
+- <a @click="$nav.go($nav.currentPage + 60)">Decorators and Forwarding, call/apply, bind</a>
+- <a @click="$nav.go($nav.currentPage + 66)">Function binding</a>
+- <a @click="$nav.go($nav.currentPage + 69)">Arrow functions in details</a>
 
 ---
 hideInToc: true
