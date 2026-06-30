@@ -1204,6 +1204,7 @@ or creating animations, until manually cancelled.
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 Nested setTimeout
@@ -1211,9 +1212,7 @@ Nested setTimeout
 
 <div class="text-sm"> 
 
-Using nested `setTimeout` gives you more control over scheduling compared to `setInterval`.
-In `setInterval`, the next iteration is scheduled regardless of whether the previous one has finished.
-With nested `setTimeout`, you can dynamically schedule the next delay based on conditions or the results of the current task.
+Using nested `setTimeout` gives you more control over scheduling compared to `setInterval`. In `setInterval`, the next iteration is scheduled regardless of whether the previous one has finished. With nested `setTimeout`, you can dynamically schedule the next delay based on conditions or the results of the current task.
 
 </div>
 
@@ -1234,13 +1233,11 @@ function dynamicTimeout(counter = 1) {
 dynamicTimeout();
 ```
 
-<div class="overflow-scroll h-10">
 
 - Dynamic Scheduling: The next execution time can be adjusted dynamically (in this case, based on counter).
 - Sequential Execution: You ensure that the next setTimeout only starts after the current one finishes.
 - Customizable Conditions: The recursion can stop or modify behavior based on the results of the current task, giving more flexibility.
 
-</div>
 
 ---
 hideInToc: true
