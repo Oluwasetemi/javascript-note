@@ -2187,18 +2187,12 @@ const timer = {
   name: 'MyTimer',
   startRegular() {
     setTimeout(function () {
-      /*
-       * What is `this` here? Log this.name
-       *
-       */
+       // What is `this` here? Log this.name
     }, 100)
   },
   startArrow() {
     setTimeout(() => {
-      /*
-       * What is `this` here? Log this.name
-       *
-       */
+       // What is `this` here? Log this.name
     }, 100)
   },
 }
