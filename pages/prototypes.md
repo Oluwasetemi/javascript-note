@@ -81,7 +81,7 @@ JavaScript has two main ways to create objects: using ES6 class syntax or tradit
 
 <div>
 
-```javascript
+```js {monaco-run} {autorun: false}
 // ES6 Class
 class Animal {
   constructor(name) {
@@ -96,7 +96,7 @@ class Animal {
 </div>
 <div>
 
-```js
+```js {monaco-run} {autorun: false}
 // Constructor Function
 function Animal(name) {
   this.name = name
@@ -120,18 +120,16 @@ Mixins allow the addition of common functionality or properties to different cla
 
 ```js {monaco-run} {autorun: false}
 const canEat = {
-  eat: function () {
-    console.log('Eating')
-  },
+  eat: function () { console.log('Eating') },
 }
 const canWalk = {
-  walk: function () {
-    console.log('Walking')
-  },
+  walk: function () { console.log('Walking') },
 }
+
 function Person(name) {
   this.name = name
 }
+
 Object.assign(Person.prototype, canEat, canWalk)
 const person = new Person('John')
 person.eat() // Eating
@@ -158,7 +156,7 @@ This demo creates a new `ExtendedArray` class that extends the native `Array` ob
 
 ---
 hideInToc: true
-class: text-sm
+class: 'text-sm'
 ---
 
 # Prototypal Inheritance and Prototype Chain(F.prototype)
@@ -175,13 +173,12 @@ class: text-sm
 - The prototype chain enables inheritance
 - Property lookup traverses the chain until found or `null`
 
-```js
+```js {monaco-run} {autorun: false}
 let animal = { eats: true }
 let rabbit = { jumps: true }
 rabbit.__proto__ = animal
 
-console.log(rabbit.eats) // true (inherited)
-console.log(rabbit.jumps) // true (own)
+console.log(rabbit.eats, rabbit.jumps) // true (inherited)
 ```
 
 </div>
@@ -212,7 +209,7 @@ console.log(Animal.prototype.constructor === Animal) // true
 
 ---
 hideInToc: true
-class: text-sm
+class: 'text-sm'
 ---
 
 # Native Prototypes and Prototype Methods
@@ -228,10 +225,10 @@ class: text-sm
 - Arrays: `arr → Array.prototype → Object.prototype → null`
 - Functions: `func → Function.prototype → Object.prototype → null`
 
-```js
+```js {monaco-run} {autorun: false}
 let arr = [1, 2, 3]
-// arr.__proto__ === Array.prototype
-// arr.__proto__.__proto__ === Object.prototype
+// console.log(arr.__proto__ === Array.prototype)
+// console.log(arr.__proto__.__proto__ === Object.prototype)
 
 console.log(arr.toString()) // "1,2,3"
 // Uses Array.prototype.toString
@@ -243,7 +240,7 @@ console.log(arr.toString()) // "1,2,3"
 
 ### Prototype Methods
 
-```js
+```js {monaco-run} {autorun: false}
 // Object.create - create with specific prototype
 let animal = { eats: true }
 let rabbit = Object.create(animal)
@@ -251,8 +248,7 @@ let rabbit = Object.create(animal)
 // Object.getPrototypeOf / setPrototypeOf
 Object.getPrototypeOf(rabbit) === animal // true
 
-// Object.keys - own keys only
-// Object.values / Object.entries
+// Object.keys - own keys only, Object.values / Object.entries
 
 // hasOwnProperty - check own property
 for (let key in rabbit) {
@@ -278,23 +274,17 @@ class: text-sm
 
 <div>
 
-```js
+```js {monaco-run} {autorun: false}
 class User {
   constructor(name) {
     this.name = name
   }
 
-  sayHi() {
-    console.log(`Hello, ${this.name}!`)
-  }
+  sayHi() { console.log(`Hello, ${this.name}!`) }
 
-  get name() {
-    return this._name
-  }
+  get name() { return this._name }
 
-  set name(value) {
-    this._name = value
-  }
+  set name(value) { this._name = value }
 }
 
 let user = new User('John')
@@ -313,9 +303,9 @@ user.sayHi() // Hello, John!
 - Always runs in strict mode
 - Must call with `new`, cannot call directly
 
-```js
-typeof User // "function"
-User === User.prototype.constructor // true
+```js {monaco-run} {autorun: false}
+console.log(typeof User) // "function"
+console.log(User === User.prototype.constructor) // true
 // Class expression and Named class expression
 let User = class {
   sayHi() {
@@ -342,14 +332,12 @@ hideInToc: true
 
 ### Extending Classes
 
-```js
+```js {monaco-run} {autorun: false}
 class Animal {
   constructor(name) {
     this.name = name
   }
-  speak() {
-    console.log(`${this.name} makes a sound.`)
-  }
+  speak() { console.log(`${this.name} makes a sound.`) }
 }
 
 class Dog extends Animal {
@@ -357,9 +345,7 @@ class Dog extends Animal {
     super(name) // Must call super() first
     this.breed = breed
   }
-  speak() {
-    console.log(`${this.name} barks.`)
-  }
+  speak() { console.log(`${this.name} barks.`) }
 }
 
 let dog = new Dog('Rex', 'German Shepherd')
@@ -387,9 +373,7 @@ class Cat extends Animal {
 }
 
 let cat = new Cat('Whiskers')
-cat.speak()
-// Whiskers makes a sound.
-// Whiskers meows.
+cat.speak()// Whiskers makes a sound.// Whiskers meows.
 ```
 
 </div>
@@ -412,7 +396,7 @@ hideInToc: true
 - Cannot access instance properties via `this`
 - Useful for utility functions
 
-```js
+```js {monaco-run} {autorun: false}
 class MathHelper {
   static PI = 3.14159
 
@@ -461,7 +445,7 @@ dogs.sort(Animal.compare)
 
 ---
 hideInToc: true
-class: text-sm
+class: 'text-sm'
 ---
 
 # Private and Protected Properties and Methods
@@ -472,7 +456,7 @@ class: text-sm
 
 ### Private Fields (`#`)
 
-```js
+```js {monaco-run} {autorun: false}
 class BankAccount {
   #balance = 0 // Private field
 
@@ -484,8 +468,8 @@ class BankAccount {
     return this.#balance
   }
 
+  // Private method
   #validateAmount(amount) {
-    // Private method
     return amount > 0
   }
 }
@@ -542,7 +526,7 @@ hideInToc: true
 
 ### Extending Native Classes
 
-```js
+```js {monaco-run} {autorun: false}
 class PowerArray extends Array {
   isEmpty() {
     return this.length === 0
@@ -568,7 +552,7 @@ console.log(arr.filter((n) => n > 2)) // PowerArray
 
 <div>
 
-### Symbol.species
+### `Symbol.species`
 
 ```js
 class PowerArray extends Array {
@@ -607,7 +591,7 @@ hideInToc: true
 
 ### instanceof Operator
 
-```js
+```js {monaco-run} {autorun: false}
 class Animal {}
 class Dog extends Animal {}
 
@@ -634,7 +618,7 @@ console.log(bird instanceof MyClass) // true
 
 ### Mixins Pattern
 
-```js
+```js {monaco-run} {autorun: false}
 let sayMixin = {
   say(phrase) {
     console.log(phrase)
