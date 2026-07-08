@@ -11,19 +11,9 @@ hideInToc: true
 <div class="mt-2 text-sm">
 
 - <a @click="$slidev.nav.go($nav.currentPage+1)">Introduction: Callbacks</a>
-- <a @click="$slidev.nav.go($nav.currentPage+2)">Callback Types</a>
-- <a @click="$slidev.nav.go($nav.currentPage+3)">Real-world Callback Examples</a>
-- <a @click="$slidev.nav.go($nav.currentPage+4)">Callback Patterns</a>
-- <a @click="$slidev.nav.go($nav.currentPage+5)">Creating Functions with Callbacks</a>
 - <a @click="$slidev.nav.go($nav.currentPage+6)">Promise basics</a>
-- <a @click="$slidev.nav.go($nav.currentPage+7)">Promise chaining</a>
-- <a @click="$slidev.nav.go($nav.currentPage+8)">Error handling in Promises</a>
-- <a @click="$slidev.nav.go($nav.currentPage+9)">Promise API</a>
-- <a @click="$slidev.nav.go($nav.currentPage+10)">Promisify</a>
 - <a @click="$slidev.nav.go($nav.currentPage+11)">Microtasks</a>
 - <a @click="$slidev.nav.go($nav.currentPage+12)">Async/Await</a>
-- <a @click="$slidev.nav.go($nav.currentPage+13)">Callback Hell Problem</a>
-- <a @click="$slidev.nav.go($nav.currentPage+14)">Promise Static Methods</a>
 - <a @click="$slidev.nav.go($nav.currentPage+15)">Advanced Async/Await Patterns</a>
 - <a @click="$slidev.nav.go($nav.currentPage+16)">Common Pitfalls & Best Practices</a>
 
