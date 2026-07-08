@@ -1,27 +1,3 @@
-<template>
-  <aside
-    class="flex flex-col pl-3 py-3 pr-4 rounded border-l-5 mb-4 items-start"
-    :class="[typeClass.bg, typeClass.border, fullWidth ? 'max-w-full' : 'max-w-[600px]']"
-    :role="role"
-    :style="fullWidth ? { maxWidth: '100%' } : {}"
-  >
-    <section class="flex items-center gap-3 mb-2">
-      <div class="flex items-center shrink-0 text-xl" :class="typeClass.icon">
-        <slot name="icon">
-          <div v-if="type === 'tip'" class="i-carbon-idea" />
-          <div v-else-if="type === 'info'" class="i-carbon-information" />
-          <div v-else-if="type === 'success'" class="i-carbon-checkmark" />
-          <div v-else-if="type === 'danger'" class="i-carbon-warning-alt" />
-        </slot>
-      </div>
-      <div class="font-medium" :class="typeClass.icon">{{ capitalizedType }}</div>
-    </section>
-    <section class="grow [&_p]:text-white [&_p]:m-0 [&_code]:bg-white/20 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_code]:font-mono">
-      <slot>Default tip content</slot>
-    </section>
-  </aside>
-</template>
-
 <script setup lang="ts">
 import { computed, PropType } from 'vue'
 
@@ -47,3 +23,27 @@ const typeClass = computed(() => {
 const capitalizedType = computed(() => props.type.charAt(0).toUpperCase() + props.type.slice(1))
 const role = computed(() => (props.type === 'danger' ? 'alert' : 'status'))
 </script>
+<template>
+  <aside
+    class="flex flex-col pl-3 py-3 pr-4 rounded border-l-5 mb-4 items-start"
+    :class="[typeClass.bg, typeClass.border, fullWidth ? 'max-w-full' : 'max-w-[600px]']"
+    :role="role"
+    :style="fullWidth ? { maxWidth: '100%' } : {}"
+  >
+    <section class="flex items-center gap-3 mb-2">
+      <div class="flex items-center shrink-0 text-xl" :class="typeClass.icon">
+        <slot name="icon">
+          <div v-if="type === 'tip'" class="i-carbon-idea" />
+          <div v-else-if="type === 'info'" class="i-carbon-information" />
+          <div v-else-if="type === 'success'" class="i-carbon-checkmark" />
+          <div v-else-if="type === 'danger'" class="i-carbon-warning-alt" />
+        </slot>
+      </div>
+      <div class="font-medium" :class="typeClass.icon">{{ capitalizedType }}</div>
+    </section>
+    <section class="grow [&_p]:text-white [&_p]:m-0 [&_code]:bg-white/20 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_code]:font-mono">
+      <slot>Default tip content</slot>
+    </section>
+  </aside>
+</template>
+

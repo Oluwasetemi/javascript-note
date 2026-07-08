@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const isLoaded = ref(false)
+const isLoading = ref(false)
+
+const load = () => {
+  isLoading.value = true
+  isLoaded.value = true
+}
+</script>
 <template>
   <div class="flex flex-col h-screen bg-[#0f0f0f] text-[#e5e5e5] font-sans">
     <header class="flex items-center justify-between px-5 py-2.5 bg-[#1a1a1a] border-b border-[#333] shrink-0">
@@ -45,16 +58,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-const isLoaded = ref(false)
-const isLoading = ref(false)
-
-const load = () => {
-  isLoading.value = true
-  isLoaded.value = true
-}
-</script>

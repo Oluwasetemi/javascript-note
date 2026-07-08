@@ -29,12 +29,12 @@ hideInToc: true
 <div></div>
 
 In data types, we have primitive and non-primitive types. If you recall, primitive data types are those that contain a single value.
-However, we also have the non-primitive type, where we can literally say that everything in JavaScript falls under this category, and that is <kbd>Objects</kbd>.
+However, we also have the non-primitive type, where we can literally say that everything in JavaScript falls under this category, and that is `Objects`.
 
-Objects are used to store keyed collections of various data and more complex entities, arranged in <kbd>key: value</kbd> pairs inside curly braces `{}`.
-You can access any property within an Object using dot notation <kbd>.</kbd> or square brackets `[]`.
+Objects are used to store keyed collections of various data and more complex entities, arranged in `key: value` pairs inside curly braces `{}`.
+You can access any property within an Object using dot notation `.` or square brackets `[]`.
 
-An <kbd>Objects</kbd> can be created using these syntaxes:
+An `Objects` can be created using these syntaxes:
 
 ```js
 //object constructor
@@ -44,7 +44,7 @@ let user = new Object()
 let user = {}
 ```
 
-In the code above, we've just created two empty <kbd>objects</kbd>.
+In the code above, we've just created two empty `objects`.
 
 ---
 hideInToc: true
@@ -64,7 +64,7 @@ let school = {
 }
 ```
 
-A property has a key which can also be referred to as <kbd>name</kbd> or <kbd>identifier</kbd> after which the colon comes in <kbd>:</kbd>, and lastly a value to the right of it. In a property, the value at the right hand side is been stored inside the key on the left hand side.
+A property has a key which can also be referred to as `name` or `identifier` after which the colon comes in `:`, and lastly a value to the right of it. In a property, the value at the right hand side is been stored inside the key on the left hand side.
 
 ```js {monaco-run} {autorun: false}
 let school = {
@@ -83,16 +83,20 @@ hideInToc: true
 # Contd.
 
 <div></div>
-Also, we can add a boolean property:
+
+Also, we can add a boolean property and We can also remove a property using the `delete` operator:
+
+<div grid="~ cols-2" gap="2">
+
 ```js
 school.isAdmitting = true;
 ```
 
-We can also remove a property using the <kbd>delete</kbd> operator:
-
 ```js
 delete school.name
 ```
+
+</div>
 
 We can use multiword property names, but to achieve this we have to wrap the name in a quote:
 
@@ -137,6 +141,7 @@ hideInToc: true
 # Contd.
 
 <div></div>
+
 Also, square brackets provide a way to access property names dynamically, which literal strings in dot notation do not allow. This means you can use variables or expressions within square brackets to obtain the property name.
 
 ```js {monaco-run} {autorun: false}
@@ -155,6 +160,7 @@ hideInToc: true
 # Computed properties
 
 <div></div>
+
 When creating an object in JavaScript, we can put an expression in square brackets, and this means that the property name will be taken from what's inside the square bracket.
 
 ```js {monaco-run} {autorun: false}
@@ -182,6 +188,7 @@ hideInToc: true
 # Property value shorthand
 
 <div></div>
+
 Sometimes, we use existing values for property name. Instead of repeating this we can implement the shorthand property.
 
 ```js {monaco-run} {autorun: false}
@@ -193,7 +200,7 @@ console.log(user.name);
 ```
 
 Checking the block scope above, we have the same words representing the values and the property key.
-Instead of <kbd>name:name</kbd> we can just write <kbd>name</kbd>, like this:
+Instead of `name:name` we can just write `name`, like this:
 
 ```js {monaco-run} {autorun: false}
 const getUser = (name, age) => {
@@ -209,7 +216,7 @@ hideInToc: true
 
 # Property names limitations
 
-There are limitations to name we can use for a variable, names like <kbd>for</kbd>, <kbd>let</kbd>, <kbd>return</kbd> are language-reserved but for an object property, there's no such restriction:
+There are limitations to name we can use for a variable, names like `for`, `let`, `return` are language-reserved but for an object property, there's no such restriction:
 
 ```js {monaco-run} {autorun: false}
 let obj = {
@@ -228,7 +235,7 @@ class: text-sm
 
 # Property existence test, `in` operator, `Object.hasOwn`
 
-It's possible in object to know if a property really exists, and there won't be an error if the property doesn't exist, instead it will return <kbd>undefined</kbd>.
+It's possible in object to know if a property really exists, and there won't be an error if the property doesn't exist, instead it will return `undefined`.
 
 ```js {monaco-run} {autorun: false}
 let user = {name: "Setemi", age: 40};
@@ -252,7 +259,7 @@ The `Object.hasOwn()` static method returns true if the specified object has the
 
 <section>
 
-When using the <kbd>in</kbd> keyword there must be a property name in a quoted string on the left side of <kbd>in</kbd>. Sometimes the property exists and it stores <kbd>undefined</kbd> which is why we can bring in the <kbd>in</kbd> method.
+When using the `in` keyword there must be a property name in a quoted string on the left side of `in`. Sometimes the property exists and it stores `undefined` which is why we can bring in the `in` method.
 
 ```js {monaco-run} {autorun: false}
 let userDetails = { name: undefined };
@@ -275,7 +282,8 @@ hideInToc: true
 # The "for..in" loop
 
 <div></div>
-To iterates over all enumerable string properties of an object, we have the <kbd>for..in</kbd> loop.
+
+To iterates over all enumerable string properties of an object, we have the `for..in` loop.
 
 ```js
 for (key in object) {
@@ -283,7 +291,7 @@ for (key in object) {
 }
 ```
 
-Let's use the <kbd>for..in</kbd> loop to output all the <kbd>user</kbd> properties.
+Let's use the `for..in` loop to output all the `user` properties.
 
 ```js {monaco-run} {autorun: false}
 let user = {
@@ -326,7 +334,8 @@ hideInToc: true
 # Contd.
 
 <div></div>
-In cases where you don't want the num to get rearranged, you can make the number non-integer by adding a <kbd>+</kbd> sign before the numbers.
+
+In cases where you don't want the num to get rearranged, you can make the number non-integer by adding a `+` sign before the numbers.
 
 ```js {monaco-run} {autorun: false}
 let footballers = {
@@ -397,8 +406,8 @@ hideInToc: true
 # Contd.
 
 <div></div>
-You might have seen it somewhere that variables declared with <kbd>const</kbd> can’t be reassigned or redeclared. However, <kbd>objects</kbd> behave differently. 
-Although an object declared with <kbd>const</kbd> cannot be reassigned to a new object, its contents (properties) can still be modified.
+You might have seen it somewhere that variables declared with `const` can’t be reassigned or redeclared. However, `objects` behave differently. 
+Although an object declared with `const` cannot be reassigned to a new object, its contents (properties) can still be modified.
 
 This is because the const keyword only protects the variable's reference to the object, not the object's internal structure.
 The variable will always point to the same object in memory, but the object itself can have its properties added, updated, or deleted.
@@ -445,12 +454,12 @@ console.log(person.name)
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 `Object.assign`
 
-The <kbd>Object.assign()</kbd> method is used to copy the values of all enumerable properties from one or more source <kbd>objects</kbd> to a target object.
-Let's break down how it works:
+The `Object.assign()` method is used to copy the values of all enumerable properties from one or more source `objects` to a target object. Let's break down how it works:
 
 ```js
 Object.assign(dest, ...sources)
@@ -461,8 +470,9 @@ Object.assign(dest, ...sources)
 Let's break the syntax down:
 
 - The first argument is the target object.
-- Further arguments is a list of source <kbd>objects</kbd>.
-  How does this works? It copies the properties of all source <kbd>objects</kbd> into the target object, and then returns it as the result.
+- Further arguments is a list of source `objects`.
+
+How does this works? It copies the properties of all source `objects` into the target object, and then returns it as the result.
 
 </div>
 
@@ -480,8 +490,10 @@ console.log(JSON.stringify(person));
 ```
 
 <div>
+
 Note: If the property name already exists, it gets overwritten.
 We can also use `Object.assign()` method to perform a simple object clone.
+
 </div>
 
 </div>
@@ -495,8 +507,7 @@ hideInToc: true
 
 <div></div>
 
-To copy a property from a nested object within another object, you can use a cloning loop.
-This allows you to access and duplicate the specific property you need while keeping the structure intact.
+To copy a property from a nested object within another object, you can use a cloning loop or `Object.assign`. This allows you to access and duplicate the specific property you need while keeping the structure intact.
 
 ```js {monaco-run} {autorun: false}
 let student = {
@@ -514,9 +525,8 @@ student.school.department = "Science";
 console.log(clone.school.department);
 ```
 
-In the code above the <kbd>student</kbd> and <kbd>school</kbd> object are yet to be separated. To achieve a separation between both objects, we should
-use <kbd>cloning loop</kbd> to examines each value of <kbd>student`[key]`</kbd> and, if it's an object, copy its structure - this is called <kbd>deep cloning</kbd>
-or <kbd>structured cloning</kbd>.
+In the code above the `student` and `school` object are yet to be separated. So its clone seems to be a new Object but the `clone.school` is still referencing the `student.school`. To achieve a separation between both objects, we should
+use `cloning loop` to examines each value of `student` `[key]` and, if it's an object that is nested, copy its structure cleanly - this is called `deep cloning` or `structured cloning`.
 
 ---
 hideInToc: true
@@ -526,28 +536,25 @@ hideInToc: true
 
 <div></div>
 
-This methods clones the <kbd>object</kbd> with all nested properties.
-In the code below <kbd>structuredClone()</kbd> will creates a deep clone of the leader object, meaning that both leader and clone are completely separate objects in memory, including nested objects.
+This methods clones the `object` with all nested properties. In the code below `structuredClone()` will creates a deep clone of the leader object, meaning that both leader and clone are completely separate objects in memory, including nested objects.
 
 ```js {monaco-run} {autorun: false}
 let leader = {
   name: "Setemi Ojo",
-  school: {
-    department: "Science",
-    course: "Computer Science"
-  }
+  school: { department: "Science", course: "Computer Science" }
 };
 
 let clone = structuredClone(leader);
-console.log( leader === clone );
+// console.log(leader === clone);
+// console.log(leader.school === clone.school);
 
-
-leader.school.department = "Science";
+leader.school.department = "Science"; // Update on leader does not affect the cloned
 console.log(clone.school.department);
 ```
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 # Object Methods, `this` Keyword
@@ -563,20 +570,21 @@ An object method is simply a function stored as a property of an object. You can
 ```js {monaco-run} {autorun: false}
 let user = {
   name: "Setemi",
-  greet() { return "Hello, I am " + user.name }
+  greet: function() { return "Hello, I am " + user.name }
+  // greet() { return "Hello, I am " + user.name }
 }
 console.log(user.greet())
 ```
 
 <div text-sm>
 
-A method can also reference its own object using the <kbd>this</kbd> keyword. Inside a method, <kbd>this</kbd> refers to the object that called the method.
+A method can also reference its own object using the `this` keyword. Inside a method, `this` refers to the object that called the method.
 
 </div>
 
 ```js {monaco-run} {autorun: false}
 let user = {
-  name: "Setemi",age: 40,
+  name: "Setemi", age: 40,
   greet() { return `Hello, I am ${this.name} and I am ${this.age}` }
 }
 console.log(user.greet())
@@ -590,7 +598,7 @@ hideInToc: true
 
 <div></div>
 
-Arrow functions do not have their own <kbd>this</kbd>. They inherit <kbd>this</kbd> from the surrounding lexical context, which makes them unsuitable as object methods when you need to reference the object.
+Arrow functions do not have their own `this`. They inherit `this` from the surrounding lexical context, which makes them unsuitable as object methods when you need to reference the object.
 
 <div grid="~ cols-2" gap="2">
 
@@ -622,7 +630,7 @@ counter.increment()
 
 </div>
 
-Use regular functions or shorthand methods for object methods that need <kbd>this</kbd>. Reserve arrow functions for callbacks inside those methods.
+Use regular functions or shorthand methods for object methods that need `this`. Reserve arrow functions for callbacks inside those methods.
 
 ---
 hideInToc: true
@@ -634,7 +642,7 @@ hideInToc: true
 
 <div text-sm> 
 
-Constructor functions are regular functions used as blueprints for creating multiple similar objects. By convention, their names start with an uppercase letter. When called with the <kbd>new</kbd> operator, JavaScript automatically creates a new empty object, assigns it to <kbd>this</kbd>, and returns it.
+Constructor functions are regular functions used as blueprints for creating multiple similar objects. By convention, their names start with an uppercase letter. When called with the `new` operator, JavaScript automatically creates a new empty object, assigns it to `this`, and returns it.
 
 </div>
 
@@ -653,10 +661,11 @@ console.log(user1.greet(), user2.name, user1 instanceof User);
 
 <div text-sm>
 
-The steps when <kbd>new User(...)</kbd> is called:
-1. A new empty object is created and assigned to <kbd>this</kbd>
-2. The function body runs, adding properties to <kbd>this</kbd>
-3. The value of <kbd>this</kbd> is returned automatically
+The steps when `new User(...)` is called:
+
+1. A new empty object is created and assigned to `this`
+2. The function body runs, adding properties to `this`
+3. The value of `this` is returned automatically
 
 </div>
 
@@ -668,7 +677,7 @@ hideInToc: true
 
 <div></div>
 
-Inside a function, you can check whether it was called with <kbd>new</kbd> using the special <kbd>new.target</kbd> property. If the function was called normally, <kbd>new.target</kbd> is <kbd>undefined</kbd>.
+Inside a function, you can check whether it was called with `new` using the special `new.target` property. If the function was called normally, `new.target` is `undefined`.
 
 ```js {monaco-run} {autorun: false}
 function User(name) {
@@ -683,7 +692,7 @@ let u2 = User("Vinicius") // called without new, still works
 console.log(u1.name, u2.name)
 ```
 
-Constructors usually have no explicit <kbd>return</kbd> statement — they return <kbd>this</kbd> automatically. If a constructor does return an object, that object is returned instead. If it returns a primitive, it is ignored and <kbd>this</kbd> is still returned.
+Constructors usually have no explicit `return` statement — they return `this` automatically. If a constructor does return an object, that object is returned instead. If it returns a primitive, it is ignored and `this` is still returned.
 
 ---
 hideInToc: true
@@ -693,7 +702,7 @@ hideInToc: true
 
 <div></div>
 
-The optional chaining operator <kbd>?.</kbd> stops evaluation and returns <kbd>undefined</kbd> if the value before it is <kbd>null</kbd> or <kbd>undefined</kbd>, instead of throwing an error. This makes accessing deeply nested properties safe without writing long `if` chains.
+The optional chaining operator `?` stops evaluation and returns `undefined` if the value before it is `null` or `undefined`, instead of throwing an error. This makes accessing deeply nested properties safe without writing long `if` chains.
 
 <div grid="~ cols-2" gap="2">
 
@@ -725,13 +734,13 @@ console.log(user?.phone?.number)    // undefined (no error)
 hideInToc: true
 ---
 
-# Contd. — `?.()` and `?.[]`
+# Contd. — `?.()` - Using with a method and `?.[]` - Using with an Array
 
 <div></div>
 
 <div text-sm>
 
-Optional chaining also works for method calls using <kbd>?.()</kbd> and for computed property access using <kbd>?.[]</kbd>.
+Optional chaining also works for method calls using `?.()` and for computed property access using `?.[]`.
 
 </div>
 
@@ -754,7 +763,7 @@ let empty = null
 console.log(user?.[key], empty?.[key])   // "Setemi" // undefined (no error)
 ```
 
-<kbd>?.</kbd> is for reading only — you cannot use it on the left side of an assignment.
+`?.` is for reading only — you cannot use it on the left side of an assignment.
 
 ---
 hideInToc: true
@@ -765,7 +774,7 @@ class: text-sm
 
 <div></div>
 
-A <kbd>Symbol</kbd> is a primitive type whose value is a guaranteed unique identifier. Even two symbols created with the same description are never equal. Symbols are often used as object property keys when you need to ensure a key will never accidentally clash with another property name.
+A `Symbol` is a primitive type whose value is a guaranteed unique identifier. Even two symbols created with the same description are never equal. Symbols are often used as object property keys when you need to ensure a key will never accidentally clash with another property name.
 
 ```js {monaco-run} {autorun: false}
 let id1 = Symbol("id")
@@ -774,7 +783,7 @@ let id2 = Symbol("id")
 console.log(id1 === id2, typeof id1, id1.description);    // // false — always unique, "symbol" "id" 
 ```
 
-Symbol-keyed properties are hidden from <kbd>for..in</kbd> loops and <kbd>Object.keys()</kbd>, making them ideal for metadata that should not appear in normal enumeration.
+Symbol-keyed properties are hidden from `for..in` loops and `Object.keys()`, making them ideal for metadata that should not appear in normal enumeration.
 
 ```js {monaco-run} {autorun: false}
 let id = Symbol("id")
@@ -793,9 +802,9 @@ class: 'text-sm'
 
 <div></div>
 
-When JavaScript needs a primitive value from an object (for arithmetic, string concatenation, or comparison), it calls a conversion method. The engine uses a <kbd>hint</kbd> — either `"string"`, `"number"`, or `"default"` — to decide which method to call.
+When JavaScript needs a primitive value from an object (for arithmetic, string concatenation, or comparison), it calls a conversion method. The engine uses a `hint` — either `"string"`, `"number"`, or `"default"` — to decide which method to call.
 
-You can customise this behaviour with <kbd>Symbol.toPrimitive</kbd> (preferred) or the classic <kbd>valueOf</kbd> / <kbd>toString</kbd> pair.
+You can customise this behaviour with `Symbol.toPrimitive` (preferred) or the classic `valueOf` / `toString` pair.
 
 ```js {monaco-run} {autorun: false}
 let money = {
@@ -809,7 +818,7 @@ let money = {
 console.log(`${money}`, +money, money+50)   // "100 USD"  (string hint) // 100        (number hint) // 150        (default hint)
 ```
 
-Without <kbd>Symbol.toPrimitive</kbd>, JavaScript tries <kbd>valueOf()</kbd> first (for number/default hints), then <kbd>toString()</kbd>. All objects inherit a default <kbd>toString()</kbd> that returns `"[object Object]"` — override it to provide a meaningful string representation.
+Without `Symbol.toPrimitive`, JavaScript tries `valueOf()` first (for number/default hints), then `toString()`. All objects inherit a default `toString()` that returns `"[object Object]"` — override it to provide a meaningful string representation.
 
 ---
 hideInToc: true
@@ -820,9 +829,9 @@ class: 'text-sm'
 
 <div></div>
 
-Every object property has three hidden boolean flags alongside its value. By default, all three are <kbd>true</kbd> for properties created the normal way.
+Every object property has three hidden boolean flags alongside its value. By default, all three are `true` for properties created the normal way.
 
-You can inspect these flags with <kbd>Object.getOwnPropertyDescriptor()</kbd> and change them with <kbd>Object.defineProperty()</kbd>.
+You can inspect these flags with `Object.getOwnPropertyDescriptor()` and change them with `Object.defineProperty()`.
 
 ```js {monaco-run} {autorun: false}
 let user = { name: "Setemi" }
@@ -857,6 +866,7 @@ Each flag controls a specific kind of access to a property:
 <section>
 
 **`writable: false`**
+
 The value cannot be changed. Assignment is silently ignored in non-strict mode and throws in strict mode.
 
 ```js {monaco-run} {autorun: false}
@@ -876,6 +886,7 @@ console.log(obj.PI) // 3.14159
 <div class="mb-10">
 
 **`enumerable: false`**
+
 The property is hidden from `for..in` and `Object.keys()`.
 
 </div>
@@ -895,6 +906,7 @@ console.log(Object.keys(user))
 <section>
 
 **`configurable: false`**
+
 The property cannot be deleted and its descriptor cannot be changed again.
 
 ```js {monaco-run} {autorun: false}
@@ -911,7 +923,7 @@ console.log(obj.type)   // "admin"
 
 </div>
 
-Use <kbd>Object.freeze(obj)</kbd> to make all properties non-writable and non-configurable at once, and <kbd>Object.seal(obj)</kbd> to prevent adding or removing properties while still allowing edits.
+Use `Object.freeze(obj)` to make all properties non-writable and non-configurable at once, and `Object.seal(obj)` to prevent adding or removing properties while still allowing edits.
 
 ---
 hideInToc: true
@@ -922,7 +934,7 @@ class: 'text-sm'
 
 <div></div>
 
-In addition to regular <kbd>data properties</kbd> (which store a value directly), objects can have <kbd>accessor properties</kbd> — virtual properties defined by a <kbd>get</kbd> function that is called on read and a <kbd>set</kbd> function that is called on write.
+In addition to regular `data properties` (which store a value directly), objects can have `accessor properties` — virtual properties defined by a `get` function that is called on read and a `set` function that is called on write.
 
 ```js {monaco-run} {autorun: false}
 let user = {
@@ -951,7 +963,7 @@ class: 'text-sm'
 
 <div></div>
 
-You can also define accessor properties using <kbd>Object.defineProperty()</kbd> with a <kbd>get</kbd> and <kbd>set</kbd> descriptor. This is useful for adding accessors to existing objects.
+You can also define accessor properties using `Object.defineProperty()` with a `get` and `set` descriptor. This is useful for adding accessors to existing objects.
 
 ```js {monaco-run} {autorun: false}
 function User(firstName, lastName) {

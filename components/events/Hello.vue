@@ -1,10 +1,3 @@
-<template>
-  <div m-auto style="width: 50%">
-    <button id="helloEvent" border p-4 ml-4 @click="handleClick">
-      Click me
-    </button>
-  </div>
-</template>
 <script setup>
 import { onMounted, ref } from 'vue'
 
@@ -29,3 +22,10 @@ const handleClick = () => {
   elem.dispatchEvent(helloEvent)
 }
 </script>
+<template>
+  <div m-auto style="width: 50%">
+    <button id="helloEvent" border p-4 ml-4 @click="handleClick">
+      Click me
+    </button>
+  </div>
+</template>

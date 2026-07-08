@@ -1,44 +1,3 @@
-<template>
-  <div @dragover.prevent @drop.prevent="handleFileDrop" :class="{
-    'border-blue-500 bg-blue-50': isDragging,
-    'border-gray-300': !isDragging
-  }" class="border-2 border-dashed p-8 text-center min-h-48 transition-colors" @dragenter="isDragging = true"
-    @dragleave="isDragging = false">
-    <div v-if="!uploadedFiles.length">
-      <p class="text-sm text-gray-500">Drag & drop files here</p>
-      <p class="text-sm text-gray-400">or</p>
-      <input ref="fileInput" type="file" multiple @change="handleFileSelect" class="hidden">
-      <button @click="$refs.fileInput.click()" class="btn-primary mt-1">
-        Choose Files
-      </button>
-    </div>
-
-    <div v-else>
-      <h4 class="text-sm font-semibold mb-4">Uploaded Files:</h4>
-      <div v-for="file in uploadedFiles" :key="file.name" class="file-item">
-        <div class="flex items-center justify-between p-1 bg-gray-50 text-black rounded mb-1">
-          <span class="text-sm">{{ file.name }}</span>
-          <span class="text-xs text-gray-500">{{ formatFileSize(file.size) }}</span>
-        </div>
-        <div v-if="file.preview" class="preview-container">
-          <img v-if="file.type.startsWith('image/')" :src="file.preview" class="max-w-32 max-h-32 object-cover" />
-          <div v-else class="text-preview">{{ file.preview }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <canvas ref="fileCanvas" width="422" height="50" class="border border-gray-300 mt-4"></canvas>
-
-  <div class="mt-4 flex gap-2">
-    <button @click="playFileDemo" class="play-btn">
-       Play File Processing Demo
-    </button>
-    <button @click="clearFiles" class="btn-secondary">
-      <span class="i-mdi-delete inline-block" /> Clear Files
-    </button>
-  </div>
-</template>
 
 <script setup>
 import { ref, onMounted } from "vue";
@@ -139,3 +98,45 @@ const clearFiles = () => {
   if (fileInput.value) fileInput.value.value = "";
 };
 </script>
+
+<template>
+  <div @dragover.prevent @drop.prevent="handleFileDrop" :class="{
+    'border-blue-500 bg-blue-50': isDragging,
+    'border-gray-300': !isDragging
+  }" class="border-2 border-dashed p-8 text-center min-h-48 transition-colors" @dragenter="isDragging = true"
+    @dragleave="isDragging = false">
+    <div v-if="!uploadedFiles.length">
+      <p class="text-sm text-gray-500">Drag & drop files here</p>
+      <p class="text-sm text-gray-400">or</p>
+      <input ref="fileInput" type="file" multiple @change="handleFileSelect" class="hidden">
+      <button @click="$refs.fileInput.click()" class="btn-primary mt-1">
+        Choose Files
+      </button>
+    </div>
+
+    <div v-else>
+      <h4 class="text-sm font-semibold mb-4">Uploaded Files:</h4>
+      <div v-for="file in uploadedFiles" :key="file.name" class="file-item">
+        <div class="flex items-center justify-between p-1 bg-gray-50 text-black rounded mb-1">
+          <span class="text-sm">{{ file.name }}</span>
+          <span class="text-xs text-gray-500">{{ formatFileSize(file.size) }}</span>
+        </div>
+        <div v-if="file.preview" class="preview-container">
+          <img v-if="file.type.startsWith('image/')" :src="file.preview" class="max-w-32 max-h-32 object-cover" />
+          <div v-else class="text-preview">{{ file.preview }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <canvas ref="fileCanvas" width="422" height="50" class="border border-gray-300 mt-4"></canvas>
+
+  <div class="mt-4 flex gap-2">
+    <button @click="playFileDemo" class="play-btn">
+       Play File Processing Demo
+    </button>
+    <button @click="clearFiles" class="btn-secondary">
+      <span class="i-mdi-delete inline-block" /> Clear Files
+    </button>
+  </div>
+</template>

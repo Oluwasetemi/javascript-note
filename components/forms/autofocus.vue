@@ -1,15 +1,3 @@
-<template>
-  <div>
-    <label for="input">Your email please:</label>
-    <input
-      class="p-1 text-sm border border-blue border-2 focus:outline-none"
-      type="email"
-      id="input"
-    />
-    <div class="text-red-600" id="error"></div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { onMounted } from 'vue'
 
@@ -35,4 +23,16 @@ onMounted(() => {
   // input.focus();
 })
 </script>
+<template>
+  <div>
+    <label for="input">Your email please:</label>
+    <input
+      class="p-1 text-sm border border-blue border-2 focus:outline-none"
+      type="email"
+      id="input"
+    />
+    <div class="text-red-600" id="error"></div>
+  </div>
+</template>
+
 

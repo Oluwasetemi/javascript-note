@@ -1,19 +1,3 @@
-<template>
-  <div class="flex flex-col items-center">
-    <canvas
-      id="animationCanvas"
-      ref="animationCanvas"
-      width="500"
-      height="150"
-      class="border border-gray-300 mb-4"
-    ></canvas>
-
-    <button @click="toggleAnimation" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
-      {{ isAnimating ? '⏸️ Stop Animation' : '▶️ Start Animation' }}
-    </button>
-  </div>
-</template>
-
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 
@@ -87,4 +71,20 @@ onUnmounted(() => {
   stopAnimation();
 });
 </script>
+<template>
+  <div class="flex flex-col items-center">
+    <canvas
+      id="animationCanvas"
+      ref="animationCanvas"
+      width="500"
+      height="150"
+      class="border border-gray-300 mb-4"
+    ></canvas>
+
+    <button @click="toggleAnimation" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+      {{ isAnimating ? '⏸️ Stop Animation' : '▶️ Start Animation' }}
+    </button>
+  </div>
+</template>
+
 

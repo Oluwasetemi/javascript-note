@@ -1,3 +1,11 @@
+<script setup>
+import { ref } from 'vue'
+
+const showSolution1 = ref(false)
+const showSolution2 = ref(false)
+const showSolution3 = ref(false)
+const showSolution4 = ref(false)
+</script>
 <template>
   <div class="max-w-6xl mx-auto">
     <div class="mb-6">
@@ -209,12 +217,4 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const showSolution1 = ref(false)
-const showSolution2 = ref(false)
-const showSolution3 = ref(false)
-const showSolution4 = ref(false)
-</script>
 

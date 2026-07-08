@@ -37,7 +37,8 @@ const bodyChildren = Array.from(dom.body.childNodes)
           v-for="(headChild, hIndex) in headChildren"
           :key="hIndex"
         >
-          <summary>{{ headChild.tagName || headChild.nodeName }}</summary>
+          <summary v-if="headChild.nodeName">{{ headChild.nodeName }}</summary>
+          <!-- <summary>{{ headChild?.tagName || headChild.nodeName }}</summary> -->
           <p>{{ headChild.textContent.replaceAll('\n', 'n') }}</p>
         </details>
         <details
