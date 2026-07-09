@@ -1,3 +1,6 @@
+<script setup>
+// Performance tips component - no interactive state needed
+</script>
 <template>
   <div class="max-w-6xl mx-auto">
     <div class="mb-6">
@@ -263,8 +266,4 @@ console.log(\`Time: \${end - start}ms\`)
     </div>
   </div>
 </template>
-
-<script setup>
-// Performance tips component - no interactive state needed
-</script>
 

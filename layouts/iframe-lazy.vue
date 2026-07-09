@@ -1,3 +1,49 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
+
+interface Props {
+  url: string
+  title?: string
+  autoLoad?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  autoLoad: false,
+})
+
+const iframeRef = ref<HTMLIFrameElement>()
+const containerRef = ref<HTMLElement>()
+const isLoaded = ref(false)
+const isLoading = ref(false)
+
+const loadIframe = async () => {
+  if (isLoaded.value || isLoading.value) return
+  isLoading.value = true
+  await new Promise((resolve) => setTimeout(resolve, 100))
+  isLoaded.value = true
+  isLoading.value = false
+}
+
+const onIframeLoad = () => {
+  isLoading.value = false
+}
+
+onMounted(() => {
+  if (props.autoLoad) {
+    const { stop } = useIntersectionObserver(
+      containerRef,
+      ([{ isIntersecting }]) => {
+        if (isIntersecting && !isLoaded.value) {
+          loadIframe()
+          stop()
+        }
+      },
+      { threshold: 0.1 },
+    )
+  }
+})
+</script>
 <template>
   <div ref="containerRef" class="relative w-full h-full min-h-[400px]">
     <div
@@ -58,49 +104,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
-
-interface Props {
-  url: string
-  title?: string
-  autoLoad?: boolean
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  autoLoad: false,
-})
-
-const iframeRef = ref<HTMLIFrameElement>()
-const containerRef = ref<HTMLElement>()
-const isLoaded = ref(false)
-const isLoading = ref(false)
-
-const loadIframe = async () => {
-  if (isLoaded.value || isLoading.value) return
-  isLoading.value = true
-  await new Promise((resolve) => setTimeout(resolve, 100))
-  isLoaded.value = true
-  isLoading.value = false
-}
-
-const onIframeLoad = () => {
-  isLoading.value = false
-}
-
-onMounted(() => {
-  if (props.autoLoad) {
-    const { stop } = useIntersectionObserver(
-      containerRef,
-      ([{ isIntersecting }]) => {
-        if (isIntersecting && !isLoaded.value) {
-          loadIframe()
-          stop()
-        }
-      },
-      { threshold: 0.1 },
-    )
-  }
-})
-</script>

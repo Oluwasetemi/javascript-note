@@ -46,7 +46,7 @@ try{
 
 ---
 hideInToc: true
-name: error handling, "try..catch" continued
+name: 'error handling, "try..catch" continued'
 ---
 
 Catch Binding

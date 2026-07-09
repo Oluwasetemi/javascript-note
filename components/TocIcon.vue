@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { useNav } from '@slidev/client'
+
+const { go } = useNav()
+</script>
 <template>
   <div class="absolute top-4 left-4 z-10">
     <button
@@ -13,8 +18,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { useNav } from '@slidev/client'
-
-const { go } = useNav()
-</script>

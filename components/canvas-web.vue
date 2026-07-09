@@ -1,17 +1,3 @@
-<template>
-  <canvas
-    ref="webApiCanvas"
-    width="300"
-    height="150"
-    class="border border-gray-300 mt-4"
-  ></canvas>
-
-  <button @click="demoWebAPIs" class="play-btn mt-2">
-    ▶️ Demo Web APIs
-  </button>
-
-</template>
-
 <script setup>
 import { ref, onMounted } from "vue";
 
@@ -48,3 +34,17 @@ const demoWebAPIs = () => {
   }
 };
 </script>
+<template>
+  <canvas
+    ref="webApiCanvas"
+    width="300"
+    height="150"
+    class="border border-gray-300 mt-4"
+  ></canvas>
+
+  <button @click="demoWebAPIs" class="play-btn mt-2">
+    ▶️ Demo Web APIs
+  </button>
+
+</template>
+

@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { entries } from '../changelog'
+
+const router = useRouter()
+</script>
 <template>
   <div class="min-h-screen bg-[#0f0f0f] text-[#e5e5e5] font-sans py-10 px-5">
     <div class="max-w-2xl mx-auto">
@@ -43,9 +49,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { entries } from '../changelog'
-
-const router = useRouter()
-</script>

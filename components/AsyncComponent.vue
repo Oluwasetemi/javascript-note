@@ -1,10 +1,3 @@
-<template>
-  <div>
-    <button @click="run">Run Async Iterator</button>
-    <div v-for="num in numbers" :key="num" class="text-sm animate-pulse text-center">{{ num }}</div>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -23,3 +16,10 @@ const run = async () => {
   }
 }
 </script>
+<template>
+  <div>
+    <button @click="run">Run Async Iterator</button>
+    <div v-for="num in numbers" :key="num" class="text-sm animate-pulse text-center">{{ num }}</div>
+  </div>
+</template>
+

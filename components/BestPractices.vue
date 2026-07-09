@@ -1,3 +1,88 @@
+<script>
+export default {
+  name: 'NetworkBestPractices',
+  data() {
+    return {
+      memoryManagementRows: [
+        {
+          guideline: 'Consider implementing a size limit check',
+          explanation:
+            'Ensure that the size of the incoming data does not exceed a predefined limit.',
+          code: `const contentLength = response.headers.get('Content-Length');
+if (contentLength && contentLength > MAX_SIZE) {
+  controller.abort();
+}`,
+        },
+        {
+          guideline: 'Break the download if size exceeds expectations',
+          explanation:
+            'Terminate the download if the size exceeds a defined size threshold to avoid memory overload.',
+        },
+        {
+          guideline: 'Clean up chunks array when no longer needed',
+          explanation: 'Ensure chunks are removed from memory once processed.',
+          code: 'chunks = null;',
+        },
+      ],
+      errorHandlingRows: [
+        {
+          guideline: 'Always implement try/catch blocks',
+          explanation:
+            'Wrap async code in try/catch to handle errors gracefully.',
+          code: `try {
+  let response = await fetch(url);
+} catch (error) {
+  console.error('Error fetching data:', error);
+}`,
+        },
+        {
+          guideline: 'Handle network errors gracefully',
+          explanation: 'Notify users appropriately if network errors occur.',
+          code: `if (!response.ok) {
+  console.error('Failed to fetch resource');
+}`,
+        },
+        {
+          guideline: 'Consider implementing retry logic',
+          explanation:
+            'Use retry logic with exponential backoff for temporary issues.',
+          code: `for (let i = 0; i < maxRetries; i++) {
+  try {
+    await fetch(url);
+    break;
+  } catch (error) {
+    await wait(retryInterval);
+    retryInterval *= 2;
+  }
+}`,
+        },
+      ],
+      progressReportingRows: [
+        {
+          guideline: 'Use appropriate progress intervals',
+          explanation:
+            'Use regular intervals for progress updates to avoid overwhelming the UI.',
+        },
+        {
+          guideline: 'Consider debouncing progress updates',
+          explanation:
+            'Debounce progress updates to avoid excessive UI re-renders.',
+          code: `let debounceTimeout;
+function updateProgressDebounced(progress) {
+  clearTimeout(debounceTimeout);
+  debounceTimeout = setTimeout(() => updateProgressUI(progress), 100);
+}`,
+        },
+        {
+          guideline: 'Handle cases where Content-Length is not available',
+          explanation:
+            'If Content-Length is not available, implement a fallback for progress reporting.',
+        },
+      ],
+    }
+  },
+}
+</script>
 <template>
   <div class="h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-4">
     <!-- Fixed Header -->
@@ -90,91 +175,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NetworkBestPractices',
-  data() {
-    return {
-      memoryManagementRows: [
-        {
-          guideline: 'Consider implementing a size limit check',
-          explanation:
-            'Ensure that the size of the incoming data does not exceed a predefined limit.',
-          code: `const contentLength = response.headers.get('Content-Length');
-if (contentLength && contentLength > MAX_SIZE) {
-  controller.abort();
-}`,
-        },
-        {
-          guideline: 'Break the download if size exceeds expectations',
-          explanation:
-            'Terminate the download if the size exceeds a defined size threshold to avoid memory overload.',
-        },
-        {
-          guideline: 'Clean up chunks array when no longer needed',
-          explanation: 'Ensure chunks are removed from memory once processed.',
-          code: 'chunks = null;',
-        },
-      ],
-      errorHandlingRows: [
-        {
-          guideline: 'Always implement try/catch blocks',
-          explanation:
-            'Wrap async code in try/catch to handle errors gracefully.',
-          code: `try {
-  let response = await fetch(url);
-} catch (error) {
-  console.error('Error fetching data:', error);
-}`,
-        },
-        {
-          guideline: 'Handle network errors gracefully',
-          explanation: 'Notify users appropriately if network errors occur.',
-          code: `if (!response.ok) {
-  console.error('Failed to fetch resource');
-}`,
-        },
-        {
-          guideline: 'Consider implementing retry logic',
-          explanation:
-            'Use retry logic with exponential backoff for temporary issues.',
-          code: `for (let i = 0; i < maxRetries; i++) {
-  try {
-    await fetch(url);
-    break;
-  } catch (error) {
-    await wait(retryInterval);
-    retryInterval *= 2;
-  }
-}`,
-        },
-      ],
-      progressReportingRows: [
-        {
-          guideline: 'Use appropriate progress intervals',
-          explanation:
-            'Use regular intervals for progress updates to avoid overwhelming the UI.',
-        },
-        {
-          guideline: 'Consider debouncing progress updates',
-          explanation:
-            'Debounce progress updates to avoid excessive UI re-renders.',
-          code: `let debounceTimeout;
-function updateProgressDebounced(progress) {
-  clearTimeout(debounceTimeout);
-  debounceTimeout = setTimeout(() => updateProgressUI(progress), 100);
-}`,
-        },
-        {
-          guideline: 'Handle cases where Content-Length is not available',
-          explanation:
-            'If Content-Length is not available, implement a fallback for progress reporting.',
-        },
-      ],
-    }
-  },
-}
-</script>
 
 <style scoped>
 /* webkit scrollbar pseudo-elements cannot be expressed as UnoCSS utilities */

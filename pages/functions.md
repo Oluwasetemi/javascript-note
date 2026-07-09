@@ -12,15 +12,15 @@ hideInToc: true
 <div mt-2 />
 
 - <a @click="$slidev.nav.next()">Introduction to Functions</a>
-- <a @click="$nav.go($nav.currentPage + 6)">Recursion and Stack</a>
-- <a @click="$nav.go($nav.currentPage + 15)">Rest Parameters and Spread Syntax</a>
-- <a @click="$nav.go($nav.currentPage + 20)">Closure and Variable Scope</a>
-- <a @click="$nav.go($nav.currentPage + 31)">Global Object</a>
-- <a @click="$nav.go($nav.currentPage + 32)">Function Object, NFE and `new Function` syntax</a>
-- <a @click="$nav.go($nav.currentPage + 39)">Scheduling</a>
-- <a @click="$nav.go($nav.currentPage + 54)">Decorators and Forwarding, call/apply, bind</a>
-- <a @click="$nav.go($nav.currentPage + 60)">Function binding</a>
-- <a @click="$nav.go($nav.currentPage + 63)">Arrow functions in details</a>
+- <a @click="$nav.go($nav.currentPage + 12)">Recursion and Stack</a>
+- <a @click="$nav.go($nav.currentPage + 21)">Rest Parameters and Spread Syntax</a>
+- <a @click="$nav.go($nav.currentPage + 26)">Closure and Variable Scope</a>
+- <a @click="$nav.go($nav.currentPage + 37)">Global Object</a>
+- <a @click="$nav.go($nav.currentPage + 38)">Function Object, NFE and `new Function` syntax</a>
+- <a @click="$nav.go($nav.currentPage + 45)">Scheduling</a>
+- <a @click="$nav.go($nav.currentPage + 60)">Decorators and Forwarding, call/apply, bind</a>
+- <a @click="$nav.go($nav.currentPage + 66)">Function binding</a>
+- <a @click="$nav.go($nav.currentPage + 69)">Arrow functions in details</a>
 
 ---
 hideInToc: true
@@ -88,7 +88,7 @@ hideInToc: true
 
 <div></div>
 
-Function Declaration: In a function declaration, the <kbd>function</kbd> keyword comes first, followed by the function's name. After that, parentheses <kbd>()</kbd> are used, where you can pass a comma-separated list of parameters. Finally, the function's code is enclosed within curly braces <kbd>{}</kbd>.
+Function Declaration: In a function declaration, the `function` keyword comes first, followed by the function's name. After that, parentheses `()` are used, where you can pass a comma-separated list of parameters. Finally, the function's code is enclosed within curly braces `{}`.
 
 <div class=" mb-4">
 
@@ -130,7 +130,7 @@ hideInToc: true
 Function Expression: A function expression involves creating a function and assigning it to a variable.
 Unlike function declarations, function expressions can be anonymous (without a name) or named. When using a function expression, the function can only be called after its definition.
 
-<div class=" mb-4">
+<div class="mb-4">
 
 ```js
 const name = function (parameter1, parameter2, parameter3) {
@@ -141,7 +141,7 @@ name('arg1', 'arg2', 'arg3')
 ```
 
 </div>
-<div class=" mb-4">
+<div class="mb-4">
 
 ```js {monaco-run} {autorun: false}
 const expressionMethod = function (name, age, course) {
@@ -179,7 +179,7 @@ name('arg1', 'arg2', 'arg3')
 ```
 
 </div>
-<div class=" mb-4">
+<div class="mb-4">
 
 ```js {monaco-run} {autorun: false}
 const arrowMethod = (name, age, course) => {
@@ -206,7 +206,7 @@ hideInToc: true
 
 IIFE - The immediately invoked function expression is an interesting version of function with a major value of allow the function to be immediately called after its creation instantly without leaving its declaration phase. Can be used with all the 3 major examples explained above. The key emphasis is on the ability to call itselff immediately in its declaration phase.
 
-<div class=" mb-4">
+<div class="mb-4">
 
 ```js
 // calling the function immediately
@@ -246,7 +246,7 @@ This pattern is particularly useful when a problem can be naturally divided into
 
 A recursive function can receive two inputs: a base case (ends recursion) or a recursive case (resumes recursion).
 
-<div class=" mb-4">
+<div class="mb-4">
 
 ```js {monaco-run} {autorun: false}
 function factorial(n) {
@@ -269,7 +269,7 @@ function factorial(n) {
 Let's write a function `raisePower(x, n)` that raises `x` to a natural power of `n` <span class="math-var">x<sup>n</sup></span>. <br/>
 To achieve this we can use the:
 
-- Iterative thinking: the <kbd>for</kbd>loop, or
+- Iterative thinking: the `for`loop, or
 
 ```js {monaco-run} {autorun: false}
 // Using the for loop method
@@ -315,7 +315,7 @@ hideInToc: true
 ```js {monaco-run} {autorun: false}
 // Using the recursive method
 function raisePower(x, n){
-  if ( n == 1 ){
+  if (n == 1){
     return x;
   } else {
     return x * raisePower(x, n - 1);
@@ -325,49 +325,48 @@ function raisePower(x, n){
 ```
 
 Let's break down the recursive method we just used in the code above.
-When the raisePower(x, n) is called, the execution splits into two branches:
+When the `raisePower(x, n)` is called, the execution splits into two branches:
 
 1. Base Case:
-   If n == 1, the function returns x. This is the stopping condition for the recursion.
-   Example: If you call raisePower(2, 1), it will return 2.
+   If `n == 1`, the function returns `x`. This is the stopping condition for the recursion.
+   Example: If you call `raisePower(2, 1)`, it will return 2.
 
 2. Recursive Case:
-   If n > 1, the function returns x \* raisePower(x, n - 1). This means the function calls itself with n decreased by 1.
+   If `n > 1`, the function returns `x` \* `raisePower(x, n - 1)`. This means the function calls itself with `n` decreased by 1.
 
 ---
 title: Example
 hideInToc: true
 ---
 
-Example: If you call raisePower(2, 3), the execution follows these steps:
-
-<hr/>
-Step 1: raisePower(2, 3)
-- Since n is not equal to 1, it calls raisePower(2, 2).
-<hr/>
-
-Step 2: raisePower(2, 2)
-Again, n is not 1, so it calls raisePower(2, 1).
+Example: If you call `raisePower(2, 3)`, the execution follows these steps:
 
 <hr/>
 
-Step 3: raisePower(2, 1)
-Here, n equals 1, so it returns 2.
+Step 1: `raisePower(2, 3)` - Since `n` is not equal to 1, it calls `raisePower(2, 2)`.
 
 <hr/>
 
-Now we backtrack to Step 2:
+Step 2: `raisePower(2, 2)` - Again, `n` is not 1, so it calls `raisePower(2, 1)`.
 
-- Back to Step 2: raisePower(2, 2) returns 2 \* 2 (which is 4).
 <hr/>
-Then we backtrack to Step 1:
-- Back to Step 1: raisePower(2, 3) returns 2 \* 4 (which is 8).
+
+Step 3: `raisePower(2, 1)` - Here, `n` equals 1, so it returns 2.
+
+<hr/>
+
+Now we backtrack to Step 2: Back to Step 2: `raisePower(2, 2)` returns 2 \* 2 (which is 4).
+
+<hr/>
+
+Then we backtrack to Step 1: Back to Step 1: `raisePower(2, 3)` returns 2 \* 4 (which is 8).
+
 <hr/>
 
 To simplify the explanation above:
 
 - The function effectively breaks down the problem into smaller subproblems until it reaches the base case.
-- Each recursive call multiplies <kbd>x</kbd> by the result of the next recursive call, gradually building up the final result.
+- Each recursive call multiplies `x` by the result of the next recursive call, gradually building up the final result.
 
 ---
 hideInToc: true
@@ -393,10 +392,10 @@ When a function is running, the information about its execution is stored in an 
 In the case of the recursive function from the previous slide, here's what happens behind the scenes during nested calls:
 
 <ol>
-<li>The current function pauses.</li>
-<li>Its execution context is saved in a special data structure called the execution context stack.</li>
-<li>The nested function call runs.</li>
-<li>Once the nested call finishes, the saved execution context is restored, and the outer function continues from where it left off.</li>
+    <li>The current function pauses.</li>
+    <li>Its execution context is saved in a special data structure called the execution context stack.</li>
+    <li>The nested function call runs.</li>
+    <li>Once the nested call finishes, the saved execution context is restored, and the outer function continues from where it left off.</li>
 </ol>
 
 ---
@@ -406,16 +405,16 @@ hideInToc: true
 
 A call stack, where execution contexts are saved, is a mechanism used by the interpreter to track its position in a script with multiple function calls. It keeps track of which function is currently running and which functions are being called within it. This helps the interpreter manage and execute functions in the correct order.
 
-When a script calls a function, the interpreter adds that function to the call stack and begins executing it. If the function calls other functions, they are added to the stack in order and executed when their calls are reached. Once a function finishes, the interpreter removes it from the stack and continues executing the previous function where it left off. If the stack exceeds its allocated space, a "stack overflow" error occurs.
+When a script calls a function, the interpreter adds that function to the call stack(creation) and begins executing it. If the function calls other functions, they are added to the stack in order and executed when their calls are reached. Once a function finishes, the interpreter removes it from the stack and continues executing the previous function where it left off. If the stack exceeds its allocated space, a "stack overflow" error occurs.
 
 Here's the process broken down:
 
 <ol>
-<li>The interpreter adds the function call to the call stack and begins execution.</li>
-<li>If the function calls another function, that new function is added to the stack.</li>
-<li>The process continues, with each called function being added to the stack.</li>
-<li>Once a function completes, it is removed from the stack, and execution resumes from the previous function.</li>
-<li>If the call stack exceeds its limit, a "stack overflow" error is triggered.</li>
+    <li>The interpreter adds the function call to the call stack(creation) and begins execution.</li>
+    <li>If the function calls another function, that new function is added to the stack.</li>
+    <li>The process continues, with each called function being added to the stack.</li>
+    <li>Once a function completes, it is removed from the stack, and execution resumes from the previous function.</li>
+    <li>If the call stack exceeds its limit, a "stack overflow" error is triggered.</li>
 </ol>
 
 ---
@@ -437,7 +436,7 @@ Let’s explore an excellent example of recursive traversal in action. Recursive
 In the code:
 
 - Each employee has a name and a list of reports(direct reports).
-- The <kbd>traverseHierarchy</kbd> function prints the employee's name, then recursively calls itself for each of their reports.
+- The `traverseHierarchy` function prints the employee's name, then recursively calls itself for each of their reports.
 
 ---
 title: Recursive Travesal Example
@@ -448,7 +447,7 @@ hideInToc: true
 ```js {monaco-run} {autorun: false}
 const company = {
   name: 'CEO',
-  reports: [ { name: 'Manager 1', reports: [] }, { name: 'Manager 2', reports: [ { name: 'Team Lead', reports: [], }, ], }, ],
+  reports: [{ name: 'Manager 1', reports: [] }, { name: 'Manager 2', reports: [{ name: 'Team Lead', reports: [] }]}],
 }
 
 function traverseHierarchy(employee) {
@@ -470,21 +469,20 @@ hideInToc: true
 <div> </div>
 
 The rest parameter syntax in JavaScript allows a function to accept any number of arguments as an array. This is useful when you don't know how many arguments will be passed in, or when you want to simplify handling multiple inputs.
-For example, if you want a function that accepts 20 arguments but only needs to explicitly write out the first two, you can use the rest parameter <kbd>(...)</kbd> to handle the remaining arguments. This keeps the code cleaner and more manageable.
+For example, if you want a function that accepts 20 arguments but only needs to explicitly write out the first two, you can use the rest parameter `(...)` to handle the remaining arguments. This keeps the code cleaner and more manageable.
 Here's what you need to remember about rest parameters:
 
 <ol>
-<li>A function can have only one rest parameter.</li>
-<li>The rest parameter must be the last parameter in the function definition.</li>
-<li>Trailing commas after the rest parameter are not allowed.</li>
-<li>The rest parameter cannot have a default value.</li>
+    <li>A function can have only one rest parameter.</li>
+    <li>The rest parameter must be the last parameter in the function definition.</li>
+    <li>Trailing commas after the rest parameter are not allowed.</li>
+    <li>The rest parameter cannot have a default value.</li>
 </ol>
 
 ```js {monaco-run} {autorun: false}
 function example(first, second, ...others) {
-  //  logs first and second arguments
    console.log(first, second)
-  //  logs the rest of the arguments as an array
+   // logs the rest of the arguments as an array
    console.log(others)
 }
 example(1, 2, 3, 4, 5)
@@ -500,24 +498,24 @@ hideInToc: true
 
 <div class="overflow-scroll h-70">
 
-In JavaScript, there is a special array-like object called <kbd>arguments</kbd> that contains all the arguments passed to a function, indexed by their position. Unlike rest parameters, <kbd>arguments</kbd> is automatically available inside every function and holds the complete list of arguments, even if they aren’t explicitly defined in the function parameters.
+In JavaScript, there is a special array-like object called `arguments` that contains all the arguments passed to a function, indexed by their position. Unlike rest parameters, `arguments` is automatically available inside every function and holds the complete list of arguments, even if they aren’t explicitly defined in the function parameters.
 
 Key points about the arguments object:
 
 <ol>
-<li>Array-like structure: The arguments object behaves like an array, as it contains indexed values (e.g., arguments[0], arguments[1]), but it lacks array methods like <kbd>forEach()</kbd>, <kbd>map()</kbd>, <kbd>sort()</kbd>, or <kbd>pop()</kbd>, etc.</li>
-<li>Access to all arguments: It allows you to access all arguments passed to a function, even if they aren't explicitly defined as parameters in the function.</li>
-<li>Not available in arrow functions: The arguments object exists in regular functions, but it is not available in arrow functions, where rest parameters <kbd>(...args)</kbd> are recommended instead.</li>
+    <li>Array-like structure: arguments object behaves like an array, as it contains indexed values (e.g., arguments[0], arguments[1]), but it lacks array methods like `forEach()`, `map()`, `sort()`, or `pop()`, etc.</li>
+    <li>Access to all arguments: It allows you to access all arguments passed to a function, even if they aren't explicitly defined as parameters in the function.</li>
+    <li>Not available in arrow functions: The arguments object exists in regular functions, but it is not available in arrow functions, where rest parameters `(...args)` are recommended instead.</li>
 </ol>
 
-This makes arguments useful in older code, but rest parameters are preferred in modern JavaScript for handling variable numbers of arguments more flexibly.
+This makes arguments useful in older code, but `rest parameters` are preferred in modern JavaScript for handling variable numbers of arguments more flexibly.
 
 </div>
 
 ```js {monaco-run} {autorun: false}
 function showArguments() {
   // Logs all the arguments as an array-like object
-  console.log(arguments)
+  console.log(JSON.stringify(arguments))
 }
 
 showArguments(1, 'test', true)
@@ -531,7 +529,7 @@ hideInToc: true
 
 <div> </div>
 
-We’ve already discussed the rest parameters, represented by three dots <kbd>...</kbd>. Now, let’s explore the spread syntax, which is also represented by three dots <kbd>...</kbd>, but it serves the opposite purpose.
+We’ve already discussed the rest parameters, represented by three dots `...`. Now, let’s explore the spread syntax, which is also represented by three dots `...`, but it serves the opposite purpose.
 
 While rest parameters gather multiple elements into an array, the spread syntax expands an iterable (like an array or a string) into individual elements.
 
@@ -563,7 +561,7 @@ const original = [1, 2, 3]
 const copy = [...original]
 ```
 
-- Spread operators can be used to spread a string into individual characters
+- Spread operators can be used to spread a string into individual characters. `'hello'.split('').join('')`
 
 ```js {monaco-run} {autorun: false}
 const str = 'hello'
@@ -577,8 +575,8 @@ title: Difference Between Spread and Rest
 
 Note:
 
-- When <kbd>...</kbd> is at the end of function parameters, it’s “rest parameters” and gathers the rest of the list of arguments into an array.
-- When <kbd>...</kbd> occurs in a function call or alike, it’s called a “spread syntax” and expands an array into a list.
+- When `...` is at the end of function parameters, it’s “rest parameters” and gathers the rest of the list of arguments into an array.
+- When `...` occurs in a function call or alike, it’s called a “spread syntax” and expands an array into a list.
 - Rest parameters are used to create functions that accept any number of arguments.
 - The spread syntax is used to pass an array to functions that normally require a list of many arguments.
 
@@ -594,13 +592,9 @@ In JavaScript, a closure is formed every time a function is created. A closure a
 
 In JavaScript, there are 3 ways to declare a variable and these are:
 
-<ol>
-<li><kbd>let</kbd></li>
-<li><kbd>const</kbd></li>
-<li><kbd>var</kbd></li>
-</ol>
+`let`, `const` and `var`
 
-<kbd>var</kbd> is the remnant of the past.
+`var` is the remnant of the past, function scoped or bound to the global variable when outside a function. Understanding the difference is important. Especially as regards to scope which we will be exploring next.
 
 ---
 hideInToc: true
@@ -610,9 +604,9 @@ hideInToc: true
 
 <div> </div>
 
-In JavaScript, statements can be grouped together inside code blocks, which are enclosed in curly brackets <kbd>...</kbd>. The purpose of these code blocks is to group statements that should be executed together.
+In JavaScript, statements can be grouped together inside code blocks, which are enclosed in curly brackets `{}`. The purpose of these code blocks is to group statements that should be executed together.
 
-If a variable is declared inside a code block, it is only accessible within that block. This is called block scope. Variables declared with let or const inside a block are not visible outside of it.
+If a variable is declared inside a code block, it is only accessible within that block. This is called block `scope`. Variables declared with let or const inside a block are not visible outside of it. They are block scoped.
 
 ```js {monaco-run} {autorun: false}
 {
@@ -656,8 +650,7 @@ hideInToc: true
 
 <div> </div>
 
-You can create a function inside another function and this is what we referred to as <kbd>nested functions</kbd><br/>
-There are two ways to create a nested functions:
+You can create a function inside another function and this is what we refer to as `nested functions`. There are two ways to create a nested functions:
 
 1. Call a function within another function: This involves invoking a separate function from within a function.
 
@@ -707,10 +700,10 @@ within a specific scope at a particular time. It defines how variables are resol
 
 Let's break this down into steps:
 
-Step 1: Every running function, code block <kbd>...</kbd>, and the entire script itself has an internal (hidden) object known as the Lexical Environment.
+Step 1: Every running function, code block, and the entire script itself has an internal (hidden) object known as the Lexical Environment.
 This object stores the variables defined in that scope and provides access to its outer lexical environment (parent scope).
 
-- Scope: The context in which a variable is accessible. A lexical environment is tied to a specific scope, such as global scope or function scope.
+- Scope: The context in which a variable is accessible. A lexical environment is tied to a specific scope, such as global scope or function scope or block.
 - Lexical scoping: Variables are resolved based on their position in the code, meaning inner functions can access variables from outer
   functions, but not the other way around.
 
@@ -721,10 +714,10 @@ hideInToc: true
 
 When a function is executed, a new lexical environment is created for that function, containing:
 
-- Environment Record: an object that stores all local variables as its properties (and some other information like the value of <kbd>this</kbd>).
+- Environment Record: an object that stores all local variables as its properties (and some other information like the value of `this`).
 - A reference to the outer lexical environment, the one associated with the outer code.
 
-A “variable” is just a property of the special internal object, <kbd>Environment Record</kbd>.
+A “variable” is just a property of the special internal object, `Environment Record`.
 “To get or change a variable” means “to get or change a property of that object”.
 
 ```js {monaco-run} {autorun: false}
@@ -750,7 +743,7 @@ hideInToc: true
 
 <div> </div>
 
-<kbd>innerFunction</kbd> has access to <kbd>outerVar</kbd> because it’s in the outer function’s lexical environment.
+`innerFunction` has access to `outerVar` because it’s in the outer function’s lexical environment.
 This environment is created during the function definition and execution process, preserving the context in which variables are declared.
 
 ---
@@ -774,7 +767,7 @@ function sayHello() {
 }
 ```
 
-In this example, the function <kbd>sayHello()</kbd> can be called before its declaration because it is hoisted to the top of the current scope during the creation of the lexical environment.
+In this example, the function `sayHello()` can be called before its declaration because it is hoisted to the top of the current scope during the creation of the lexical environment.
 
 ---
 hideInToc: true
@@ -795,7 +788,7 @@ const sayHello = function () {
 }
 ```
 
-In this case, since sayHello is a function expression, it won’t be available until the line where it’s defined is executed.
+In this case, since `sayHello` is a function expression, it won’t be available until the line where it’s defined is executed.
 
 ---
 hideInToc: true
@@ -842,7 +835,7 @@ In contrast, local objects (variables or functions declared within a function) a
 
 ```js {monaco-run} {autorun: false}
 // Global variable
-let globalVar = "I'm global";
+var globalVar = "I'm global";
 
 function localFunction() {
   let localVar = "I'm local";
@@ -915,7 +908,7 @@ const obj = {
 ```
 
 In both cases, although the functions were declared anonymously, JavaScript assigns them a contextual name based on the
-variable <kbd>(myFunction)</kbd> and the object property<kbd>(sayHello)</kbd> to which they are assigned.
+variable `myFunction` and the object property `sayHello` to which they are assigned.
 
 ---
 hideInToc: true
@@ -932,7 +925,7 @@ A function object's `length` property indicates how many arguments the function 
 - A destructuring pattern `(e.g., {a, b} or [x, y])` counts as a single parameter.
 
 ```js {monaco-run} {autorun: false}
-function example(a, b = 5, ...rest) {
+function example(a, b = 5, c) {
   // Function body
 }
 // Output: 1 (only 'a' is counted)
@@ -1028,7 +1021,7 @@ You wouldn’t want just any outlaw to take advantage of that kind of power.
 const myFunction = new Function(param1, param2, ..., functionBody);
 ```
 
-The function is created with the arguments <kbd>param1...param2</kbd> and the given <kbd>functionBody</kbd>.
+The function is created with the arguments `param1...param2` and the given `functionBody`.
 In the code below, the function is created literally from a string, that's passed at runtime.
 
 ```js
@@ -1076,14 +1069,22 @@ const func = createClosure();
 hideInToc: true
 ---
 
-# Scheduling: setTimeout and setInterval | process.nextTick | requestAnimationFrame | microtasks
+`Scheduling: setTimeout and setInterval | process.nextTick | requestAnimationFrame | microtasks`
 
 <div> </div>
 
-Sometimes, we may want to execute a function at a later time. This is known as "scheduling a call" in JavaScript. There are two primary ways to schedule a function call:
+Sometimes, we may want to execute a function at a later time. This is known as "scheduling a call" in JavaScript - Marcrotasks. There are two primary ways to schedule a function call:
 
-setTimeout – Executes a function once, after a specified delay.
-setInterval – Repeatedly executes a function at regular intervals.
+`setTimeout` – Executes a function once, after a specified delay.
+`setInterval` – Repeatedly executes a function at regular intervals.
+
+Microtasks are for things that need to happen immediately after the current synchronous code finishes executing, but before the JavaScript engine yields control back to the event loop (which means before the browser can render or the next timer can fire).
+
+`Promise.then()`, `Promise.catch()`, `queueMicrotask()`, and `MutationObserver`
+
+`process.nextTick` (Node.js Only) - This is specific to the Node.js runtime and acts like an absolute priority override.
+
+`requestAnimationFrame` (Browser Only) - If you are building buttery-smooth, 60fps frontend experiences, requestAnimationFrame (rAF) is your best tool.
 
 ---
 hideInToc: true
@@ -1099,7 +1100,7 @@ The setTimeout method allows us to schedule a function to be executed once after
 setTimeout(function, delay);
 ```
 
-Let's run a code using the <kbd>setTimeout</kbd> syntax above
+Let's run a code using the `setTimeout` syntax above
 
 ```js {monaco-run} {autorun: false}
 function greet() {
@@ -1127,8 +1128,8 @@ let timerId = setTimeout(...);
 clearTimeout(timerId);
 ```
 
-1. <kbd>setTimeout</kbd>: Schedules a function to run after a specified delay, and returns a timerId.
-2. <kbd>clearTimeout</kbd>: Cancels the scheduled function using the timerId.
+1. `setTimeout`: Schedules a function to run after a specified delay, and returns a timerId.
+2. `clearTimeout`: Cancels the scheduled function using the timerId.
 
 ```js {monaco-run} {autorun: false}
 function greet() {
@@ -1164,17 +1165,17 @@ hideInToc: true
 
 <div> </div>
 
-The <kbd>setInterval</kbd> function repeatedly executes a function at regular intervals.
+The `setInterval` function repeatedly executes a function at regular intervals.
 It schedules the function to be called continuously after the specified interval (in milliseconds) until it is explicitly stopped.
-This method returns an interval ID which uniquely identifies the interval, so you can remove it later by calling <kbd>clearInterval()</kbd>
+This method returns an interval ID which uniquely identifies the interval, so you can remove it later by calling `clearInterval()`
 
 ```js
 let intervalId = setInterval(function, interval);
 clearInterval(intervalId);
 ```
 
-1. <kbd>function</kbd>: The function to execute.<br/>
-2. <kbd>interval</kbd>: The time in milliseconds between each function call.
+1. `function`: The function to execute.<br/>
+2. `interval`: The time in milliseconds between each function call.
 
 ```js {monaco-run} {autorun: false}
 function sayHello() {
@@ -1196,13 +1197,14 @@ hideInToc: true
 
 <div> </div>
 
-In the code we have in the previous slide, the <kbd>sayHello()</kbd> function runs every 2 seconds.
-After 6 seconds, the <kbd>clearInterval</kbd> function stops the repeated execution of sayHello by using <kbd>intervalId</kbd>.
-The <kbd>setInterval</kbd> method is useful for tasks that need to be repeated continuously, such as updating a clock, refreshing data,
+In the code we have in the previous slide, the `sayHello()` function runs every 2 seconds.
+After 6 seconds, the `clearInterval` function stops the repeated execution of sayHello by using `intervalId`.
+The `setInterval` method is useful for tasks that need to be repeated continuously, such as updating a clock, refreshing data,
 or creating animations, until manually cancelled.
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 Nested setTimeout
@@ -1210,9 +1212,7 @@ Nested setTimeout
 
 <div class="text-sm"> 
 
-Using nested <kbd>setTimeout</kbd> gives you more control over scheduling compared to <kbd>setInterval</kbd>.
-In <kbd>setInterval</kbd>, the next iteration is scheduled regardless of whether the previous one has finished.
-With nested <kbd>setTimeout</kbd>, you can dynamically schedule the next delay based on conditions or the results of the current task.
+Using nested `setTimeout` gives you more control over scheduling compared to `setInterval`. In `setInterval`, the next iteration is scheduled regardless of whether the previous one has finished. With nested `setTimeout`, you can dynamically schedule the next delay based on conditions or the results of the current task.
 
 </div>
 
@@ -1233,13 +1233,11 @@ function dynamicTimeout(counter = 1) {
 dynamicTimeout();
 ```
 
-<div class="overflow-scroll h-10">
 
 - Dynamic Scheduling: The next execution time can be adjusted dynamically (in this case, based on counter).
 - Sequential Execution: You ensure that the next setTimeout only starts after the current one finishes.
 - Customizable Conditions: The recursion can stop or modify behavior based on the results of the current task, giving more flexibility.
 
-</div>
 
 ---
 hideInToc: true
@@ -1249,7 +1247,7 @@ hideInToc: true
 
 <div> </div>
 
-There’s a unique use case for <kbd>setTimeout(func, 0)</kbd> or simply <kbd>setTimeout(func)</kbd>, which schedules the execution of
+There’s a unique use case for `setTimeout(func, 0)` or simply `setTimeout(func)`, which schedules the execution of
 func as soon as possible. However, the function will only be called after the current script finishes executing.
 
 This means the function is queued to run "right after" the current script.
@@ -1300,7 +1298,7 @@ While setTimeout() schedules code to run after a minimum delay (often after the 
 process.nextTick() allows you to queue a callback to be executed before the next event loop tick. This means the function
 passed to process.nextTick() is executed immediately after the current operation completes, but before any I/O tasks or timers are handled.
 
-```js {monaco-run} {autorun: false}
+```js
 // console.log('Start')
 
 process.nextTick(() => {
@@ -1336,10 +1334,10 @@ hideInToc: true
 
 <div> </div>
 
-<kbd>requestAnimationFrame()</kbd> is a JavaScript method specifically designed to handle animations that go beyond what CSS can manage.
+`requestAnimationFrame()` is a JavaScript method specifically designed to handle animations that go beyond what CSS can manage.
 It synchronizes animations with the browser's refresh rate, ensuring smooth performance by allowing the browser to optimize the animation rendering.
 
-Unlike <kbd>setTimeout()</kbd> or <kbd>setInterval()</kbd>, which fire at specified intervals regardless of the browser's performance,
+Unlike `setTimeout()` or `setInterval()`, which fire at specified intervals regardless of the browser's performance,
 requestAnimationFrame() ensures that animations run at an ideal 60 frames per second (or whatever the display supports), avoiding stutters or frame drops.
 It pauses the animation when the page is in the background, saving resources.
 
@@ -1349,6 +1347,16 @@ Syntax:
 let requestId = requestAnimationFrame(callback)
 ```
 
+<div class="text-sm">
+
+`requestAnimationFrame()` schedules the callback function to run at the next optimal time when the browser is ready to perform an animation.
+This ensures that the animation is synced with the browser’s refresh rate for smooth rendering.
+When you make changes to elements inside the callback, those changes are grouped together with other requestAnimationFrame callbacks and CSS animations.
+This reduces the number of geometry recalculations and repaints, which would otherwise happen if multiple changes were triggered separately.
+As a result, the browser can handle the rendering process more efficiently by combining all the updates into a single cycle.
+
+</div>
+
 ---
 hideInToc: true
 ---
@@ -1357,24 +1365,20 @@ hideInToc: true
 
 <div> </div>
 
-<kbd>requestAnimationFrame()</kbd> schedules the callback function to run at the next optimal time when the browser is ready to perform an animation.
-This ensures that the animation is synced with the browser’s refresh rate for smooth rendering.
-When you make changes to elements inside the callback, those changes are grouped together with other requestAnimationFrame callbacks and CSS animations.
-This reduces the number of geometry recalculations and repaints, which would otherwise happen if multiple changes were triggered separately.
-As a result, the browser can handle the rendering process more efficiently by combining all the updates into a single cycle.
 
-The <kbd>requestAnimationFrame()</kbd> method also returns a unique requestId, which can be used to cancel the scheduled animation if needed, using <kbd>cancelAnimationFrame()</kbd>.
+The `requestAnimationFrame()` method also returns a unique requestId, which can be used to cancel the scheduled animation if needed, using `cancelAnimationFrame()`.
 
 ```js
 // cancel the scheduled execution of callback
 cancelAnimationFrame(requestId)
 ```
 
-<div class="overflow-scroll h-40">
-The callback function passed to <kbd>requestAnimationFrame()</kbd> receives one argument: a timestamp that represents the time elapsed since the page began loading, in milliseconds. 
+<div class="">
+
+The callback function passed to `requestAnimationFrame()` receives one argument: a timestamp that represents the time elapsed since the page began loading, in milliseconds. 
 This timestamp allows you to synchronize animations with the actual time that has passed, making it easier to manage smooth transitions and avoid frame skips.
 
-This timestamp is similar to what you would get by calling <kbd>performance.now()</kbd>, which provides high-resolution timestamps.
+This timestamp is similar to what you would get by calling `performance.now()`, which provides high-resolution timestamps.
 It’s particularly useful for calculating animation progress based on time instead of frame count.
 
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" target="_blank">Read more on MDN</a>
@@ -1383,31 +1387,30 @@ It’s particularly useful for calculating animation progress based on time inst
 
 ---
 hideInToc: true
+class: 'text-sm'
 ---
 
 # microtasks()
 
 <div> </div>
 
-In JavaScript we have <kbd>task</kbd> and <kbd>microtask</kbd> but before we dwell into <kbd>microtask</kbd> let's talk about <kbd>task</kbd> in JavaScript.
+In JavaScript we have `task` and `microtask` but before we dwell into `microtask` let's talk about `task` in JavaScript.
 
-<kbd>task</kbd> represent units of work or operations that are placed in the event loop’s task queue. Tasks are processed sequentially, and each task is executed from start to finish without interruption.
-A task can be created by various mechanisms, such as user interactions (clicks, key presses), <kbd>setTimeout()</kbd>, <kbd>setInterval()</kbd>, or events like DOMContentLoaded.
+`task` represent units of work or operations that are placed in the event loop’s task queue. Tasks are processed sequentially, and each task is executed from start to finish without interruption.
+A task can be created by various mechanisms, such as user interactions (clicks, key presses), `setTimeout()`, `setInterval()`, or events like DOMContentLoaded.
 
-<kbd>task</kbd> are important because they control the flow of JavaScript execution in an asynchronous environment, ensuring that even asynchronous code (like timers or event listeners) is handled in a predictable,
+`task` are important because they control the flow of JavaScript execution in an asynchronous environment, ensuring that even asynchronous code (like timers or event listeners) is handled in a predictable,
 ordered manner.
 
 <!-- Code Example of a Task -->
 
 ```js {monaco-run} {autorun: false}
- // Synchronous task
+// Synchronous task
 // console.log('Start');
-
 setTimeout(() => {
   // Task
   // console.log('This is a task in the event queue');
 }, 0);
- // Synchronous task
 // console.log('End');
 ```
 
@@ -1423,17 +1426,16 @@ that need to happen very soon.
 Code Example of a Microtask
 
 ```js {monaco-run} {autorun: false}
-// console.log('Start')
+console.log("1. Synchronous Code Start");
 
-setTimeout(() => {
-  // console.log('Task (setTimeout)')
-}, 0)
+setTimeout(() => console.log("5. Macrotask (setTimeout)"), 0);
 
-Promise.resolve().then(() => {
-  // console.log('Microtask (Promise)')
-})
+Promise.resolve().then(() => console.log("4. Microtask (Promise)"));
 
-// console.log('End')
+// Assuming a Node.js environment for this specific line:
+requestAnimationFrame(() => console.log("3. process.nextTick or requestAnimationFrame"));
+
+console.log("2. Synchronous Code End");
 ```
 
 ---
@@ -1504,7 +1506,7 @@ console.log(cachedExpensiveOperation(5));
 console.log(cachedExpensiveOperation(5));
 ```
 
-In this example, the <kbd>cachedFunction</kbd> wraps any function you provide and stores the result of each call in the cache object.
+In this example, the `cachedFunction` wraps any function you provide and stores the result of each call in the cache object.
 The next time you call the function with the same argument, it will return the cached result instead of recalculating.
 
 ---
@@ -1515,7 +1517,7 @@ Using `func.call` for the context
 
 <div class="text-sm">
 
-In JavaScript, func.call allows you to call a function with a specific this context. This is useful when you need to set the <kbd>this</kbd> value 
+In JavaScript, func.call allows you to call a function with a specific this context. This is useful when you need to set the `this` value 
 explicitly for a function, especially when working with object methods that might be called in different contexts.
 
 ```js
@@ -1540,7 +1542,7 @@ function Vehicle(make, year) {
 function Toyota(make, year) {
   Vehicle.call(this, make, year)
   // Add a specific property 'category' for Toyota cars
-  this.category = 'car'
+  this.category = 'Toyota'
 }
 // Create a new Toyota object and console.log the 'year' property
 console.log(new Toyota('Camry', 2024).year)
@@ -1551,30 +1553,20 @@ console.log(new Toyota('Camry', 2024).year)
 ---
 title: Constructor Functions
 hideInToc: true
+class: 'text-sm'
 ---
 
 <h3>To get a better understanding of how the code in the previous slide works, read through this:</h3>
 
-- <kbd>Constructor Functions</kbd>:
-  In JavaScript, functions like <kbd>Vehicle</kbd> and <kbd>Toyota</kbd> are called constructor functions. They are used to create objects with specific properties.
-  When you create an object using <kbd>new</kbd>, the constructor function is called and the <kbd>this</kbd> keyword inside the function refers to the new object being created.
+- `Constructor Functions`: In JavaScript, functions like `Vehicle` and `Toyota` are called constructor functions. They are used to create objects with specific properties. When you create an object using `new`, the constructor function is called and the `this` keyword inside the function refers to the new object being created.
 
-- <kbd>Vehicle</kbd> Constructor:
-  The <kbd>Vehicle</kbd> function accepts two arguments: make (e.g., 'Toyota') and year (e.g., 2024).
-  <kbd>this.make = make;</kbd> sets the <kbd>make</kbd> property of the object to the value passed in.
-  <kbd>this.year = year;</kbd> sets the <kbd>year</kbd> property of the object to the year passed in.
+- `Vehicle` Constructor: The `Vehicle` function accepts two arguments: make (e.g., 'Toyota') and year (e.g., 2024).`this.make = make;` sets the `make` property of the object to the value passed in.`this.year = year;` sets the `year` property of the object to the year passed in.
 
-- <kbd>Toyota</kbd> Constructor:
-  <kbd>Toyota</kbd> is another constructor function that uses the <kbd>Vehicle</kbd> constructor to set the make and year properties.
-  <kbd>Vehicle.call(this, make, year);</kbd> means: "Call the <kbd>Vehicle</kbd> function, and make sure the this keyword inside <kbd>Vehicle</kbd> refers to the new <kbd>Toyota</kbd> object."
-  After calling <kbd>Vehicle</kbd>, the <kbd>Toyota</kbd> constructor also adds a <kbd>category</kbd> property to the object and sets it to 'car'.
+- `Toyota` Constructor: `Toyota` is another constructor function that uses the `Vehicle` constructor to set the make and year properties.`Vehicle.call(this, make, year);` means: "Call the `Vehicle` function, and make sure the this keyword inside `Vehicle` refers to the new `Toyota` object. "After calling `Vehicle`, the `Toyota` constructor also adds a `category` property to the object and sets it to 'car'.
 
-- Calling <kbd>new Toyota('Camry', 2024)</kbd>:
-  This creates a new <kbd>Toyota</kbd> object with the <kbd>make</kbd> <kbd>'Camry'</kbd> and <kbd>year</kbd> <kbd>2024</kbd>, as well as the <kbd>category</kbd> <kbd>'car'</kbd>.
+- Calling `new Toyota('Camry', 2024)`: This creates a new `Toyota` object with the `make` `'Camry'` and `year` `2024`, as well as the `category` `'car'`.
 
-- console.log:
-  The <kbd>console.log</kbd> function pops up a message box.
-  <kbd>new Toyota('Camry', 2024).year</kbd> creates a new <kbd>Toyota</kbd> object and accesses its <kbd>year</kbd> property, which is <kbd>2024</kbd>. So, the console.log will show <kbd>2024</kbd>.
+- console.log: The `console.log` function pops up a message box. `new Toyota('Camry', 2024).year` creates a new `Toyota` object and accesses its `year` property, which is `2024`. So, the console.log will show `2024`.
 
 ---
 hideInToc: true
@@ -1585,18 +1577,24 @@ class: text-sm
 
 <div></div>
 
-The <kbd>apply()</kbd> method could be used instead of <kbd>call()</kbd>.
-This method of <kbd>Function</kbd> instances calls this function with a given <kbd>this</kbd> value, and <kbd>argument</kbd> provided as an array (or an array-like object) unlike <kbd>call()</kbd> that expects a list of arguments.
+The `apply()` method could be used instead of `call()`.
+This method of `Function` instances calls this function with a given `this` value, and `argument` provided as an array (or an array-like object) unlike `call()` that expects a list of arguments.
+
+<div grid="~ cols-2" gap="2">
 
 ```js
 //This accepts list of arguments
 func.call(context, ...args)
+```
 
+```js
 //This accepts only array-like args
 func.apply(context, args)
 ```
 
-In cases where your objects fit into the two conditions- both iterable and array like, you can either use the <kbd>func.call()</kbd> or <kbd>func.apply()</kbd> but the later will be faster, because of its natural
+</div>
+
+In cases where your objects fit into the two conditions- both iterable and array like, you can either use the `func.call()` or `func.apply()` but the later will be faster, because of its natural
 handling of array-like structures and potential optimizations in the JavaScript engines.
 
 ```js
@@ -1605,15 +1603,7 @@ let wrapper = function () {
 }
 ```
 
-If you use an external code to call this function, it is indistinguishable from the call of the original function <kbd>func</kbd> because:
-
-<div class="overflow-scroll h-20 p-5">
-<ul>
-<li>The context <kbd>this</kbd> is preserved.</li>
-<li>The arguments are forwarded.</li>
-<li>The result of <kbd>func</kbd> is returned by the wrapper.</li>
-</ul>
-</div>
+If you use an external code to call this function, it is indistinguishable from the call of the original function `func` because: The context `this` is preserved, The arguments are forwarded, The result of `func` is returned by the wrapper.
 
 ---
 hideInToc: true
@@ -1623,19 +1613,14 @@ hideInToc: true
 
 <div></div>
 
-The <kbd>bind()</kbd> method on <kbd>function</kbd> instances creates a new function,
-it invokes the original function with its this keyword set to the value you specify and with any arguments you provide in <kbd>bind()</kbd> appearing before any arguments passed when calling the set function.
+The `bind()` method on `function` instances creates a new function,
+it invokes the original function with its this keyword set to the value you specify and with any arguments you provide in `bind()` appearing before any arguments passed when calling the set function.
 
 ```js
 func.bind(context, ...args)
 ```
 
-This function above is going to returns a "bound variant" of function <kbd>func</kbd>. This new function will have:
-
-<ul>
-<li>The <kbd>this</kbd> context fixed to the provided context value.</li>
-<li>The first argument(s) (if any are provided in <kbd>this</kbd> ...args <kbd>this</kbd>) pre-set, meaning they will be used when the new function is called, followed by any additional arguments passed during the call.</li>
-</ul>
+This function above is going to returns a "bound variant" of function `func`. This new function will have: The `this` context fixed to the provided context value, The first argument(s) (if any are provided in `this` ...args `this`) pre-set, meaning they will be used when the new function is called, followed by any additional arguments passed during the call.
 
 ---
 
@@ -1656,22 +1641,17 @@ greetJohn('Alice');
 
 ---
 
-## So, why <kbd>bind()</kbd>
+## So, why `bind()`
 
-As said earlier, the <kbd>bind()</kbd> method is useful for controlling the <kbd>this</kbd> context and presetting arguments but also, we can use it to achieve these as well:
+As said earlier, the `bind()` method is useful for controlling the `this` context and presetting arguments but also, we can use it to achieve these as well:
 
-<ul>
-<li>Control the <kbd>this</kbd> value</li>
-It allows you to lock in a specific <kbd>this</kbd> value, ensuring that the function will always use the context you want.
-<li>Partial Application</li>
-It allows you to preset arguments for a function, creating a new function with some arguments already provided.
-<li>Method borrowing</li>
-It gives you the room to borrow methods from one object and use them in another, while ensuring the correct <kbd>this</kbd> context is maintained.
-<li>Function Currying</li>
-It can also be used to implement currying, where you transform a function with multiple arguments into a series of functions that take one argument at a time.
-</ul>
 
-This makes <kbd>bind()</kbd> particularly valuable in situations involving event handlers, callbacks, or when you want to reuse functions with certain preset parameters.
+- Control the `this` value, It allows you to lock in a specific `this` value, ensuring that the function will always use the context you want.
+- It allows you to preset arguments for a function, creating a new function with some arguments already provided.
+- It gives you the room to borrow methods from one object and use them in another, while ensuring the correct `this` context is maintained.
+- Function Currying - It can also be used to implement currying, where you transform a function with multiple arguments into a series of functions that take one argument at a time.
+
+This makes `bind()` particularly valuable in situations involving event handlers, callbacks, or when you want to reuse functions with certain preset parameters.
 
 ---
 hideInToc: true
@@ -1682,9 +1662,9 @@ hideInToc: true
 <div class="text-sm">
 
 We've already discused the beautiful arrow function at the beginning of this module, but let's go little deeper in what arrow function entails.
-As a developer, you often need to write arrow functions in your code for various tasks like calling <kbd>useEffect</kbd> hooks in React or using <kbd>setTimeout()</kbd> in JavaScript. Arrow functions offer a more concise syntax and have specific benefits, particularly in handling the this context.
+As a developer, you often need to write arrow functions in your code for various tasks like calling `useEffect` hooks in React or using `setTimeout()` in JavaScript. Arrow functions offer a more concise syntax and have specific benefits, particularly in handling the this context.
 
-- Firstly, arrow functions do not have their own "arguments" object. But, they inherit <kbd>argument</kbd> from their lexical scope.
+- Firstly, arrow functions do not have their own "arguments" object. But, they inherit `argument` from their lexical scope.
 
 This second code will throw an error because unlike traditional function in the first scope, argument is not defined.
 
@@ -1692,7 +1672,7 @@ This second code will throw an error because unlike traditional function in the 
 
 ```js {monaco-run} {autorun: false}
 function traditionalFunction() {
-  console.log(arguments);
+  console.log(JSON.stringify(arguments));
 }
 traditionalFunction(1, 2, 3);
 
@@ -1709,9 +1689,10 @@ hideInToc: true
 # Contd.
 
 <div></div>
-To handle <kbd>argument</kbd> in Arrow functions, we have use two methods:<br/>
 
-1. Using of rest parameters <kbd>(...args)</kbd>
+To handle `argument` in Arrow functions, we have use two methods:<br/>
+
+1. Using of rest parameters `(...args)`
 
 ```js {monaco-run} {autorun: false}
 const arrowFunction = (...args) => {
@@ -1721,16 +1702,17 @@ const arrowFunction = (...args) => {
 arrowFunction(1, 2, 3);
 ```
 
-2. Using the <kbd>arguments</kbd> object from the non-arrow function in the lexical scope.
+2. Using the `arguments` object from the non-arrow function in the lexical scope.
 
 ```js {monaco-run} {autorun: false}
 function outerFunction() {
   const arrowFunction = () => {
-    console.log(arguments);
+    console.log(JSON.stringify(arguments))
   }
 
   arrowFunction();
 }
+outerFunction('Try', 'me', 'and', 'see')
 ```
 
 ---
@@ -1738,11 +1720,9 @@ title: Limitations of Arrow Functions
 hideInToc: true
 ---
 
-- Secondly, Arrow functions have no `this`
+- Secondly, Arrow functions have no `this` - Arrow functions do not have their own`this`. Instead, when a developer access `this` inside an arrow function, it is taken from the surrounding lexical scope(next possible parent's this).
 
-Arrow functions do not have their own<kbd>this</kbd>. Instead, when a developer access <kbd>this</kbd> inside an arrow function, it is taken from the surrounding lexical scope.
-
-In the code below, the arrow function inside the <kbd>setTimeout</kbd> retains the <kbd>this</kbd> value from the <kbd>greet</kbd> method, which refers to <kbd>obj</kbd>.
+In the code below, the arrow function inside the `setTimeout` retains the `this` value from the `greet` method, which refers to `obj`.
 
 ```js {monaco-run} {autorun: false}
 const obj = {
@@ -1757,7 +1737,6 @@ const obj = {
 };
 
 obj.greet();
-
 ```
 
 ---
@@ -1765,9 +1744,7 @@ title: Limitations
 hideInToc: true
 ---
 
-- Thirdly, Arrow functions can't be called with <kbd>new</kbd>
-
-Since arrow functions do not have their own<kbd>this</kbd> they can't be used as constructors.
+- Thirdly, Arrow functions can't be called with `new` - Since arrow functions do not have their own`this` they can't be used as constructors.
 
 This will throw an error:
 
@@ -2210,18 +2187,12 @@ const timer = {
   name: 'MyTimer',
   startRegular() {
     setTimeout(function () {
-      /*
-       * What is `this` here? Log this.name
-       *
-       */
+       // What is `this` here? Log this.name
     }, 100)
   },
   startArrow() {
     setTimeout(() => {
-      /*
-       * What is `this` here? Log this.name
-       *
-       */
+       // What is `this` here? Log this.name
     }, 100)
   },
 }

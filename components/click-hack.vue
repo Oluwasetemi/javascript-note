@@ -1,26 +1,3 @@
-
-<template>
-  <button @click="openSecurePopup" class="btn-primary">
-    <span class="i-mdi-lock inline-block" /> Open Secure Popup
-  </button>
-
-  <div v-if="popupMessage" class="message-box">
-    {{ popupMessage }}
-  </div>
-
-  <canvas
-    ref="securityCanvas"
-    width="300"
-    height="200"
-    @click="demonstrateClickjacking"
-    class="border border-gray-300 cursor-pointer"
-  ></canvas>
-
-  <button @click="playSecurityDemo" class="play-btn">
-    <span class="i-mdi-play inline-block" /> Play Security Demo
-  </button>
-</template>
-
 <script setup>
 import { ref } from "vue";
 
@@ -84,3 +61,26 @@ window.addEventListener("message", (event) => {
   popupMessage.value = event.data;
 });
 </script>
+
+<template>
+  <button @click="openSecurePopup" class="btn-primary">
+    <span class="i-mdi-lock inline-block" /> Open Secure Popup
+  </button>
+
+  <div v-if="popupMessage" class="message-box">
+    {{ popupMessage }}
+  </div>
+
+  <canvas
+    ref="securityCanvas"
+    width="300"
+    height="200"
+    @click="demonstrateClickjacking"
+    class="border border-gray-300 cursor-pointer"
+  ></canvas>
+
+  <button @click="playSecurityDemo" class="play-btn">
+    <span class="i-mdi-play inline-block" /> Play Security Demo
+  </button>
+</template>
+
