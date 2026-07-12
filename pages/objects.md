@@ -984,3 +984,734 @@ user.fullName = "Vinicius Junior"; console.log(user.firstName)     // "Vinicius"
 ```
 
 A common pattern is using a getter to compute a derived value and a setter to validate input before storing it — keeping the validation logic in one place.
+
+---
+hideInToc: true
+transition: slide-up
+---
+
+# Assignment or Class Activity
+
+- Create an object literal for a `course` with at least 4 properties, then add and delete one
+- Write a function that takes a `key` and an object and safely reads a nested value with optional chaining
+- Clone an object two ways: shallow (`Object.assign`) and deep (`structuredClone`), then prove the difference
+- Build a `BankAccount` constructor function with a `deposit` method using `this`
+- Add a `fullName` getter/setter pair to a plain object
+
+```js {monaco-run} {autorun: false}
+/*
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+write your code here
+*/
+```
+
+---
+hideInToc: true
+name: Exercises — Object Basics Q1
+---
+
+# Exercises: Object Basics
+
+**Q1.** Create an object `mentee` with properties `name`, `track`, and `cohort`. Add a new property `isGraduated` set to `false`, then delete the `cohort` property. Log the object after each step.
+
+```js {monaco-run} {autorun: false}
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Object Basics Q2
+---
+
+**Q2.** Create an object with a multiword property name (e.g. `'years of experience'`). Show that dot notation fails to access it and that square-bracket notation succeeds. Explain in a comment why dot notation breaks here.
+
+```js {monaco-run} {autorun: false}
+const engineer = {
+  name: 'Setemi',
+  'years of experience': 7,
+}
+/*
+ * try dot notation here (comment it out if it errors)
+ *
+ * use square brackets here
+ *
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Dynamic & Computed Q3 & Q4
+---
+
+# Exercises: Dynamic and Computed Properties
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q3.** Write a function `getField(obj, fieldName)` that uses square-bracket notation to dynamically return the value of any property name passed in as a string.
+
+```js {monaco-run} {autorun: false}
+function getField(obj, fieldName) {
+  /*
+   *
+   *
+   */
+}
+const project = { name: 'Chunk8', stack: 'Next.js' }
+console.log(getField(project, 'name'))   // "Chunk8"
+console.log(getField(project, 'stack'))  // "Next.js"
+```
+
+</div>
+<div>
+
+**Q4.** Write a function `buildConfig(envName, value)` that returns an object where the key is computed from `envName` (e.g. `envName = "PORT"` → `{ PORT: value }`) using computed property syntax `[ ]`.
+
+```js {monaco-run} {autorun: false}
+function buildConfig(envName, value) {
+  /*
+   *
+   *
+   */
+}
+console.log(buildConfig('PORT', 3000))     // { PORT: 3000 }
+console.log(buildConfig('NODE_ENV', 'dev')) // { NODE_ENV: "dev" }
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — Shorthand Q5
+---
+
+# Exercises: Property Shorthand
+
+**Q5.** Write a function `createRepo(name, stars, language)` that returns an object using **property value shorthand** (not `name: name`). Then write a second version, `createRepoVerbose`, the long way, and confirm both produce identical objects with `JSON.stringify`.
+
+```js {monaco-run} {autorun: false}
+function createRepo(name, stars, language) {
+  /*
+   * shorthand version
+   *
+   */
+}
+function createRepoVerbose(name, stars, language) {
+  /*
+   * long version
+   *
+   */
+}
+console.log(JSON.stringify(createRepo('repo-score', 42, 'TypeScript')))
+console.log(JSON.stringify(createRepoVerbose('repo-score', 42, 'TypeScript')))
+```
+
+---
+hideInToc: true
+name: Exercises — Property Existence Q6 & Q7
+---
+
+# Exercises: Property Existence
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q6.** Given the object below, write checks using `in`, `Object.hasOwn()`, and `=== undefined` to test for the `middleName` property (which exists but is `undefined`). Explain why only some of these checks correctly detect it.
+
+```js {monaco-run} {autorun: false}
+const user = { firstName: 'Setemi', middleName: undefined }
+/*
+ * check with 'in'
+ *
+ * check with Object.hasOwn
+ *
+ * check with === undefined
+ *
+ */
+```
+
+</div>
+<div>
+
+**Q7.** Write a function `hasAllFields(obj, fields)` that takes an object and an array of required field names, returning `true` only if **every** field exists on the object (use `Object.hasOwn` in a loop or `.every`).
+
+```js {monaco-run} {autorun: false}
+function hasAllFields(obj, fields) {
+  /*
+   *
+   *
+   */
+}
+const student = { name: 'Ada', email: 'ada@altschool.com' }
+console.log(hasAllFields(student, ['name', 'email']))          // true
+console.log(hasAllFields(student, ['name', 'email', 'phone']))  // false
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — for..in Q8 & Q9
+---
+
+# Exercises: The for..in Loop
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q8.** Write a function `sumNumericProps(obj)` that uses a `for..in` loop to sum only the properties whose values are numbers, skipping strings and booleans.
+
+```js {monaco-run} {autorun: false}
+function sumNumericProps(obj) {
+  /*
+   *
+   *
+   *
+   */
+}
+console.log(sumNumericProps({ age: 40, name: 'Setemi', score: 10, active: true }))
+// 50
+```
+
+</div>
+<div>
+
+**Q9.** Given the object below with integer-like string keys, log the keys using `for..in` and observe the ordering. Then rewrite the keys with a leading `+` so the original insertion order is preserved. Explain the difference in a comment.
+
+```js {monaco-run} {autorun: false}
+const rankings = { '10': 'Bronze', '2': 'Gold', '5': 'Silver' }
+/*
+ * loop and log keys here
+ *
+ *
+ * now rewrite with '+' prefixed keys and loop again
+ *
+ *
+ */
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — Referencing and Copying Q10 & Q11
+---
+
+# Exercises: Referencing and Copying
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q10.** Predict the output of each `console.log` **before** running the code, then verify. Explain in a comment why objects behave differently from primitives here.
+
+```js {monaco-run} {autorun: false}
+let a = 5
+let b = a
+b = 10
+console.log(a, b) // ?
+
+let obj1 = { count: 5 }
+let obj2 = obj1
+obj2.count = 10
+console.log(obj1.count, obj2.count) // ?
+```
+
+</div>
+<div>
+
+**Q11.** Write a function `isSameReference(objA, objB)` that returns `true` only if both variables point to the **exact same object** in memory (not just equal contents).
+
+```js {monaco-run} {autorun: false}
+function isSameReference(objA, objB) {
+  /*
+   *
+   */
+}
+const settings = { theme: 'dark' }
+const settingsAlias = settings
+const settingsCopy = { theme: 'dark' }
+
+console.log(isSameReference(settings, settingsAlias)) // true
+console.log(isSameReference(settings, settingsCopy))  // false
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — const Objects Q12
+---
+
+**Q12.** Declare a `const project` object with a `status` property. Show that you **can** update `project.status` but **cannot** reassign `project` to a brand-new object (wrap the reassignment attempt in a `try/catch` and log the error message).
+
+```js {monaco-run} {autorun: false}
+const project = { name: 'SafeReport', status: 'in-progress' }
+/*
+ * update project.status directly here — should work
+ *
+ *
+ * try reassigning project to a new object inside try/catch — should throw
+ *
+ *
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Cloning Q13 & Q14
+---
+
+# Exercises: Cloning and Merging
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q13.** Write `shallowClone(obj)` two ways: manually with a `for..in` loop, and with `Object.assign`. Confirm both produce a new top-level object but still share references to any **nested** object inside.
+
+```js {monaco-run} {autorun: false}
+function shallowCloneManual(obj) {
+  //
+}
+function shallowCloneAssign(obj) {
+  //
+}
+const original = { name: 'Chunk8', meta: { version: 1 } }
+const clone1 = shallowCloneManual(original)
+const clone2 = shallowCloneAssign(original)
+console.log(clone1 === original)          // false
+console.log(clone1.meta === original.meta) // true — still shared!
+console.log(clone2.meta === original.meta) // true — still shared!
+```
+
+</div>
+<div>
+
+**Q14.** Write `mergeSettings(defaults, overrides)` using `Object.assign` that merges two config objects, with `overrides` taking priority for any duplicate keys. Do **not** mutate either input object.
+
+```js {monaco-run} {autorun: false}
+function mergeSettings(defaults, overrides) {
+  /*
+   *
+   */
+}
+const defaults = { theme: 'light', fontSize: 14, autosave: true }
+const overrides = { theme: 'dark', fontSize: 16 }
+console.log(mergeSettings(defaults, overrides)) // { theme: 'dark', fontSize: 16, autosave: true }
+console.log(defaults.theme) // "light" — untouched
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — Deep Cloning Q15
+---
+
+**Q15.** Given a nested `user` object, prove that `Object.assign({}, user)` produces a **shallow** clone (the nested `address` object is still shared) but `structuredClone(user)` produces a **true deep clone** (mutating the original's nested object does not affect the clone).
+
+```js {monaco-run} {autorun: false}
+const user = {
+  name: 'Oluwasetemi',
+  address: { city: 'Kingston', country: 'Jamaica' },
+}
+/*
+ * shallow clone with Object.assign, then mutate user.address.city
+ * and show the shallow clone changed too
+ *
+ *
+ *
+ * deep clone with structuredClone, then mutate user.address.city
+ * again and show the deep clone did NOT change
+ *
+ *
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Methods and this Q16 & Q17
+---
+
+# Exercises: Object Methods and `this`
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q16.** Create a `stopwatch` object with a `seconds` property starting at `0` and a regular method `tick()` that increments `seconds` by 1 and returns it. Call `tick()` three times.
+
+```js {monaco-run} {autorun: false}
+const stopwatch = {
+  seconds: 0,
+  /*
+   * tick() method here
+   */
+}
+console.log(stopwatch.tick()) // 1
+console.log(stopwatch.tick()) // 2
+console.log(stopwatch.tick()) // 3
+```
+
+</div>
+<div>
+
+**Q17.** Rewrite `tick` from Q16 as an **arrow function** property instead of a shorthand method. Run it and explain in a comment why `this.seconds` no longer works as expected.
+
+```js {monaco-run} {autorun: false}
+const stopwatch = {
+  seconds: 0,
+  tick: () => {
+    // 
+  }
+}
+stopwatch.tick()
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — Constructor Functions Q18 & Q19
+---
+
+# Exercises: Constructor Functions
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q18.** Write a `BankAccount(owner, balance)` constructor function with a `deposit(amount)` method that increases `this.balance` and returns the new balance. Create two separate accounts and prove they don't share state.
+
+```js {monaco-run} {autorun: false}
+function BankAccount(owner, balance) {
+  /*
+   *
+   */
+}
+const acc1 = new BankAccount('Setemi', 100)
+const acc2 = new BankAccount('Dennis', 50)
+console.log(acc1.deposit(50)) // 150
+console.log(acc2.balance)     // 50 — unaffected
+```
+
+</div>
+<div>
+
+**Q19.** Write a `Course(title)` constructor that uses `new.target` to auto-correct a missing `new` keyword (like the `User` example), so that calling `Course('Rust')` without `new` still returns a properly constructed object.
+
+```js {monaco-run} {autorun: false}
+function Course(title) {
+  /*
+   *
+   */
+}
+const c1 = new Course('Rust')
+const c2 = Course('WebAssembly') // called without new
+console.log(c1.title, c2.title)
+console.log(c1 instanceof Course, c2 instanceof Course)
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — Optional Chaining Q20
+---
+
+**Q20.** Write a function `getCity(user)` that safely reads `user.address.city` using optional chaining, returning `"Unknown"` via `??` if the value is missing at any level. Test it against a user with a full address, a user with no address, and `null`.
+
+```js {monaco-run} {autorun: false}
+function getCity(user) {
+  /*
+   *
+   */
+}
+console.log(getCity({ address: { city: 'Kingston' } })) // "Kingston"
+console.log(getCity({ name: 'Guest' }))                  // "Unknown"
+console.log(getCity(null))                               // "Unknown"
+```
+
+---
+hideInToc: true
+name: Exercises — Symbols Q21
+---
+
+**Q21.** Create an object `user` with a normal `name` property and a `Symbol('id')`-keyed property holding a unique ID. Show that `Object.keys(user)` and a `for..in` loop both skip the symbol-keyed property, but you can still read it directly with the symbol reference.
+
+```js {monaco-run} {autorun: false}
+const idSymbol = Symbol('id')
+const user = {
+  name: 'Setemi',
+  /*
+   * add the symbol-keyed property here
+   */
+}
+/*
+ * log Object.keys(user)
+ * loop with for..in and log each key
+ * log the value at the symbol key directly
+ */
+```
+
+---
+hideInToc: true
+name: Exercises — Object to Primitive Q22
+---
+
+**Q22.** Create an object `duration` with `hours` and `minutes` properties, and implement `Symbol.toPrimitive` so that: string hint returns `"Xh Ym"`, number hint returns the total minutes, and default hint returns the same as number hint.
+
+```js {monaco-run} {autorun: false}
+const duration = {
+  hours: 2,
+  minutes: 30,
+  /*
+   * [Symbol.toPrimitive](hint) { ... }
+   *
+   *
+   *
+   *
+   */
+}
+console.log(`${duration}`)   // "2h 30m"
+console.log(+duration)       // 150
+console.log(duration + 0)    // 150
+```
+
+---
+hideInToc: true
+name: Exercises — Property Descriptors Q23 & Q24
+---
+
+# Exercises: Property Descriptors
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+**Q23.** Create an object `apiConfig` with a `baseUrl` property. Use `Object.defineProperty` to make it `writable: false` and `enumerable: false`. Prove that reassignment is silently ignored and that the property is hidden from `Object.keys`.
+
+```js {monaco-run} {autorun: false}
+const apiConfig = {}
+/*
+ * define baseUrl with defineProperty here
+ *
+ *
+ */
+apiConfig.baseUrl = 'https://changed.com' // should be ignored
+console.log(apiConfig.baseUrl)   // original value
+console.log(Object.keys(apiConfig)) // []
+```
+
+</div>
+<div>
+
+**Q24.** Write a function `lockObject(obj)` that uses `Object.freeze` to make an object fully immutable. Verify that after freezing, you cannot add new properties, change existing ones, or delete any.
+
+```js {monaco-run} {autorun: false}
+function lockObject(obj) {
+  /*
+   *
+   */
+}
+const settings = lockObject({ theme: 'dark' })
+settings.theme = 'light'    // ignored
+settings.fontSize = 14      // ignored
+delete settings.theme       // ignored
+console.log(settings)       // { theme: 'dark' }
+```
+
+</div>
+</div>
+
+---
+hideInToc: true
+name: Exercises — Getters and Setters Q25
+---
+
+**Q25.** Create a `temperature` object storing `celsius` internally, with a getter `fahrenheit` that computes `celsius * 9/5 + 32` and a setter `fahrenheit` that converts an incoming Fahrenheit value back into `celsius`. Test reading and writing through `fahrenheit`.
+
+```js {monaco-run} {autorun: false}
+const temperature = {
+  celsius: 25,
+  /*
+   * get fahrenheit() { ... }
+   * set fahrenheit(value) { ... }
+   *
+   *
+   *
+   *
+   */
+}
+console.log(temperature.fahrenheit)  // 77
+temperature.fahrenheit = 32
+console.log(temperature.celsius)     // 0
+```
+
+---
+hideInToc: true
+name: LeetCode Objects — Intro
+layout: center
+---
+
+# <span class="text-gradient">LeetCode-Style</span> Challenges
+
+Problems that combine **object literals, cloning, descriptors, and this-binding** — the tools of this chapter.
+
+<div mt-4 text-sm op70>
+Each problem has one clean solution using the patterns you just learned.
+</div>
+
+---
+hideInToc: true
+name: LeetCode Objects — Problem 1
+---
+
+# Problem 1 — Deep Equal <span text-green text-sm>Easy</span>
+
+Write `deepEqual(objA, objB)` that returns `true` if two objects have the same keys and values recursively (including nested objects), **without** using `JSON.stringify`.
+
+```js {monaco-run} {autorun: false}
+function deepEqual(objA, objB) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(deepEqual({ a: 1, b: { c: 2 } }, { a: 1, b: { c: 2 } })) // true
+console.log(deepEqual({ a: 1, b: { c: 2 } }, { a: 1, b: { c: 3 } })) // false
+console.log(deepEqual({ a: 1 }, { a: 1, b: 2 }))                     // false
+```
+
+<div text-xs op60 mt-2>Concepts: recursion, <code>Object.keys</code>, typeof checks, nested object traversal</div>
+
+---
+hideInToc: true
+name: LeetCode Objects — Problem 2
+---
+
+# Problem 2 — Object Diff <span text-yellow text-sm>Medium</span>
+
+Write `diffObjects(oldObj, newObj)` that returns an object describing what changed: `{ added: {...}, removed: {...}, changed: {...} }`, comparing only top-level keys.
+
+```js {monaco-run} {autorun: false}
+function diffObjects(oldObj, newObj) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+console.log(diffObjects(
+  { name: 'Setemi', role: 'Engineer', country: 'Jamaica' },
+  { name: 'Setemi', role: 'Senior Engineer', city: 'Kingston' }
+))
+// { added: { city: 'Kingston' }, removed: { country: 'Jamaica' }, changed: { role: { from: 'Engineer', to: 'Senior Engineer' } } }
+```
+
+<div text-xs op60 mt-2>Concepts: <code>Object.keys</code>, <code>Set</code> for key comparison, building a result object</div>
+
+---
+hideInToc: true
+name: LeetCode Objects — Problem 3
+---
+
+# Problem 3 — Deep Freeze <span text-yellow text-sm>Medium</span>
+
+`Object.freeze` only freezes the top level. Write `deepFreeze(obj)` that recursively freezes an object and all of its nested objects, then returns it.
+
+```js {monaco-run} {autorun: false}
+function deepFreeze(obj) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const config = deepFreeze({ api: { baseUrl: 'https://x.com', retries: 3 }, debug: false })
+config.api.baseUrl = 'https://changed.com' // should be ignored
+config.debug = true                        // should be ignored
+console.log(config.api.baseUrl, config.debug) // "https://x.com" false
+console.log(Object.isFrozen(config.api))       // true
+```
+
+<div text-xs op60 mt-2>Concepts: recursion, <code>Object.freeze</code>, <code>Object.values</code>, type checking for nested objects</div>
+
+---
+hideInToc: true
+name: LeetCode Objects — Problem 4
+---
+
+# Problem 4 — Private Counter Factory <span text-green text-sm>Easy</span>
+
+Write `createCounter()` that returns an object with `increment()`, `decrement()`, and `value` as a **getter** (not a plain property), keeping the internal count truly private via closure.
+
+```js {monaco-run} {autorun: false}
+function createCounter() {
+  /*
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const counter = createCounter()
+counter.increment()
+counter.increment()
+counter.decrement()
+console.log(counter.value)  // 1
+console.log(counter.count)  // undefined — not directly accessible
+```
+
+<div text-xs op60 mt-2>Concepts: closures, getters, encapsulation, object methods</div>
+
+---
+hideInToc: true
+name: LeetCode Objects — Problem 5
+---
+
+# Problem 5 — Schema Validator <span text-yellow text-sm>Medium</span>
+
+Write `validateSchema(obj, schema)` where `schema` maps each key to an expected `typeof` string (e.g. `{ name: 'string', age: 'number' }`). Return an array of error messages for missing keys or type mismatches; return an empty array if valid.
+
+```js {monaco-run} {autorun: false}
+function validateSchema(obj, schema) {
+  /*
+   *
+   *
+   *
+   *
+   *
+   *
+   */
+}
+const schema = { name: 'string', age: 'number', isAdmin: 'boolean' }
+console.log(validateSchema({ name: 'Ada', age: 21, isAdmin: false }, schema))
+// []
+console.log(validateSchema({ name: 'Ada', age: '21' }, schema))
+// ['age: expected number, got string', 'isAdmin: missing property']
+```
+
+<div text-xs op60 mt-2>Concepts: <code>Object.hasOwn</code>, <code>typeof</code>, <code>Object.entries</code>, building an errors array</div>
