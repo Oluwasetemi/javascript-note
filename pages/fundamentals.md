@@ -1213,6 +1213,8 @@ hideInToc: true
 name: Exercises — Loops Q16 & Q17
 ---
 
+<div class ="grid grid-cols-2 gap-4">
+<div>
 **Q16.** Given the string `"JavaScript"`, use a `for...of` loop to print each character on its own line:
 
 ```js {monaco-run} {autorun: false}
@@ -1226,7 +1228,8 @@ const language = 'JavaScript'
  *
  */
 ```
-
+</div>
+<div>
 **Q17.** Use a `for...in` loop to print each property and its value from the object below:
 
 ```js {monaco-run} {autorun: false}
@@ -1245,6 +1248,9 @@ const student = { name: 'Chidi', age: 22, school: 'AltSchool', track: 'Frontend'
 hideInToc: true
 name: Exercises — Functions Q18 & Q19
 ---
+
+</div>
+</div>
 
 # Exercises: Functions
 
