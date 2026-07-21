@@ -1244,7 +1244,7 @@ const student = { name: 'Chidi', age: 22, school: 'AltSchool', track: 'Frontend'
  */
 ```
 
-<div>
+</div>
 </div>
 
 ---
