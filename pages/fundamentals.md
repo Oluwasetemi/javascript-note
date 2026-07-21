@@ -1227,8 +1227,8 @@ const language = 'JavaScript'
  */
 ```
 
-<div>
 </div>
+<div>
 
 **Q17.** Use a `for...in` loop to print each property and its value from the object below:
 
