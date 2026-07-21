@@ -1227,8 +1227,8 @@ const language = 'JavaScript'
  */
 ```
 
-</div>
 <div>
+</div>
 
 **Q17.** Use a `for...in` loop to print each property and its value from the object below:
 
@@ -1244,8 +1244,8 @@ const student = { name: 'Chidi', age: 22, school: 'AltSchool', track: 'Frontend'
  */
 ```
 
-</div>
 <div>
+</div>
 
 ---
 hideInToc: true
