@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 

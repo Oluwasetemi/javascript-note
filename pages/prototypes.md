@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -651,7 +651,7 @@ user.greet() // Hello, Alice!
 
 ---
 hideInToc: true
-transition: slide-up
+transition: none
 ---
 
 # Assignment or Class Activity

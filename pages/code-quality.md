@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -44,7 +44,6 @@ hideInToc: true
 
 <br/>
 
-<v-clicks>
 
 <ol>
 <li> <strong>Readability</strong>: code that is easy to understand, even for developers who didn't write it. Readable code is like a well organized recipe book. Can others easily read and understand your code?</li>
@@ -62,15 +61,12 @@ add(2, 3) //5
 <li> <strong>Reliability</strong>: the ability of the code to run without errors or crashes under expected conditions.</li>
 </ol>
 
-</v-clicks>
 
 ---
 hideInToc: true
 name: More on Code Quality
-clicksStart: 1
 ---
 
-<v-clicks>
 
 6. <strong>Testability</strong>: the extent to which code can be easily tested. Testable code ensures that bugs can be caught early and improves the reliability of future changes.
 7. <strong>Modularity</strong>: code that is divided into distinct modules, each handling a specific responsibility.
@@ -87,7 +83,6 @@ function add(a: number, b: number): number {
 add(2, 3) //5
 ```
 
-</v-clicks>
 
 <br/>
 
@@ -114,21 +109,17 @@ test('adds -1 + -1 to equal -2', () => {
 })
 ```
 
-<v-clicks>
 
 - **Unit test**: it allows you test individual components and functions in isolation to ensure that each part of the code works. Tools you can use are {Vitest}, Jest, Mocha and Jasmine.
 
 - **Integration test**: it allows you test the interaction between components and modules, ensuring that the combined parts work together. Tools you can use are {Vitest}, Mocha, Cypress, Supertest.
 
-</v-clicks>
 
 ---
 hideInToc: true
 name: More on Test
-clicksStart: 1
 ---
 
-<v-clicks>
 
 - **End-to-End(E2E) test**: it allows you simulate user actions and test the entire application flow from start to finish. Tools you can use are Cypress, Selenium, Playwright, Storybook.
 
@@ -144,7 +135,6 @@ clicksStart: 1
 
 - **Regression test**: it ensures that new changes or updates do not break existing functionality in your application eg Jest , Mocha, Cypress.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -159,7 +149,6 @@ These tools offer a user-friendly interface within developer tools, making the d
 
 Additionally, they allow developers to step through the code, examining it line by line to understand precisely what&apos;s happening. Every modern browser comes with built-in DevTools. These browsers are <span class="text-green-400">Chrome, Firefox, and Edge</span>. Developer Tools(DevTools) allow us to inspect and change styles, examine the webpage's code(HTML, CSS and Javascript), simulate different devices, debug Javascript, find memory and performance issues. Right click on a webpage and click `Inspect` to open the DevTools.
 
-<v-clicks>
 
 1. **Elements**: Inspects and modifies HTML/CSS in real time, displaying the DOM structure.
 2. **Console**: Logs errors, messages, and allows execution of JavaScript for debugging.
@@ -169,7 +158,6 @@ Additionally, they allow developers to step through the code, examining it line 
 6. **Lighthouse**: Audits page performance, accessibility, and SEO, providing improvement suggestions.
 7. **Memory**: Analyzes memory usage, helping detect and resolve memory leaks.
 
-</v-clicks>
 
 ---
 hideInToc: true

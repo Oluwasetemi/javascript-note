@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 class: center
 hideInToc: true
 ---
@@ -1771,7 +1771,7 @@ console.log(person1.name);
 
 ---
 hideInToc: true
-transition: slide-up
+transition: none
 ---
 
 # Assignment or Class Activity

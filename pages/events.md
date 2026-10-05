@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -18,12 +18,10 @@ hideInToc: true
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Events: Basic Concepts
 
-<v-clicks>
 
 Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired. Its like a signal that something has happened. All DOM nodes generate such signals when we interact with them or the browser does something with them. Here are some examples of events:
 
@@ -37,7 +35,6 @@ Handlers are functions that run in response to events. They can be assigned to h
 <button onclick="console.log('Click!')">Click me</button>
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -54,7 +51,6 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 </script>
 ```
 
-<v-clicks>
 
 The `addEventListener` method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with `removeEventListener`.
 
@@ -66,7 +62,6 @@ The `addEventListener` method allows adding multiple handlers on the same event,
 </script>
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -75,7 +70,6 @@ name: Syntax of addEventListener
 
 # [`element.addEventListener(event, handler, [options|useCapture]);`](https://mdn.io/addEventListener)
 
-<v-clicks>
 
 event - type of event to listen for, e.g. "click", "keydown", etc.
 
@@ -100,7 +94,6 @@ elem.addEventListener('click', handler, { once: true })
 
 Let us see what is an event object and how to use it.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -108,7 +101,6 @@ hideInToc: true
 
 # Event Object
 
-<v-clicks>
 
 When an event happens, the browser creates an event object, puts details into it, and passes it as an argument to the handler.
 
@@ -140,16 +132,13 @@ elem.addEventListener('click', function (event) {
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Events: Bubbling and Capturing
 
-<v-clicks>
 
 When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. This is called "bubbling". The bubbling principle is simple. When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. Capturing is the opposite. The event starts from the top element(top most parent) and goes down to the target element.
 
@@ -172,7 +161,6 @@ You can stop the bubbling by calling `event.stopPropagation()` or `event.stopImm
   <Clickme />
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -180,7 +168,6 @@ hideInToc: true
 
 # Events: Bubbling and Capturing
 
-<v-clicks>
 
 ```js {monaco-run} {autorun: false}
 const elem = document.querySelector(`[data-slidev-no="288"] h1`)
@@ -198,7 +185,6 @@ grandParent.addEventListener('click', listener)
 // document.body.addEventListener('click', listener);
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -206,7 +192,6 @@ hideInToc: true
 
 # Events: Capturing
 
-<v-clicks>
 
 Knowing the bubbling and capturing principles can be useful. For instance, if we want to catch an event on the way down, we can use the capturing phase especially during a concept called "event delegation".
 
@@ -222,16 +207,13 @@ for (let elem of elems) {
 }
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Events: Event Delegation
 
-<v-clicks>
 
 Event delegation is a technique involving adding a single event listener to a common parent rather than adding them to multiple child nodes. The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
 
@@ -251,7 +233,6 @@ Event delegation is a technique involving adding a single event listener to a co
 </script>
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -329,12 +310,10 @@ Event delegation is really cool! It’s one of the most helpful patterns for DOM
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Events: Browser Default Actions
 
-<v-clicks>
 
 <a href="https://oluwasetemi.dev">My Website</a>
 
@@ -358,16 +337,13 @@ h1.oncontextmenu = function (event) {
 }
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Events: Dispatching Custom Events
 
-<v-clicks>
 
 Custom events are events that we can create ourselves. They are supported by all browsers. They are a way to communicate between different parts of our UIs. We can create a new event object using the `CustomEvent` constructor and dispatch it on an element using the `dispatchEvent` method.
 
@@ -388,7 +364,6 @@ interface CustomEventInit<T = any> extends EventInit {
 
 Next we will see how to create a custom event and dispatch it(programatically trigger it).
 
-</v-clicks>
 
 ---
 hideInToc: true

@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -23,7 +23,6 @@ hideInToc: true
 
 # Mouse events
 
-<v-clicks>
 
 JavaScript mouse events are actions that can be detected by a web page when the user interacts with the mouse. These interactions are crucial for executing scripts on user actions, making websites more interactive.
 
@@ -43,7 +42,6 @@ Key Mouse Events
 
 - `contextmenu`: Fired when the right mouse button is pressed on an element to open the context menu.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -51,7 +49,6 @@ hideInToc: true
 
 # Implementing Basic Mouse Event Handlers
 
-<v-clicks>
 
 Example: Creating a Clickable Button
 
@@ -68,7 +65,6 @@ Consider a button that changes its color every time it is clicked. This simple i
 </script>
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -76,7 +72,6 @@ hideInToc: true
 
 # mouseover/out, mouseenter/leave
 
-<v-clicks>
 
 Mouse movement events in JavaScript provide developers with the ability to react to the cursor's movement over elements within a web page.
 
@@ -115,7 +110,6 @@ document.getElementById('box')
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -123,7 +117,6 @@ hideInToc: true
 
 # Events mouseenter and mouseleave
 
-<v-clicks>
 
 - Events mouseenter/mouseleave do not bubble
 
@@ -161,7 +154,6 @@ function mouselog(event) {
 
 `event.button` is a number that represents the mouse button that was pressed when the event was triggered. The value is 0 for the left button, 1 for the middle button, and 2 for the right button. 3 and 4 are additional buttons depending on the mouse.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -169,7 +161,6 @@ hideInToc: true
 
 # Modifier keys: Shift, Alt, Ctrl, Meta
 
-<v-clicks>
 
 <div class="text-[10px] leading-tight">
 
@@ -226,7 +217,6 @@ Coordinates: clientX/clientY, pageX/pageY
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -241,7 +231,6 @@ layout: full
 
 # Drag'n'Drop with mouse events
 
-<v-clicks>
 
 Drag-and-drop is a user interface interaction that allows users to grab an object and move it to a different location on the screen. The basic algorithm: (1) `mousedown` - prepare element, (2) `mousemove` - move element, (3) `mouseup` - drop and cleanup.
 
@@ -279,7 +268,6 @@ Drag-and-drop is a user interface interaction that allows users to grab an objec
 
 **Key points:** Use `mousedown` to start, `mousemove` on document to track, `mouseup` to stop. Disable native drag with `ondragstart = () => false`.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -288,7 +276,6 @@ layout: full
 
 # Pointer events
 
-<v-clicks>
 
 Pointer events are a modern way to handle input from a variety of pointing devices, such as a mouse, a pen/stylus, a touchscreen, and so on.
 Pointer events are named similarly to mouse events. With just three different events such as.
@@ -307,7 +294,6 @@ Pointer events are named similarly to mouse events. With just three different ev
 
 `pressure`: the pressure of the pointer tip, in range from 0 to 1. For devices that don’t support pressure must be either 0.5 (pressed) or 0.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -315,7 +301,6 @@ hideInToc: true
 
 # Keyboard: keydown and keyup
 
-<v-clicks>
 
 Before we get to keyboard, please note that on modern devices there are other ways to “input something”. For instance, people use speech recognition (especially on mobile devices) or copy/paste with the mouse.
 
@@ -332,7 +317,6 @@ For instance, the same key Z can be pressed with or without Shift. That gives us
 
 The `event.key` is exactly the character, and it will be different. But event.code is the same:
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -341,7 +325,6 @@ class: overflow-y-auto
 
 # Scrolling
 
-<v-clicks>
 
 The scroll event allows reacting to a page or element scrolling. There are quite a few good things we can do here.
 
@@ -362,4 +345,3 @@ The scroll event works both on the window and on scrollable elements.
 
 <Scroll />
 
-</v-clicks>

@@ -48,37 +48,30 @@ h6 {
   background-color: black !important;
 }
 
-/* Transitions */
+/* Transitions - disabled */
+:root {
+  --slidev-transition-duration: 0ms !important;
+}
+
 .slidev-vclick-target {
-  transition:
-    opacity 500ms ease,
-    filter 200ms ease,
-    color 300ms ease;
+  transition: none !important;
 }
 
 .slidev-vclick-hidden {
-  opacity: 0;
-  pointer-events: none;
-  filter: blur(3px);
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  filter: none !important;
 }
 
-.fade-out-leave-active {
-  transition:
-    opacity calc(var(--slidev-transition-duration) * 0.6) ease-out,
-    filter 200ms ease;
-}
-
+.fade-out-leave-active,
 .fade-out-enter-active {
-  transition:
-    opacity calc(var(--slidev-transition-duration) * 0.8) ease-in,
-    filter 200ms ease;
-  transition-delay: calc(var(--slidev-transition-duration) * 0.6);
+  transition: none !important;
 }
 
 .fade-out-enter-from,
 .fade-out-leave-to {
-  opacity: 0;
-  filter: blur(5px);
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 .slidev-code .line {
@@ -139,66 +132,7 @@ h6 {
   background: #161616ee;
 }
 
-/* Balance */
-
-/* ---- */
-
-@keyframes balance-shake {
-  0% {
-    transform: rotate(13deg);
-  }
-  50% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(13deg);
-  }
-}
-
-@keyframes balance-move-left {
-  0% {
-    transform: translate(0, -27px);
-  }
-  50% {
-    transform: translate(3px, -40px);
-  }
-  100% {
-    transform: translate(0, -27px);
-  }
-}
-
-@keyframes balance-move-right {
-  0% {
-    transform: translate(-7px, 25px);
-  }
-  50% {
-    transform: translate(-12px, 38px);
-  }
-  100% {
-    transform: translate(-7px, 25px);
-  }
-}
-
-.animate-balance-shake {
-  transform: rotate(13deg);
-  animation: balance-shake 3s infinite;
-  animation-delay: 1s;
-  animation-timing-function: ease;
-}
-
-.animate-balance-move-left {
-  transform: translate(0, -27px);
-  animation: balance-move-left 3s infinite;
-  animation-delay: 1s;
-  animation-timing-function: ease;
-}
-
-.animate-balance-move-right {
-  transform: translate(-7px, 25px);
-  animation: balance-move-right 3s infinite;
-  animation-delay: 1s;
-  animation-timing-function: ease;
-}
+/* Balance - animations removed */
 
 .slidev-code {
   backdrop-filter: blur(10px);
