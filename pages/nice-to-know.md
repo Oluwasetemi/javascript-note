@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -632,7 +632,7 @@ obj = null
 
 ---
 hideInToc: true
-transition: slide-up
+transition: none
 ---
 
 # Summary

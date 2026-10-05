@@ -1,6 +1,6 @@
 ---
 layout: two-cols
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -325,9 +325,9 @@ hideInToc: true
 The `u` flag enables proper Unicode support:
 
 <ul class="text-xs leading-tight mt-3">
-<li v-click>Correct handling of surrogate pairs</li>
-<li v-click>Unicode property escapes `\p{...}`</li>
-<li v-click>Proper character counting</li>
+<li>Correct handling of surrogate pairs</li>
+<li>Unicode property escapes `\p{...}`</li>
+<li>Proper character counting</li>
 </ul>
 
 <div class="mt-4 text-xs">
@@ -403,9 +403,9 @@ Anchors don't match characters - they match **positions** in the text.
 ### Common Use Cases
 
 <ul class="text-xs leading-tight">
-<li v-click>Validate entire input (e.g., email, phone)</li>
-<li v-click>Check if string starts/ends with pattern</li>
-<li v-click>Ensure exact match (no extra characters)</li>
+<li>Validate entire input (e.g., email, phone)</li>
+<li>Check if string starts/ends with pattern</li>
+<li>Ensure exact match (no extra characters)</li>
 </ul>
 
 </div>
@@ -529,9 +529,9 @@ hideInToc: true
 ### Three boundary positions:
 
 <ul class="text-xs leading-tight">
-<li v-click>Between word char and non-word char</li>
-<li v-click>At string start (if starts with word char)</li>
-<li v-click>At string end (if ends with word char)</li>
+<li>Between word char and non-word char</li>
+<li>At string start (if starts with word char)</li>
+<li>At string end (if ends with word char)</li>
 </ul>
 
 </div>
@@ -927,9 +927,9 @@ hideInToc: true
 Parentheses `()` create groups that:
 
 <ul class="text-xs leading-tight mt-2">
-<li v-click>**Capture** matched text for later use</li>
-<li v-click>Allow **quantifiers** on multiple characters</li>
-<li v-click>Enable **extraction** of specific parts</li>
+<li>**Capture** matched text for later use</li>
+<li>Allow **quantifiers** on multiple characters</li>
+<li>Enable **extraction** of specific parts</li>
 </ul>
 
 <div class="mt-4 text-xs">

@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -23,10 +23,8 @@ hideInToc: true
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
-<v-clicks>
 
 # Fetch
 
@@ -45,7 +43,6 @@ let promise = fetch(url, [options])
 - <kbd>url</kbd> – the URL to access.
 - <kbd>options</kbd> – optional parameters: method, headers etc.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -226,7 +223,6 @@ hideInToc: true
 
 # Form Data
 
-<v-clicks>
 FormData is a built-in JavaScript object that makes it easy to construct a set of key/value pairs representing form fields and their values. It's particularly useful for:
 
 - Sending form data through fetch API
@@ -240,7 +236,6 @@ FormData is a built-in JavaScript object that makes it easy to construct a set o
 - Multipart Encoding: Automatically encoded as multipart/form-data
 - Flexible Modification: Can add, modify, or delete fields after creation
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -248,7 +243,6 @@ hideInToc: true
 
 ### Core Methods
 
-<v-clicks>
 
 <div className="w-full max-w-4xl mx-auto rounded-lg border border-blue-200 overflow-hidden">
       <div className="overflow-x-auto">
@@ -316,7 +310,6 @@ hideInToc: true
       </div>
       </div>
     </div>
-</v-clicks>
 
 ---
 hideInToc: true
@@ -324,7 +317,6 @@ hideInToc: true
 
 # Common Use Cases
 
-<v-clicks>
 
 ````md magic-move
 ```js
@@ -380,7 +372,6 @@ canvas.toBlob((blob) => {
 ```
 ````
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -568,7 +559,6 @@ hideInToc: true
 
 # Processing the Downloaded Data
 
-<v-clicks>
 
 ##### After receiving all chunks, you have two main options:
 
@@ -594,7 +584,6 @@ const blob = new Blob(chunks)
 ```
 ````
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -727,7 +716,6 @@ hideInToc: true
 
 <h4>Unsafe Requests Flow (with Preflight)</h4>
 
-<v-clicks>
 
 <div className="max-w-md items-center  mx-auto ">
 
@@ -750,7 +738,6 @@ sequenceDiagram
 ```
 
 </div>
-</v-clicks>
 
 ---
 hideInToc: true
@@ -872,7 +859,6 @@ hideInToc: true
 
 # URL Handling
 
-<v-clicks>
 
 JavaScript provides a built-in URL class that makes working with URLs easier and safer. While you can use strings for URLs, the URL object provides convenient methods for parsing and manipulating URLs.
 
@@ -896,7 +882,6 @@ graph LR
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -904,7 +889,6 @@ hideInToc: true
 
 ### Creating URL Objects
 
-<v-clicks>
 
 ````md magic-move
 ```js
@@ -936,7 +920,6 @@ let url = new URL('https://example.com/path?name=test#section')
 // console.log(url.hash) // "#section"
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -944,7 +927,6 @@ hideInToc: true
 
 ##### The searchParams property provides a powerful interface for handling query parameters
 
-<v-clicks>
 
 ```js {monaco-run} {autorun: false}
 let url = new URL('https://example.com/search')
@@ -971,7 +953,6 @@ url.searchParams.sort()
 // console.log(url.toString()) // https://example.com/search?query=JavaScript+Tutorial&tag=JavaScript&tag=Tutorial
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1210,7 +1191,6 @@ hideInToc: true
 
 # XMLHttpRequest
 
-<v-clicks>
 XMLHttpRequest (XHR) is a built-in browser object that enables making HTTP requests in JavaScript. Despite its name, it can handle any type of data, not just XML.
 
 <Tips type="tip">While XHR is still widely used, the modern fetch API is now preferred for new projects. XHR is mainly used for:
@@ -1234,7 +1214,6 @@ graph LR
     style D fill:#fbb,stroke:#333,color:black
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1270,7 +1249,6 @@ hideInToc: true
 
 # XHR Lifecycle
 
-<v-clicks>
 
 <div class=" mx-auto max-w-xs">
 
@@ -1297,7 +1275,6 @@ sequenceDiagram
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1305,7 +1282,6 @@ hideInToc: true
 
 # Key Components
 
-<v-clicks>
 
  <h4 class="text-2xl font-bold text-white">Response Types</h4>
  <div class="flex gap-10">
@@ -1355,7 +1331,6 @@ xhr.send();
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1415,7 +1390,6 @@ hideInToc: true
 
 # Handling POST Requests
 
-<v-clicks>
 
 #### Using FormData
 
@@ -1443,7 +1417,6 @@ xhr.setRequestHeader('Content-Type', 'application/json')
 xhr.send(JSON.stringify(data))
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1780,7 +1753,6 @@ hideInToc: true
 
 1. File Identification
 
-<v-clicks>
 
 ```js
 // Generate a unique file ID
@@ -1805,7 +1777,6 @@ async function checkUploadStatus(fileId) {
 }
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2066,7 +2037,6 @@ hideInToc: true
 
 # Understanding Long Polling
 
-<v-clicks>
 
 #### Regular Polling
 
@@ -2084,7 +2054,6 @@ hideInToc: true
 
 Long polling is an improved version of regular polling where the server holds the connection open until it has new data to send. Think of it like saying "I'll call you when dinner is ready" instead of asking "Is dinner ready?" every few minutes.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2092,7 +2061,6 @@ hideInToc: true
 
 #### How Long Polling Works:
 
-<v-clicks>
 
 - Initial Request: Client sends a request to the server
 - Waiting Phase: Server holds the connection open
@@ -2120,7 +2088,6 @@ async function longPoll() {
 longPoll()
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2166,7 +2133,6 @@ hideInToc: true
 
 ### Error Handling Best Practices
 
-<v-clicks>
 
 Connection Timeout:
 
@@ -2199,7 +2165,6 @@ if (response.status !== 200) {
 }
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2207,7 +2172,6 @@ hideInToc: true
 
 #### What is WebSocket?
 
-<v-clicks>
 
 WebSocket is a protocol that enables two-way persistent communication between a browser and a server. Unlike traditional HTTP, it maintains an open connection, allowing real-time data exchange without repeated requests.
 Perfect for:
@@ -2217,7 +2181,6 @@ Perfect for:
 - <span class="i-mdi-chat inline-block" /> Chat applications
 - <span class="i-mdi-chart-bar inline-block" /> Live data dashboards
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2225,7 +2188,6 @@ hideInToc: true
 
 # Implementation
 
-<v-clicks>
 
 ```js
 // Creating a WebSocket connection
@@ -2253,7 +2215,6 @@ socket.onclose = (event) => {
 }
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2460,7 +2421,6 @@ hideInToc: true
 
 #### Error Handling Example
 
-<v-clicks>
 
 ```js
 socket.onclose = (event) => {
@@ -2495,7 +2455,6 @@ socket.onmessage = (event) => {
 }
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2503,7 +2462,6 @@ hideInToc: true
 
 # Server-Sent Events?
 
-<v-clicks>
 
 ##### Server-Sent Events (SSE) is a technology that enables servers to push real-time updates to web browsers. It's a one-directional communication channel where the server can send data to the client over a persistent HTTP connection.
 
@@ -2586,7 +2544,6 @@ hideInToc: true
         </div>
     </div>
 
-  </v-clicks>
 
 ---
 hideInToc: true
@@ -2623,7 +2580,6 @@ hideInToc: true
 
 # Example
 
-<v-clicks>
 
 ````md magic-move
 ```js
@@ -2657,7 +2613,6 @@ data: {"username": "John", "time": "2024-10-25"}
 ```
 ````
 
-</v-clicks>
 
 ---
 hideInToc: true

@@ -25,7 +25,7 @@ class: text-center
 highlighter: shiki
 drawings:
   persist: false
-transition: slide-left
+transition: none
 mdc: true
 hideInToc: true
 overviewSnapshots: false
@@ -116,12 +116,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Fundamentals of </span>
+<div text-2xl origin-top-left>
+  <span>Fundamentals of </span>
   <span>JavaScript</span>
-  <sup v-click>let, functions, loop, if</sup>
+  <sup>let, functions, loop, if</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Building Blocks <span class="i-mdi-view-grid inline-block" /></div>
+<div mt1>Building Blocks <span class="i-mdi-view-grid inline-block" /></div>
 </h1>
 
 ---
@@ -134,12 +134,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Code </span>
+<div text-2xl origin-top-left>
+  <span>Code </span>
   <span>Quality </span>
-  <sup v-click>linter, formater, test, types</sup>
+  <sup>linter, formater, test, types</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Importance Spice for Quality Development</div>
+<div mt1>Importance Spice for Quality Development</div>
 </h1>
 
 ---
@@ -152,12 +152,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Data </span>
+<div text-2xl origin-top-left>
+  <span>Data </span>
   <span>Types </span>
-  <sup v-click>string, bigint, numbers, object</sup>
+  <sup>string, bigint, numbers, object</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Type of Data</div>
+<div mt1>Type of Data</div>
 </h1>
 
 ---
@@ -170,12 +170,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Functions </span>
+<div text-2xl origin-top-left>
+  <span>Functions </span>
   <span>in JavaScript </span>
-  <sup v-click>recursion, closure, arrow</sup>
+  <sup>recursion, closure, arrow</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Deep Dive into Functions</div>
+<div mt1>Deep Dive into Functions</div>
 </h1>
 
 ---
@@ -188,12 +188,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Object in </span>
+<div text-2xl origin-top-left>
+  <span>Object in </span>
   <span> JavaScript </span>
-  <sup v-click>{}, property, value</sup>
+  <sup>{}, property, value</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Dive Deep into Object</div>
+<div mt1>Dive Deep into Object</div>
 </h1>
 
 ---
@@ -206,12 +206,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Prototypal </span>
+<div text-2xl origin-top-left>
+  <span>Prototypal </span>
   <span>Inheritance</span>
-  <sup v-click>recursion, closure, arrow</sup>
+  <sup>recursion, closure, arrow</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Understanding the Prototypal Nature of JavaScript</div>
+<div mt1>Understanding the Prototypal Nature of JavaScript</div>
 </h1>
 
 ---
@@ -224,12 +224,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Error </span>
+<div text-2xl origin-top-left>
+  <span>Error </span>
   <span>Handling </span>
-  <sup v-click>e.message, Error, SyntaxError</sup>
+  <sup>e.message, Error, SyntaxError</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Handle your mistakes</div>
+<div mt1>Handle your mistakes</div>
 </h1>
 
 ---
@@ -242,12 +242,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Promise and </span>
+<div text-2xl origin-top-left>
+  <span>Promise and </span>
   <span>Async </span>
-  <sup v-click>fetch, async, await</sup>
+  <sup>fetch, async, await</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Asynchronous Programming</div>
+<div mt1>Asynchronous Programming</div>
 </h1>
 
 ---
@@ -260,12 +260,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Modules in</span>
+<div text-2xl origin-top-left>
+  <span>Modules in</span>
   <span> JavaScript </span>
-  <sup v-click>export, import, dynamic imports</sup>
+  <sup>export, import, dynamic imports</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Organize your code</div>
+<div mt1>Organize your code</div>
 </h1>
 
 ---
@@ -278,12 +278,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>Nice to know </span>
+<div text-2xl origin-top-left>
+  <span>Nice to know </span>
   <span>Concepts </span>
-  <sup v-click>generators, proxy, currying, <span class="i-mdi-auto-fix inline-block" />code</sup>
+  <sup>generators, proxy, currying, <span class="i-mdi-auto-fix inline-block" />code</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Async Iterators, Eval, and Reflect</div>
+<div mt1>Async Iterators, Eval, and Reflect</div>
 </h1>
 
 ---
@@ -296,12 +296,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>document.</span>
+<div text-2xl origin-top-left>
+  <span>document.</span>
   <span>*</span>
-  <sup v-click>document, window, navigator</sup>
+  <sup>document, window, navigator</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Document Object Model</div>
+<div mt1>Document Object Model</div>
 </h1>
 
 ---
@@ -314,12 +314,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>browser </span>
+<div text-2xl origin-top-left>
+  <span>browser </span>
   <span>event</span>
-  <sup v-click>e.target, bubbling, capturing</sup>
+  <sup>e.target, bubbling, capturing</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Handling Events In JavaScript</div>
+<div mt1>Handling Events In JavaScript</div>
 </h1>
 
 ---
@@ -332,12 +332,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>ui </span>
+<div text-2xl origin-top-left>
+  <span>ui </span>
   <span>event</span>
-  <sup v-click>mouse, pointer, keyboard, scroll</sup>
+  <sup>mouse, pointer, keyboard, scroll</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Handling UI Events</div>
+<div mt1>Handling UI Events</div>
 </h1>
 
 ---
@@ -350,12 +350,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>form </span>
+<div text-2xl origin-top-left>
+  <span>form </span>
   <span>controls</span>
-  <sup v-click>methods, form-events, validation</sup>
+  <sup>methods, form-events, validation</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Controlling Forms In JavaScript</div>
+<div mt1>Controlling Forms In JavaScript</div>
 </h1>
 
 ---
@@ -368,12 +368,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>resource </span>
+<div text-2xl origin-top-left>
+  <span>resource </span>
   <span>loading</span>
-  <sup v-click>page, load, unload, scripts</sup>
+  <sup>page, load, unload, scripts</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Document Resource Loading</div>
+<div mt1>Document Resource Loading</div>
 </h1>
 
 ---
@@ -386,12 +386,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>deep </span>
+<div text-2xl origin-top-left>
+  <span>deep </span>
   <span>browser stuffs</span>
-  <sup v-click>web apis, popups, file, local storage</sup>
+  <sup>web apis, popups, file, local storage</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Frames & Windows, Storing Data, Animation</div>
+<div mt1>Frames & Windows, Storing Data, Animation</div>
 </h1>
 
 ---
@@ -404,12 +404,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>beyond </span>
+<div text-2xl origin-top-left>
+  <span>beyond </span>
   <span>beginner browser js</span>
-  <sup v-click>observers, workers, event loop</sup>
+  <sup>observers, workers, event loop</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Going Deeper</div>
+<div mt1>Going Deeper</div>
 </h1>
 
 ---
@@ -422,12 +422,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>network </span>
+<div text-2xl origin-top-left>
+  <span>network </span>
   <span>requests <span class="i-mdi-wifi inline-block" /></span>
-  <sup v-click>fetch, sockets, server-sent events</sup>
+  <sup>fetch, sockets, server-sent events</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Making API Calls</div>
+<div mt1>Making API Calls</div>
 </h1>
 
 ---
@@ -440,12 +440,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>web </span>
+<div text-2xl origin-top-left>
+  <span>web </span>
   <span>components</span>
-  <sup v-click>shadow dom, templates, slots</sup>
+  <sup>shadow dom, templates, slots</sup>
 </div>
-<div mt1 forward:delay-300 v-click>Custom HTML Element</div>
+<div mt1>Custom HTML Element</div>
 </h1>
 
 ---
@@ -458,12 +458,12 @@ layout: center
 ---
 
 <h1 flex="~ col">
-<div text-2xl origin-top-left transition duration-500 :class="$clicks <= 2 ? 'scale-150' : 'op50'">
-  <span v-click>regular </span>
+<div text-2xl origin-top-left>
+  <span>regular </span>
   <span class="text-yellow font-hand">expressions</span>
-  <sup v-click>patters, flags, anchors, boundary</sup>
+  <sup>patters, flags, anchors, boundary</sup>
 </div>
-<div mt1 forward:delay-300 text-gradient v-click>Pattern Matching In JavaScript</div>
+<div mt1 text-gradient>Pattern Matching In JavaScript</div>
 </h1>
 
 ---

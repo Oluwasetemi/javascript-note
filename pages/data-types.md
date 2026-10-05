@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 # Data Types
@@ -1512,7 +1512,6 @@ Same API applies to Set, but Set does not have keys, only values.
 
 ### Methods and properties are:<br>
 
-<v-clicks>
 <ul>
   <li><code>new Map()</code> / <code>new Set()</code> – creates the map or set.</li>
   <li><code>map.set(key, value)</code> / <code>set.add(value)</code> – stores the value by the key (Map) or adds a value (Set).</li>
@@ -1522,7 +1521,6 @@ Same API applies to Set, but Set does not have keys, only values.
   <li><code>map.clear()</code> / <code>set.clear()</code> – removes everything from the map or set.</li>
   <li><code>map.size</code> / <code>set.size</code> – returns the current element count.</li>
 </ul>
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2560,7 +2558,7 @@ console.log(JSON.stringify(regularUser), JSON.stringify(adminUser))
 
 ---
 hideInToc: true
-transition: slide-up
+transition: none
 ---
 
 # Assignment or Class Activity

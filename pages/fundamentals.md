@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -918,7 +918,7 @@ console.log(greetingMessage)
 
 ---
 hideInToc: true
-transition: slide-up
+transition: none
 ---
 
 # Assignment or Class Activity

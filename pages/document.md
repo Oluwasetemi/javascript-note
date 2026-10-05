@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -22,12 +22,10 @@ hideInToc: true
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # window, DOM, CSSOM and BOM
 
-<v-clicks>
 
 ECMAScript is a language specification. It doesn't cover the browser environment. The browser environment is provided by the host environment. The host environment provides the global object `window` and the `document` object. JavaScript contains the core language and the host environment provides the objects to interact with the browser environment.
 
@@ -39,16 +37,13 @@ JavaScript contains Object, Array, Function and many others as described by the 
 
 [BOM](https://html.spec.whatwg.org/){.text-gradient} - Browser Object Model is the interface between JavaScript and the browser. It allows JavaScript to interact with the browser. `window` object is the main object of the BOM. It represents the browser window. It allows web scripting - allowing JavaScript to interact with the browser as a interface to the host computer. It provides objects like `navigator`, `screen`, `location`, `history`, `XMLHttpRequest`, `setTimeout`, `setInterval` etc. Additional specification can be found [WHATWG](https://spec.whatwg.org/){.text-gradient}.
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # DOM tree and Walking the DOM
 
-<v-clicks>
 
 HTML tags are the core of DOM. The browser converts the HTML tags into a tree structure called the DOM tree. The DOM tree is a representation of the HTML tags in a tree structure. The DOM tree is a hierarchical representation of the HTML tags. The DOM tree is a collection of nodes. Each node is an object representing a part of the document.
 
@@ -64,16 +59,13 @@ The nodes are connected in a tree structure, parent-child relationship, sibling 
 
 <span>Comment <span class="i-mdi-forward color-amber">-></span></span>Comment Nodes
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # DOM, BOM and CSSOM {{ $page }}
 
-<v-clicks>
 
 ```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="262"]`)
@@ -106,11 +98,9 @@ This will lead us to the next section where we discuss the first steps in modify
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 layout: image
 name: DOM Traversal Image
 ---
@@ -127,7 +117,6 @@ hideInToc: true
 
 # Walking the DOM {{ $page }}
 
-<v-clicks>
 
 You can now traverse the DOM tree using the following based the relationships between the nodes:
 
@@ -147,16 +136,13 @@ const element = document.querySelector(`[data-slidev-no="264"]`)
 // console.log(element.nodeType);console.log(element.nodeName);console.log(element.nodeValue)
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Walking the DOM: Tables {{ $page }}
 
-<v-clicks>
 
 [Tables](https://html.spec.whatwg.org/multipage/tables.html) have a special structure. They have `rows`, `tBodies`, `tHead`, `tFoot` and `cells`. We will look at [forms](https://html.spec.whatwg.org/multipage/forms.html) later.
 
@@ -176,17 +162,15 @@ const table = document.querySelector(`[data-slidev-no="265"]`)
 //cells, //sectionRowIndex, //rowIndex, //cellIndex
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-transition: fade
-clicksStart: 1
+transition: none
 ---
 
 # Food for Thought{title="Use ChaptGPT for your research"}
 
-<div :class="$clicks >= 1 ? 'op50' : 'scale-70'">
+<div>
 
 - What is the difference between `childNodes` and `children`?
 - What is the difference between `NODELIST` and `HTMLCOLLECTION`?
@@ -194,7 +178,7 @@ clicksStart: 1
 
 </div>
 
-<v-click>
+
 
 <details>
 <summary>Answer</summary>
@@ -207,16 +191,14 @@ clicksStart: 1
 
 </details>
 
-</v-click>
+
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Searching: getElement*, querySelector* {{ $page }}
 
-<v-clicks>
 
 You can search for elements in the DOM tree using the following methods:
 
@@ -230,16 +212,13 @@ const element = document.querySelector(`[data-slidev-no="267"]`);
 // console.log(element.id); console.log(element.className); console.log(element.tagName); console.log(element.tagName.toLowerCase());console.log(element.name);
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Node properties: type, tag and contents {{ $page }}
 
-<v-clicks>
 
 Important classes to understand the node properties includes - `EventTarget`, `Node`, `Element`, `HTMLElement`-`HTMLBodyElement`-other interface discussed in the [HTML Note](https://karatu.oluwasetemi.dev/85), `Document`-`HTMLDocument`-`DocumentFragment`, `CharacterData`-`Text`-`Comment`.
 
@@ -258,16 +237,13 @@ const element = document.querySelector(`[data-slidev-no="268"]`);
 ```
 
 NB: other properties include `id`, `className`, `tagName`, `name`, `type`, `value`, `checked`, `selected`, `href`, `src`, `alt`, `title`, `lang`, `dir`, `style`, `dataset`, `attributes`, `classList`.
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Attributes and properties {{ $page }}
 
-<v-clicks>
 
 Attributes are the properties of the elements. They are the key-value pairs of the elements from the [convertion]{.text-xl.font-fast.text-red title='parsed or read'} of HTML to DOM. You can add your own properties to the element but the html attributes set is fixed according to the [specification](https://html.spec.whatwg.org/){.text-gradient}.
 
@@ -287,16 +263,13 @@ const element = document.querySelector(`[data-slidev-no="269"]`);
 // console.log(element.hasAttribute('data-slidev-no')); console.log(element.attributes);
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Modifying the document {{ $page }}
 
-<v-clicks>
 
 You can modify the document with several methods provided that the html has been written and parsed into the DOM tree. You can add, remove, replace, clone, insert, append, prepend, before, after. You can also create new elements, text nodes, comment nodes, document fragments, and document type nodes.
 
@@ -337,19 +310,16 @@ Consider the following `html` and `css`.
   <strong>Hi there!</strong> You've read an important message.
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
 name: modify the document continued
-clicksStart: 1
 ---
 
 <div class="p-[15px] border border-[#d6e9c6] rounded-[4px] bg-[#dff0d8] text-[#3c763d]">
   <strong>Hi there!</strong> You've read an important message. {{ $page }}
 </div>
 
-<v-clicks>
 
 Let us create this element using JavaScript.
 
@@ -371,16 +341,13 @@ element.prepend(div);
 More insertion methods are `append`, `before`, `after`, `replaceWith`, `remove`, `cloneNode`, `insertBefore`, `insertAdjacentElement`, `insertAdjacentHTML`, `insertAdjacentText`.
 
 `element.insertAdjacentElement('where', element);` // beforebegin, afterbegin, beforeend, afterend. Replace Element with HTML or Text.
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # DocumentFragment {{ $page }}
 
-<v-clicks>
 
 `DocumentFragment` is a lightweight container that can hold nodes. It is not part of the main DOM tree. It is used to hold nodes before they are inserted into the main DOM tree. It is used to improve performance when you want to insert multiple nodes at once.
 
@@ -403,16 +370,13 @@ const element = document.querySelector(`[data-slidev-no="272"] .default`);
 element.prepend(fragment);
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Styles and classes {{ $page }}
 
-<v-clicks>
 
 You can modify the styles and classes of the elements using the following methods:
 
@@ -432,7 +396,6 @@ element.classList.remove('alert'); element.classList.remove('p-[15px]'); element
 // console.log(getComputedStyle(element).color); console.log(getComputedStyle(element).backgroundColor); console.log(getComputedStyle(element).padding); console.log(getComputedStyle(element).border); console.log(getComputedStyle(element).borderRadius);
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -440,7 +403,6 @@ hideInToc: true
 
 # Element size and scrolling {{ $page }}
 
-<v-clicks>
 
 You can get the size and position of the elements using the following methods:
 
@@ -458,16 +420,13 @@ const element = document.querySelector(`[data-slidev-no="274"] .view-lines`);
 
 NB: `offsetWidth` includes padding, border, and scrollbar, `clientWidth` includes padding, `scrollWidth` includes padding and overflowed content. Accurate measurements are gotten from [`getBoundingClientRect`](https://mdn.io/getboundingclientrect) method. Its returns a `DOMRect` object with the size of an element and its position relative to the viewport. `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, `left`. Most geometry properties are read-only but `scrollLeft` and `scrollTop` can be changed.
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Window sizes and scrolling {{ $page }}
 
-<v-clicks>
 
 You can get the size and position of the window using the following methods:
 
@@ -487,12 +446,10 @@ You can get the size and position of the window using the following methods:
 
 NB: `innerWidth` and `innerHeight` are the viewport size but always prefer `document.documentElement`\* `clientHeight` and `clientWidth`, `outerWidth` and `outerHeight` are the window size, `scrollX` and `scrollY` are the scroll position, `screenX` and `screenY` are the screen position.
 
-</v-clicks>
 
 ---
 hideInToc: true
 name: More on Window sizes and scrolling
-clicksStart: 1
 ---
 
 ```js {monaco-run} {autorun: false}
@@ -504,10 +461,8 @@ window.addEventListener('resize', () => {
 ---
 hideInToc: true
 name: Getting the scrollHeight and scrollLeft
-clicksStart: 1
 ---
 
-<v-clicks>
 
 ```js
 let scrollHeight = Math.max(
@@ -531,16 +486,13 @@ You can disable the scrolling using `overflow: hidden` on the `html` or `body` e
 document.body.style.overflow = 'hidden' // enable by setting it to ''
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
-clicksStart: 1
 ---
 
 # Coordinates {{ $page }}
 
-<v-clicks>
 
 This allow movement of elements on the screen and can be done relative to the window similar to the behavior of `position: fixed` `clientY` or `clientX` or relative to the document similar to the behavior of `position: absolute` `pageY` or `pageX`.Back to `getBoundingClientRect` methods, it returns a `DOMRect` object with the size of an element and its position relative to the viewport. `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, `left`. `x/y` and `width/height` full describes the rectangle.
 
@@ -557,12 +509,10 @@ function getCoords(elem) { let box = elem.getBoundingClientRect(); return { top:
 // console.log(getCoords(element));
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
 name: Class Activity
-clicksStart: 1
 ---
 
 Build out the content of the image with html,css. Use JavaScript to append a note(tooltip) on all the three corners of an element as shown in the image. Create a function `positionAt(anchor, position, elem)` that positions elem, depending on position near anchor element. Position can be `top`, `right`, `bottom` according to the image.
@@ -574,7 +524,6 @@ BONUS: The function should be able to handle the case when there is not enough s
 ---
 hideInToc: true
 name: Assignment
-clicksStart: 1
 ---
 
 # Assignment

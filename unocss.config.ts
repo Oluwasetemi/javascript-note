@@ -11,7 +11,7 @@ export default mergeConfigs([
       'text-common': 'text-[#5D8392]',
       'form-basic':
         'p-1 text-sm border border-blue border-2 focus:outline-none',
-      logo: 'i-logos-react w-6em h-6em transform transition-800 hover:rotate-180',
+      logo: 'i-logos-react w-6em h-6em transform',
       btn: 'px-4 py-1 bg-blue-500 text-white rounded',
       card: 'p-4 shadow-md border rounded-lg',
       input:

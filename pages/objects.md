@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -987,7 +987,7 @@ A common pattern is using a getter to compute a derived value and a setter to va
 
 ---
 hideInToc: true
-transition: slide-up
+transition: none
 ---
 
 # Assignment or Class Activity

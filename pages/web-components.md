@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -24,7 +24,6 @@ hideInToc: true
 
 # Basics
 
-<v-clicks>
 
 ##### Web Components represent a significant leap forward in web development, offering developers the ability to create reusable, encapsulated components that work seamlessly across different frameworks and libraries. This introduction will help you understand what Web Components are, why they matter, and how they can transform your approach to building web applications.
 
@@ -32,7 +31,6 @@ hideInToc: true
 
 ##### At their core, Web Components are a set of standardized web platform APIs that allow you to create new, custom, reusable HTML elements. Imagine being able to create your own <kbd>custom-datepicker</kbd> or <kbd>advanced-carousel</kbd> that works just like native HTML elements such as <kbd>select</kbd> or <kbd>video</kbd>. That's exactly what Web Components enable!
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -40,7 +38,6 @@ hideInToc: true
 
 ## Why Web Components Matters
 
-<v-clicks>
 
  <div class="max-w-4xl mx-auto">  
  <div class="h-[400px] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
@@ -150,7 +147,6 @@ hideInToc: true
         </div>
     </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -158,7 +154,6 @@ hideInToc: true
 
 ## The Three Pillars of Web Components
 
-<v-clicks>
 
  <div class="max-w-4xl mx-auto">  
  <div class="h-[400px] overflow-y-auto rounded-lg shadow-inner bg-white p-4">
@@ -250,7 +245,6 @@ hideInToc: true
         </div>
     </div>
 
-   </v-clicks>
 
 ---
 hideInToc: true
@@ -300,7 +294,6 @@ hideInToc: true
 
 # Custom Elements
 
-<v-clicks>
 
 #### What are Custom Elements? <span class="i-mdi-help-circle-outline inline-block" />
 
@@ -428,7 +421,6 @@ hideInToc: true
       </div>
     </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -454,7 +446,6 @@ hideInToc: true
 
 # Creating Custom Elements <span class="i-mdi-wrench inline-block" />
 
-<v-clicks>
 ```js
 class MyElement extends HTMLElement {
     constructor() {
@@ -478,7 +469,6 @@ class MyElement extends HTMLElement {
 // Register the element
 customElements.define('my-element', MyElement);
 ```
-</v-clicks>
 
 ---
 hideInToc: true
@@ -615,7 +605,6 @@ hideInToc: true
 
 # Common Pitfalls to Avoid <span class="i-mdi-alert inline-block" />
 
-<v-clicks>
 
 <Tips type="danger">
 <ul>
@@ -631,7 +620,6 @@ hideInToc: true
 </ul>
 </Tips>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -639,7 +627,6 @@ hideInToc: true
 
 # Shadow DOM
 
-<v-clicks>
 
 #### Shadow DOM is a web standard that provides encapsulation for HTML, CSS, and JavaScript. Think of it as creating a "private" DOM tree inside your element that's isolated from the main document.
 
@@ -662,7 +649,6 @@ graph TD
 
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -703,7 +689,6 @@ hideInToc: true
 
 ## Practical Examples
 
-<v-clicks>
 
 ````md magic-move
 ```js
@@ -749,7 +734,6 @@ graph LR
     style B fill:#bbf,stroke:#333,color:black
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -950,7 +934,6 @@ hideInToc: true
 
 ##### Key Characteristics
 
-<v-clicks>
 
 <div class="text-sm">
 
@@ -982,7 +965,6 @@ hideInToc: true
 </div>
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1234,7 +1216,6 @@ hideInToc: true
 
 # Shadow DOM Slots and Composition
 
-<v-clicks>
 
 ##### Shadow DOM slots provide a powerful way to create reusable web components that can accept and render external content. Think of slots as "holes" in your shadow DOM where you can insert content from the light DOM (regular DOM).
 
@@ -1249,7 +1230,6 @@ graph TD
     style C fill:#bfb,stroke:#333,stroke-width:2px,color:black
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1257,7 +1237,6 @@ hideInToc: true
 
 # Types of Slots
 
-<v-clicks>
 
 1. Named Slots
    Named slots are specific placement points identified by a name attribute. Content from the light DOM must have a matching slot attribute to be inserted into these slots.
@@ -1275,7 +1254,6 @@ hideInToc: true
 </custom-element>
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1283,7 +1261,6 @@ hideInToc: true
 
 # CONTD
 
-<v-clicks>
 
 2. Default Slot
    The default slot (unnamed) captures all light DOM content that isn't assigned to a specific named slot.
@@ -1302,7 +1279,6 @@ hideInToc: true
 </custom-element>
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1522,7 +1498,6 @@ hideInToc: true
 
 Important slot-related methods:
 
-<v-clicks>
 
 1. <kbd>node.assignedSlot</kbd>
 
@@ -1544,7 +1519,6 @@ const elements = slot.assignedElements()
 const targetSlot = element.assignedSlot
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1564,7 +1538,6 @@ hideInToc: true
 
 ## Shadow DOM CSS
 
-<v-clicks>
 
 Shadow DOM is a powerful web component feature that provides encapsulation for HTML, CSS, and JavaScript. This guide will explain how to style Shadow DOM elements effectively.
 
@@ -1586,7 +1559,6 @@ graph TD
     style C fill:#bbf,stroke:#333,stroke-width:2px,color:black
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1702,7 +1674,6 @@ hideInToc: true
 
 ## Two Ways to Style Slots:
 
-<v-clicks>
 
 ```mermaid
 graph TD
@@ -1741,7 +1712,6 @@ slot[name='username'] {
 
 </div>
 </div>
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1749,7 +1719,6 @@ hideInToc: true
 
 6. CSS Custom Properties for Styling
 
-<v-clicks>
 
 Custom properties (CSS variables) can pierce through shadow DOM boundaries, making them perfect for styling components from outside.
 
@@ -1780,7 +1749,6 @@ user-card {
 </div>
 </div>
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1881,7 +1849,6 @@ hideInToc: true
 
 ### Shadow DOM and Event
 
-<v-clicks>
 
 Shadow DOM is like a private, encapsulated space within an HTML element (called the host element) that keeps its internal implementation details hidden from the main document.
 
@@ -1895,7 +1862,6 @@ graph TD
     style D fill:#e6ffe6,stroke:#7ed321
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1903,7 +1869,6 @@ hideInToc: true
 
 ### Event Retargeting
 
-<v-clicks>
 
 When events occur inside a shadow DOM, the browser performs "event retargeting" to maintain encapsulation. Here's how it works:
 
@@ -1927,7 +1892,6 @@ Event handling behavior:
 - Inside Shadow DOM: Event target is the actual element (e.g., <kbd>button</kbd>)
 - Outside Shadow DOM: Event target becomes the host element (e.g., <kbd>user-card</kbd>)
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -1952,7 +1916,6 @@ hideInToc: true
 
 ### Slotted Elements and Event Handling
 
-<v-clicks>
 
 Slotted elements are special because they physically exist in the light DOM (main document) but appear inside the shadow DOM. They have unique event handling behavior:
 
@@ -1981,7 +1944,6 @@ customElements.define(
 
 <b>Key point:</b> Events on slotted elements don't get retargeted because they're actually part of the light DOM.
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2014,7 +1976,6 @@ hideInToc: true
 
 ## Event Bubbling and composedPath()
 
-<v-clicks>
 
 Events bubble through the "flattened" DOM structure, which includes both light and shadow DOM elements. The event.composedPath() method reveals the full path:
 
@@ -2028,7 +1989,6 @@ event.composedPath()
 
 Events have a composed property that determines if they can cross shadow DOM boundaries:
 
-</v-clicks>
 
 ---
 hideInToc: true
@@ -2124,7 +2084,6 @@ hideInToc: true
 
 ## Custom Events
 
-<v-clicks>
 
 When creating custom events that need to cross shadow DOM boundaries, you must set both bubbles and composed to true:
 
@@ -2148,7 +2107,6 @@ element.dispatchEvent(
 )
 ```
 
-</v-clicks>
 
 ---
 hideInToc: true

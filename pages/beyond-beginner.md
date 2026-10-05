@@ -1,6 +1,6 @@
 ---
 layout: center
-transition: slide-up
+transition: none
 hideInToc: true
 ---
 
@@ -62,9 +62,9 @@ const config = {
 <div class="text-base mb-1 mt-1">Performance Tips</div>
 
 <ul class="text-[10px] leading-tight" >
-<li v-click>Use specific targets to minimize overhead</li>
-<li v-click>Disconnect observers when no longer needed</li>
-<li v-click>Batch DOM changes to reduce callbacks</li>
+<li>Use specific targets to minimize overhead</li>
+<li>Disconnect observers when no longer needed</li>
+<li>Batch DOM changes to reduce callbacks</li>
 </ul>
 
 </div>
@@ -139,9 +139,9 @@ ResizeObserver watches for changes to:
 <h3 class="text-base mb-2 mt-3">Performance Tips</h3>
 
 <ul text-xs leading-tight>
-<li v-click>Throttle callbacks for frequently resizing elements</li>
-<li v-click>Disconnect observers when components unmount</li>
-<li v-click>Use requestAnimationFrame for DOM updates</li>
+<li>Throttle callbacks for frequently resizing elements</li>
+<li>Disconnect observers when components unmount</li>
+<li>Use requestAnimationFrame for DOM updates</li>
 </ul>
 
 </div>
@@ -218,9 +218,9 @@ IntersectionObserver detects when:
 <h3 class="text-base mb-1 mt-1">Performance Tips</h3>
 
 <ul text-xs leading-tight>
-<li v-click>Set thresholds appropriately</li>
-<li v-click>Use rootMargin for predictive loading</li>
-<li v-click>Disconnect when removed from DOM</li>
+<li>Set thresholds appropriately</li>
+<li>Use rootMargin for predictive loading</li>
+<li>Disconnect when removed from DOM</li>
 </ul>
 
 </div>
@@ -364,10 +364,10 @@ const hasSelection = window.getSelection().rangeCount > 0
 <h3 class="text-base mb-1">Performance Tips</h3>
 
 <ul text-xs leading-tight>
-<li v-click>Cache selection objects</li>
-<li v-click>Clear when done</li>
-<li v-click>Use <code>selectionchange</code> event</li>
-<li v-click>Avoid frequent calls</li>
+<li>Cache selection objects</li>
+<li>Clear when done</li>
+<li>Use <code>selectionchange</code> event</li>
+<li>Avoid frequent calls</li>
 </ul>
 
 </div>
@@ -473,10 +473,10 @@ range.deleteContents()
 <h3 class="text-base mb-1">Performance Tips</h3>
 
 <ul text-xs leading-tight>
-<li v-click>Reuse ranges when possible</li>
-<li v-click>Detach with <code>detach()</code></li>
-<li v-click>Batch DOM operations</li>
-<li v-click>Use DocumentFragment</li>
+<li>Reuse ranges when possible</li>
+<li>Detach with <code>detach()</code></li>
+<li>Batch DOM operations</li>
+<li>Use DocumentFragment</li>
 </ul>
 
 </div>
@@ -637,9 +637,9 @@ worker.postMessage(buffer, [buffer])
 <h3 class="text-base mb-2 mt-3">Performance Tips</h3>
 
 <ul text-xs leading-tight>
-<li v-click>Use transferable objects for large data</li>
-<li v-click>Terminate workers when done</li>
-<li v-click>Consider worker pools for concurrent tasks</li>
+<li>Use transferable objects for large data</li>
+<li>Terminate workers when done</li>
+<li>Consider worker pools for concurrent tasks</li>
 </ul>
 </div>
 
@@ -687,9 +687,9 @@ Service Workers act as a proxy between your web app and the network, enabling of
 <h3 class="text-base mb-2 mt-3">Performance Tips</h3>
 
 <ul text-xs leading-tight>
-<li v-click>Choose appropriate caching strategy per resource</li>
-<li v-click>Implement cache versioning and cleanup</li>
-<li v-click>Precache critical resources only</li>
+<li>Choose appropriate caching strategy per resource</li>
+<li>Implement cache versioning and cleanup</li>
+<li>Precache critical resources only</li>
 </ul>
 
 </div>
@@ -850,10 +850,10 @@ The Event Loop is JavaScript's concurrency model that handles asynchronous opera
 <h3 class="text-base mb-2 mt-3">Performance Tips</h3>
 
 <ul text-xs leading-tight>
-<li v-click>Avoid blocking main thread with heavy sync ops</li>
-<li v-click>Use microtasks sparingly to avoid starvation</li>
-<li v-click>Use requestAnimationFrame for UI updates</li>
-<li v-click>Break long tasks into chunks</li>
+<li>Avoid blocking main thread with heavy sync ops</li>
+<li>Use microtasks sparingly to avoid starvation</li>
+<li>Use requestAnimationFrame for UI updates</li>
+<li>Break long tasks into chunks</li>
 </ul>
 
 </div>
@@ -973,7 +973,7 @@ Macro 2
 
 ---
 hideInToc: true
-transition: slide-up
+transition: none
 ---
 
 # Summary: Beyond Beginner
