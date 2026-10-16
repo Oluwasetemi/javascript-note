@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-web-components
 ---
 
 # Web Components
 
-<TocIcon />
 
 <div mt-2 />
 

@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-network-requests
 ---
 
 # Network Requests
 
-<TocIcon />
 
 <div mt-2 />
 

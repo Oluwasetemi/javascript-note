@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-promises-async
 ---
 
 # Promises and Async/Await
 
-<TocIcon />
 
 <div class="mt-2 text-sm">
 

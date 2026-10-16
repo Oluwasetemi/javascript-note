@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-prototypes
 ---
 
 # Prototypes, Inheritance and Classes
 
-<TocIcon />
 
 <div mt-2 />
 

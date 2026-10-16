@@ -2,10 +2,10 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-data-types
 ---
 # Data Types
 
-<TocIcon />
 
 <div mt-2 />
 

@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-code-quality
 ---
 
 # Code Quality
 
-<TocIcon />
 
 <div mt-2 />
 

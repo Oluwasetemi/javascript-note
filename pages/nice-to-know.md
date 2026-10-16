@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-nice-to-know
 ---
 
 # Nice to know Concepts
 
-<TocIcon />
 
 <div mt-2 />
 

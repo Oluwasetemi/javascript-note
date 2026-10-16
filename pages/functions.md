@@ -3,11 +3,11 @@ layout: center
 transition: none
 class: center
 hideInToc: true
+routeAlias: chapter-functions
 ---
 
 # Functions
 
-<TocIcon />
 
 <div mt-2 />
 

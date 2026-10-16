@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-resource-loading
 ---
 
 # Document Resource Loading
 
-<TocIcon />
 
 <div mt-2 />
 

@@ -64,6 +64,7 @@ Notes: show on the speaker view
 
 ---
 hideInToc: true
+routeAlias: course-toc
 ---
 
 # Table of contents
@@ -112,6 +113,8 @@ To a full-stack developer, JavaScript is the language that is used to create bot
 
 ---
 name: Fundamentals
+chapterTitle: Fundamentals
+chapterToc: chapter-fundamentals
 layout: center
 ---
 
@@ -130,6 +133,8 @@ src: ./pages/fundamentals.md
 
 ---
 name: Code Quality
+chapterTitle: Code Quality
+chapterToc: chapter-code-quality
 layout: center
 ---
 
@@ -148,6 +153,8 @@ src: ./pages/code-quality.md
 
 ---
 name: Data Types
+chapterTitle: Data Types
+chapterToc: chapter-data-types
 layout: center
 ---
 
@@ -166,6 +173,8 @@ src: ./pages/data-types.md
 
 ---
 name: Functions
+chapterTitle: Functions
+chapterToc: chapter-functions
 layout: center
 ---
 
@@ -184,6 +193,8 @@ src: ./pages/functions.md
 
 ---
 name: Objects
+chapterTitle: Objects
+chapterToc: chapter-objects
 layout: center
 ---
 
@@ -202,6 +213,8 @@ src: ./pages/objects.md
 
 ---
 name: Prototypes
+chapterTitle: Prototypes
+chapterToc: chapter-prototypes
 layout: center
 ---
 
@@ -220,6 +233,8 @@ src: ./pages/prototypes.md
 
 ---
 name: Error Handling
+chapterTitle: Error Handling
+chapterToc: chapter-error-handling
 layout: center
 ---
 
@@ -238,6 +253,8 @@ src: ./pages/error-handling.md
 
 ---
 name: Promises and Async
+chapterTitle: Promises and Async
+chapterToc: chapter-promises-async
 layout: center
 ---
 
@@ -256,6 +273,8 @@ src: ./pages/promises-async.md
 
 ---
 name: Modules and Dynamic Imports
+chapterTitle: Modules and Dynamic Imports
+chapterToc: chapter-modules
 layout: center
 ---
 
@@ -274,6 +293,8 @@ src: ./pages/modules.md
 
 ---
 name: Nice to Know Basics
+chapterTitle: Nice to Know Basics
+chapterToc: chapter-nice-to-know
 layout: center
 ---
 
@@ -292,6 +313,8 @@ src: ./pages/nice-to-know.md
 
 ---
 name: Document
+chapterTitle: Document
+chapterToc: chapter-document
 layout: center
 ---
 
@@ -310,6 +333,8 @@ src: ./pages/document.md
 
 ---
 name: Events
+chapterTitle: Events
+chapterToc: chapter-events
 layout: center
 ---
 
@@ -328,6 +353,8 @@ src: ./pages/events.md
 
 ---
 name: UI Events
+chapterTitle: UI Events
+chapterToc: chapter-ui-events
 layout: center
 ---
 
@@ -346,6 +373,8 @@ src: ./pages/ui-events.md
 
 ---
 name: Forms
+chapterTitle: Forms
+chapterToc: chapter-forms
 layout: center
 ---
 
@@ -364,6 +393,8 @@ src: ./pages/form-controls.md
 
 ---
 name: Resource Loading
+chapterTitle: Resource Loading
+chapterToc: chapter-resource-loading
 layout: center
 ---
 
@@ -382,6 +413,8 @@ src: ./pages/document-resource-loading.md
 
 ---
 name: Web APIs
+chapterTitle: Web APIs
+chapterToc: chapter-web-apis
 layout: center
 ---
 
@@ -400,6 +433,8 @@ src: ./pages/nice-to-know-browser.md
 
 ---
 name: Beyond Beginner JavaScript
+chapterTitle: Beyond Beginner JavaScript
+chapterToc: chapter-beyond-beginner
 layout: center
 ---
 
@@ -418,6 +453,8 @@ src: ./pages/beyond-beginner.md
 
 ---
 name: Making API Calls
+chapterTitle: Making API Calls
+chapterToc: chapter-network-requests
 layout: center
 ---
 
@@ -436,6 +473,8 @@ src: ./pages/network-requests.md
 
 ---
 name: Web Components
+chapterTitle: Web Components
+chapterToc: chapter-web-components
 layout: center
 ---
 
@@ -454,6 +493,8 @@ src: ./pages/web-components.md
 
 ---
 name: Regular Expressions
+chapterTitle: Regular Expressions
+chapterToc: chapter-regular-expressions
 layout: center
 ---
 
@@ -471,14 +512,35 @@ src: ./pages/regular-expressions.md
 ---
 
 ---
+name: Appendix and Resources
+chapterTitle: Appendix and Resources
+chapterToc: chapter-appendix
+layout: center
+---
+
+# Appendix and Resources
+
+Assignments and contributor acknowledgements.
+
+---
+hideInToc: true
+routeAlias: chapter-appendix
+---
+
+# Appendix and Resources
+
+- <a @click="$slidev.nav.next()">Assignments</a>
+- <a @click="$slidev.nav.go($nav.currentPage + 2)">Contributors</a>
+
+---
 hideInToc: true
 ---
 
 # Assignments
 
 <ul>
-  <li ><a @click="$slidev.nav.next()">Assignment 1</a></li>
-  <!-- <li ><a @click="$nav.currentPage + 1">Assignment 2</a></li> -->
+  <li><a @click="$slidev.nav.next()">Assignment 1</a></li>
+  <!-- <li><a @click="$nav.currentPage + 1">Assignment 2</a></li> -->
 </ul>
 
 ---

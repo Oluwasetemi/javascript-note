@@ -2,11 +2,11 @@
 layout: two-cols
 transition: none
 hideInToc: true
+routeAlias: chapter-regular-expressions
 ---
 
 # Regular Expressions
 
-<TocIcon />
 
 <div mt-2 />
 

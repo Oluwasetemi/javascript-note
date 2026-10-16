@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-forms
 ---
 
 # Form, Controls
 
-<TocIcon />
 
 <div mt-2 />
 

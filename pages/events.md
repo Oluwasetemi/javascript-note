@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-events
 ---
 
 # Events
 
-<TocIcon />
 
 <div mt-2 />
 

@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-error-handling
 ---
 
 # Error Handling
 
-<TocIcon />
 
 <div mt-2 />
 
