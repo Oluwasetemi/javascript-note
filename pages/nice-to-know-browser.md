@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-web-apis
 ---
 
 # Nice to know about the browser
 
-<TocIcon />
 
 <div mt-2 />
 

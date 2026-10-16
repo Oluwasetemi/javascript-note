@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-network-requests
 ---
 
 # Network Requests
 
-<TocIcon />
 
 <div mt-2 />
 
@@ -16,7 +16,7 @@ hideInToc: true
 - <a @click="$nav.go($nav.currentPage+16)">Fetch: Cross-Origin Requests</a>
 - <a @click="$nav.go($nav.currentPage+22)">URL Objects</a>
 - <a @click="$nav.go($nav.currentPage+29)">XMLHttpRequest</a>
-- <a @click="$nav.go($nav.currentPage+38)">Resumable file upload</a>
+- <a @click="$nav.go($nav.currentPage+38)">Resumable File Uploads</a>
 - <a @click="$nav.go($nav.currentPage+45)">Long polling</a>
 - <a @click="$nav.go($nav.currentPage+49)">WebSockets</a>
 - <a @click="$nav.go($nav.currentPage+55)">Server-Sent Events</a>
@@ -41,7 +41,7 @@ let promise = fetch(url, [options])
 ```
 
 - <kbd>url</kbd> – the URL to access.
-- <kbd>options</kbd> – optional parameters: method, headers etc.
+- <kbd>options</kbd> – optional parameters such as the method and headers.
 
 
 ---
@@ -68,7 +68,7 @@ Second Stage: Body Retrieval
 </div>
 </div>
 
-### Reponse Methods
+### Response Methods
 
 ```js
 // Different ways to handle response
@@ -225,13 +225,13 @@ hideInToc: true
 
 FormData is a built-in JavaScript object that makes it easy to construct a set of key/value pairs representing form fields and their values. It's particularly useful for:
 
-- Sending form data through fetch API
+- Sending form data through the Fetch API
 - Handling file uploads
 - Creating form data programmatically
 
 #### Key Features
 
-- Easy Form Capture: Automatically captures all form fields when created with a form element
+- Easy Form Capture: Automatically captures all form fields when created from a form element
 - File Handling: Supports file uploads and Blob data
 - Multipart Encoding: Automatically encoded as multipart/form-data
 - Flexible Modification: Can add, modify, or delete fields after creation

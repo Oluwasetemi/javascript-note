@@ -40,7 +40,7 @@ monacoTypesIgnoreDefaults: true
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Are you ready to build functional web app UI with your HTML and CSS skills? Press <kbd>space</kbd> on your keyboard <carbon:arrow-right class="inline"/>
+    Are you ready to build functional web app UIs with your HTML and CSS skills? Press <kbd>space</kbd> on your keyboard <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
@@ -64,6 +64,7 @@ Notes: show on the speaker view
 
 ---
 hideInToc: true
+routeAlias: course-toc
 ---
 
 # Table of contents
@@ -86,9 +87,9 @@ hideInToc: true
 
 JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
 
-The truth is this will be an endless journey till mastery, but I can assure you it will be worth it in the end. We will learn JavaScript in the most practical way possible by focusing on fundamental JS that can give us a good grasp of JavaScript, then we will move unto learning JavaScript in the Browser - which is the fundamental purpose of JS in the first place before we could run it near anywhere possible.
+Mastering JavaScript is a long journey, but it is worth the effort. We will take a practical approach: first building a strong foundation in the language, then learning how JavaScript works in the browser—its original environment before it expanded to many other platforms.
 
-JS skills can make you a Backend, Frontend, Mobile, Desktop, and even a Game Developer. So, let's get started. This Note has super cool features like code highlighting, code execution, and even drawing on the slides. You can also export the slides to PDF or PPTX format. Enjoy the journey. <span class="i-mdi-rocket inline-block" />.
+JavaScript skills can prepare you for frontend, backend, mobile, desktop, and even game development. So, let's get started. These notes include features such as code highlighting, code execution, and drawing on slides. You can also export the slides to PDF or PPTX. Enjoy the journey. <span class="i-mdi-rocket inline-block" />.
 
 > We can't wait to see you at the top.
 
@@ -104,14 +105,16 @@ To get started with JavaScript, you need to understand what JavaScript is. JavaS
 
 To a beginner, JavaScript is a programming language that is used to make web pages interactive. It is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and much more.
 
-To a frontend developer, JavaScript is the language that is used to create interactive user interfaces. It is the language that is used to add functionality to web pages, such as form validation, animations, and more.
+Frontend developers use JavaScript to create interactive user interfaces and add functionality such as form validation and animations to web pages.
 
-To a backend developer, JavaScript is the language that is used to create server-side applications. It is the language that is used to create APIs, handle requests, and interact with databases, create CLI tools, and more.
+Backend developers use JavaScript to build server-side applications, create APIs and CLI tools, handle requests, and interact with databases.
 
-To a full-stack developer, JavaScript is the language that is used to create both frontend and backend applications. It is the language that is used to create a complete web application, from the user interface to the server-side logic.
+Full-stack developers use JavaScript to create complete web applications, from the user interface to the server-side logic.
 
 ---
 name: Fundamentals
+chapterTitle: Fundamentals
+chapterToc: chapter-fundamentals
 layout: center
 ---
 
@@ -130,6 +133,8 @@ src: ./pages/fundamentals.md
 
 ---
 name: Code Quality
+chapterTitle: Code Quality
+chapterToc: chapter-code-quality
 layout: center
 ---
 
@@ -137,7 +142,7 @@ layout: center
 <div text-2xl origin-top-left>
   <span>Code </span>
   <span>Quality </span>
-  <sup>linter, formater, test, types</sup>
+  <sup>linter, formatter, tests, types</sup>
 </div>
 <div mt1>Importance Spice for Quality Development</div>
 </h1>
@@ -148,6 +153,8 @@ src: ./pages/code-quality.md
 
 ---
 name: Data Types
+chapterTitle: Data Types
+chapterToc: chapter-data-types
 layout: center
 ---
 
@@ -166,6 +173,8 @@ src: ./pages/data-types.md
 
 ---
 name: Functions
+chapterTitle: Functions
+chapterToc: chapter-functions
 layout: center
 ---
 
@@ -184,6 +193,8 @@ src: ./pages/functions.md
 
 ---
 name: Objects
+chapterTitle: Objects
+chapterToc: chapter-objects
 layout: center
 ---
 
@@ -202,6 +213,8 @@ src: ./pages/objects.md
 
 ---
 name: Prototypes
+chapterTitle: Prototypes
+chapterToc: chapter-prototypes
 layout: center
 ---
 
@@ -220,6 +233,8 @@ src: ./pages/prototypes.md
 
 ---
 name: Error Handling
+chapterTitle: Error Handling
+chapterToc: chapter-error-handling
 layout: center
 ---
 
@@ -238,6 +253,8 @@ src: ./pages/error-handling.md
 
 ---
 name: Promises and Async
+chapterTitle: Promises and Async
+chapterToc: chapter-promises-async
 layout: center
 ---
 
@@ -256,6 +273,8 @@ src: ./pages/promises-async.md
 
 ---
 name: Modules and Dynamic Imports
+chapterTitle: Modules and Dynamic Imports
+chapterToc: chapter-modules
 layout: center
 ---
 
@@ -274,6 +293,8 @@ src: ./pages/modules.md
 
 ---
 name: Nice to Know Basics
+chapterTitle: Nice to Know Basics
+chapterToc: chapter-nice-to-know
 layout: center
 ---
 
@@ -292,6 +313,8 @@ src: ./pages/nice-to-know.md
 
 ---
 name: Document
+chapterTitle: Document
+chapterToc: chapter-document
 layout: center
 ---
 
@@ -310,6 +333,8 @@ src: ./pages/document.md
 
 ---
 name: Events
+chapterTitle: Events
+chapterToc: chapter-events
 layout: center
 ---
 
@@ -328,6 +353,8 @@ src: ./pages/events.md
 
 ---
 name: UI Events
+chapterTitle: UI Events
+chapterToc: chapter-ui-events
 layout: center
 ---
 
@@ -346,6 +373,8 @@ src: ./pages/ui-events.md
 
 ---
 name: Forms
+chapterTitle: Forms
+chapterToc: chapter-forms
 layout: center
 ---
 
@@ -364,6 +393,8 @@ src: ./pages/form-controls.md
 
 ---
 name: Resource Loading
+chapterTitle: Resource Loading
+chapterToc: chapter-resource-loading
 layout: center
 ---
 
@@ -382,6 +413,8 @@ src: ./pages/document-resource-loading.md
 
 ---
 name: Web APIs
+chapterTitle: Web APIs
+chapterToc: chapter-web-apis
 layout: center
 ---
 
@@ -400,6 +433,8 @@ src: ./pages/nice-to-know-browser.md
 
 ---
 name: Beyond Beginner JavaScript
+chapterTitle: Beyond Beginner JavaScript
+chapterToc: chapter-beyond-beginner
 layout: center
 ---
 
@@ -418,6 +453,8 @@ src: ./pages/beyond-beginner.md
 
 ---
 name: Making API Calls
+chapterTitle: Making API Calls
+chapterToc: chapter-network-requests
 layout: center
 ---
 
@@ -436,6 +473,8 @@ src: ./pages/network-requests.md
 
 ---
 name: Web Components
+chapterTitle: Web Components
+chapterToc: chapter-web-components
 layout: center
 ---
 
@@ -445,7 +484,7 @@ layout: center
   <span>components</span>
   <sup>shadow dom, templates, slots</sup>
 </div>
-<div mt1>Custom HTML Element</div>
+<div mt1>Custom HTML Elements</div>
 </h1>
 
 ---
@@ -454,6 +493,8 @@ src: ./pages/web-components.md
 
 ---
 name: Regular Expressions
+chapterTitle: Regular Expressions
+chapterToc: chapter-regular-expressions
 layout: center
 ---
 
@@ -461,7 +502,7 @@ layout: center
 <div text-2xl origin-top-left>
   <span>regular </span>
   <span class="text-yellow font-hand">expressions</span>
-  <sup>patters, flags, anchors, boundary</sup>
+  <sup>patterns, flags, anchors, boundaries</sup>
 </div>
 <div mt1 text-gradient>Pattern Matching In JavaScript</div>
 </h1>
@@ -471,14 +512,35 @@ src: ./pages/regular-expressions.md
 ---
 
 ---
+name: Appendix and Resources
+chapterTitle: Appendix and Resources
+chapterToc: chapter-appendix
+layout: center
+---
+
+# Appendix and Resources
+
+Assignments and contributor acknowledgements.
+
+---
+hideInToc: true
+routeAlias: chapter-appendix
+---
+
+# Appendix and Resources
+
+- <a @click="$slidev.nav.next()">Assignments</a>
+- <a @click="$slidev.nav.go($nav.currentPage + 2)">Contributors</a>
+
+---
 hideInToc: true
 ---
 
 # Assignments
 
 <ul>
-  <li ><a @click="$slidev.nav.next()">Assignment 1</a></li>
-  <!-- <li ><a @click="$nav.currentPage + 1">Assignment 2</a></li> -->
+  <li><a @click="$slidev.nav.next()">Assignment 1</a></li>
+  <!-- <li><a @click="$nav.currentPage + 1">Assignment 2</a></li> -->
 </ul>
 
 ---

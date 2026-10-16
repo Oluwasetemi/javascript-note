@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-ui-events
 ---
 
 # UI Events
 
-<TocIcon />
 
 <div mt-2 />
 
@@ -30,7 +30,7 @@ Key Mouse Events
 
 - `click`: Detects when a button is pressed and released on a single element.
 
-- `dbclick`: Occurs when an element is clicked twice in quick succession.
+- `dblclick`: Occurs when an element is clicked twice in quick succession.
 
 - `mouseover`: Fired when the mouse comes over an element.
 
@@ -77,7 +77,7 @@ Mouse movement events in JavaScript provide developers with the ability to react
 
 These events are essential for creating interactive and responsive interfaces that respond to user actions. This guide will explore the differences between mouseover, mouseout, mouseenter, and mouseleave events, offering practical examples to demonstrate their usage
 
-The mouseover event occurs when a mouse pointer comes over an element, and mouseout – when it leaves
+The `mouseover` event occurs when the pointer enters an element, while `mouseout` occurs when it leaves.
 
 Example: Text Highlighting on Mouse Over
 
@@ -120,9 +120,9 @@ hideInToc: true
 
 - Events mouseenter/mouseleave do not bubble
 
-- When the pointer enters an element – mouseenter triggers. The exact location of the pointer inside the element or its descendants doesn’t matter.
+- When the pointer enters an element, `mouseenter` fires. Its exact location inside the element or its descendants does not matter.
 
-When the pointer leaves an element – mouseleave triggers.
+- When the pointer leaves an element, `mouseleave` fires.
 
 <div grid="~ cols-2" gap='10'>
 

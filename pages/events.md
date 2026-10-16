@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-events
 ---
 
 # Events
 
-<TocIcon />
 
 <div mt-2 />
 
@@ -23,13 +23,13 @@ hideInToc: true
 # Events: Basic Concepts
 
 
-Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired. Its like a signal that something has happened. All DOM nodes generate such signals when we interact with them or the browser does something with them. Here are some examples of events:
+Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired. It is like a signal that something has happened. All DOM nodes generate such signals when we interact with them or the browser does something with them. Here are some examples of events:
 
-- A mouse `click`, `contextmenu`, `mouseover`/`mouseout`, `mousedown`/`mouseup`. `mousemove`, touch screen tap, or key press `keydown`, `keyup`
-- A form input field was changed `change`, the form was submitted `submit`, a file was dragged over the element.
+- A mouse `click`, `contextmenu`, `mouseover`/`mouseout`, `mousedown`/`mouseup`, or `mousemove`; a touchscreen tap; or a `keydown`/`keyup`
+- A form field changes (`change`), a form is submitted (`submit`), or a file is dragged over an element
 - The page has loaded `load`, `DOMContentLoaded`, the video is ready `loadeddata`, the window was resized `resize`, etc.
 
-Handlers are functions that run in response to events. They can be assigned to handle events. We have the HTML-attribute, DOM-property, and `addEventListener` method to assign handlers. Use `on<event>` properties to assign handlers in HTML or DOM properties.
+Handlers are functions that run in response to events. They can be assigned using HTML attributes, DOM properties, or the `addEventListener` method. Use `on<event>` properties to assign handlers in HTML or DOM properties.
 
 ```html
 <button onclick="console.log('Click!')">Click me</button>
@@ -52,7 +52,7 @@ DOM properties are assigned to the event handler. They are not strings like HTML
 ```
 
 
-The `addEventListener` method allows adding multiple handlers on the same event, with additional configuration options and ability to remove them with `removeEventListener`.
+The `addEventListener` method lets you add multiple handlers for the same event, configure them with options, and remove them with `removeEventListener`.
 
 ```html {monaco-run} {autorun: false}
 <button id="elem">Click me</button>
@@ -73,7 +73,7 @@ name: Syntax of addEventListener
 
 event - type of event to listen for, e.g. "click", "keydown", etc.
 
-handler - the function to call when the event occurs, it called the listener.
+handler - the function to call when the event occurs; it is also called the listener.
 
 options - additional options, like `once`, `capture`, `passive`, `signal` or useCapture - boolean, if true, then the handler is set on the capturing phase, otherwise the bubbling phase.
 
@@ -92,7 +92,7 @@ elem.addEventListener('click', handler, { once: true })
 // elem.addEventListener('mouseover', handler);
 ```
 
-Let us see what is an event object and how to use it.
+Let us see what an event object is and how to use it.
 
 
 ---
@@ -140,7 +140,7 @@ hideInToc: true
 # Events: Bubbling and Capturing
 
 
-When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. This is called "bubbling". The bubbling principle is simple. When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. Capturing is the opposite. The event starts from the top element(top most parent) and goes down to the target element.
+When an event occurs on an element, its handlers run first, followed by the handlers on its parent and then its other ancestors. This is called "bubbling." Capturing travels in the opposite direction. The event starts at the topmost ancestor and travels down to the target element.
 
 `event.target` - the "target" element that initiated the event, it doesn't change through the bubbling process.
 
@@ -215,7 +215,7 @@ hideInToc: true
 # Events: Event Delegation
 
 
-Event delegation is a technique involving adding a single event listener to a common parent rather than adding them to multiple child nodes. The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
+Event delegation is a technique that adds a single event listener to a common parent rather than separate listeners to multiple child nodes. The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.
 
 ```html {monaco-run} {autorun: false}
 <ul id="menu">
@@ -306,7 +306,7 @@ document.addEventListener('click', function (event) {
 ```
 ````
 
-Event delegation is really cool! It’s one of the most helpful patterns for DOM events. It allows us to set a single handler on the parent element and wait for events to bubble up. This handler will know the exact element where it happened due to the event object.
+Event delegation is really cool! It’s one of the most helpful patterns for DOM events. It allows us to set a single handler on the parent element and wait for events to bubble up. The event object tells this handler which element originated the event.
 
 ---
 hideInToc: true
@@ -317,9 +317,9 @@ hideInToc: true
 
 <a href="https://oluwasetemi.dev">My Website</a>
 
-When an event happens, the browser does something with it. For instance, a click on a link navigates to the link. The browser has a default action for many events. Clicking on a submit button submits the form, right-clicking a web page shows the context menu etc. It added `event.defaultPrevented` to event object.
+The browser performs a default action for many events. For example, clicking a link navigates to its URL, clicking a submit button submits the form, and right-clicking a web page opens the context menu. The `event.defaultPrevented` property indicates whether that action has been prevented.
 
-To prevent the default action, we can use `event.preventDefault()`. returning `false` from an event handler is the same as calling `event.preventDefault()` and `event.stopPropagation()`.
+To prevent the default action, call `event.preventDefault()`. Returning `false` only prevents the default action for handlers assigned through an HTML attribute or an `on<event>` property; it does not work for handlers added with `addEventListener`.
 
 <!-- prettier-ignore -->
 ```js {monaco-run} {lineNumbers: true, autorun: false}
@@ -362,7 +362,7 @@ interface CustomEventInit<T = any> extends EventInit {
 }
 ```
 
-Next we will see how to create a custom event and dispatch it(programatically trigger it).
+Next, we will see how to create and dispatch a custom event (that is, trigger it programmatically).
 
 
 ---

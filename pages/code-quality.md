@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-code-quality
 ---
 
 # Code Quality
 
-<TocIcon />
 
 <div mt-2 />
 
@@ -46,7 +46,7 @@ hideInToc: true
 
 
 <ol>
-<li> <strong>Readability</strong>: code that is easy to understand, even for developers who didn't write it. Readable code is like a well organized recipe book. Can others easily read and understand your code?</li>
+<li> <strong>Readability</strong>: code that is easy to understand, even for developers who didn't write it. Readable code is like a well-organized recipe book. Can others easily read and understand your code?</li>
 
 ```js
 function add(a, b) {
@@ -74,7 +74,7 @@ name: More on Code Quality
 9. <strong>Consistency</strong>: the uniformity of coding styles, conventions, and structures across a project.
 10. <strong>Reusability</strong>: the degree to which code components can be reused in other projects or parts of the system.
 
-Install {ESLint} and {Prettier} extensions in your code editor as the starting point. They will help you catch errors and enforce coding standards as you write code. We will discuss more about writing tests using {Vitest}, {TypeScript} and debugging in the browser in the next sections.
+Install {ESLint} and {Prettier} extensions in your code editor as the starting point. They will help you catch errors and enforce coding standards as you write code. We will discuss writing tests with {Vitest}, using {TypeScript}, and debugging in the browser in the next sections.
 
 ```ts twoslash
 function add(a: number, b: number): number {
@@ -110,9 +110,9 @@ test('adds -1 + -1 to equal -2', () => {
 ```
 
 
-- **Unit test**: it allows you test individual components and functions in isolation to ensure that each part of the code works. Tools you can use are {Vitest}, Jest, Mocha and Jasmine.
+- **Unit test**: it lets you test individual components and functions in isolation. Tools include {Vitest}, Jest, Mocha, and Jasmine.
 
-- **Integration test**: it allows you test the interaction between components and modules, ensuring that the combined parts work together. Tools you can use are {Vitest}, Mocha, Cypress, Supertest.
+- **Integration test**: it lets you test interactions between components and modules, ensuring that they work together correctly. Tools include {Vitest}, Mocha, Cypress, and Supertest.
 
 
 ---
@@ -121,19 +121,19 @@ name: More on Test
 ---
 
 
-- **End-to-End(E2E) test**: it allows you simulate user actions and test the entire application flow from start to finish. Tools you can use are Cypress, Selenium, Playwright, Storybook.
+- **End-to-end (E2E) test**: it simulates user actions and tests the entire application flow from start to finish. Tools include Cypress, Selenium, and Playwright.
 
-- **Performance test**: it allows you to measure the speed, responsiveness, and stability of the system under various conditions. Tools you can use are Lighthouse, Apache JMeter.
+- **Performance test**: it measures the system's speed, responsiveness, and stability under various conditions. Tools include Lighthouse and Apache JMeter.
 
-- **Load and stress test**: it checks how the system behaves under heavy loads or stress conditions, ensuring that the system can handle expected and unexpected spikes in traffic. eg Apache JMeter, K6.
+- **Load and stress test**: it checks how the system behaves under heavy loads and whether it can handle traffic spikes. Tools include Apache JMeter and k6.
 
-- **Security test**: it identifies vulnerabilities in the code that could be exploited, ensuring the application is secure from common threats like SQL injection or XSS attacks eg SonarQube, OWASP ZAP.
+- **Security test**: it identifies exploitable vulnerabilities and helps protect the application from threats such as SQL injection and XSS. Tools include SonarQube and OWASP ZAP.
 
-- **Accessibility test**: Ensure the application meets accessibility standards (like WCAG) to be usable by all users, including those with disabilities eg Lighthouse, Axe.
+- **Accessibility test**: it checks whether the application meets standards such as WCAG and is usable by people with disabilities. Tools include Lighthouse and Axe.
 
-- **Code quality and static analysis**: it analyzes the code for potential bugs, stylistic errors, and maintainability issues eg ESLint.
+- **Code quality and static analysis**: it analyzes code for potential bugs, style problems, and maintainability issues. Tools include ESLint.
 
-- **Regression test**: it ensures that new changes or updates do not break existing functionality in your application eg Jest , Mocha, Cypress.
+- **Regression test**: it ensures that changes do not break existing functionality. Tools include Jest, Mocha, and Cypress.
 
 
 ---

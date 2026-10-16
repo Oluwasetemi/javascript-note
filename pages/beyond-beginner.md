@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-beyond-beginner
 ---
 
 # Beyond Beginner
 
-<TocIcon />
 
 <div mt-2 />
 

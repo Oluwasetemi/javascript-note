@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-promises-async
 ---
 
 # Promises and Async/Await
 
-<TocIcon />
 
 <div class="mt-2 text-sm">
 
@@ -144,7 +144,7 @@ hideInToc: true
 
 ## Error-First Callbacks (Node.js Convention)
 
-The first parameter is reserved for an error object, the second for successful data.
+The first parameter is reserved for an error object, and the second contains the successful result.
 
 ```js {monaco-run} {autorun: false}
 function readFile(filename, callback) {
@@ -238,7 +238,7 @@ hideInToc: true
 
 # Error handling in Promises
 
-Errors in Promises can be handled using `.catch()` method.
+Errors in promises can be handled using the `.catch()` method.
 
 ```js
 fetch('url')
@@ -283,7 +283,7 @@ hideInToc: true
 
 # Promisify
 
-Promisify is the process of converting a callback-based function to a function that returns a Promise.
+Promisification is the process of converting a callback-based function into one that returns a promise.
 
 ```js
 const fs = require('fs')
@@ -328,7 +328,7 @@ hideInToc: true
 
 Async/Await is syntactic sugar built on top of Promises, making asynchronous code look and behave like synchronous code.
 
-- `async` function always returns a Promise.
+- An `async` function always returns a promise.
 - `await` pauses the execution of the async function and waits for the Promise to resolve.
 
 ```js
@@ -393,7 +393,8 @@ Promise.reject(new Error('Something went wrong')).catch(error => console.error(e
 const thenable = { then: (resolve) => resolve('Converted!') }
 Promise.resolve(thenable).then(value => console.log(value))
 
-// Promise.try() - Wraps a function call in a Promise for uniform error handling.Ensures both sync and async errors are caught as rejected promises
+// Promise.try() wraps a function call for uniform error handling.
+// It converts synchronous and asynchronous errors into rejected promises.
 Promise.try(() => {
   return riskyOperation()
 }).then(result => console.log(result)).catch(error => console.error('Caught:', error))

@@ -2,11 +2,11 @@
 layout: center
 transition: none
 hideInToc: true
+routeAlias: chapter-modules
 ---
 
 # Modules
 
-<TocIcon />
 
 <div mt-2 />
 

@@ -3,11 +3,11 @@ layout: center
 transition: none
 class: center
 hideInToc: true
+routeAlias: chapter-functions
 ---
 
 # Functions
 
-<TocIcon />
 
 <div mt-2 />
 
@@ -204,7 +204,7 @@ hideInToc: true
 
 <div> </div>
 
-IIFE - The immediately invoked function expression is an interesting version of function with a major value of allow the function to be immediately called after its creation instantly without leaving its declaration phase. Can be used with all the 3 major examples explained above. The key emphasis is on the ability to call itselff immediately in its declaration phase.
+An IIFE (Immediately Invoked Function Expression) is a function expression that runs as soon as it is created. You can use the pattern with any of the three function syntaxes explained above.
 
 <div class="mb-4">
 
@@ -372,7 +372,7 @@ To simplify the explanation above:
 hideInToc: true
 ---
 
-# Why recursive function?
+# Why Use Recursive Functions?
 
 <div> </div>
 
@@ -405,7 +405,7 @@ hideInToc: true
 
 A call stack, where execution contexts are saved, is a mechanism used by the interpreter to track its position in a script with multiple function calls. It keeps track of which function is currently running and which functions are being called within it. This helps the interpreter manage and execute functions in the correct order.
 
-When a script calls a function, the interpreter adds that function to the call stack(creation) and begins executing it. If the function calls other functions, they are added to the stack in order and executed when their calls are reached. Once a function finishes, the interpreter removes it from the stack and continues executing the previous function where it left off. If the stack exceeds its allocated space, a "stack overflow" error occurs.
+When a script calls a function, the interpreter adds that function to the call stack and begins executing it. If the function calls other functions, they are added to the stack in order and executed when their calls are reached. Once a function finishes, the interpreter removes it from the stack and continues executing the previous function where it left off. If the stack exceeds its allocated space, a "stack overflow" error occurs.
 
 Here's the process broken down:
 
@@ -439,7 +439,7 @@ In the code:
 - The `traverseHierarchy` function prints the employee's name, then recursively calls itself for each of their reports.
 
 ---
-title: Recursive Travesal Example
+title: Recursive Traversal Example
 hideInToc: true
 ---
 
@@ -503,12 +503,12 @@ In JavaScript, there is a special array-like object called `arguments` that cont
 Key points about the arguments object:
 
 <ol>
-    <li>Array-like structure: arguments object behaves like an array, as it contains indexed values (e.g., arguments[0], arguments[1]), but it lacks array methods like `forEach()`, `map()`, `sort()`, or `pop()`, etc.</li>
+    <li>Array-like structure: the `arguments` object has indexed values (for example, `arguments[0]` and `arguments[1]`) but lacks array methods such as `forEach()`, `map()`, `sort()`, and `pop()`.</li>
     <li>Access to all arguments: It allows you to access all arguments passed to a function, even if they aren't explicitly defined as parameters in the function.</li>
     <li>Not available in arrow functions: The arguments object exists in regular functions, but it is not available in arrow functions, where rest parameters `(...args)` are recommended instead.</li>
 </ol>
 
-This makes arguments useful in older code, but `rest parameters` are preferred in modern JavaScript for handling variable numbers of arguments more flexibly.
+This makes `arguments` useful in older code, but rest parameters are preferred in modern JavaScript for handling variable numbers of arguments more flexibly.
 
 </div>
 
@@ -576,7 +576,7 @@ title: Difference Between Spread and Rest
 Note:
 
 - When `...` is at the end of function parameters, it’s “rest parameters” and gathers the rest of the list of arguments into an array.
-- When `...` occurs in a function call or alike, it’s called a “spread syntax” and expands an array into a list.
+- When `...` occurs in a function call or a similar expression, it is called spread syntax and expands an iterable into a list of values.
 - Rest parameters are used to create functions that accept any number of arguments.
 - The spread syntax is used to pass an array to functions that normally require a list of many arguments.
 
@@ -588,13 +588,13 @@ hideInToc: true
 
 <div> </div>
 
-In JavaScript, a closure is formed every time a function is created. A closure allows a function to remember and access variables from its outer scope, even after that function has finished executing. Essentially, closures give functions the ability to "remember" the environment in which they were created. While almost all functions in JavaScript are naturally closures, there is one important exception: arrow functions that don't reference any variables from their outer scope do not create closures.
+In JavaScript, a closure is formed every time a function is created. A closure allows a function to remember and access variables from its outer scope, even after that function has finished executing. Essentially, closures give functions the ability to "remember" the environment in which they were created. A function forms a closure over the variables from its surrounding lexical environment that it references.
 
-In JavaScript, there are 3 ways to declare a variable and these are:
+JavaScript has three variable declaration keywords:
 
 `let`, `const` and `var`
 
-`var` is the remnant of the past, function scoped or bound to the global variable when outside a function. Understanding the difference is important. Especially as regards to scope which we will be exploring next.
+`var` is a legacy declaration that is function-scoped or global when declared outside a function. Understanding this distinction is important, especially when exploring scope.
 
 ---
 hideInToc: true
@@ -606,7 +606,7 @@ hideInToc: true
 
 In JavaScript, statements can be grouped together inside code blocks, which are enclosed in curly brackets `{}`. The purpose of these code blocks is to group statements that should be executed together.
 
-If a variable is declared inside a code block, it is only accessible within that block. This is called block `scope`. Variables declared with let or const inside a block are not visible outside of it. They are block scoped.
+If a variable is declared inside a code block, it is only accessible within that block. This is called block `scope`. Variables declared with let or const inside a block are not visible outside of it. They are block-scoped.
 
 ```js {monaco-run} {autorun: false}
 {
@@ -650,7 +650,7 @@ hideInToc: true
 
 <div> </div>
 
-You can create a function inside another function and this is what we refer to as `nested functions`. There are two ways to create a nested functions:
+A function created inside another function is called a nested function. There are two ways to create nested functions:
 
 1. Call a function within another function: This involves invoking a separate function from within a function.
 
@@ -858,7 +858,7 @@ hideInToc: true
 
 Earlier, we discussed functions in JavaScript, but did you know that a function is actually an object?
 In JavaScript, functions are values, and since every value has a type, functions fall under the "object" type.
-When declaring a function, there are some properties to be put in place, let's take a look at the properties:
+Functions have several useful built-in properties. Let's examine them:
 
 There is a <strong>name property</strong>, which is one of the useful properties of the function object.
 It holds the name of the function and can be accessed programmatically.
@@ -888,7 +888,7 @@ Some functions are declared anonymously, but JavaScript's engine can still assig
 which they're defined. This is known as the "contextual name".
 For example, when an anonymous function is assigned to a variable or used as a method in an object, JavaScript automatically
 assigns the variable or property name as the function's name.
-Sometimes, it fails to achieve this task of figuring a right name for the function and it leaves it empty.
+When JavaScript cannot infer an appropriate name, the function's `name` property may be empty.
 Here's a code example:
 
 ```js {monaco-run} {autorun: false}
@@ -1039,9 +1039,9 @@ hideInToc: true
 title: Function as a string
 ---
 
-Earlier, we mentioned that when you create a new function, it automatically becomes a closure and creates its own Environment.
-Here's the catch: if you use new Function to create a function, its Environment is set to reference not the current Lexical Environment,
-but the global one.
+Earlier, we explained that functions normally retain access to their surrounding lexical environment.
+However, a function created with the `Function` constructor does not reference the current lexical environment;
+it uses the global environment instead.
 
 This means that functions created with new Function do not have access to the variables defined in the scope where they were created.
 Instead, they can only access global variables. This behavior is different from regular functions that retain a reference to their
@@ -1073,7 +1073,7 @@ hideInToc: true
 
 <div> </div>
 
-Sometimes, we may want to execute a function at a later time. This is known as "scheduling a call" in JavaScript - Marcrotasks. There are two primary ways to schedule a function call:
+Sometimes, we may want to execute a function later. This is known as scheduling a call. Timers schedule macrotasks, and there are two primary timer APIs:
 
 `setTimeout` – Executes a function once, after a specified delay.
 `setInterval` – Repeatedly executes a function at regular intervals.
@@ -1396,7 +1396,7 @@ class: 'text-sm'
 
 In JavaScript we have `task` and `microtask` but before we dwell into `microtask` let's talk about `task` in JavaScript.
 
-`task` represent units of work or operations that are placed in the event loop’s task queue. Tasks are processed sequentially, and each task is executed from start to finish without interruption.
+A `task` represents a unit of work placed in the event loop's task queue. Tasks are processed sequentially, and each task is executed from start to finish without interruption.
 A task can be created by various mechanisms, such as user interactions (clicks, key presses), `setTimeout()`, `setInterval()`, or events like DOMContentLoaded.
 
 `task` are important because they control the flow of JavaScript execution in an asynchronous environment, ensuring that even asynchronous code (like timers or event listeners) is handled in a predictable,
@@ -1566,7 +1566,7 @@ class: 'text-sm'
 
 - Calling `new Toyota('Camry', 2024)`: This creates a new `Toyota` object with the `make` `'Camry'` and `year` `2024`, as well as the `category` `'car'`.
 
-- console.log: The `console.log` function pops up a message box. `new Toyota('Camry', 2024).year` creates a new `Toyota` object and accesses its `year` property, which is `2024`. So, the console.log will show `2024`.
+- `console.log`: The `console.log` function writes a message to the console. `new Toyota('Camry', 2024).year` creates a `Toyota` object and accesses its `year` property, so the console displays `2024`.
 
 ---
 hideInToc: true
@@ -1578,7 +1578,7 @@ class: text-sm
 <div></div>
 
 The `apply()` method could be used instead of `call()`.
-This method of `Function` instances calls this function with a given `this` value, and `argument` provided as an array (or an array-like object) unlike `call()` that expects a list of arguments.
+This `Function` method calls a function with a specified `this` value and arguments provided as an array or array-like object, unlike `call()`, which expects separate arguments.
 
 <div grid="~ cols-2" gap="2">
 
@@ -1620,7 +1620,7 @@ it invokes the original function with its this keyword set to the value you spec
 func.bind(context, ...args)
 ```
 
-This function above is going to returns a "bound variant" of function `func`. This new function will have: The `this` context fixed to the provided context value, The first argument(s) (if any are provided in `this` ...args `this`) pre-set, meaning they will be used when the new function is called, followed by any additional arguments passed during the call.
+The function above returns a bound variant of `func`. Its `this` value is fixed to the provided context, and any supplied arguments are preset. Additional arguments can still be passed when the bound function is called.
 
 ---
 
@@ -1646,7 +1646,7 @@ greetJohn('Alice');
 As said earlier, the `bind()` method is useful for controlling the `this` context and presetting arguments but also, we can use it to achieve these as well:
 
 
-- Control the `this` value, It allows you to lock in a specific `this` value, ensuring that the function will always use the context you want.
+- Control the `this` value: it lets you lock in a specific context for the function.
 - It allows you to preset arguments for a function, creating a new function with some arguments already provided.
 - It gives you the room to borrow methods from one object and use them in another, while ensuring the correct `this` context is maintained.
 - Function Currying - It can also be used to implement currying, where you transform a function with multiple arguments into a series of functions that take one argument at a time.
@@ -1657,16 +1657,16 @@ This makes `bind()` particularly valuable in situations involving event handlers
 hideInToc: true
 ---
 
-# Arrow function in details
+# Arrow Functions in Detail
 
 <div class="text-sm">
 
-We've already discused the beautiful arrow function at the beginning of this module, but let's go little deeper in what arrow function entails.
-As a developer, you often need to write arrow functions in your code for various tasks like calling `useEffect` hooks in React or using `setTimeout()` in JavaScript. Arrow functions offer a more concise syntax and have specific benefits, particularly in handling the this context.
+We introduced arrow functions at the beginning of this module. Now, let us examine them in more detail.
+Developers often use arrow functions for callbacks, such as those passed to React's `useEffect` Hook or JavaScript's `setTimeout()`. Arrow functions have concise syntax and distinct behavior for `this`.
 
-- Firstly, arrow functions do not have their own "arguments" object. But, they inherit `argument` from their lexical scope.
+- First, arrow functions do not have their own `arguments` object. They access `arguments` from their surrounding lexical scope.
 
-This second code will throw an error because unlike traditional function in the first scope, argument is not defined.
+The second example throws an error because, unlike the traditional function, the arrow function has no surrounding function from which to inherit `arguments`.
 
 </div>
 
@@ -1690,9 +1690,9 @@ hideInToc: true
 
 <div></div>
 
-To handle `argument` in Arrow functions, we have use two methods:<br/>
+To handle arguments in arrow functions, use one of these two methods:<br/>
 
-1. Using of rest parameters `(...args)`
+1. Use rest parameters (`...args`).
 
 ```js {monaco-run} {autorun: false}
 const arrowFunction = (...args) => {
@@ -1702,7 +1702,7 @@ const arrowFunction = (...args) => {
 arrowFunction(1, 2, 3);
 ```
 
-2. Using the `arguments` object from the non-arrow function in the lexical scope.
+2. Use the `arguments` object from a surrounding non-arrow function.
 
 ```js {monaco-run} {autorun: false}
 function outerFunction() {
@@ -1720,7 +1720,7 @@ title: Limitations of Arrow Functions
 hideInToc: true
 ---
 
-- Secondly, Arrow functions have no `this` - Arrow functions do not have their own`this`. Instead, when a developer access `this` inside an arrow function, it is taken from the surrounding lexical scope(next possible parent's this).
+- Second, arrow functions do not have their own `this`. When you access `this` inside an arrow function, its value comes from the surrounding lexical scope.
 
 In the code below, the arrow function inside the `setTimeout` retains the `this` value from the `greet` method, which refers to `obj`.
 
@@ -1744,7 +1744,7 @@ title: Limitations
 hideInToc: true
 ---
 
-- Thirdly, Arrow functions can't be called with `new` - Since arrow functions do not have their own`this` they can't be used as constructors.
+- Third, arrow functions cannot be called with `new`. Because they do not have their own `this`, they cannot be used as constructors.
 
 This will throw an error:
 
@@ -1759,7 +1759,7 @@ try {
 }
 ```
 
-But, with a regular function declaration or expression you can define a constuctor
+However, you can define a constructor with a regular function declaration or expression:
 
 ```js {monaco-run} {autorun: false}
 function Person(name) {
