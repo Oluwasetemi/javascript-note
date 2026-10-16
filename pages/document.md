@@ -27,15 +27,15 @@ hideInToc: true
 # window, DOM, CSSOM and BOM
 
 
-ECMAScript is a language specification. It doesn't cover the browser environment. The browser environment is provided by the host environment. The host environment provides the global object `window` and the `document` object. JavaScript contains the core language and the host environment provides the objects to interact with the browser environment.
+ECMAScript is a language specification. It doesn't cover the browser environment. The browser environment is provided by the host environment. The host environment provides the global object `window` and the `document` object. JavaScript provides the core language, while the host environment provides objects for interacting with the browser.
 
 JavaScript contains Object, Array, Function and many others as described by the [ECMAScript 262](https://tc39.es/ecma262/){.text-gradient}.
 
-[DOM](https://dom.spec.whatwg.org/){.text-gradient} - Document Object Model is the interface between JavaScript and HTML + CSS. It allows JavaScript to interact with the HTML and CSS. `document` object is the main object of the [DOM](https://dom.spec.whatwg.org/){.text-gradient}. It represents the web page described in an object.
+[DOM](https://dom.spec.whatwg.org/){.text-gradient} - The Document Object Model is the interface between JavaScript and HTML. It lets JavaScript interact with the document. The `document` object is the main entry point to the [DOM](https://dom.spec.whatwg.org/){.text-gradient} and represents the web page as an object tree.
 
-[CSSOM](https://www.w3.org/TR/cssom-1/){.text-gradient} - CSS Object Model is the interface between JavaScript and CSS. It allows JavaScript to interact with the CSS.
+[CSSOM](https://www.w3.org/TR/cssom-1/){.text-gradient} - The CSS Object Model is the interface between JavaScript and CSS. It lets JavaScript inspect and modify styles.
 
-[BOM](https://html.spec.whatwg.org/){.text-gradient} - Browser Object Model is the interface between JavaScript and the browser. It allows JavaScript to interact with the browser. `window` object is the main object of the BOM. It represents the browser window. It allows web scripting - allowing JavaScript to interact with the browser as a interface to the host computer. It provides objects like `navigator`, `screen`, `location`, `history`, `XMLHttpRequest`, `setTimeout`, `setInterval` etc. Additional specification can be found [WHATWG](https://spec.whatwg.org/){.text-gradient}.
+[BOM](https://html.spec.whatwg.org/){.text-gradient} - The Browser Object Model provides interfaces for interacting with the browser. The `window` object represents the browser window and exposes APIs such as `navigator`, `screen`, `location`, `history`, `XMLHttpRequest`, `setTimeout`, and `setInterval`. Additional specifications are available from [WHATWG](https://spec.whatwg.org/){.text-gradient}.
 
 
 ---
@@ -45,13 +45,13 @@ hideInToc: true
 # DOM tree and Walking the DOM
 
 
-HTML tags are the core of DOM. The browser converts the HTML tags into a tree structure called the DOM tree. The DOM tree is a representation of the HTML tags in a tree structure. The DOM tree is a hierarchical representation of the HTML tags. The DOM tree is a collection of nodes. Each node is an object representing a part of the document.
+HTML elements form the core of the DOM. The browser converts the HTML tags into a tree structure called the DOM tree. The DOM tree is a representation of the HTML tags in a tree structure. The DOM tree is a hierarchical representation of the HTML tags. The DOM tree is a collection of nodes. Each node is an object representing a part of the document.
 
 ```js {monaco-run} {autorun: false}
 // console.log(document.documentElement); console.log(document.body); console.log(document.head); console.log(document.title);
 ```
 
-The nodes are connected in a tree structure, parent-child relationship, sibling relationship, next-previous relationship, first-last relationship, ancestor-descendant relationship, root-leaf relationship, text-element relationship, comment-element relationship, and in a document type.
+The nodes form a tree with relationships such as parent–child, sibling, ancestor–descendant, and root–leaf.
 
 <span>Tags <span class="i-mdi-forward color-amber">-></span></span>Elements <span class="i-mdi-forward color-amber">-></span> Nodes
 
@@ -73,7 +73,7 @@ const h1 = element.querySelector('h1');
 // console.log(h1.textContent)
 
 h1.classList.add('text-gradient');
-setTimeout(() => h1.classList.remove('text-gradient'), 3000); // return back
+setTimeout(() => h1.classList.remove('text-gradient'), 3000) // restore the original style
 ```
 
 This will lead us to the next section where we discuss the first steps in modifying the document. The ability to search for elements in the DOM tree is a key feature to understand how to modify the document.
@@ -118,7 +118,7 @@ hideInToc: true
 # Walking the DOM {{ $page }}
 
 
-You can now traverse the DOM tree using the following based the relationships between the nodes:
+You can traverse the DOM tree using the following properties, based on the relationships between nodes:
 
 - `parentNode`, `childNodes`, `firstChild`, `lastChild`, `nextSibling`, `previousSibling`
 - `parentElement`, `children`, `firstElementChild`, `lastElementChild`, `nextElementSibling`, `previousElementSibling`
@@ -168,7 +168,7 @@ hideInToc: true
 transition: none
 ---
 
-# Food for Thought{title="Use ChaptGPT for your research"}
+# Food for Thought{title="Use ChatGPT for your research"}
 
 <div>
 
@@ -185,7 +185,7 @@ transition: none
 
 - `childNodes` includes all nodes, `children` includes only element nodes.
 
-- `NODELIST` is a collection of nodes, `HTMLCOLLECTION` is a collection of elements. `HTMLCOLLECTION` is a live collection, `NODELIST` is a static collection. `HTMLCOLLECTION` has additional methods like `namedItem`, `namedItem`, `item`, `length` and it is read-only
+- `NODELIST` is a collection of nodes, `HTMLCOLLECTION` is a collection of elements. `HTMLCOLLECTION` is a live collection, `NODELIST` is a static collection. `HTMLCOLLECTION` has members such as `namedItem`, `item`, and `length`, and it is read-only.
 
 - Yes, it is true that `elem.lastChild.nextSibling` is always null. This is because the `lastChild` property refers to the last child node of an element, and there can be no nodes after the last one. Therefore, its `nextSibling` will always be null, as there are no further siblings beyond the last child.
 
@@ -208,7 +208,7 @@ You can search for elements in the DOM tree using the following methods:
 
 ```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="267"]`);
-// add a id, class to the element
+// Add an ID and a class to the element
 // console.log(element.id); console.log(element.className); console.log(element.tagName); console.log(element.tagName.toLowerCase());console.log(element.name);
 ```
 
@@ -220,7 +220,7 @@ hideInToc: true
 # Node properties: type, tag and contents {{ $page }}
 
 
-Important classes to understand the node properties includes - `EventTarget`, `Node`, `Element`, `HTMLElement`-`HTMLBodyElement`-other interface discussed in the [HTML Note](https://karatu.oluwasetemi.dev/85), `Document`-`HTMLDocument`-`DocumentFragment`, `CharacterData`-`Text`-`Comment`.
+Important interfaces for understanding node properties include `EventTarget`, `Node`, `Element`, `HTMLElement`, `HTMLBodyElement`, `Document`, `HTMLDocument`, `DocumentFragment`, `CharacterData`, `Text`, and `Comment`. Other interfaces are discussed in the [HTML notes](https://karatu.oluwasetemi.dev/85).
 
 ```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="268"]`);
@@ -245,7 +245,7 @@ hideInToc: true
 # Attributes and properties {{ $page }}
 
 
-Attributes are the properties of the elements. They are the key-value pairs of the elements from the [convertion]{.text-xl.font-fast.text-red title='parsed or read'} of HTML to DOM. You can add your own properties to the element but the html attributes set is fixed according to the [specification](https://html.spec.whatwg.org/){.text-gradient}.
+Attributes are the properties of the elements. They are the key-value pairs of the elements from the [conversion]{.text-xl.font-fast.text-red title='parsed or read'} of HTML to DOM. You can add your own properties to the element but the set of HTML attributes is fixed according to the [specification](https://html.spec.whatwg.org/){.text-gradient}.
 
 ```js {monaco-run} {autorun: false}
 const element = document.querySelector(`[data-slidev-no="269"]`);
@@ -271,7 +271,7 @@ hideInToc: true
 # Modifying the document {{ $page }}
 
 
-You can modify the document with several methods provided that the html has been written and parsed into the DOM tree. You can add, remove, replace, clone, insert, append, prepend, before, after. You can also create new elements, text nodes, comment nodes, document fragments, and document type nodes.
+You can modify the document with several methods after the HTML has been written and parsed into the DOM tree. You can add, remove, replace, clone, insert, append, prepend, before, after. You can also create new elements, text nodes, comment nodes, document fragments, and document type nodes.
 
 Consider the following `html` and `css`.
 
@@ -418,7 +418,7 @@ const element = document.querySelector(`[data-slidev-no="274"] .view-lines`);
 // console.log(element.scrollWidth); console.log(element.scrollHeight); console.log(element.scrollLeft); console.log(element.scrollTop);
 ```
 
-NB: `offsetWidth` includes padding, border, and scrollbar, `clientWidth` includes padding, `scrollWidth` includes padding and overflowed content. Accurate measurements are gotten from [`getBoundingClientRect`](https://mdn.io/getboundingclientrect) method. Its returns a `DOMRect` object with the size of an element and its position relative to the viewport. `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, `left`. Most geometry properties are read-only but `scrollLeft` and `scrollTop` can be changed.
+Note: `offsetWidth` includes padding, borders, and the scrollbar; `clientWidth` includes padding; and `scrollWidth` includes padding and overflowed content. The [`getBoundingClientRect`](https://mdn.io/getboundingclientrect) method returns a `DOMRect` with an element's size and position relative to the viewport: `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, and `left`. Most geometry properties are read-only, but `scrollLeft` and `scrollTop` can be changed.
 
 
 ---
@@ -478,7 +478,7 @@ let scrollLeft = Math.max(
 );
 ```
 
-Scrolling can be done using `scrollTo(pageX, pageY)`, `scrollBy(x, y)`, `scrollIntoView(top)` methods or use the `scroll` event or auto-increase/descrease the `scrollLeft` and `scrollTop` on `document.documentElement` properties.
+You can scroll with the `scrollTo(pageX, pageY)`, `scrollBy(x, y)`, and `scrollIntoView(top)` methods. You can also listen for the `scroll` event or change the `scrollLeft` and `scrollTop` properties of `document.documentElement`.
 
 You can disable the scrolling using `overflow: hidden` on the `html` or `body` element.
 
@@ -494,13 +494,13 @@ hideInToc: true
 # Coordinates {{ $page }}
 
 
-This allow movement of elements on the screen and can be done relative to the window similar to the behavior of `position: fixed` `clientY` or `clientX` or relative to the document similar to the behavior of `position: absolute` `pageY` or `pageX`.Back to `getBoundingClientRect` methods, it returns a `DOMRect` object with the size of an element and its position relative to the viewport. `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, `left`. `x/y` and `width/height` full describes the rectangle.
+Coordinates let you position elements relative to the viewport, like `position: fixed`, using `clientX` and `clientY`; or relative to the document, like `position: absolute`, using `pageX` and `pageY`. The `getBoundingClientRect()` method returns a `DOMRect` containing an element's size and position relative to the viewport: `x`, `y`, `width`, `height`, `top`, `right`, `bottom`, and `left`. Together, `x`/`y` and `width`/`height` fully describe the rectangle.
 
 left = x, top = y, right = x + width, bottom = y + height.
 
 `elementFromPoint(x, y)` returns the topmost element at the specified coordinates.
 
-Remember that element appended to a page using coordinates from another element as `top/left` will be positioned fixed to the element and not the page, setting pos-absolute will make it relative to the page.
+Remember that an element positioned with another element's viewport coordinates will be fixed relative to the viewport. Using absolute positioning with document coordinates makes it relative to the page.
 
 ```js {monaco-run} {autorun: false}
 // FIX: use the deprecated pageXOffset and pageYOffset with the right values
@@ -515,7 +515,7 @@ hideInToc: true
 name: Class Activity
 ---
 
-Build out the content of the image with html,css. Use JavaScript to append a note(tooltip) on all the three corners of an element as shown in the image. Create a function `positionAt(anchor, position, elem)` that positions elem, depending on position near anchor element. Position can be `top`, `right`, `bottom` according to the image.
+Recreate the image with HTML and CSS. Use JavaScript to append a note (tooltip) at each of the three indicated positions around an element. Create a function, `positionAt(anchor, position, elem)`, that positions `elem` near the anchor. According to the image, `position` can be `top`, `right`, or `bottom`.
 
 BONUS: The function should be able to handle the case when there is not enough space for the tooltip to be displayed in the specified position. Consider implementing [floating ui](https://floating-ui.com/) to help.
 

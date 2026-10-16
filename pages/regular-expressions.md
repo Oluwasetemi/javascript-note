@@ -48,7 +48,7 @@ hideInToc: true
 
 ## What is a Regular Expression?
 
-A **pattern** used to search and manipulate text. In JavaScript, regex are objects.
+A regular expression is a **pattern** used to search and manipulate text. In JavaScript, regular expressions are objects.
 
 <div class="mt-3 text-xs">
 
@@ -72,7 +72,7 @@ const re = new RegExp("pattern", "flags")
 
 **<span class="i-mdi-lightbulb inline-block" /> When to use constructor:**
 
-- Pattern is dynamic/from variable
+- The pattern is dynamic or comes from a variable
 - Pattern contains forward slashes
 
 </div>
@@ -129,7 +129,7 @@ Flags modify how the pattern matches:
 <div class="p-2 bg-green-50 dark:bg-green-900/30 dark:text-green-100 rounded">
 
 **`g`** - Global
-Find all matches (not just first)
+Find all matches (not just the first)
 
 </div>
 
@@ -164,7 +164,7 @@ Correct Unicode handling
 <div class="p-2 bg-orange-50 dark:bg-orange-900/30 dark:text-orange-100 rounded">
 
 **`y`** - Sticky
-Match at exact position
+Match at the exact position
 
 </div>
 

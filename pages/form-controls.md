@@ -46,7 +46,7 @@ name: More on Forms
 ---
 
 
-A form may have one or many `fieldset` elements inside it. They also have elements property that lists form controls inside them. The HTML `fieldset` element gets used to group several controls as well as labels (`label`) within a web form. We can access the Fieldset properties via the form.elements property.
+A form may contain one or more `fieldset` elements. A fieldset's `elements` property lists the form controls inside it. The HTML `fieldset` element groups related controls and labels within a web form. We can access a fieldset through the form's `elements` property.
 
 <!-- prettier-ignore -->
 ```js {monaco-run} {autorun: false}
@@ -80,7 +80,7 @@ hideInToc: true
 
 The form is available as element.form for any element. So, the form references every element, and all elements reference the form.
 
-![backrefernce-diagram](https://res.cloudinary.com/olubebe/image/upload/v1728214102/Screenshot_2024-10-06_122618_astkg3.png)
+![Back-reference diagram](https://res.cloudinary.com/olubebe/image/upload/v1728214102/Screenshot_2024-10-06_122618_astkg3.png)
 
 ```js
 <form id="form">
@@ -119,8 +119,8 @@ textarea.value = 'New text'
 input.checked = true // for a checkbox or radio button
 ```
 
-<b>NOTE:</b>Use textarea.value, not textarea.innerHTML
-Please note that even though textarea...textarea holds its value as nested HTML, we should never use textarea.innerHTML to access it.
+<b>NOTE:</b> Use `textarea.value`, not `textarea.innerHTML`.
+Although the initial text appears between the opening and closing `textarea` tags, do not use `textarea.innerHTML` to read its current value.
 
 It stores only the HTML that was initially on the page, not the current value.
 
@@ -171,11 +171,11 @@ The <kbd>select</kbd> element has special properties for working with its option
 - select.selectedIndex: Index of the currently selected option. <br/>
   <b>new Option:</b>
   In the specification there’s a nice short syntax to create an <kbd>option</kbd> element
-- text – the text inside the option,
-- value – the option value,
-- defaultSelected – if true, then selected HTML-attribute is created,
-- selected – if true, then the option is selected.
-  The difference between defaultSelected and selected is that defaultSelected sets the HTML-attribute (that we can get using option.getAttribute('selected'), while selected sets whether the option is selected or not.
+- `text` – the text inside the option
+- `value` – the option value
+- `defaultSelected` – if `true`, the `selected` HTML attribute is created
+- `selected` – if `true`, the option is selected
+  The difference is that `defaultSelected` sets the HTML attribute, which we can read with `option.getAttribute('selected')`, while `selected` controls the option's current selected state.
 
 ````md magic-move
 ```js
@@ -245,7 +245,7 @@ const select = document.createElement('select');select.name = 'week';
 // Append select to form and form to body
 form.appendChild(select);
 document.body.appendChild(form);
-// Convert HTML Collection of all the options to arrays
+// Convert the HTMLCollection of options to an array
 let options = Array.from(document.forms.modifyingSelect.week.options);
 options.length = 0; // Clear all options
 let newOptionsArray = [ { text: 'Thurs', val: 'thurs' }, { text: 'Friday', val: 'fri' }, { text: 'Saturday', val: 'sat' }, { text: 'Sunday', val: 'sun' }, ];
@@ -278,7 +278,7 @@ There’s a <kbd>select</kbd>:
 // Show the value and the text of the selected option.
 // Add an option: <option value="classic">Classic</option>.
 // Make it selected.
-// Note, if you’ve done everything right, your alert should show blues.
+// If you have done everything correctly, your alert should show "blues".
 ```
 
 <details>
@@ -297,7 +297,7 @@ hideInToc: true
 
 ### Focusing and Blurring: Managing User Input with Events in JavaScript
 
-In web development, managing focus and blur events is essential when dealing with user interaction in forms and other input elements. These events allow developers to control what happens when a user interacts with form fields, such as text boxes, drop-down menus, and buttons. Focusing and blurring events play a crucial role in enhancing the user experience, ensuring proper validation, and providing visual feedback.
+In web development, managing focus and blur events is essential when dealing with user interaction in forms and other input elements. These events allow developers to control what happens when a user interacts with form fields, such as text boxes, drop-down menus, and buttons. Focus and blur events play a crucial role in improving the user experience, supporting validation, and providing visual feedback.
 
 ### Focus: Preparing for User Input
 

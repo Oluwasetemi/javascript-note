@@ -13,7 +13,7 @@ routeAlias: chapter-web-components
 - <a @click="$slidev.nav.next()">Basics</a>
 - <a @click="$nav.go($nav.currentPage+5)">Custom Elements</a>
 - <a @click="$nav.go($nav.currentPage+11)">Shadow DOM</a>
-- <a @click="$nav.go($nav.currentPage+16)">Templates Elements</a>
+- <a @click="$nav.go($nav.currentPage+16)">Template Elements</a>
 - <a @click="$nav.go($nav.currentPage+23)">Shadow DOM Slots, Composition</a>
 - <a @click="$nav.go($nav.currentPage+32)">Shadow DOM CSS</a>
 - <a @click="$nav.go($nav.currentPage+42)">Shadow DOM Events</a>
@@ -36,7 +36,7 @@ hideInToc: true
 hideInToc: true
 ---
 
-## Why Web Components Matters
+## Why Web Components Matter
 
 
  <div class="max-w-4xl mx-auto">  
@@ -174,7 +174,7 @@ hideInToc: true
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700">Create custom elements behaviour</span>
+                                <span class="text-gray-700">Define custom element behavior</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,13 +202,13 @@ hideInToc: true
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700">Create a seperate DOM tree</span>
+                                <span class="text-gray-700">Create a separate DOM tree</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700">Isolate components internals</span>
+                                <span class="text-gray-700">Isolate component internals</span>
                             </li>
                         </ul>
                     </div>
@@ -224,19 +224,19 @@ hideInToc: true
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700">Define resuable markup</span>
+                                <span class="text-gray-700">Define reusable markup</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700">Create insert HTML fragments</span>
+                                <span class="text-gray-700">Create inert HTML fragments</span>
                             </li>
                             <li class="flex items-start">
                                 <svg class="h-6 w-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
-                                <span class="text-gray-700">Stamp out components instances</span>
+                                <span class="text-gray-700">Create component instances</span>
                             </li>
                         </ul>
                     </div>

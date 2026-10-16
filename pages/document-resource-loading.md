@@ -25,7 +25,7 @@ The lifecycle of an HTML page has three important events:
 ## DOMContentLoaded
 
 The browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may not yet have loaded.
-This means that the DOM is fully constructed and ready to be interacted with, making it a good event for running scripts that manipulate the page struture.
+This means that the DOM is fully constructed and ready to be interacted with, making it a good event for running scripts that manipulate the page structure.
 
 ```js
 // Example
@@ -41,7 +41,7 @@ hideInToc: true
 
 # load
 
-The load event occurs later than the DOMContentLoaded event, which only waits for the HTML to be parsed. In contrast, the load event waits for all content , including external resources to be ready. Not only HTML is loaded, but also all the external resources: styles are applied, image sizes are known etc.
+The load event occurs later than the DOMContentLoaded event, which only waits for the HTML to be parsed. In contrast, the load event waits for all content, including external resources to be ready. It waits for the HTML and all external resources: styles are applied, image sizes are known, and so on.
 
 ```js
 // Example
@@ -100,7 +100,7 @@ When the browser loads HTML and comes across a script tag, it can’t continue b
 That leads to two important issues:
 
 - Scripts can’t see DOM elements below them, so they can’t add handlers.
-- If there’s a bulky script at the top of the page, it “blocks the page”. Users can’t see the page content till it downloads and runs:
+- If there’s a bulky script at the top of the page, it “blocks the page”. Users cannot see the page content until it downloads and runs:
 
 ```html
 <!-- // Example -->
@@ -123,7 +123,7 @@ When you add the async attribute to a script tag, the browser downloads the scri
 - The script is fetched and executed asynchronously, independently of the DOM.
 - The script might execute before or after the DOM is fully parsed.
 - Other scripts that do not use async or defer might still block the page load.
-  In other words, async scripts load in the background and run when ready
+  In other words, async scripts load in the background and run when ready.
 
 ```html
 <!-- // Example -->
@@ -191,7 +191,7 @@ This refers to JavaScript code that is loaded and executed dynamically, rather t
 
 - User Interaction: Scripts that are loaded based on user interactions, such as when a user clicks a button or scrolls to a certain part of the page.
 
-- Dynamic Imports in Modern JavaScript (ES6+): You can use the import() syntax to dynamically import JavaScript modules at runtime.
+- Dynamic Imports in Modern JavaScript (ES6+): You can use the `import()` syntax to dynamically import JavaScript modules at runtime.
 
 ---
 hideInToc: true
@@ -263,12 +263,12 @@ hideInToc: true
 
 # Resource loading: onload and onerror for `<img>`, `<script>`, `<link>`, `<style>`
 
-The browser allows us to track the loading of external resources – scripts, links, pictures and so on.
+The browser lets us track the loading of external resources, such as scripts, links, and images.
 
-- There are two events for it:
+There are two relevant events:
 
-- onload – successful load,
-- onerror – an error occurred.
+- `load` – the resource loaded successfully
+- `error` – an error occurred
 
 ---
 hideInToc: true
