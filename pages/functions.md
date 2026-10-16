@@ -405,7 +405,7 @@ hideInToc: true
 
 A call stack, where execution contexts are saved, is a mechanism used by the interpreter to track its position in a script with multiple function calls. It keeps track of which function is currently running and which functions are being called within it. This helps the interpreter manage and execute functions in the correct order.
 
-When a script calls a function, the interpreter adds that function to the call stack(creation) and begins executing it. If the function calls other functions, they are added to the stack in order and executed when their calls are reached. Once a function finishes, the interpreter removes it from the stack and continues executing the previous function where it left off. If the stack exceeds its allocated space, a "stack overflow" error occurs.
+When a script calls a function, the interpreter adds that function to the call stack and begins executing it. If the function calls other functions, they are added to the stack in order and executed when their calls are reached. Once a function finishes, the interpreter removes it from the stack and continues executing the previous function where it left off. If the stack exceeds its allocated space, a "stack overflow" error occurs.
 
 Here's the process broken down:
 
@@ -439,7 +439,7 @@ In the code:
 - The `traverseHierarchy` function prints the employee's name, then recursively calls itself for each of their reports.
 
 ---
-title: Recursive Travesal Example
+title: Recursive Traversal Example
 hideInToc: true
 ---
 
@@ -594,7 +594,7 @@ In JavaScript, there are 3 ways to declare a variable and these are:
 
 `let`, `const` and `var`
 
-`var` is the remnant of the past, function scoped or bound to the global variable when outside a function. Understanding the difference is important. Especially as regards to scope which we will be exploring next.
+`var` is a legacy declaration that is function-scoped or global when declared outside a function. Understanding this distinction is important, especially when exploring scope.
 
 ---
 hideInToc: true
@@ -650,7 +650,7 @@ hideInToc: true
 
 <div> </div>
 
-You can create a function inside another function and this is what we refer to as `nested functions`. There are two ways to create a nested functions:
+You can create a function inside another function and this is what we refer to as `nested functions`. There are two ways to create nested functions:
 
 1. Call a function within another function: This involves invoking a separate function from within a function.
 
@@ -858,7 +858,7 @@ hideInToc: true
 
 Earlier, we discussed functions in JavaScript, but did you know that a function is actually an object?
 In JavaScript, functions are values, and since every value has a type, functions fall under the "object" type.
-When declaring a function, there are some properties to be put in place, let's take a look at the properties:
+Functions have several useful built-in properties. Let's examine them:
 
 There is a <strong>name property</strong>, which is one of the useful properties of the function object.
 It holds the name of the function and can be accessed programmatically.
@@ -1073,7 +1073,7 @@ hideInToc: true
 
 <div> </div>
 
-Sometimes, we may want to execute a function at a later time. This is known as "scheduling a call" in JavaScript - Marcrotasks. There are two primary ways to schedule a function call:
+Sometimes, we may want to execute a function later. This is known as scheduling a call. Timers schedule macrotasks, and there are two primary timer APIs:
 
 `setTimeout` – Executes a function once, after a specified delay.
 `setInterval` – Repeatedly executes a function at regular intervals.
@@ -1396,7 +1396,7 @@ class: 'text-sm'
 
 In JavaScript we have `task` and `microtask` but before we dwell into `microtask` let's talk about `task` in JavaScript.
 
-`task` represent units of work or operations that are placed in the event loop’s task queue. Tasks are processed sequentially, and each task is executed from start to finish without interruption.
+A `task` represents a unit of work placed in the event loop's task queue. Tasks are processed sequentially, and each task is executed from start to finish without interruption.
 A task can be created by various mechanisms, such as user interactions (clicks, key presses), `setTimeout()`, `setInterval()`, or events like DOMContentLoaded.
 
 `task` are important because they control the flow of JavaScript execution in an asynchronous environment, ensuring that even asynchronous code (like timers or event listeners) is handled in a predictable,
@@ -1566,7 +1566,7 @@ class: 'text-sm'
 
 - Calling `new Toyota('Camry', 2024)`: This creates a new `Toyota` object with the `make` `'Camry'` and `year` `2024`, as well as the `category` `'car'`.
 
-- console.log: The `console.log` function pops up a message box. `new Toyota('Camry', 2024).year` creates a new `Toyota` object and accesses its `year` property, which is `2024`. So, the console.log will show `2024`.
+- `console.log`: The `console.log` function writes a message to the console. `new Toyota('Camry', 2024).year` creates a `Toyota` object and accesses its `year` property, so the console displays `2024`.
 
 ---
 hideInToc: true
@@ -1578,7 +1578,7 @@ class: text-sm
 <div></div>
 
 The `apply()` method could be used instead of `call()`.
-This method of `Function` instances calls this function with a given `this` value, and `argument` provided as an array (or an array-like object) unlike `call()` that expects a list of arguments.
+This `Function` method calls a function with a specified `this` value and arguments provided as an array or array-like object, unlike `call()`, which expects separate arguments.
 
 <div grid="~ cols-2" gap="2">
 
@@ -1620,7 +1620,7 @@ it invokes the original function with its this keyword set to the value you spec
 func.bind(context, ...args)
 ```
 
-This function above is going to returns a "bound variant" of function `func`. This new function will have: The `this` context fixed to the provided context value, The first argument(s) (if any are provided in `this` ...args `this`) pre-set, meaning they will be used when the new function is called, followed by any additional arguments passed during the call.
+The function above returns a bound variant of `func`. Its `this` value is fixed to the provided context, and any supplied arguments are preset. Additional arguments can still be passed when the bound function is called.
 
 ---
 
@@ -1646,7 +1646,7 @@ greetJohn('Alice');
 As said earlier, the `bind()` method is useful for controlling the `this` context and presetting arguments but also, we can use it to achieve these as well:
 
 
-- Control the `this` value, It allows you to lock in a specific `this` value, ensuring that the function will always use the context you want.
+- Control the `this` value: it lets you lock in a specific context for the function.
 - It allows you to preset arguments for a function, creating a new function with some arguments already provided.
 - It gives you the room to borrow methods from one object and use them in another, while ensuring the correct `this` context is maintained.
 - Function Currying - It can also be used to implement currying, where you transform a function with multiple arguments into a series of functions that take one argument at a time.

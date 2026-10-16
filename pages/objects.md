@@ -34,7 +34,7 @@ However, we also have the non-primitive type, where we can literally say that ev
 Objects are used to store keyed collections of various data and more complex entities, arranged in `key: value` pairs inside curly braces `{}`.
 You can access any property within an Object using dot notation `.` or square brackets `[]`.
 
-An `Objects` can be created using these syntaxes:
+An `Object` can be created using either of these syntaxes:
 
 ```js
 //object constructor
@@ -64,7 +64,7 @@ let school = {
 }
 ```
 
-A property has a key which can also be referred to as `name` or `identifier` after which the colon comes in `:`, and lastly a value to the right of it. In a property, the value at the right hand side is been stored inside the key on the left hand side.
+A property has a key, also called a name or identifier, followed by a colon (`:`) and a value. The key identifies the value stored in the property.
 
 ```js {monaco-run} {autorun: false}
 let school = {
@@ -216,7 +216,7 @@ hideInToc: true
 
 # Property names limitations
 
-There are limitations to name we can use for a variable, names like `for`, `let`, `return` are language-reserved but for an object property, there's no such restriction:
+Variable names have restrictions: words such as `for`, `let`, and `return` are reserved by the language. Object property names do not have this restriction:
 
 ```js {monaco-run} {autorun: false}
 let obj = {
@@ -283,7 +283,7 @@ hideInToc: true
 
 <div></div>
 
-To iterates over all enumerable string properties of an object, we have the `for..in` loop.
+Use a `for..in` loop to iterate over all enumerable string properties of an object.
 
 ```js
 for (key in object) {
@@ -312,7 +312,7 @@ hideInToc: true
 
 # Contd.
 
-When you loop over an objects, we get all properties in creation order but, the irony the case when the key is an integer.
+When you loop over an object, most properties appear in creation order. Integer-like keys are the exception: they are sorted numerically.
 
 ```js {monaco-run} {autorun: false}
 let footballers = {
@@ -472,7 +472,7 @@ Let's break the syntax down:
 - The first argument is the target object.
 - Further arguments is a list of source `objects`.
 
-How does this works? It copies the properties of all source `objects` into the target object, and then returns it as the result.
+How does this work? It copies the properties of all source objects into the target object and then returns the target.
 
 </div>
 
@@ -525,8 +525,7 @@ student.school.department = "Science";
 console.log(clone.school.department);
 ```
 
-In the code above the `student` and `school` object are yet to be separated. So its clone seems to be a new Object but the `clone.school` is still referencing the `student.school`. To achieve a separation between both objects, we should
-use `cloning loop` to examines each value of `student` `[key]` and, if it's an object that is nested, copy its structure cleanly - this is called `deep cloning` or `structured cloning`.
+In the code above, `clone` is a new object, but `clone.school` still references `student.school`. To separate the nested objects, use a cloning loop to examine each `student[key]` value and recursively copy any nested object. This is called deep cloning.
 
 ---
 hideInToc: true
@@ -536,7 +535,7 @@ hideInToc: true
 
 <div></div>
 
-This methods clones the `object` with all nested properties. In the code below `structuredClone()` will creates a deep clone of the leader object, meaning that both leader and clone are completely separate objects in memory, including nested objects.
+This method clones an object and all its nested properties. In the code below, `structuredClone()` creates a deep clone of `leader`, so `leader` and `clone` are separate objects in memory, including their nested objects.
 
 ```js {monaco-run} {autorun: false}
 let leader = {

@@ -20,7 +20,7 @@ hideInToc: true
 # Error handling, "try..catch"
 
 
-<div class="text-sm">Programming errors can occur due to various reasons. The <span class="text-red">try...catch</span> syntax allows us to handle these errors gracefully instead of abruptly stopping the script. <span class="text-red">try...catch</span> only works for runtime errors.The <span class="text-red">try...catch</span> statement includes a <span class="text-red">try</span> block and either a <span class="text-red">catch</span> block, a <span class="text-red">finally</span> block, or both. The <span class="text-red">try</span> block is executed first, and the <span class="text-red">catch</span> block will be executed if it throws an exception. The <span class="text-red">finally</span> block is always executed before exiting the construct. The statement works synchronously.</div>
+<div class="text-sm">Programming errors can occur for many reasons. The <span class="text-red">try...catch</span> syntax allows us to handle these errors gracefully instead of abruptly stopping the script. <span class="text-red">try...catch</span> only works for runtime errors. The <span class="text-red">try...catch</span> statement includes a <span class="text-red">try</span> block and either a <span class="text-red">catch</span> block, a <span class="text-red">finally</span> block, or both. The <span class="text-red">try</span> block is executed first, and the <span class="text-red">catch</span> block will be executed if it throws an exception. The <span class="text-red">finally</span> block is always executed before exiting the construct. The statement works synchronously.</div>
 
 ```js {monaco-run} {autorun: false}
 try{
@@ -50,7 +50,7 @@ name: 'error handling, "try..catch" continued'
 Catch Binding
 
 
-When an exception is thrown in the <span class="text-red">try</span> block, the <span class="text-red">catch</span> block receives the error object as <span class="text-red">exceptionVar</span> (e.g., <span class="text-red">err</span> in <span class="text-red">catch (err)</span>). This object contains details about the error, such as error <span class="text-red">message</span>, <span class="text-red">type</span>, and <span class="text-red">stack</span> (non-standard, but well-supported. Makes debugging easier). You can access these properties using a destructuring pattern, allowing you to assign multiple identifiers at once, instead of just a single variable.
+When an exception is thrown in the <span class="text-red">try</span> block, the <span class="text-red">catch</span> block receives the error object as <span class="text-red">exceptionVar</span> (e.g., <span class="text-red">err</span> in <span class="text-red">catch (err)</span>). This object contains details about the error, such as the error <span class="text-red">message</span>, <span class="text-red">type</span>, and <span class="text-red">stack</span> (non-standard but widely supported and useful for debugging). You can access these properties using a destructuring pattern, allowing you to assign multiple identifiers at once, instead of just a single variable.
 
 ```js {monaco-run} {autorun: false}
 try{

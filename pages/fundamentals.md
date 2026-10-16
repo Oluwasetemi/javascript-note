@@ -118,7 +118,7 @@ hideInToc: true
 
 # [Data types]{.text-common}
 
-- A value in javascript is always of a certain type.
+- A value in JavaScript is always of a certain type.
 
 - Numbers can be written with or without decimals, that is represent both integer and floating point numbers.
 
@@ -150,11 +150,11 @@ hideInToc: true
 title: Primitive Datatypes
 ---
 
-- Undefined indicate that a variable has not been assigned a value, or not declared at all.
+- `undefined` indicates that a variable has not been assigned a value or has not been declared at all.
 
 ```js
 let age // the variable age was declared but not assigned a value
-let age = undefined //it also possible to explicitly assign undefined to a variable
+let age = undefined // It is also possible to explicitly assign undefined to a variable
 ```
 
 - BigInt are used to store big integer values that too big to be represented by normal Javascript Number
@@ -220,13 +220,13 @@ hideInToc: true
 
 # Interaction: `alert`, `prompt`, `confirm`
 
-- The alert() method: displays an alert box with a mesage and an OK button.
+- The alert() method displays an alert box with a message and an OK button.
 - The prompt() method: It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel. It accepts two arguments.
 - The confirm() method: The function shows a modal window with a question and two buttons: OK and Cancel
 
 #### Alert{.text-common}
 
-- The alert() method displays an alert box with a mesage and an OK button
+- The alert() method displays an alert box with a message and an OK button.
 
 ```js {monaco-run} {autorun: false}
 // alert('Hello V5 Frontend Developer, Enjoying Javascript so far?')
@@ -272,7 +272,7 @@ hideInToc: true
 
 - It simply means the process of converting one data type to another.
 
-1. String Coversion - Can be done using the `String` or `.toString`.
+1. String Conversion - Can be done using the `String` or `.toString`.
 2. Numeric conversion - Can be done using the `Number`, `parseInt`, `parseFloat` or `+` unary plus sign.
 3. Boolean coversion - `Boolean` constructor or `!!`
 
@@ -433,7 +433,7 @@ hideInToc: true
 
 # Nullish Coalescing ?? and Optional Chaining ?.
 
-- It provide a concise way to handle <span class='text-red'>null</span> or <span class='text-red'>undefined values</span>. It returns the left-hand side operand if it's not null or undefined; otherwise, it returns the right-hand side operand
+- It provides a concise way to handle <span class='text-red'>null</span> or <span class='text-red'>undefined values</span>. It returns the left-hand operand if it is neither `null` nor `undefined`; otherwise, it returns the right-hand operand.
 
 ```js
 // expression1 ?? expression2
@@ -698,8 +698,8 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- <span class='text-[#5D8392]'>For of loop</span>: it lets you loop over iterable data strutures such as Arrays, Strings, Maps,set.
-<p>Iterable is an object that has iterable properties, simple put is an object that has countable values</p>
+- <span class='text-[#5D8392]'>For of loop</span>: it lets you loop over iterable data structures such as Arrays, Strings, Maps,set.
+<p>An iterable is an object whose values can be visited one at a time, such as an array or string.</p>
 
 ```js {monaco-run} {autorun: false}
 let language = 'JavaScript'
@@ -772,7 +772,7 @@ let greetingMessage = greetUsers(userName)
 // console.log(greetingMessage)
 ```
 
-<h5> Example: A function to add two number </h5>
+<h5> Example: A function to add two numbers </h5>
 
 ```js {monaco-run} {autorun: false}
 function addNumber(num1, num2) {
@@ -794,7 +794,7 @@ title: Global and Local Variables
 
 - <h3 class='text-[#5D8392]'> Outer Variable</h3>
 
-A variable declared outside a function, becomes <span text-red>global variable</span> also known as outer variable. A function can access an outer variable, it can modify it too.
+A variable declared outside a function becomes a <span text-red>global variable</span>, also known as an outer variable. A function can access and modify an outer variable.
 
 ```js {monaco-run} {autorun: false}
 let university = 'AltSchool Africa'
@@ -831,7 +831,7 @@ hideInToc: true
 name: Function Expression
 ---
 
-- <span class='text-[#5D8392]'>Function Expression</span> are indeed another way to create functions in Javascript. They allow you to define a function as part of an expression, typically by assigning it to a variable.This approach offers flexibility in how and when you define functions.
+- <span class='text-[#5D8392]'>Function expressions</span> are another way to create functions in JavaScript. They let you define a function as part of an expression, typically by assigning it to a variable. This approach offers flexibility in how and when you define functions.
 
 ```js
 let functionName = function (parameters) {
@@ -1384,7 +1384,7 @@ function describeType(value) {
 console.log(describeType(42))          // "The value 42 is a number"
 console.log(describeType('hello'))     // "The value hello is a string"
 console.log(describeType(true))        // "The value true is a boolean"
-console.log(describeType(null))        // "The value null is a object"
+console.log(describeType(null))        // "The value null is an object"
 ```
 
 ---
