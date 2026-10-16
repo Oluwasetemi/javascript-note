@@ -5,7 +5,7 @@ hideInToc: true
 routeAlias: chapter-nice-to-know
 ---
 
-# Nice to know Concepts
+# Nice-to-Know Concepts
 
 
 <div mt-2 />

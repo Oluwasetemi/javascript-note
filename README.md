@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a slide for teaching JavaScript classes.
+This is a slide deck for teaching JavaScript.
 
 ## Table of Contents
 
@@ -21,13 +21,13 @@ This is a slide for teaching JavaScript classes.
 git clone https://github.com/Oluwasetemi/javascript-note.git
 
 # Navigate to the project directory
-cd yourproject
+cd javascript-note
 ```
 
 2. Install the dependencies
 
 ```bash
-npm install
+bun install
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ npm install
 Run the following command to start the slide server.
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Open the browser and go to [http://localhost:3030](http://localhost:3030) to view the slides.

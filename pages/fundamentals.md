@@ -43,7 +43,7 @@ hideInToc: true
 let message; // Declaration
 message = 'Hello'; // Definition
 // console.log(message)
-const name = 'John Doe' // Combined delcaration and definition
+const name = 'John Doe' // Combined declaration and definition
 ```
 
 ---
@@ -170,7 +170,7 @@ const bigInt = 123456789012345678901234567890n // the "n" at the end means it's 
 const car = { type: 'Fiat', model: '500', color: 'white' }
 ```
 
-- It used to create a unique identifier for objects
+- It is used to create unique identifiers for object properties
 
 ```js
 const mySymbol = Symbol('unique identifier')
@@ -270,11 +270,11 @@ hideInToc: true
 
 # Type conversion
 
-- It simply means the process of converting one data type to another.
+Type conversion is the process of converting one data type to another.
 
-1. String Conversion - Can be done using the `String` or `.toString`.
-2. Numeric conversion - Can be done using the `Number`, `parseInt`, `parseFloat` or `+` unary plus sign.
-3. Boolean coversion - `Boolean` constructor or `!!`
+1. String conversion — Use `String()` or `.toString()`.
+2. Numeric conversion — Use `Number()`, `parseInt()`, `parseFloat()`, or the unary plus (`+`) operator.
+3. Boolean conversion — Use `Boolean()` or double negation (`!!`).
 
 ```js {monaco-run} {autorun: false, lineNumbers: true}
 // console.log(typeof String(2))
@@ -296,7 +296,7 @@ hideInToc: true
 
 # Operators: `Math`, `Comparison`, `Logical`,` Bitwise`, `Null Coalescing`, `Optional Chaining`
 
-### The following operators are supported in Js
+### JavaScript Supports the Following Operators
 
 <div flex="~ row" gap-4xl>
 

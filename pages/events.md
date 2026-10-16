@@ -362,7 +362,7 @@ interface CustomEventInit<T = any> extends EventInit {
 }
 ```
 
-Next we will see how to create a custom event and dispatch it(programatically trigger it).
+Next, we will see how to create and dispatch a custom event (that is, trigger it programmatically).
 
 
 ---

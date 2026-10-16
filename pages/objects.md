@@ -29,12 +29,12 @@ hideInToc: true
 <div></div>
 
 In data types, we have primitive and non-primitive types. If you recall, primitive data types are those that contain a single value.
-However, we also have the non-primitive type, where we can literally say that everything in JavaScript falls under this category, and that is `Objects`.
+JavaScript also has a non-primitive type: the `Object`.
 
 Objects are used to store keyed collections of various data and more complex entities, arranged in `key: value` pairs inside curly braces `{}`.
-You can access any property within an Object using dot notation `.` or square brackets `[]`.
+You can access object properties using dot notation (`.`) or square brackets (`[]`).
 
-An `Object` can be created using either of these syntaxes:
+An object can be created using either of these syntaxes:
 
 ```js
 //object constructor
@@ -44,7 +44,7 @@ let user = new Object()
 let user = {}
 ```
 
-In the code above, we've just created two empty `objects`.
+The code above creates two empty objects.
 
 ---
 hideInToc: true
@@ -84,7 +84,7 @@ hideInToc: true
 
 <div></div>
 
-Also, we can add a boolean property and We can also remove a property using the `delete` operator:
+We can add a Boolean property and remove a property using the `delete` operator:
 
 <div grid="~ cols-2" gap="2">
 
@@ -189,7 +189,7 @@ hideInToc: true
 
 <div></div>
 
-Sometimes, we use existing values for property name. Instead of repeating this we can implement the shorthand property.
+Sometimes, we use existing variables as property values. Instead of repeating each variable name, we can use property value shorthand.
 
 ```js {monaco-run} {autorun: false}
 const getUser = (name, age) => {
@@ -235,7 +235,7 @@ class: text-sm
 
 # Property existence test, `in` operator, `Object.hasOwn`
 
-It's possible in object to know if a property really exists, and there won't be an error if the property doesn't exist, instead it will return `undefined`.
+You can check whether a property exists in an object. Accessing a missing property does not throw an error; it returns `undefined`.
 
 ```js {monaco-run} {autorun: false}
 let user = {name: "Setemi", age: 40};

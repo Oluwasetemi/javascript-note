@@ -85,7 +85,7 @@ strObj.test = 5
 
 In this case, strObj is an object, and you can add properties to it using dot notation or bracket notation.
 
-### what is Immutable values in programming?
+### What Are Immutable Values in Programming?
 
 - Are values that cannot be changed after they are created.
 - Once a value is assigned to an immutable variable, it remains fixed throughout its lifetime. This means that any attempts to modify the value will result in a new value being created, rather than altering the existing one.
@@ -492,7 +492,7 @@ hideInToc: true
 - Array Declaration
 
 ```js
-let arr = new Array() // using class method of creating an array
+let arr = new Array() // using the Array constructor
 let arr = [] // a shorter syntax and it is the preferred method
 ```
 
@@ -621,7 +621,7 @@ console.log(names.sort());
 ```js {monaco-run} {autorun: false}
 let names = ['faith', 'ridwan', 'wariz', 'chidinma']
 // console.log(names)
-// console.log(names.slice()) //get a copyy of the array
+// console.log(names.slice()) // Get a copy of the array
 // console.log(names.slice(0, 2))
 ```
 
@@ -1507,10 +1507,10 @@ hideInToc: true
 
 <div></div>
 
-Map is a collection of keyed data items, just like an Object. But the main difference is that <span class='text-red'><strong><em>Map allows keys of any type.</em></strong></span><br><br>
+A Map is a collection of keyed data items, just like an object. The main difference is that <span class='text-red'><strong><em>Map allows keys of any type.</em></strong></span><br><br>
 Same API applies to Set, but Set does not have keys, only values.
 
-### Methods and properties are:<br>
+### Methods and Properties<br>
 
 <ul>
   <li><code>new Map()</code> / <code>new Set()</code> – creates the map or set.</li>

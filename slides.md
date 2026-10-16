@@ -142,7 +142,7 @@ layout: center
 <div text-2xl origin-top-left>
   <span>Code </span>
   <span>Quality </span>
-  <sup>linter, formater, test, types</sup>
+  <sup>linter, formatter, tests, types</sup>
 </div>
 <div mt1>Importance Spice for Quality Development</div>
 </h1>

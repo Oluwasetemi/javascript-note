@@ -34,10 +34,10 @@ try{
 
 ```js {monaco-run} {autorun: false}
 try{
-  bug;  //error, variable is not defined
-  console.log('Try block'); // Will not run cos there's an error
-} catch(err) {
-  console.log('Catch block') // Statement will run since there's an exception in the try block
+  bug // Error: the variable is not defined
+  console.log('Try block') // Will not run because an error occurs
+} catch (err) {
+  console.log('Catch block') // Runs because the try block throws an exception
 }
 ```
 
@@ -54,9 +54,9 @@ When an exception is thrown in the <span class="text-red">try</span> block, the 
 
 ```js {monaco-run} {autorun: false}
 try{
-  bug;  //error, variable is not defined
-  console.log('Try block'); // Will not run cos there's an error
-} catch({ name, message, stack}) {
+  bug // Error: the variable is not defined
+  console.log('Try block') // Will not run because an error occurs
+} catch ({ name, message, stack }) {
   // console.log(name)// Error name or type
   // console.log(message) // Actual error message
   // console.log(stack) // the stack at the moment of error creation
