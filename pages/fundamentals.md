@@ -454,13 +454,19 @@ let greeting = name ?? `Hello, Stranger!`
 
 </div>
 
+````md magic-move
 ```js
+// Logical AND checks each level before accessing the property
 if (user && user.address && user.address.street) {
-   console.log(user.address.street);
+  console.log(user.address.street)
 }
-
-console.log(user?.address?.street);
 ```
+
+```js
+// Optional chaining safely performs the same nested access
+console.log(user?.address?.street)
+```
+````
 
 
 ---
